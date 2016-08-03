@@ -1,0 +1,192 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"%>
+<%@page import="net.risesoft.soa.info.dao.InformationIndexDao"%>
+<%@page import="net.risesoft.soa.info.tools.SpringUtil"%>
+<%@page import="net.risesoft.soa.info.model.Information"%> 
+<%@page import="net.risesoft.soa.info.tools.InformationList"%>
+<%@page import="net.risesoft.soa.info.model.InformationIndex"%>
+<%@page import="net.risesoft.soa.framework.session.SessionUser"%>
+<%@page import="net.risesoft.soa.framework.session.SessionConst"%>
+<%@page import="net.risesoft.soa.framework.session.SessionUtil"%>
+<%@page import="net.risesoft.soa.info.util.ConfigUtil"%>
+<%@page import="net.risesoft.soa.info.action.infoname"%>
+<%@page import="javax.servlet.http.HttpSession"%>
+<%@page import="java.util.Map"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
+<%
+String id = request.getParameter("id");
+InformationIndexDao informationIndexDao = SpringUtil.getBean("informationIndexDao");
+InformationIndex informationIndex = informationIndexDao.findOne(id);
+String infoID = informationIndex.getInfoID();
+Information information = InformationList.get(infoID);
+String path=request.getContextPath();
+
+String acid = "";
+try{
+acid=request.getParameter("acid");
+}catch(Exception e){}
+
+
+infoname infos=new infoname();
+String infoshouname="";
+try{
+	infoshouname=infos.getinfoname(acid);
+}catch(Exception e){}
+if("null".equals(infoshouname)||null==infoshouname){
+	
+	infoshouname="";
+}
+
+System.out.println(acid+"<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>"+infoshouname+"--path--"+path);
+/*
+  HttpSession sessiongouwu=null;
+		sessiongouwu=request.getSession();
+TemplateManager tm=new TemplateManager();
+Map map=tm.getresource(id);
+List buylist=null;
+try {
+			buylist=(List)sessiongouwu.getAttribute("buylist");
+			if(buylist==null)
+			new ArrayList<Map>();
+			buylist.add(map);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			buylist=new ArrayList<Map>();
+			buylist.add(map);
+		}
+System.out.println(map.get("acnum")+"<<<<<<<<<<<<<<<<<111>>>>>>>>>>>>>>>>>>>"+map.get("zymc"));
+*/
+%>
+<%
+SessionUser sessionUser = (SessionUser)request.getSession().getAttribute(SessionConst.USER);
+SessionUtil.removeSessionUser();
+SessionUtil.putSessionUser(sessionUser);
+String loginname = sessionUser == null ? "未登录" : sessionUser.getLoginName();
+String userName = sessionUser == null ? "未登录" : sessionUser.getUserName();
+%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>资源发布</title>
+<LINK type="text/css" href="/info/css/style.css" rel="stylesheet" >
+<LINK type="text/css" href="/info/css/colorbox.css" rel="stylesheet" >
+<script type="text/javascript" src="/jquery/js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="jquerysession.js"></script>
+<script type="text/javascript">
+window.onload=function(){
+	var acid='<%=acid%>';
+	if(acid=='_2U8R4KlKEeWODuSalnayDg'||acid=='_QVHBcKlGEeWODuSalnayDg'||acid=='_fy4aMKlKEeWODuSalnayDg'){
+		window.location="/info/infoDetail.action?operation=display&id=<%=id%>&acid=<%=acid%>";
+	}
+}
+</script>
+<STYLE type="text/css">
+.headWrap{-moz-box-shadow:0 1px 2px rgba(23,87,117,0.5);-webkit-box-shadow:0 1px 2px rgba(23,87,117,0.5);box-shadow:0 1px 2px rgba(23,87,117,0.5)}
+
+.headWrap .headShadow{ opacity:.9; border-bottom:#2596c2 1px solid; background-color:#36a4d2;background:-webkit-gradient(linear,left top,left bottom,from(#45addd),to(#279cc8));background:-moz-linear-gradient(top,#45addd,#279cc8);background:transparent\9;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#45addd',endColorstr='#279cc8');background:-ms-linear-gradient(top,#45addd,#279cc8);}
+
+.body {
+    background: url("../images/wrapbg_v0.0.1.jpg") no-repeat scroll center top #73CFF1;
+    color: #333333;
+    font: 12px/1.75 Tahoma,Arial,sans-serif,宋体;
+    height: 100%;
+}
+.png{
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=noscale, src="css/images/info.png");
+	background:none;
+	width:118px;
+}
+.navradiu { 
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px; 
+	border-radius:5px; 
+	-moz-box-shadow:2px 2px 15px #b9b9b9; 
+	-webkit-box-shadow:2px 2px 15px #b9b9b9; 
+	box-shadow:2px 2px 15px #b9b9b9;
+	behavior: url(PIE.htc);
+}
+</STYLE>
+</head>
+<body class="body">
+<DIV class="w_head_outer">
+<DIV class="headWrap">
+<DIV class="headInside">
+<H1></H1>
+</DIV>
+<DIV class="headShadow">
+<div id="headWrap">
+<div class="png"></div>
+</div>
+</DIV></DIV></DIV>
+<DIV id="topWrap"></DIV>
+<DIV id="mainWrapper" class="navradiu clear">
+<table align="center" cellpadding="0" cellspacing="0" border="0" style="width: 960px; height: 600px; border-radius: 5px 5px 5px; background-color: rgb(255, 255, 255);">
+	<tr>
+
+		<td align="left" height="40" style="border-bottom: 1px solid #D1D1D1; padding-left: 20px;"><font class="font1"><%=infoshouname%></font><font class="font1" onClick="gouwuche();" style="cursor:pointer;float: right;">加入购入车</font>
+		<a href="/info/display/shopper.jsp" target="_blank"><font class="font1" style="cursor:pointer;float: right;">我的购入车</font></a>  
+		<a href="http://10.10.10.108/DevSuite/Login.aspx?username=<%=loginname %>&gourl=p-259/newtask" target="_blank"><font class="font1" style="
+    float: right;
+">购买</font></a>		</td>
+		<td align="right" style="border-bottom: 1px solid #D1D1D1; padding-right: 20px;"><span id="docDownload_span" style="font-size:10pt;">&nbsp;</span></td>
+	</tr>
+	<tr>
+		<td colspan=2 align="center" valign="top" height="100%"><DIV id="infoMainDiv">
+		<table align="center" cellpadding="0" cellspacing="0" border="0" style="width: 100%;">
+		<tr>	<td style="background:#e8eff4;line-height:80px; text-align:center; color:#3d516f; font-size:30px; font-weight:bold; border-bottom:1px solid #9eadc3; background:#f6f9fb">
+<%=infoshouname%></td></tr>
+		<tr>
+			<td><DIV id="formDIV"></DIV></td>
+		</tr>
+		</table>
+		
+		<table align="center" cellpadding="0" cellspacing="0" border="0" style="width: 85%;">
+			<tr>
+				<td height=40>&nbsp;</td>
+			</tr>
+			<tr>
+				<td><DIV id="fileListDIV"></DIV></td>
+			</tr>
+		</table>
+		</DIV></td>
+	</tr>
+	<tr>
+		<td height=20>&nbsp;</td>
+	</tr>
+</table>
+</DIV>
+<script language="javascript">
+$("#formDIV").load("/info/infoTemplate.action", {"id":"<%=id%>", "operation":"display"});
+$("#fileListDIV").load("/info/infoFileList.action", {"id":"<%=id%>","operation":"list"});
+</script>
+<script type="text/javascript">
+	function gouwuche(){
+	var resourceid="<%=id %>";
+	var repath="<%=path %>"+"shoptowarehouse.do";
+$.post(repath,{resourceid:resourceid},function(a,b){
+	alert(a);
+});
+ 	<%
+	/*
+		System.out.println("1111111111111111111111222222222222222222222222222222222222222222222222222");
+		try {
+			List buylist=(List)sessiongouwu.getAttribute("buylist");
+			if(buylist==null)
+			new ArrayList<Map>();
+			buylist.add(map);
+			sessiongouwu.setAttribute("buylist",buylist);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			List buylist=new ArrayList<Map>();
+			buylist.add(map);
+			sessiongouwu.setAttribute("buylist",buylist);
+		}
+		*/
+ 	%>
+	}
+</script>
+</body>
+</html>
+

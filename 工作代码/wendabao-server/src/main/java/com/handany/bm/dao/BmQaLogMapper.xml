@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.handany.bm.dao.BmQaLogMapper">
+    <resultMap id="BaseResultMap" type="com.handany.bm.model.BmQaLog">
+            <result column="id" jdbcType="CHAR" property="id" />
+            <result column="qa_start" jdbcType="TIMESTAMP" property="qaStart" />
+            <result column="qa_end" jdbcType="TIMESTAMP" property="qaEnd" />
+            <result column="qa_length" jdbcType="DECIMAL" property="qaLength" />
+            <result column="qa_teacher" jdbcType="CHAR" property="qaTeacher" />
+            <result column="qa_classroom" jdbcType="CHAR" property="qaClassroom" />
+            <result column="qa_student" jdbcType="CHAR" property="qaStudent" />
+            <result column="qa_type" jdbcType="CHAR" property="qaType" />
+            <result column="qa_star" jdbcType="DECIMAL" property="qaStar" />
+            <result column="last_modified" jdbcType="TIMESTAMP" property="lastModified" />
+            <result column="qa_teacher_name" jdbcType="VARCHAR" property="qaTeacherName" />
+            <result column="qa_student_name" jdbcType="VARCHAR" property="qaStudentName" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+            id,
+            qa_start,
+            qa_end,
+            qa_length,
+            qa_teacher,
+            qa_classroom,
+            qa_student,
+            qa_type,
+            qa_star,
+            last_modified
+    </sql>
+    
+    <select id="queryQaLog" parameterType="string" resultMap="BaseResultMap">
+    	select 
+    	<include refid="Base_Column_List"></include>
+    	from Bm_QA_Log where id = #{id}
+    </select>
+
+	<insert id="insertQaLog" parameterType="com.handany.bm.model.BmQaLog">
+		insert into Bm_QA_Log (
+			<include refid="Base_Column_List"></include>
+		)
+		values(#{id}, #{qaStart},#{qaEnd},#{qaLength},#{qaTeacher},#{qaClassroom},#{qaStudent},#{qaType},#{qaStar},#{lastModified})
+	</insert>
+	
+	<update id="updateQaLog" parameterType="com.handany.bm.model.BmQaLog">
+		update Bm_QA_Log set
+		<if test="qaStart != null">
+			qa_start = #{qaStart},
+		</if>
+		<if test="qaEnd != null">
+			qa_end = #{qaEnd},
+		</if>
+		<if test="qaLength != null">
+			qa_length = #{qaLength},
+		</if>
+		<if test="qaTeacher != null">
+			qa_teacher = #{qaTeacher},
+		</if>
+		<if test="qaClassroom != null">
+			qa_classroom = #{qaClassroom},
+		</if>
+		<if test="qaStudent != null">
+			qa_student = #{qaStudent},
+		</if>
+		<if test="qaType != null">
+			qa_type = #{qaType},
+		</if>
+		<if test="qaStar != null">
+			qa_star = #{qaStar},
+		</if>
+		last_modified = #{lastModified}
+		where id = #{id}
+	</update>
+	
+	<select id="queryQaLogByUserId" parameterType="string" resultMap="BaseResultMap">
+		select l.*, t.name as qa_teacher_name from
+		(select <include refid="Base_Column_List"></include>
+		from Bm_QA_Log where qa_student = #{userId}) l
+		left join Bm_Teacher t on t.user_id = l.qa_teacher
+		order by l.last_modified desc
+	</select>
+	
+	<select id="queryQaLogByTeacherId" parameterType="string" resultMap="BaseResultMap">
+		select l.*, s.name as qa_student_name from
+		(select <include refid="Base_Column_List"></include>
+		from Bm_QA_Log where qa_teacher = #{userId}) l
+		left join Bm_Student s on s.user_id = l.qa_student
+		order by l.last_modified desc
+	</select>
+	
+	<select id="queryQaLogTime" parameterType="map" resultType="java.math.BigDecimal">
+		select sum(qa_length) from Bm_QA_Log where 1 = 1
+		<if test="qaTeacher != null">
+		 	and qa_teacher = #{qaTeacher}
+		</if>
+		<if test="qaStudent != null">
+			and qa_student = #{qaStudent}
+		</if>
+		<if test="qaStart != null">
+			and qa_start &gt;= #{qaStart}
+		</if>
+		<if test="qaEnd != null">
+			and qa_end &lt;= #{qaEnd}
+		</if>
+	</select>
+</mapper>

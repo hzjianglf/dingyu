@@ -1,0 +1,31 @@
+@CHARSET "UTF-8";
+.main{
+	width:990px;
+	margin:0 auto;
+	background:#FFF;
+	height:auto !important;
+	min-height: 600px;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+}
+.breadcrumb{
+	background-color: #F1F1F1;
+	margin-bottom: 5px;
+	height: 36px;
+}
+.mainbox{
+	width: 940px;
+	margin:0 auto;
+	height:auto !important;
+	padding: 10px;
+	background: #FFF;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.t-red{
+	color:red;
+}
+
+.tcenter{
+	text-align: center;
+}

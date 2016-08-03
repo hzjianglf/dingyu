@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+   <constant name="struts.multipart.saveDir" value="/tmp"/> 
+   
+   <constant name="struts.multipart.maxSize" value="2147483648" /><!-- 最大上传单个文件2G -->
+
+	<package name="net.risesoft.soa.info" namespace="/" extends="struts-default">
+	
+		<global-results>
+			<result name="json">/jsonOutput.jsp</result>
+		</global-results>
+		
+		<action name="infoManagerTree" class="net.risesoft.soa.info.manager.action.InfoManagerTree"></action>
+		
+		<action name="containerAction" class="net.risesoft.soa.info.manager.action.ContainerAction">
+			<result name="display">/manager/display/containerDisplay.jsp</result>
+			<result name="update">/manager/form/editContainer.jsp</result>
+		</action>
+		
+		<action name="informationAction" class="net.risesoft.soa.info.manager.action.InformationAction">
+			<result name="display">/manager/display/informationDisplay.jsp</result>
+			<result name="create">/manager/form/editInformation.jsp</result>
+			<result name="update">/manager/form/editInformation.jsp</result>
+		</action>
+		
+		<action name="dbInfo" class="net.risesoft.soa.info.manager.action.DBInfo"></action>
+		
+		<action name="downTemplate" class="net.risesoft.soa.info.manager.action.DownTemplate">
+		    <result name="success" type="stream">
+		    	<param name="contentType">text/html</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">attachment;filename="${fileName}"</param>
+				<param name="bufferSize">4096</param>
+		    </result>		    
+		</action>
+		
+		<action name="infoSave" class="net.risesoft.soa.info.action.InfoSave"></action>
+		<action name="infoTemplate" class="net.risesoft.soa.info.action.InfoTemplate"></action>
+		<action name="infoList2" class="net.risesoft.soa.info.action.InfoList2">
+			<result name="success">/display/list2.jsp</result>
+			<result name="list">/display/list_column2.jsp</result>
+		</action>
+		<action name="infoList" class="net.risesoft.soa.info.action.InfoList">
+			<result name="success">/display/list.jsp</result>
+			<result name="list">/display/list_column.jsp</result>
+		</action>
+		<action name="infoFile" class="net.risesoft.soa.info.action.InfoFile"></action>
+		<action name="infoFileList" class="net.risesoft.soa.info.action.InfoFileList">
+			<result name="success">/display/fileUploadList.jsp</result>
+			<result name="list">/display/fileList.jsp</result>
+		</action>
+		<action name="infoFileShow" class="net.risesoft.soa.info.action.InfoFileShow"></action>
+		<action name="infoImgShow" class="net.risesoft.soa.info.action.InfoImgShow"></action>
+		<action name="infoFileTransform" class="net.risesoft.soa.info.action.InfoFileTransform">
+		    <result name="file">/display/docShow.jsp</result>		    
+		</action>
+		<action name="infoDocList" class="net.risesoft.soa.info.action.InfoDocList">
+		    <result name="list">/display/docList.jsp</result>
+		</action>
+		<action name="infoSearchList" class="net.risesoft.soa.info.action.InfoSearchList">
+		    <result name="toSearchList">search_list.jsp</result>
+		</action>
+		
+		<action name="infoDetail" class="net.risesoft.soa.info.action.InfoDetailAction">
+			<result name="display">/display/infoDetail.jsp</result>
+		</action>
+		
+	</package>
+
+</struts>

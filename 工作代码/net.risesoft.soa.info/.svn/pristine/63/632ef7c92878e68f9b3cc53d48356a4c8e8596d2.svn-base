@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"  
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
+
+	<context:annotation-config/>
+	
+	<!-- <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/> -->
+	
+	<jpa:repositories base-package="net.risesoft.soa.info.dao" />
+	
+	<context:component-scan base-package="net.risesoft.soa.info.service,net.risesoft.soa.info.manager.service,net.risesoft.soa.info.manager.util" />
+ 	
+	<bean class="net.risesoft.soa.info.AppInit" />
+
+	<bean
+		class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+		<property name="targetObject" ref="topMenuRegister" />
+		<property name="targetMethod" value="registerMenu" />
+		<property name="arguments">
+			<bean class="net.risesoft.soa.framework.web.MenuItem">
+				<constructor-arg index="0" value="信息发布" />
+				<constructor-arg index="1" value="/info/manager/index.jsp" />
+				<property name="image" value="/framework/images/head/icon_info_blue.png" />
+				<property name="target" value="_self" />
+				<property name="tabIndex" value="400" />
+			</bean>
+		</property>
+	</bean>
+</beans>

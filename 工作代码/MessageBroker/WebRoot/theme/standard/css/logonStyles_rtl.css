@@ -1,0 +1,48 @@
+/* 
+/* begin_generated_IBM_copyright_prolog                            */
+/* 
+ * Licensed Materials - Property of IBM 
+ * 
+ * 5724-N72 5655-W17
+ * 
+ * (c) Copyright IBM Corp. 2006, 2009 All Rights Reserved 
+ * 
+ * US Government Users Restricted Rights - Use, duplication or 
+ * disclosure restricted by GSA ADP Schedule Contract with 
+ * IBM Corp. 
+ */
+/* end_generated_IBM_copyright_prolog                              */
+
+/***************/
+/* Consistency */
+/***************/
+
+th {
+  text-align: right;
+}
+
+/********************/
+/* Standard borders */
+/********************/
+input {
+  margin: 0.1em 0.1em 0.1em 0em;
+}
+
+fieldset {
+  margin: 0.2em 0em 0.5em 0.5em;
+}
+
+legend {
+  margin-right: 0.5em;
+}
+
+/***************/
+/* login panel */
+/***************/
+.loginpanel h1 {
+  margin: 0.2em 0em 0.2em 0.5em;
+}
+
+.logininput label {
+  margin-right: 0;
+}

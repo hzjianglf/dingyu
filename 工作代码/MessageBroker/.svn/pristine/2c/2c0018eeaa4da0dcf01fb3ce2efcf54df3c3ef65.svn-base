@@ -1,0 +1,905 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+	<package name="myactions" namespace=""
+		extends="struts-default">
+		
+		<interceptors>
+            <interceptor name="userAuthority" class="com.ibm.struts.AuthInterceptor"/>
+            <interceptor-stack name="myInterceptorStack">
+                <interceptor-ref name="defaultStack"/>
+                <interceptor-ref name="userAuthority"/>
+            </interceptor-stack>
+        </interceptors>
+
+		<global-results> 
+            <result name="login" type="redirect">/login.jsp</result> 
+        </global-results>
+        
+        <!--  查询实时数据  -->   		
+		<action name="searchcurrent"
+			class="com.ibm.struts.SearchCurrentAction">
+			<result name="success">/currentMonitorRecords.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>			
+		</action>
+
+		<action name="updaterow4current"
+			class="com.ibm.struts.SearchCurrentAction">
+			<result name="success">/currentMonitorRecords.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>			
+		</action>
+				
+		<!--  查询详细数据  -->  
+		<action name="searchdetails"
+			class="com.ibm.struts.SearchDetailsAction">
+			<result name="success">/detailMonitorRecords.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+		
+		<!--  按条件查询监控数据  --> 
+		<action name="searchbyproperty"
+			class="com.ibm.struts.SearchCurrentAction" method="queryByProperty">
+			<result name="success">/returnMonitorRecords.jsp</result>
+			<result name="error">/searcherror.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+				
+		<!--  查询失败数据  --> 
+		<action name="searchfailure" class="com.ibm.struts.SearchFailureAction">
+			<result name="success">/failureMonitorRecords.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+
+		<action name="updaterow4failure" class="com.ibm.struts.SearchFailureAction">
+			<result name="success">/failureMonitorRecords.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>	
+							
+		<!--  查询历史监控数据  --> 
+		<action name="searchhistory"
+			class="com.ibm.struts.SearchHistoryAction">
+			<result name="success">/historyMonitorRecords.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+
+		<action name="updaterow4history"
+			class="com.ibm.struts.SearchHistoryAction">
+			<result name="success">/historyMonitorRecords.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+				
+		<action name="gethistorycharts"
+			class="com.ibm.struts.GetHistoryChartsAction">
+			<result name="success">/listHistoryCharts.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>		
+		
+		<action name="getcurrentcharts"
+			class="com.ibm.struts.GetCurrentChartsAction">
+			<result name="success">/listCurrentCharts.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+		
+		<action name="registrybroker"
+			class="com.ibm.struts.RegistryBrokerAction" method="create">
+			<result name="success">/registrySuccess.jsp</result>
+			<result name="error">/registryError.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+		
+		<action name="listbrokers"
+			class="com.ibm.struts.ListBrokersAction" method="search">
+			<result name="success">/listBrokers.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+		
+		<!--  查询服务接口信息 -->
+		<action name="call2searchrequest"
+			class="com.ibm.struts.SearchWSRequestAction" method="display">
+			<result name="success">/queryServiceRequestInfo.jsp</result>
+			<result name="error">/mappingServiceInterfaces.jsp</result>
+						
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>		
+					
+		<action name="searchwsrequest"
+			class="com.ibm.struts.SearchWSRequestAction">
+			<result name="success">/webserviceRequestRecords.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+
+		<action name="call2searchprovide"
+			class="com.ibm.struts.SearchWSProvideAction" method="display">
+			<result name="success">/queryServiceProvideInfo.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+				
+		<action name="searchwsprovide"
+			class="com.ibm.struts.SearchWSProvideAction">
+			<result name="success">/webserviceProvideRecords.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+
+
+		<!--  服务接口映射  --> 
+		<action name="mappinginterfaces" class="com.ibm.struts.MappingInterfaces" method="list">
+			<result name="success">/mappingServiceInterfaces.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>	
+
+		<action name="createbusinessservice" class="com.ibm.struts.MappingInterfaces" method="createservice">
+			<result name="success">/createBusinessService.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+		
+		<action name="submitbusinessservice" class="com.ibm.struts.MappingInterfaces" method="submitservice">
+			<result name="success">/mappingServiceInterfaces.jsp</result>
+			<result name="error">/createBusinessService.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+
+		<action name="deletebusinessservice" class="com.ibm.struts.MappingInterfaces" method="deleteservice">
+			<result name="success">/mappingServiceInterfaces.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+		
+		<action name="startService" class="com.ibm.struts.MappingInterfaces" method="startService">
+			<result name="success">/mappingServiceInterfaces.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+		
+		<action name="stopService" class="com.ibm.struts.MappingInterfaces" method="stopService">
+			<result name="success">/mappingServiceInterfaces.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>				
+		
+		<action name="uploadwsdlfile" class="com.ibm.struts.MappingInterfaces" method="uploadwsdlfile">
+			<result name="success">/mappingServiceInterfaces.jsp</result>
+			<result name="error">/createBusinessService.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>		
+		
+		<!--  服务操作映射  -->
+		<action name="mappingoperations" class="com.ibm.struts.MappingOperations" method="list">
+			<result name="success">/mappingServiceOperations.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+
+		<action name="createoperation" class="com.ibm.struts.MappingOperations" method="createoperation">
+			<result name="success">/createOperation.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+
+		<action name="modifyoperation" class="com.ibm.struts.MappingOperations" method="modifyoperation">
+			<result name="success">/modifyServiceOperations.jsp</result>
+			<result name="error">/mappingServiceOperations.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+
+		<action name="submitmodify" class="com.ibm.struts.MappingOperations" method="submitmodifyoperation">
+			<result name="success">/mappingServiceOperations.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+				
+		<action name="cancelmodify" class="com.ibm.struts.MappingOperations" method="cancelmodifyoperation">
+			<result name="success">/mappingServiceOperations.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+				
+		<action name="deleteoperation" class="com.ibm.struts.MappingOperations" method="deleteoperation">
+			<result name="success">/mappingServiceOperations.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+
+		<action name="submitoperation" class="com.ibm.struts.MappingOperations" method="submitoperation">
+			<result name="success">/mappingServiceOperations.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+								 									
+		<action name="getsysteminfo"
+			class="com.ibm.struts.GetSystemInfoAction">
+			<result name="success">/displaySystemInfo.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+
+		<action name="gerbrokerprocinfo"
+			class="com.ibm.struts.GetBrokerInfoAction">
+			<result name="success">/displayBrokerInfo.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+
+		<action name="startbroker"
+			class="com.ibm.struts.ListBrokersAction" method="startBroker">
+			<result name="success">/submitSuccess.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+
+		<action name="stopbroker"
+			class="com.ibm.struts.ListBrokersAction" method="stopBroker">
+			<result name="success">/submitSuccess.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+													
+		<action name="startmonitorbroker"
+			class="com.ibm.struts.ListBrokersAction" method="startMonitor">
+			<result name="success">/listBrokers.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+		
+		<action name="stopmonitorbroker"
+			class="com.ibm.struts.ListBrokersAction" method="stopMonitor">
+			<result name="success">/listBrokers.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+
+		<action name="deletebroker"
+			class="com.ibm.struts.ListBrokersAction" method="delete">
+			<result name="success">/listBrokers.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+							
+		<action name="brokertopology"
+			class="com.ibm.struts.BrokerTopologyAction" method="display">
+			<result name="success">/displayTopology.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+		
+		<!-- 部署消息流  -->	
+		<action name="flowdepolyment"
+			class="com.ibm.struts.DeployBarAction" method="queryBrokerByQmgr">
+			<result name="success">/deployBars.jsp</result>
+			<result name="error">/submitError.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+		
+		<action name="submitdeployment"
+			class="com.ibm.struts.DeployBarAction" method="submitDeployment">
+			<result name="success">/submitSuccess.jsp</result>
+			<result name="error">/submitError.jsp</result>
+			
+			<interceptor-ref name="fileUploadStack"></interceptor-ref>
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+
+		<action name="uploadfile"
+			class="com.ibm.struts.DeployBarAction" method="upload">
+			<result name="success">/submitSuccess.jsp</result>
+			<result name="error">/submitError.jsp</result>
+			
+			<interceptor-ref name="fileUploadStack"></interceptor-ref>
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+		
+		<!-- 用户登录 -->		
+		<action name="j_login" class="com.ibm.struts.LoginAction" method="login">
+			<result name="success">/login.jsp</result>		
+		</action>
+		
+		<action name="j_security_check"
+			class="com.ibm.struts.LoginAction" method="check">
+			<result name="success">/main.jsp</result>
+			<result name="error">/loginError.jsp</result>
+			<result name="transfer">/sessionTimeout.jsp</result>
+		</action>
+		
+		<action name="j_logoff" class="com.ibm.struts.LogoffAction" method="logoff">
+			<result name="success">/login.jsp</result>		
+		</action>
+				
+		<action name="transferpage"
+			class="com.ibm.struts.LoginAction" method="transfer">
+			<result name="success">/main.jsp</result>
+			<result name="error">/login.jsp</result>
+		</action>
+						
+		<action name="selectqmgrforsysinfo"
+			class="com.ibm.struts.GetSystemInfoAction" method="select">
+			<result name="success">/selectQmgrForSys.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+		
+		<action name="selectqmgrforbrokerinfo"
+			class="com.ibm.struts.GetBrokerInfoAction" method="select">
+			<result name="success">/selectQmgrForBroker.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+						
+		<action name="querymonitorinfo"
+			class="com.ibm.struts.QueryMonitorInfo">
+			<result name="success">/queryMonitorInfo.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+						
+		<action name="mainpage" class="com.ibm.struts.MainPageAction">
+			<result name="success">/main.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+										
+		<action name="listusers"
+			class="com.ibm.struts.UserManageAction" method="list">
+			<result name="success">/listUsers.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+		
+		<action name="userreg"
+			class="com.ibm.struts.UserManageAction" method="userreg">
+			<result name="success">/registryUserInfo.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+				
+		<action name="registryuser"
+			class="com.ibm.struts.UserManageAction" method="registry">
+			<result name="success">/listUsers.jsp</result>
+			<result name="error">/registryUserInfo.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+		
+		<action name="deleteusers"
+			class="com.ibm.struts.UserManageAction" method="delete">
+			<result name="success">/listUsers.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+				
+		<action name="modifypassword"
+			class="com.ibm.struts.UserManageAction" method="modifypassword">
+			<result name="success">/changeUserPwd.jsp</result>
+			<result name="error">/changeUserPwd.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+		
+		<action name="modpwd" class="com.ibm.struts.UserManageAction" method="modpwd">
+			<result name="success">/changeUserPwd.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+				
+		<action name="listgroups"
+			class="com.ibm.struts.GroupManageAction" method="list">
+			<result name="success">/listGroups.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+		
+		<!-- 路由管理   -->
+		<action name="listrouteinfo"
+			class="com.ibm.struts.ListRouteInfo" method="list">
+			<result name="success">/listRouteInfo.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>		
+
+		<action name="addroute"
+			class="com.ibm.struts.ListRouteInfo" method="add">
+			<result name="success">/addRouteInfo.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>	
+
+		<action name="saveroute"
+			class="com.ibm.struts.ListRouteInfo" method="save">
+			<result name="success">/listRouteInfo.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+
+		<action name="modifyroute"
+			class="com.ibm.struts.ListRouteInfo" method="modify">
+			<result name="success">/modifyRouteInfo.jsp</result>
+			<result name="error">/listRouteInfo.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+
+		<action name="savemodifyroute"
+			class="com.ibm.struts.ListRouteInfo" method="savemodify">
+			<result name="success">/listRouteInfo.jsp</result>
+			<result name="error">/modifyRouteInfo.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+						
+		<action name="deleteroute"
+			class="com.ibm.struts.ListRouteInfo" method="delete">
+			<result name="success">/listRouteInfo.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+								
+		<!-- 告警设置   -->
+		<action name="listalertconditions"
+			class="com.ibm.struts.ListAlertConditions" method="list">
+			<result name="success">/listAlertConditions.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+		
+		<action name="createalertcondition"
+			class="com.ibm.struts.ListAlertConditions" method="createalert">
+			<result name="success">/createAlertCondition.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+		
+		<action name="savealertcondition" class="com.ibm.struts.ListAlertConditions" method="savealert">
+			<result name="success">/listAlertConditions.jsp</result>
+			<result name="error">/createAlertCondition.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+				
+		<action name="deletealertconditions"
+			class="com.ibm.struts.ListAlertConditions" method="delete">
+			<result name="success">/listAlertConditions.jsp</result>
+			<result name="error">/listAlertConditions.jsp</result>
+						
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+
+		<action name="startalert"
+			class="com.ibm.struts.ListAlertConditions" method="startalert">
+			<result name="success">/listAlertConditions.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+
+		<action name="stopalert"
+			class="com.ibm.struts.ListAlertConditions" method="stopalert">
+			<result name="success">/listAlertConditions.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+
+		<action name="setalertnotification"
+			class="com.ibm.struts.SetAlertNotification" method="setnotification">
+			<result name="success">/setAlertNotification.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+
+		<action name="savenotification"
+			class="com.ibm.struts.SetAlertNotification" method="savenotification">
+			<result name="success">/setAlertNotification.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+		
+		<!-- 流量控制 -->
+		<action name="setallcontrol"
+			class="com.ibm.struts.SetTrafficControl" method="setallcontrol">
+			<result name="success">/setAllTrafficControl.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>	
+
+		<action name="savealltrafficcontrol"
+			class="com.ibm.struts.SetTrafficControl" method="saveallcontrol">
+			<result name="success">/setAllTrafficControl.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+
+		<action name="listpartofcontrol"
+			class="com.ibm.struts.SetTrafficControl" method="listpart">
+			<result name="success">/listPartofTrafficControl.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+						
+		<action name="addpartofcontrol"
+			class="com.ibm.struts.SetTrafficControl" method="addpartofcontrol">
+			<result name="success">/setPartofTrafficControl.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>	
+		
+		<action name="preUpdatePartOfControl"
+			class="com.ibm.struts.SetTrafficControl" method="preUpdatePartOfControl">
+			<result name="success">/updatePartofTrafficControl.jsp</result>
+			<result name="error">/listPartofTrafficControl.jsp</result>
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>	
+		
+		<action name="updatePartOfControl"
+			class="com.ibm.struts.SetTrafficControl" method="updatePartOfControl">
+			<result name="success">/listPartofTrafficControl.jsp</result>
+			<result name="error">/updatePartofTrafficControl.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>				
+
+		<action name="savepartofcontrol"
+			class="com.ibm.struts.SetTrafficControl" method="savepartofcontrol">
+			<result name="success">/listPartofTrafficControl.jsp</result>
+			<result name="error">/setPartofTrafficControl.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+		
+		<action name="delpartofcontrol"
+			class="com.ibm.struts.SetTrafficControl" method="delpartofcontrol">
+			<result name="success">/listPartofTrafficControl.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+		
+		<action name="startPartOfControl"
+			class="com.ibm.struts.SetTrafficControl" method="startPartOfControl">
+			<result name="success">/listPartofTrafficControl.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+		
+		<action name="stopPartOfControl"
+			class="com.ibm.struts.SetTrafficControl" method="stopPartOfControl">
+			<result name="success">/listPartofTrafficControl.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>				
+		
+		<!-- 超时设置 -->	
+		<action name="sethttptimeout"
+			class="com.ibm.struts.SetHttpTimeout" method="sethttptimeout">
+			<result name="success">/setHttpTimeOut.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>		
+
+		<action name="savehttptimeout"
+			class="com.ibm.struts.SetHttpTimeout" method="savehttptimeout">
+			<result name="success">/setHttpTimeOut.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+
+		<action name="setsockettimeout"
+			class="com.ibm.struts.SetSocketTimeout" method="setsockettimeout">
+			<result name="success">/setSocketTimeOut.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>		
+
+		<action name="savesockettimeout"
+			class="com.ibm.struts.SetSocketTimeout" method="savesockettimeout">
+			<result name="success">/setSocketTimeOut.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+		
+			
+		<!-- IP访问控制 -->	
+		<action name="permitipaddress"
+			class="com.ibm.struts.PermitAddress" method="displayTrusted">
+			<result name="success">/displayTrusted.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+
+		<action name="createipaddress"
+			class="com.ibm.struts.PermitAddress" method="createTrusted">
+			<result name="success">/createTrusted.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+
+		<action name="saveipaddress"
+			class="com.ibm.struts.PermitAddress" method="saveTrusted">
+			<result name="success">/displayTrusted.jsp</result>
+			<result name="error">/createTrusted.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+				
+		<action name="modifyipaddress"
+			class="com.ibm.struts.PermitAddress" method="modifyTrusted">
+			<result name="success">/modifyTrusted.jsp</result>
+			<result name="error">/displayTrusted.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+
+		<action name="savemodifyipaddress"
+			class="com.ibm.struts.PermitAddress" method="saveModifyTrusted">
+			<result name="success">/displayTrusted.jsp</result>
+			<result name="error">/displayTrusted.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+		
+		<action name="deleteipaddress"
+			class="com.ibm.struts.PermitAddress" method="deleteTrusted">
+			<result name="success">/displayTrusted.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>						
+				
+								
+		<!-- 告警浏览 -->										
+		<action name="listalertinfo"
+			class="com.ibm.struts.ListAlertInfo" method="list">
+			<result name="success">/listAlertInfo.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+				
+		<action name="deletebars"
+			class="com.ibm.struts.BrokerTopologyAction" method="deleteBars">
+			<result name="success">/submitSuccess.jsp</result>
+			<result name="error">/submitError.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+		
+		<action name="displayregistryinfo"
+			class="com.ibm.struts.RegistryBrokerAction" method="displayregistry">
+			<result name="success">/registryBrokerInfo.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+				
+		<action name="searchcontent"
+			class="com.ibm.struts.SearchDetailsAction" method="searchcontent">
+			<result name="success">/xmlData.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>		
+		</action>		
+			
+		<action name="selectfortopology"
+			class="com.ibm.struts.BrokerTopologyAction" method="selectTopology">
+			<result name="success">/displayTopology.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>	
+		
+		<action name="selectforexecutiongroup"
+			class="com.ibm.struts.BrokerTopologyAction" method="selectedEG">
+			<result name="success">/createEG.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+							
+		<action name="createexecutiongroup"
+			class="com.ibm.struts.BrokerTopologyAction" method="createExecutionGroup">
+			<result name="success">/submitSuccess.jsp</result>
+			<result name="error">/submitError.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+
+		<action name="deleteexecutiongroup"
+			class="com.ibm.struts.BrokerTopologyAction" method="deleteExecutionGroup">
+			<result name="success">/submitSuccess.jsp</result>
+			<result name="error">/submitError.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+		
+		<action name="deleteapplication"
+			class="com.ibm.struts.BrokerTopologyAction" method="deleteApplications">
+			<result name="success">/submitSuccess.jsp</result>
+			<result name="error">/submitError.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+		
+		<action name="startexecutiongroup"
+			class="com.ibm.struts.BrokerTopologyAction" method="startEG">
+			<result name="success">/submitSuccess.jsp</result>
+			<result name="error">/submitError.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+		
+		<action name="stopexecutiongroup"
+			class="com.ibm.struts.BrokerTopologyAction" method="stopEG">
+			<result name="success">/submitSuccess.jsp</result>
+			<result name="error">/submitError.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+		
+		<action name="startmessageflow"
+			class="com.ibm.struts.BrokerTopologyAction" method="startMsgFlow">
+			<result name="success">/submitSuccess.jsp</result>
+			<result name="error">/submitError.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+		
+		<action name="stopmessageflow"
+			class="com.ibm.struts.BrokerTopologyAction" method="stopMsgFlow">
+			<result name="success">/submitSuccess.jsp</result>
+			<result name="error">/submitError.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>			
+		
+		<action name="setadditionalinstances"
+			class="com.ibm.struts.BrokerTopologyAction" method="setAdditionalInstances">
+			<result name="success">/submitSuccess.jsp</result>
+			<result name="error">/submitError.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+				
+		<!-- 查看和设定运行环境参数 -->				
+		<action name="selectforruntimeparams"
+			class="com.ibm.struts.RuntimeParametersSetting" method="queryAllQmgr">
+			<result name="success">/selectForRuntimeParams.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+
+		<action name="selectforruntimebroker"
+			class="com.ibm.struts.RuntimeParametersSetting" method="queryBrokerByQmgr">
+			<result name="success">/selectForRuntimeParams.jsp</result>
+			<result name="error">/submitError.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+
+		<action name="viewruntimebroker"
+			class="com.ibm.struts.RuntimeParametersSetting" method="viewRuntimeBrokerProperty">
+			<result name="success">/viewRuntimeBrokerProperty.jsp</result>
+			<result name="error">/submitError.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+
+		<action name="viewruntimeexecutiongroup"
+			class="com.ibm.struts.RuntimeParametersSetting" method="viewRuntimeEGProperty">
+			<result name="success">/viewRuntimeEGProperty.jsp</result>
+			<result name="error">/submitError.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+
+		<action name="submitruntimebroker"
+			class="com.ibm.struts.RuntimeParametersSetting" method="submitRuntimeBrokerProperty">
+			<result name="success">/submitSuccess.jsp</result>
+			<result name="error">/submitError.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+
+		<action name="submitruntimeexecutiongroup"
+			class="com.ibm.struts.RuntimeParametersSetting" method="submitRuntimeEGProperty">
+			<result name="success">/submitSuccess.jsp</result>
+			<result name="error">/submitError.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+		
+		<action name="returnruntimebroker"
+			class="com.ibm.struts.RuntimeParametersSetting" method="returnRuntimeBrokerProperty">
+			<result name="success">/viewRuntimeBrokerProperty.jsp</result>
+			<result name="error">/submitError.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+
+		<action name="returnruntimeexecutiongroup"
+			class="com.ibm.struts.RuntimeParametersSetting" method="returnRuntimeEGProperty">
+			<result name="success">/viewRuntimeEGProperty.jsp</result>
+			<result name="error">/submitError.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+		
+		<!-- 查看和设定配置服务参数 -->			
+		<action name="selectforcfgserviceparams"
+			class="com.ibm.struts.ConfigServiceSetting" method="queryAllQmgr">
+			<result name="success">/selectForCFGServiceParams.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>			
+		</action>
+
+		<action name="selectforconfigservice"
+			class="com.ibm.struts.ConfigServiceSetting" method="queryBrokerByQmgr">
+			<result name="success">/selectForCFGServiceParams.jsp</result>			
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+
+		<action name="lookupconfigserviceitem"
+			class="com.ibm.struts.ConfigServiceSetting" method="lookupConfigServiceItem">
+			<result name="success">/selectForCFGServiceParams.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+
+		<action name="viewconfigservice"
+			class="com.ibm.struts.ConfigServiceSetting" method="viewConfigServiceProperty">
+			<result name="success">/viewConfigServiceProperty.jsp</result>
+			<result name="error">/submitError.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+
+		<action name="submitconfigserviceitem"
+			class="com.ibm.struts.ConfigServiceSetting" method="submitConfigServiceItem">
+			<result name="success">/submitSuccess.jsp</result>
+			<result name="error">/submitError.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+
+		<action name="returnconfigservice"
+			class="com.ibm.struts.ConfigServiceSetting" method="returnConfigServiceProperty">
+			<result name="success">/viewConfigServiceProperty.jsp</result>
+			<result name="error">/submitError.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+
+		<action name="createconfigservice"
+			class="com.ibm.struts.ConfigServiceSetting" method="queryAllQmgr">
+			<result name="success">/createConfigService.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+
+		<action name="selectcfgservicetocreate"
+			class="com.ibm.struts.ConfigServiceSetting" method="queryBrokerByQmgr">
+			<result name="success">/createConfigService.jsp</result>			
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+
+		<action name="submitcreateconfigservice"
+			class="com.ibm.struts.ConfigServiceSetting" method="submitToCreateConfigService">
+			<result name="success">/submitSuccess.jsp</result>
+			<result name="error">/submitError.jsp</result>
+			
+			<interceptor-ref name="myInterceptorStack"></interceptor-ref>
+		</action>
+																		
+		</package>		
+</struts>    

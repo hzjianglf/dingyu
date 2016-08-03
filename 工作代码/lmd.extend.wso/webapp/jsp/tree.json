@@ -1,0 +1,41 @@
+[
+    {
+        text: 'computer',
+        children: [
+            {
+                text: 'java',
+                leaf: true
+            },
+            {
+                text: 'c++',
+                children: [
+                    {
+                        text: 'thinking',
+                        leaf: true
+                    },
+                    {
+                        text: 'yyyyy',
+                        leaf: true
+                    }
+                ]
+            },
+            {
+                text: 'asp',
+                leaf: true
+            }
+        ]
+    },
+    {
+        text: 'jsp',
+        children: [
+            {
+                text: 'dadf',
+                leaf: true
+            },
+            {
+                text: 'ddddddd',
+                leaf: true
+            }
+        ]
+    }
+]

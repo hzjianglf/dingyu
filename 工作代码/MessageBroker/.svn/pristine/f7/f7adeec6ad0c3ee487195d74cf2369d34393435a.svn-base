@@ -1,0 +1,1 @@
+({"previousMessage":"\x{05d4}\x{05d0}\x{05e4}\x{05e9}\x{05e8}\x{05d5}\x{05d9}\x{05d5}\x{05ea} \x{05d4}\x{05e7}\x{05d5}\x{05d3}\x{05de}\x{05d5}\x{05ea}","nextMessage":"\x{05d0}\x{05e4}\x{05e9}\x{05e8}\x{05d5}\x{05d9}\x{05d5}\x{05ea} \x{05e0}\x{05d5}\x{05e1}\x{05e4}\x{05d5}\x{05ea}"})

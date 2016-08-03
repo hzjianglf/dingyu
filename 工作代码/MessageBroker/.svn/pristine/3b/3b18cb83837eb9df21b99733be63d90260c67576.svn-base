@@ -1,0 +1,1 @@
+({"previousMessage":"Choix pr¨¦c¨¦dents","nextMessage":"Plus de choix"})

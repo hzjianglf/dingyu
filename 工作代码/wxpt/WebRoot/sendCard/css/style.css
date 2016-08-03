@@ -1,0 +1,272 @@
+@charset "utf-8";
+/* CSS Document */
+.bg1{width:99%; margin:0 auto;}
+.bg1 img{width:98%; padding:1%;  border:1px #FF0000 solid;}
+#bg2 img{width:98%; padding:1%; border:1px #2887c1 solid;}
+#bg4 img{width:98%; padding:1%; border:1px #5a2f16 solid;}
+.sd1{position:relative; padding-top:100%; margin-left:20%; height:184px; font-size:12px;}
+.sd2{position:relative; padding-top:90%; margin-left:6%; background:url(../images/srk2.png) no-repeat; background-size:80% 35%; background-position:10% 70%; height:184px;}
+.sd3{position:relative; padding-top:90%; margin-left:15%; width:80%; height:184px;}
+.sd4{position:relative; padding-top:100%; padding-left:10%; background:url(../images/ydsrk1.png) no-repeat; background-size:95% 40%; background-position:bottom; height:184px;}
+.sd5{position:relative; padding-top:100%; margin-left:15%; height:184px;}
+.sd6{position:relative; padding-top:100%; margin-left:15%; height:184px;}
+.sd7{position:relative;width:50%; margin:0 auto; padding-top:60%; height:184px;}
+.sd7-1{position:relative; width:90%; margin:0 auto; margin-top:15%;}
+.sd8{position:relative; padding-top:85%; margin-left:30%; background:url(../images/cj2.png) no-repeat; background-size:80% 30%; background-position:10% 70%; height:300px;}
+.sd9{position:relative; padding-top:90%; margin-left:30%; height:200px;}
+.sd10{position:relative; padding-top:100%; margin-left:10%; height:200px; background:url(../images/yx2.png) no-repeat; background-size:90% 35%; background-position:10% 80%;}
+.sd11{position:relative; padding-top:90%; margin-left:2%; height:200px; background:url(../images/yx3.png) no-repeat; background-size:70% 35%;  background-position:10% 70%;}
+.sd12{position:relative; padding-top:50%; margin-left:2%;  height:200px;}
+.sd13{position:relative; padding-top:100%; margin-left:2%;  height:200px;}
+.test{border:none;  background:rgba(0,0,0,0.0); margin-top:20px;  margin-left:10px;  font-size:12px; text-indent:2em; line-height:20px;}
+.test1{color:#FFFFFF; width:70%; height:60%;  margin-top:-50%;}
+.test2{color:#6699FF; width:65%; height:30%; -webkit-transform:rotate(-2deg);  margin-top:-20%;}
+.test3{color:#6699FF; width:70%; height:90px; margin-top:-10%;}
+.test4{color:#5a2f16; width:74%; height:42%; -webkit-transform:rotate(-2deg);}
+.test5{color:#f5d604; width:74%; height:40%;text-shadow:2px 0px 0px #f00,0px -2px 0px #f00,-2px 0px 0px #f00,0px 2px 0px #f00;}
+.test6{color:#f1e054; width:74%; height:42%;}
+.test7{color:#c3b974; width:75%; height:50%; margin-left:10%;}
+.test8{color:#f1e054; width:72%; height:36%;}
+.test9{color:#ff0000; width:60%; margin:0 auto; height:55%;}
+.test10{color:#ff0000; width:75%; margin-left:8%; height:40%; margin-top:-5%}
+.test11{color:#e9c304; width:55%; margin-left:8%; height:30%; margin-top:-20%;}
+.test12{color:#e9c304; width:25%; margin-left:18%; height:60%; -webkit-transform:rotate(8deg); margin-top:-40%}
+.test13{color:#ee9097; width:55%; margin-left:20%; height:50%;  margin-top:-40%;}
+.inp{width:70%; border:none; background:rgba(0,0,0,0.0); margin-top:10px; text-align:right; color:#ffffff; font-size:12px;}
+.inp2{color:#6699FF;width:75%; margin-top:0px;}
+.inp4{margin-left:10%; text-align:left;color:#5a2f16;width:75%; margin-top:0px;}
+.inp5{margin-left:10%; text-align:right;color:#f5d604;width:75%; margin-top:0px;}
+.inp6{margin-left:10%; text-align:right;color:#f1e054;width:75%; margin-top:0px;}
+.inp7{margin-left:10%; text-align:right;color:#c3b974;width:80%; margin-top:0px;}
+.inp8{text-align:right;color:#f5d604;width:65%; margin-top:0px;}
+.inp9{text-align:right;color:#ff0000;width:50%; margin-top:0px;}
+.inp10{text-align:right;color:#ff0000;width:75%; margin-top:0px;}
+.inp11{text-align:right;color:#e9c304;width:60%; margin-top:0px;}
+.inp12{text-align:right;color:#e9c304;width:30%; position:absolute; -webkit-transform:rotate(-8deg); top:30%}
+.inp13{text-align:right;color:#ee9097;width:55%; margin-left:20%; margin-top:0px;}
+
+.card{height:60px;}
+.card1{height:100px;}
+.hide {
+	display: none;
+}
+.box-guide .box-img {
+	width: 120px;
+}
+.box-guide .box-img img {
+	max-width: 100%;
+}
+.shade {
+	width: 100%;
+	background: #000;
+	opacity: 0.6;
+	z-index: 100;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.winHot, .prompt {
+	z-index: 105;
+	color: #fff;
+	width: 272px;
+	height: auto;
+	padding-bottom: 7px;
+	border-radius: 2px;
+	background: #fff;
+	border: 2px solid #353535;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+.winHot .tle, .prompt .tle {
+	height: 35px;
+	background-color: #353535;
+	color: #fff;
+	line-height: 35px;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	text-align: center;
+}
+.winHot p, .prompt p {
+	color: #000;
+	width: 240px;
+	margin: 0px auto;
+	margin-top: 20px;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	text-align: center;
+}
+.winHot .btn, .prompt .btn {
+	width: 125px;
+	height: 39px;
+	display: block;
+	margin-top: 25px;
+	line-height: 39px;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+.winHot .btn-gray, .prompt .btn-gray {
+	display: block;
+	border-radius: 4px;
+	background-color: rgba(217,217,217,.7);
+	box-shadow: 0 1px 2px rgba(32,32,32,.59), inset 0 1px 1px #efefef;
+	border: solid 1px #b3b2b2;
+	background-image: -webkit-linear-gradient(bottom, #dbdbdb, #f4f4f4);
+	color: #282828;
+	text-align: center;
+	-webkit-box-flex: 1;
+	margin-left: 6px;
+}
+.winHot .btn-green, .prompt .btn-green {
+	display: block;
+	border-radius: 4px;
+	background-color: rgba(2,181,63,.7);
+	box-shadow: 0 1px 2px rgba(7,56,28,.61), inset 0 1px 1px rgba(255,255,255,.51);
+	border: solid 1px #00812c;
+	background-image: -webkit-linear-gradient(bottom, #02a038, #02a138 18%, #02c244);
+	color: #ffffff;
+	text-align: center;
+	-webkit-box-flex: 1;
+	margin-right: 6px;
+}
+.winHot, .prompt {
+	margin: 10px auto;
+	margin-top: 20px;
+	float: none;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+.winHot dd, .prompt dd {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	display: -webkit-box;
+}
+.winHot dl, .prompt dl {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	border-radius: 3px;
+}
+.winHot dt, .prompt dt {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+.prompt .btn-prompt {
+	width: 125px;
+	-webkit-box-flex: 0;
+	margin: 20px auto 10px;
+}
+.fn-hide {
+	display: none;
+}
+.shareMsg {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: 39px;
+	line-height: 39px;
+	color: #ffffff;
+	background: rgba(0,0,0,0.5);
+}
+.user {
+	width: 227px;
+	padding: 57px 29px 0 28px;
+	height: 130px;
+	margin: 0 auto;
+}
+.wish-txt {
+
+}
+.wish-sign {
+	padding: 0 10px 0 0;
+	font-family: 黑体;
+	margin: 0 auto;
+}
+.wx-pub {
+	display: inline-block;
+	background: rgba(0,0,0,0.75);
+	height: 18px;
+	width: 96px;
+	margin: -10px auto 0;
+	line-height: 18px;
+	color: #fff;
+	vertical-align: middle;
+}
+.icon-car {
+	display: inline-block;
+	background: url(../../images/send_cards/car.png) no-repeat;
+	width: 20px;
+	height: 12px;
+	margin-right: 1px;
+	vertical-align: -2px
+}
+.pub-txt {
+	vertical-align: middle;
+}
+.sendBtn-box {
+    padding: 20px 20px 10px;
+}
+.sendBtn {
+	display: block;
+	height: 39px;
+	line-height: 39px;
+	font-size: 18px;
+	border-radius: 3px;
+	background-color: #3dba70;
+	box-shadow: 0 1px 1px rgba(7,56,28,.61), inset 0 1px 1px rgba(255,255,255,.51);
+	border: solid 1px #00812c;
+	color: #fff;
+}
+.guanzhuBtn {
+	margin-top : 5px;
+	display: block;
+	height: 39px;
+	line-height: 39px;
+	font-size: 18px;
+	border-radius: 3px;
+	background-color: #f4f4f4;
+	box-shadow: 0 1px 1px rgba(7,56,28,.61), inset 0 1px 1px rgba(255,255,255,.51);
+	border: solid 1px #747975;
+	color: #666666;
+}
+.sendBtn:active {
+	background: #2ab462;
+}
+
+@media screen and (max-device-width:480px) {
+    .cardWrap {
+        width: 320px;
+        overflow: hidden;
+    }
+    
+    .cardWrap .user {
+        margin: 240px auto 33px;
+    }
+    
+    .sendBtn-box {
+        margin-bottom: -1px;
+        padding-bottom: 0;
+    }
+}
+
+@media screen and (min-device-width:480px) {
+    .cardWrap .user {
+        margin: 285px auto 48px;
+    }
+}
+
+@media screen and (min-width: 480px) and (max-width: 640px)  {
+    .cardWrap .user {
+        margin: 450px auto 80px;
+    }
+}
+
+.guanzhuBtn {
+	margin-top : 5px;
+	display: block;
+	height: 39px;
+	line-height: 39px;
+	font-size: 18px;
+	border-radius: 3px;
+	background-color: red;
+	text-align:center;
+	box-shadow: 0 1px 1px rgba(7,56,28,.61), inset 0 1px 1px rgba(255,255,255,.51);
+	border: solid 1px #747975;
+	color: white;
+}
+.hot {
+	height: 39px;
+	line-height: 39px;
+	color: #ffffff;
+	background: rgba(0,0,0,0.5);
+}

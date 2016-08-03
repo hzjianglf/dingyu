@@ -1,0 +1,8 @@
+eclipse.preferences.version=1
+encoding//src/cn/udrm/dev/demo/bizlog/DemoBizLogModel.java=UTF-8
+encoding//src/cn/udrm/dev/demo/bizlog/DemoBizLogModelCreator.java=UTF-8
+encoding//src/cn/udrm/dev/demo/manager/OrderManager.java=UTF-8
+encoding//src/cn/udrm/dev/demo/manager/impl/OrderManagerImpl.java=UTF-8
+encoding//src/cn/udrm/dev/demo/service/OrderManagerService.java=UTF-8
+encoding//src/cn/udrm/dev/demo/util/ConfigUtil.java=UTF-8
+encoding//src/cn/udrm/dev/demo/util/SpringUtil.java=UTF-8

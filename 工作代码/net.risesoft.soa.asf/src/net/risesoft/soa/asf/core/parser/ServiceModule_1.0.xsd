@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+   <xs:element name="ServiceModule">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element ref="info"/>
+            <xs:element ref="ServiceComponent" maxOccurs="unbounded"/>
+         </xs:sequence>
+         <xs:attribute name="id" type="xs:string" use="required"/>
+         <xs:attribute name="name" type="xs:string" use="required"/>
+         <xs:attribute name="version" type="xs:string" use="required"/>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="info">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element ref="provider"/>
+            <xs:element ref="vender" minOccurs="0"/>
+            <xs:element ref="dependence" minOccurs="0"/>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="provider">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element ref="business" maxOccurs="unbounded"/>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="vender">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element ref="business" minOccurs="0" maxOccurs="unbounded"/>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="business">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="website" type="xs:string" minOccurs="0"/>
+            <xs:element name="address" type="xs:string" minOccurs="0"/>
+            <xs:element name="contact" type="xs:string" minOccurs="0"/>
+            <xs:element name="tel" type="xs:string" minOccurs="0"/>
+            <xs:element name="email" type="xs:string" minOccurs="0"/>
+         </xs:sequence>
+         <xs:attribute name="id" type="xs:string" use="required"/>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="dependence">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element ref="module" minOccurs="0" maxOccurs="unbounded"/>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="module">
+      <xs:complexType>
+         <xs:attribute name="id" type="xs:string" use="required"/>
+         <xs:attribute name="version" type="xs:string" use="required"/>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="ServiceComponent">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element name="description" minOccurs="0"/>
+            <xs:element ref="category" minOccurs="0"/>
+            <xs:element name="wsdl" type="xs:string" minOccurs="0"/>
+            <xs:element name="interface" type="xs:string" minOccurs="0"/>
+            <xs:element name="implementation" type="xs:string" minOccurs="0"/>
+            <xs:element ref="invoke" minOccurs="0"/>
+            <xs:element name="signature" type="xs:string" minOccurs="0"/>
+            <xs:element ref="properties" minOccurs="0"/>
+         </xs:sequence>
+         <xs:attribute name="id" type="xs:string" use="required"/>
+         <xs:attribute name="name" type="xs:string" use="required"/>
+         <xs:attribute name="version" type="xs:string" use="optional"/>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="category" type="xs:string"/>
+   <xs:element name="invoke">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element ref="style" minOccurs="0"/>
+            <xs:element ref="transport" minOccurs="0"/>
+            <xs:element ref="mode" minOccurs="0"/>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="style">
+      <xs:simpleType>
+         <xs:restriction base="xs:string">
+            <xs:enumeration value="rpc"/>
+            <xs:enumeration value="document"/>
+         </xs:restriction>
+      </xs:simpleType>
+   </xs:element>
+   <xs:element name="transport">
+      <xs:simpleType>
+         <xs:restriction base="xs:string">
+            <xs:enumeration value="HTTP"/>
+            <xs:enumeration value="JMS"/>
+         </xs:restriction>
+      </xs:simpleType>
+   </xs:element>
+   <xs:element name="mode">
+      <xs:simpleType>
+         <xs:restriction base="xs:string">
+            <xs:enumeration value="sync"/>
+            <xs:enumeration value="async"/>
+         </xs:restriction>
+      </xs:simpleType>
+   </xs:element>
+   <xs:element name="properties">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element ref="property" minOccurs="0" maxOccurs="unbounded"/>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+   <xs:element name="property">
+      <xs:complexType>
+         <xs:attribute name="name" type="xs:string" use="required"/>
+         <xs:attribute name="value" type="xs:string" use="required"/>
+      </xs:complexType>
+   </xs:element>
+</xs:schema>

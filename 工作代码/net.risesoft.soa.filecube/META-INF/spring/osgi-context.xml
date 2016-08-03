@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:osgi="http://www.springframework.org/schema/osgi"	
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/osgi http://www.springframework.org/schema/osgi/spring-osgi.xsd ">
+	
+    <!-- service的配置-->
+	<osgi:service ref="fileInfoService" interface="net.risesoft.soa.filecube.service.FileService" />
+	<osgi:service ref="folderService" interface="net.risesoft.soa.filecube.service.FolderService" />
+	<osgi:service ref="attachmentService" interface="net.risesoft.soa.filecube.service.AttachmentService" />
+	<osgi:service ref="commentaryService" interface="net.risesoft.soa.filecube.service.CommentaryService" />
+	<osgi:service ref="logService" interface="net.risesoft.soa.filecube.service.LogService" />
+	<osgi:service ref="searchLogService" interface="net.risesoft.soa.filecube.service.SearchLogService" />
+	<osgi:service ref="favoritesService" interface="net.risesoft.soa.filecube.service.FavoritesService" />
+	<osgi:service ref="shareService" interface="net.risesoft.soa.filecube.service.ShareService" />
+	<osgi:service ref="openHistoryService" interface="net.risesoft.soa.filecube.service.OpenHistoryService" />
+	<osgi:service ref="queryHistoryService" interface="net.risesoft.soa.filecube.service.QueryHistoryService" />
+	<osgi:service ref="dimensionService" interface="net.risesoft.soa.filecube.service.DimensionService" />
+	<osgi:service ref="permissionService" interface="net.risesoft.soa.filecube.service.PermissionService" />
+		
+	<osgi:service ref="orgTreeUtil" interface="net.risesoft.soa.filecube.service.util.OrgTreeUtil" />
+	<osgi:service ref="acManager" interface="net.risesoft.soa.filecube.service.util.AcManager" />
+	
+    <osgi:reference id="datasource" interface="javax.sql.DataSource" />
+	<osgi:reference id="entityManagerFactory" interface="javax.persistence.EntityManagerFactory" />
+	<osgi:reference id="transactionManager" interface="org.springframework.transaction.PlatformTransactionManager" />
+	<osgi:reference id="orgUnitManager" interface="net.risesoft.soa.org.manager.OrgUnitManager" />
+ 	<osgi:reference id="orgUnitContainerManager" interface="net.risesoft.soa.org.manager.OrgUnitContainerManager" />   
+ 	<osgi:reference id="departmentManager" interface="net.risesoft.soa.org.manager.DepartmentManager" />   
+ 	<osgi:reference id="personManager" interface="net.risesoft.soa.org.manager.PersonManager" />   
+</beans>

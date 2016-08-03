@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>接口测试页</title>
+</head>
+<body>
+<h3>获取验证码</h3>
+<p id="login">
+  <form onsubmit="return false;" action="../pm/user/getVerifyCode.do">
+	loginName:<input type="text" name="loginName" value="admin"><br/>
+	sign:<input type="text" name="sign" value=""><br/>
+	<button class="submit">测试</button>
+  </form>
+</p>
+<p>
+	<pre id="data"></pre>
+</p>
+<script src="../js/jquery-1.11.3.min.js"></script>
+<script src="../js/md5-min.js"></script>
+<script src="../js/json2.js"></script>
+<script>
+	$(function() {
+		$('.submit').click(function() {
+			var $form = $(this).parent('form');
+			$.post(
+				$form.attr('action'),
+				$form.serialize(),
+				function(data) {
+					$('#data').html(JSON.stringify(data, null, 4));		
+				},
+				'json'
+			);
+		});
+	});
+</script>
+</body>
+</html>

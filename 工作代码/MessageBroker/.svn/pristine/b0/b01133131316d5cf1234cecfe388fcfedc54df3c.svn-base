@@ -1,0 +1,6 @@
+#Update 'tcpipclienttimeout' value
+#Sat Apr 23 12:55:12 CST 2011
+tcpipservertimeout=120
+tcpipclienttimeout=140
+httptimeout=120
+soaptimeout=180

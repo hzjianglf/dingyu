@@ -1,0 +1,260 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.Date"%>
+<%@page import="java.util.List"%>
+<%@page import="net.risesoft.soa.framework.session.SessionUser"%>
+<%@page import="net.risesoft.soa.framework.session.SessionConst"%>
+<%@page import="net.risesoft.soa.framework.session.SessionUtil"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page isELIgnored="false"%>
+<%  
+SessionUser sessionUser = (SessionUser)request.getSession().getAttribute(SessionConst.USER);
+SessionUtil.removeSessionUser();
+SessionUtil.putSessionUser(sessionUser);
+String userName = sessionUser == null ? "未登录" : sessionUser.getUserName();
+SimpleDateFormat sdf=new SimpleDateFormat("yyyy年MM月dd日 E ");   
+String dt=sdf.format(new Date()) ;
+String loginDate = sdf.format(new Date()) + userName;
+%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>首页</title>
+<link href="css/main.css" type="text/css" rel="stylesheet">
+<script src="js/jquery-1.8.0.min.js"></script>
+<script src="js/main.js"></script>
+<script>
+function changename(mid,msg){
+document.getElementById(mid).innerHTML=msg;
+}
+</script>
+</head>
+<body>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="toptbl">
+  <tr>
+    <td class="width1">&nbsp;</td>
+    <td width="35%"><img src="images/logo.png"></td>
+    <td>
+     <div class="flaY topdiv">
+     <c:forEach items="${ptlist }" var="pt" >
+     <div class="flaY topbtn" style="background:url(images/${pt.icon}) center left no-repeat;">
+	 <a href="${pt.url }" style="color: #6a6a6a;" >${pt.name }</a></div>
+	 </c:forEach>
+     <!-- 
+     <div class="flaY topbtn" style="background:url(images/tc.png) center left no-repeat;">
+	 <a href="/sso/logout?service=/" style="color: #6a6a6a;" >退 出</a></div>
+     <div class="flaY topbtn" style="background:url(images/mh.png) center left no-repeat;">
+	 <a href="/org" style="color: #6a6a6a;" >平台管理</a></div>
+     <div class="flaY topbtn" style="background:url(images/sy.png) center left no-repeat;margin-left:0px;">
+	 <a href="/" style="color: #6a6a6a;" >首 页</a></div>
+	  -->
+	 
+	 
+     </div>
+    </td>
+    <td class="width1">&nbsp;</td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="dhtbl">
+  <tr>
+    <td class="width1 tdL">&nbsp;</td>
+    <td class="tdM" width="240"><div class="userbg">欢迎您：<span class="orge"><%=userName %></span></div></td>
+    <td class="tdM">
+    <div class="dhdiv">
+     <ul class="dhul">
+       <c:forEach items="${rlist }" var="resource" varStatus="status">
+	       <c:choose>
+		       	<c:when test="${status.index == 0 }">
+		       	<li class="bigmu libg1"><a href="javascript:addIframe(${status.index})">${resource.name }</a></li>
+		       	</c:when>
+		       	<c:otherwise >
+		       	 <li class="bigmu"><a href="javascript:addIframe(${status.index})">${resource.name }</a></li>
+		       	</c:otherwise>
+	       </c:choose>
+       </c:forEach>
+     </ul>
+     </div>
+    </td>
+    <td class="width1 tdR">&nbsp;</td>
+  </tr>
+</table>
+
+
+
+	<div class="condiv">
+		<c:forEach items="${alllist }" var="all" varStatus="allstatus">
+		  <c:choose>
+			<c:when test="${allstatus.index == 0 }">
+			     
+			  <div class="allcont">
+		     	<div class="flaZ zwid">
+		         <!--左-->
+		         <div class="flaZ lftmnu">
+		         <div class="lftmtop"></div>
+		         <div class="lftmmdl cdheight">
+		         <!-- -->
+		         <div class="tree">
+		            <c:forEach items="${all}" var="each" varStatus="eachstatus">
+		            	<c:choose>
+		            	<c:when test="${eachstatus.index  == 0 }">
+			            	
+			             	 <c:if test="${each.openType  == '_blank'}">
+			             	  <div class="mnuall">
+			             	 <div class="lmnu1 lmnu" style="margin-top:0px;">
+							<a style="color:#3768a4;" href="javascript:void window.open('${each.url }','',' left=0,top=0,width='+ (screen.availWidth - 10) +',height='+ (screen.availHeight-50) +',scrollbars,resizable=yes,toolbar=yes')"  onClick="changename('zyknr${allstatus.index}','${each.name }')"  >${each.name }</a>
+							</div>
+			           		 </div>
+							</c:if>
+							
+							<c:if test="${each.openType  == 'panel'}">
+			             	  <div class="mnuall">
+			             	 <div class="lmnu1 lmnu" style="margin-top:0px;">
+							<a style="color:#3768a4;" href="${each.url }"  onClick="changename('zyknr${allstatus.index}','${each.name }')"   target="ywzy${allstatus.index}" >${each.name }</a>
+							</div>
+			           		 </div>
+							</c:if>
+							
+							
+							
+		            	</c:when>
+		            	<c:otherwise>
+		            	   
+			             	 <c:if test="${each.openType  == '_blank'}">
+			             	 <div class="mnuall">
+			             	 <div class="lmnu1 lmnu">
+							<a style="color:#3768a4;" href="javascript:void window.open('${each.url }','',' left=0,top=0,width='+ (screen.availWidth - 10) +',height='+ (screen.availHeight-50) +',scrollbars,resizable=yes,toolbar=yes')"  onClick="changename('zyknr${allstatus.index}','${each.name }')"   >${each.name }</a>
+							</div>
+			           		 </div>
+							</c:if>
+							
+							<c:if test="${each.openType  == 'panel'}">
+			             	 <div class="mnuall">
+			             	 <div class="lmnu1 lmnu">
+							<a style="color:#3768a4;" href="${each.url }"  onClick="changename('zyknr${allstatus.index}','${each.name }')"   target="ywzy${allstatus.index}" >${each.name }</a>
+							</div>
+			           		 </div>
+							</c:if>
+							
+							
+		            	</c:otherwise>
+		            
+		            </c:choose>
+		            </c:forEach>
+					
+		         </div>
+		         </div>
+		         <!--- -->
+		         <div class="lftmbtm"></div>
+		         </div>
+		         </div>
+		         
+		         <!---右-->
+		         <div class="rdiv flaY">
+		           <div class="rtop">
+		             <ul>
+		             <li class="topli1 topli" style="padding:0px 16px;" id="zyknr${allstatus.index}">${all[0].name }</li>
+		             </ul>
+		           </div>
+		           <div  class="rmdl" id="Rcont5">
+		                <iframe scrolling="auto" src="${all[0].url }" width="100%" height="500"  scrolling="no" frameBorder="no" id="ywzy${allstatus.index}" name="ywzy${allstatus.index}"></iframe> 
+		          		 <input type="hidden" id="input${allstatus.index}" value="${all[0].url }"> 
+		           </div>
+		           <div class="rbtom"></div>
+		         </div>
+		         <div class="cler"></div>
+		       </div>
+		       
+			</c:when>
+			
+			
+			
+			
+			<c:otherwise>
+				<div class="allcont" style="display:none;" >
+		     	<div class="flaZ zwid">
+		         <!--左-->
+		         <div class="flaZ lftmnu">
+		         <div class="lftmtop"></div>
+		         <div class="lftmmdl cdheight">
+		         <!-- -->
+		         <div class="tree">
+		            
+		            <c:forEach items="${all}" var="each" varStatus="index">
+		            	<c:choose>
+		            	<c:when test="${index.index  == 0 }">
+		            	<c:if test="${each.openType  == '_blank'}">
+			            	 <div class="mnuall">
+			             	 <div class="lmnu1 lmnu" style="margin-top:0px;">
+							<a style="color:#3768a4;" href="javascript:void window.open('${each.url }','',' left=0,top=0,width='+ (screen.availWidth - 10) +',height='+ (screen.availHeight-50) +',scrollbars,resizable=yes,toolbar=yes')" onClick="changename('zyknr${allstatus.index}','${each.name }')" target="ywzy${allstatus.index}">${each.name }</a>
+							</div>
+			           		 </div>
+			           	</c:if>
+			           	
+			           	<c:if test="${each.openType  == 'panel'}">
+			           	 	<div class="mnuall">
+			             	 <div class="lmnu1 lmnu" style="margin-top:0px;">
+							<a style="color:#3768a4;" href="${each.url }" onClick="changename('zyknr${allstatus.index}','${each.name }')" target="ywzy${allstatus.index}">${each.name }</a>
+							</div>
+			           		 </div>
+			           	</c:if>
+			           	
+			           		 
+			           		 
+		            	</c:when>
+		            	<c:otherwise>
+		            	
+		            	
+		            	   <c:if test="${each.openType  == '_blank'}">
+			             	 <div class="mnuall">
+			             	 <div class="lmnu1 lmnu">
+							<a style="color:#3768a4;" href="javascript:void window.open('${each.url }','',' left=0,top=0,width='+ (screen.availWidth - 10) +',height='+ (screen.availHeight-50) +',scrollbars,resizable=yes,toolbar=yes')"  onClick="changename('zyknr${allstatus.index}','${each.name }')"   <%-- target="ywzy${allstatus.index}" --%>>${each.name }</a>
+							</div>
+			           		 </div>
+							</c:if>
+							
+							<c:if test="${each.openType  == 'panel'}">
+			             	 <div class="mnuall">
+			             	 <div class="lmnu1 lmnu">
+							<a style="color:#3768a4;" href="${each.url }"  onClick="changename('zyknr${allstatus.index}','${each.name }')"    target="ywzy${allstatus.index}" >${each.name }</a>
+							</div>
+			           		 </div>
+							</c:if>
+			           		 
+			           		 
+		            	</c:otherwise>
+		            
+		            </c:choose>
+		            </c:forEach>
+		            
+					
+		         </div>
+		         </div>
+		         <!--- -->
+		         <div class="lftmbtm"></div>
+		         </div>
+		         </div>
+		         
+		         <!---右-->
+		         <div class="rdiv flaY">
+		           <div class="rtop">
+		             <ul>
+		             <li class="topli1 topli" style="padding:0px 16px;" id="zyknr${allstatus.index}">${all[0].name }</li>
+		             </ul>
+		           </div>
+		           <div  class="rmdl" id="Rcont5" >
+		                  <iframe scrolling="auto" src="#"   width="100%" height="500"  scrolling="no" frameBorder="no" id="ywzy${allstatus.index}" name="ywzy${allstatus.index}"></iframe>    
+		         			 <input type="hidden" id="input${allstatus.index}" value="${all[0].url }"> 
+		           </div>
+		           <div class="rbtom"></div>
+		         </div>
+		         <div class="cler"></div>
+		       </div>
+			</c:otherwise>
+		</c:choose>
+	   </c:forEach>
+    </div>
+</div>
+</body>
+</html>

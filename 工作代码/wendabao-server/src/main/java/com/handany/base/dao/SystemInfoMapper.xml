@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+ <mapper namespace="com.handany.base.dao.SystemInfoMapper">
+ 	<resultMap type="com.handany.base.model.PmSysInfo" id="Base_Result_Map">
+ 		<result column="version" jdbcType="VARCHAR" property="version" />
+ 		<result column="deviceType" jdbcType="CHAR" property="deviceType" />
+ 		<result column="download_url" jdbcType="VARCHAR" property="downloadUrl" />
+ 		<result column="force_update" jdbcType="CHAR" property="forceUpdate" />
+ 		<result column="server_url" jdbcType="VARCHAR" property="serverUrl" />
+ 		<result column="image_url" jdbcType="VARCHAR" property="imageUrl" />
+ 		<result column="cust_service_phone" jdbcType="VARCHAR" property="custServicePhone" />
+ 		<result column="cust_service_mail" jdbcType="VARCHAR" property="custServiceMail" />
+ 		<result column="startup_img_url" jdbcType="VARCHAR" property="startupImgUrl" />
+ 		<result column="publishDate" jdbcType="CHAR" property="publishDate" />
+ 	</resultMap>
+     <select id="getCurrentSystemInfo" parameterType="string" resultType="java.util.Map">
+         select * from Pm_Sys_Info p where deviceType=#{_parameter} order by VERSION desc limit 0 , 1
+     </select>
+     
+     <select id="getAllSystemInfo" parameterType="map" resultMap="Base_Result_Map">
+     	select * from Pm_Sys_Info s where 1 = 1
+     	<if test="deviceType != null">
+     		deviceType = #{deviceType}
+     	</if>
+     	order by VERSION desc
+     </select>
+     
+     <update id="saveSystemInfo">
+     	insert into Pm_Sys_Info(version,deviceType,download_url,force_update,server_url,
+     	image_url,cust_service_phone,cust_service_mail,startup_img_url,publishDate)
+     	values(
+     		#{version},#{deviceType},#{downloadUrl},#{forceUpdate},#{serverUrl},#{imageUrl},
+     		#{custServicePhone},#{custServiceMail},#{startupImgUrl},#{publishDate}
+     	) ON DUPLICATE KEY UPDATE
+     	<if test="downloadUrl != null">
+     		download_url = #{downloadUrl},
+     	</if>
+     	<if test="forceUpdate != null">
+     		force_update = #{forceUpdate},
+     	</if>
+     	<if test="serverUrl != null">
+     		server_url = #{serverUrl},
+     	</if>
+     	<if test="imageUrl">
+     		image_url = #{imageUrl},
+     	</if>
+     	<if test="custServicePhone != null">
+     		cust_service_phone = #{custServicePhone},
+     	</if>
+     	<if test="custServiceMail != null">
+     		cust_service_mail = #{custServiceMail},
+     	</if>
+     	<if test="startupImgUrl != null">
+     		startup_img_url = #{startupImgUrl},
+     	</if>
+     	<if test="publishDate != null">
+     		publishDate = #{publishDate},
+     	</if>
+     	version = #{version},
+     	deviceType = #{deviceType}
+     </update>
+     
+     <select id="getSystemInfo" resultMap="Base_Result_Map">
+     	select * from Pm_Sys_Info where version = #{version} and deviceType=#{deviceType}
+     </select>
+ </mapper>

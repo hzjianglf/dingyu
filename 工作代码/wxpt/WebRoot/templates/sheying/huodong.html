@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />  <!--自适应宽度,并不允许缩放-->
+<script src="js/html5.js"></script>
+<script src="js/html5media.min.js"></script>
+<script src="js/wgw.gs.lib.min.js"></script>
+<script type="text/javascript">
+	function show(){
+		document.getElementById("overDiv").style.display = "block" ;
+		document.getElementById("dlDiv").style.display = "block" ;
+	}
+	function closeDiv(){
+		document.getElementById("overDiv").style.display = "none" ;
+		document.getElementById("dlDiv").style.display = "none" ;
+	}
+</script>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="css/m_style.css" rel="stylesheet" type="text/css" />
+<title>城色活动</title>
+</head>
+
+<body>
+<div class="top1">
+	<ul>
+		<li>微摄影大赛</li>
+	</ul>
+</div>
+<div class="line"> </div>
+<section  class="menu1">
+	<div style="width:5%; float:left;"><img src="images/left.gif"  class="menu1_img"></div>
+	<div style="width:93%; float:right;">
+		<ul>
+			<li><strong>王杰</strong></li>
+			<li class="menu_font">用心灵和眼睛发现美</li>
+			<li>
+				<div>
+					<nav class="navigation01" >
+					<div class="navBarL active" id="columnprev" onClick="goPrev();">				
+					<span ></span></div>
+					<div class="navBody" id="singleScroll">
+					<ul class="sc_scroller" id="singleScrollUl" style="width:6000px">
+						<li><span class="active" id="column1"><a onClick="show()"><img src="images/banner.jpg" width="30" height="30"></a></span></li>
+						<li><span class="active" id="column2"><a onClick="show()"><img src="images/banner.jpg" width="30" height="30"></a></span></li>
+						<li><span class="active" id="column3"><a onClick="show()"><img src="images/banner.jpg" width="30" height="30"></a></span></li>
+						<li><span class="active" id="column4"><a onClick="show()"><img src="images/banner.jpg" width="30" height="30"></a></span></li>
+						<li><span class="active" id="column5"><a onClick="show()"><img src="images/banner.jpg" width="30" height="30"></a></span>
+					</li>
+					</ul>
+					</div>
+					<div class="navBarR active" id="columnnext" onClick="goNext();">
+					<span ></span></div>
+					</nav>
+					<script type="text/javascript">
+					function setColumnWidth(){getTotalWidth("1");getTotalWidth("2");getTotalWidth("3");getTotalWidth("4");getTotalWidth("5");$("#singleScrollUl").css("width",ulwidth);		
+					}
+					</script>
+					</div> 
+				
+			</li>
+			<li class="menu_font">
+				<div class="menu_list1">2013.10.29</div>
+				<div class="menu_list2"><img src="images/zan.png">赞</div>
+			</li>
+		</ul>
+	</div>
+</section>
+<div class="line"> </div>
+
+
+
+
+<script type="text/javascript" src="js/qy_touch.js"></script>
+<script type="text/javascript" src="js/m_common.js"></script>
+<div id="dlDiv" style="display:none;">
+	<img src="images/banner.jpg" width="100%" height="300">	
+	<div style="margin-left:10px;"><img src="images/zan.png"><span style="color:#FFFFFF; font-size:12px;">赞 </span>
+	<a onClick="closeDiv()">返回</a>
+	</div>	
+</div>
+<div id="overDiv" style="display:none;"></div>
+</body>
+
+</html>

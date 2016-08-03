@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:osgi="http://www.springframework.org/schema/osgi"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/osgi http://www.springframework.org/schema/osgi/spring-osgi.xsd">
+
+   <osgi:reference id="entityManagerFactory" interface="javax.persistence.EntityManagerFactory" />
+   <osgi:reference id="transactionManager" interface="org.springframework.transaction.PlatformTransactionManager" />
+   <osgi:reference id="jpaDialect" interface="org.springframework.orm.jpa.JpaDialect" />
+    
+    <osgi:service ref="repositoryInfoDao" interface="net.risesoft.soa.asf.dao.RepositoryInfoDao" />
+    <osgi:service ref="serviceComponent2Dao" interface="net.risesoft.soa.asf.dao.ServiceComponent2Dao" />
+    <osgi:service ref="serviceComponentDao" interface="net.risesoft.soa.asf.dao.ServiceComponentDao" />
+    <osgi:service ref="serviceLogDao" interface="net.risesoft.soa.asf.dao.ServiceLogDao" />
+    <osgi:service ref="serviceModule2Dao" interface="net.risesoft.soa.asf.dao.ServiceModule2Dao" />
+    <osgi:service ref="serviceModuleDao" interface="net.risesoft.soa.asf.dao.ServiceModuleDao" />
+    
+    <osgi:service ref="serviceClient" interface="egov.appservice.asf.service.ServiceClient" />
+    <osgi:service ref="repositoryManager" interface="egov.appservice.asf.service.RepositoryManager" />
+    <osgi:service ref="thirdpartyServiceProcessor" interface="net.risesoft.soa.asf.core.thirdparty.ThirdpartyServiceProcessor" />
+    
+</beans>

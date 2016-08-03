@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />  <!--自适应宽度,并不允许缩放-->
+<script mce_src="html://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<script src="http://html5media.googlecode.com/svn/trunk/src/html5media.min.js"></script>
+<link rel="stylesheet" href="css/style.css" />
+<title>管理收货地址</title>
+</head>
+
+<body>
+	<header id="rcyp">
+		收货地址
+	</header>
+	<section class="text">
+		<p><span style="margin-left:5%;">收货人姓名</span></p>
+		<p><input type="text"></p>
+		<p><span style="margin-left:5%;">收货人地址</span></p>
+		<p><input type="text"></p>
+		<p><span style="margin-left:5%;">手机号码</span></p>
+		<p><input type="text"></p>
+		<p>
+			<div>
+				<input type="checkbox" name="checkbox" value="checkbox" style="width:30px; margin-left:5%">
+				<span style="color:#666666">自动保存收货地址（选择后改地址将会保存到您的收货地址列表）</span>			
+			</div>
+		</p>
+		<p><span style="margin-left:5%;">选择配送方式</span></p>
+		<p>
+			<div>
+				<input name="radiobutton" type="radio" style="width:30px; margin-left:5%" value="radiobutton" checked>
+				<span style="color:#666666">顺丰快递配送费用：<span style="color:#0099FF; font-weight:bold">￥12.00</span>省内1-3天到货，省外5-8天到货。</span>			
+			</div>
+			<div>
+				<input type="radio" name="radiobutton" value="radiobutton" style="width:30px; margin-left:5%">
+				<span style="color:#666666">线下取货配送费用：<span style="color:#0099FF; font-weight:bold">￥0.00</span></span>			
+			</div>
+		</p>
+		<p><span style="margin-left:5%;">给卖家的附言</span></p>
+		<p>
+		  <textarea onFocus="if(this.value=='选填，可以告诉卖家您对商品的特殊需求，如颜色，尺码等') {this.value='';}this.style.color='#ff0000';" style="margin-left:5%; width:85%; color:#666666">选填，可以告诉卖家您对商品的特殊需求，如颜色，尺码等</textarea>
+		</p>
+		<p>
+			<div style="background:#FFFFFF; width:85%; margin-left:5%; height:30px; padding-top:10px; padding-left:10px; font-family:微软雅黑;">
+				订单总价：<span style="color:#FF0000">￥40.00元</span>
+			</div>
+		</p>
+	</section>
+	<section>
+		<p><a href="fukuan.html"><input type="button" value="下单完成并支付"  class="button"></a></p>
+		<p><a href="shopcar.html"><input type="button" value="返回购物车"  class="button1"></a></p>
+	</section>
+	<div style="height:50px;"></div>
+	<footer>
+		<ul>
+			<li>
+				<div><img src="images/sy.png"  width="20" height="20"/></div>
+				<div style="margin-top:5px;"><a href="index.html">首页</a></div>
+			</li>
+			<li>
+				<div><img src="images/yz.png"  width="20" height="20"/></div>
+				<div style="margin-top:5px;"><a href="fenlei.html">我的银座</a></div>
+			</li>
+			<li>
+				<div><img src="images/shop.png"  width="20" height="20"/></div>
+				<div style="margin-top:5px;"><a href="login.html">购物车</a></div>
+			</li>
+			<li>
+				<div><img src="images/ss.png"  width="20" height="20"/></div>
+				<div style="margin-top:5px;"><a href="search.html">搜索</a></div>
+			</li>
+			<li>
+				<div><img src="images/more.png"  width="20" height="20"/></div>
+				<div style="margin-top:5px;"><a href="all.html">更多</a></div>
+			</li>
+		</ul>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,135 @@
+.asf-repo-node {
+    background-image: url(../images/asf/service-repo.png) !important;
+}
+
+.asf-repo2-node {
+    background-image: url(../images/asf/repo.png) !important;
+}
+
+.asf-module-node {
+    background-image: url(../images/asf/service-module.png) !important;
+}
+
+.asf-component-node {
+    background-image: url(../images/asf/service-comp.png) !important;
+}
+
+.asf-bundle-node {
+    background-image: url(../images/asf/bundle.png) !important;
+}
+
+.asf-monitor-node {
+    background-image: url(../images/asf/monitor.png) !important;
+}
+
+.asf-syslog-node {
+    background-image: url(../images/asf/syslog.png) !important;
+}
+
+.asf-bizlog-node {
+    background-image: url(../images/asf/bizlog.png) !important;
+}
+
+.asf-servicelog-node {
+    background-image: url(../images/asf/service-log.png) !important;
+}
+
+.asf-system-node {
+    background-image: url(../images/asf/system.png) !important;
+    background-repeat: no-repeat;
+}
+
+.asf-hibernate-node {
+    background-image: url(../images/asf/hibernate.png) !important;
+    background-repeat: no-repeat;
+}
+
+.asf-ssoinfo-node {
+    background-image: url(../images/icons/key.png) !important;
+    background-repeat: no-repeat;
+}
+
+.asf-save-icon {
+    background-image: url(../images/icons/save.png) !important;
+    background-repeat: no-repeat;
+}
+
+.asf-reset-icon {
+    background-image: url(../images/icons/reset.png) !important;
+    background-repeat: no-repeat;
+}
+
+.asf-wsdl-icon {
+    background-image: url(../images/asf/wsdl.gif) !important;
+    background-repeat: no-repeat;
+}
+
+.asf-download-icon {
+    background-image: url(../images/icons/download.png) !important;
+    background-repeat: no-repeat;
+}
+
+.asf-upload-icon {
+    background-image: url(../images/icons/upload.png) !important;
+    background-repeat: no-repeat;
+}
+
+.asf-refresh-icon {
+    background-image: url(../images/icons/arrow_refresh.png) !important;
+    background-repeat: no-repeat;
+}
+
+.asf-add-icon {
+    background-image: url(../images/icons/add.png) !important;
+    background-repeat: no-repeat;
+}
+
+.asf-delete-icon {
+    background-image: url(../images/icons/delete.png) !important;
+    background-repeat: no-repeat;
+}
+
+.asf-close-icon {
+    background-image: url(../images/close.png) !important;
+    background-repeat: no-repeat;
+}
+
+.asf-logout-icon {
+    background-image: url(../images/asf/logout.png) !important;
+    background-repeat: no-repeat;    
+}
+
+.asf-edit-icon {
+    background-image: url(../images/icons/edit.png) !important;
+    background-repeat: no-repeat;
+}
+
+.asf-save-icon {
+    background-image: url(../images/icons/save.png) !important;
+    background-repeat: no-repeat;
+}
+
+.asf-query-icon {
+    background-image: url(../images/icons/query.png) !important;
+    background-repeat: no-repeat;
+}
+
+.asf-service-comp-icon {
+    background-image: url(../images/asf/service-comp.png) !important;
+    background-repeat: no-repeat;
+}
+
+.asf-service-operate-icon {
+    background-image: url(../images/asf/operate.gif) !important;
+    background-repeat: no-repeat;
+}
+
+.asf-sysmgr-icon {
+    background-image: url(../images/icons/cog.png) !important;
+    background-repeat: no-repeat;
+}
+
+.asf-service-icon {
+    background-image: url(../images/icons/link.png) !important;
+    background-repeat: no-repeat;
+}

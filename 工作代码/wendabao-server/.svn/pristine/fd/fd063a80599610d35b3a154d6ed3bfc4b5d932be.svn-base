@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" 
+	id="WebApp_ID" version="3.0">    <!-- Spring -->
+    <!-- 配置Spring配置文件路径 -->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>
+            classpath*:applicationContext.xml
+        </param-value>
+    </context-param>
+    <!-- 配置Spring上下文监听器 -->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    <!-- Spring -->
+
+    <!-- 配置Spring字符编码过滤器 -->
+    <filter>
+        <filter-name>encodingFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+        <init-param>
+            <param-name>forceEncoding</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+    <filter>
+    	<filter-name>domainFilter</filter-name>
+    	<filter-class>com.handany.base.filter.DomainFilter</filter-class>
+    </filter>
+    <filter>
+    	<filter-name>resourceFilter</filter-name>
+    	<filter-class>com.handany.base.filter.ResourceFilter</filter-class>
+    </filter>
+    <filter>
+    	<filter-name>fileUploadFilter</filter-name>
+    	<filter-class>com.handany.base.filter.FileUploadFilter</filter-class>
+    	<init-param>
+    	<!-- 临时保存路径 -->
+    		<param-name>tmpFilePath</param-name>
+    		<param-value>/data/tmpFiles</param-value>
+    	</init-param>
+    	<init-param>
+    	<!-- 文件保存路径 -->
+    		<param-name>fileSavePath</param-name>
+    		<param-value>/data/images</param-value>
+    	</init-param>
+    	<init-param>
+    	<!-- 最大上传M数 -->
+    		<param-name>sizeMax</param-name>
+    		<param-value>5</param-value>
+    	</init-param>
+    </filter>
+     <filter>
+    	<description>
+    	</description>
+    	<display-name>LoginFilter</display-name>
+    	<filter-name>LoginFilter</filter-name>
+    	<filter-class>com.handany.rbac.filter.LoginFilter</filter-class>
+    	<init-param>
+    		<param-name>loginUrl</param-name>
+    		<param-value>/login.jsp</param-value>
+    	</init-param>
+    	<init-param>
+    		<param-name>excludeUrl</param-name>
+    		<param-value>/pm/user/forgetPwd.do,/pm/user/login.do,/pm/user/register.do,/pm/user/mustlogin.do,/pm/verifycode.do,/pm/user/getVerifyCode.do,/sys/sysInfo.do,/pm/register.do,/pm/user/findPassword.do</param-value>
+    	</init-param>
+    </filter> 
+    
+    
+    <filter-mapping>
+        <filter-name>domainFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    
+    <filter-mapping>
+        <filter-name>encodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    
+    <filter-mapping>
+    	<filter-name>resourceFilter</filter-name>
+    	 <url-pattern>*.do</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+    	<filter-name>resourceFilter</filter-name>
+    	 <url-pattern>*.jsp</url-pattern>
+    </filter-mapping>
+    
+
+
+    <!-- 文件上传过滤应在登录过滤之前，否则对于上传form提交取不到tokenId -->
+    <filter-mapping>
+    	<filter-name>fileUploadFilter</filter-name>
+    	 <url-pattern>*.do</url-pattern>
+    </filter-mapping>
+    
+	<filter-mapping>
+    	<filter-name>LoginFilter</filter-name>
+    	<url-pattern>*.do</url-pattern>
+    </filter-mapping>
+
+    <!-- 配置log4j配置文件路径 -->
+    <context-param>
+        <param-name>log4jConfigLocation</param-name>
+        <param-value>classpath:log4j.properties</param-value>
+    </context-param>
+
+
+	<servlet>
+		<servlet-name>startup</servlet-name>
+		<servlet-class>com.handany.base.servlet.StartupServlet</servlet-class>
+		
+		<load-on-startup>0</load-on-startup>
+	</servlet>
+
+    <!-- Spring MVC 核心控制器 DispatcherServlet 配置 -->
+    <servlet>
+        <servlet-name>dispatcher</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath*:spring-mvc.xml</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>dispatcher</servlet-name>
+        <!-- 拦截所有/rest/* 的请求,交给DispatcherServlet处理,性能最好 -->
+        <url-pattern>*.do</url-pattern>
+    </servlet-mapping>
+    
+   
+    
+
+    <!-- 首页 -->
+    <welcome-file-list>
+
+        <welcome-file>login.html</welcome-file>
+
+    </welcome-file-list>
+ 
+
+    <!-- 错误页 -->
+   
+    <error-page>
+        <error-code>404</error-code>
+        <location>/404.html</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/500.html</location>
+    </error-page>
+</web-app>

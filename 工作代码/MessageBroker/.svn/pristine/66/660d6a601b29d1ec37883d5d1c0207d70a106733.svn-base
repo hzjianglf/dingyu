@@ -1,0 +1,49 @@
+/* 
+/* begin_generated_IBM_copyright_prolog                            */
+/* 
+ * Licensed Materials - Property of IBM 
+ * 
+ * 5724-N72 5655-W17
+ * 
+ * (c) Copyright IBM Corp. 2006, 2009 All Rights Reserved 
+ * 
+ * US Government Users Restricted Rights - Use, duplication or 
+ * disclosure restricted by GSA ADP Schedule Contract with 
+ * IBM Corp. 
+ */
+/* end_generated_IBM_copyright_prolog                              */
+
+html>body .leftcolumn
+{
+  display: block;
+}
+* html .leftcolumn .inside
+{
+  display: block;
+}
+.leftcolumn
+{
+  float: left;
+  overflow: visible;
+  position: relative;
+  z-index: 10;
+  height: 100%;
+}
+.leftcolumn
+{
+  margin: 0 1px 0 -225px;
+  width: 225px;
+}
+
+.outercolumncontainer
+{
+  border-left-width: 225px;
+}
+
+.innercolumncontainer
+{
+  margin-left: -1px;
+  border-left-width: 1px;
+  width: 100%;
+  z-index: 2;
+}

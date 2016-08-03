@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>感恩节贺卡</title>
+<link rel="stylesheet" type="text/css" href="css/card.css">
+</head>
+<body>
+	<input type="hidden" name="interface_msg" id="i_uid" />
+	<input type="hidden" name="interface_msg" id="i_type" />
+	<div class="wap cardWrap">
+		<div class="hot">
+			<p>点击文字可直接编辑，按底部按钮发送</p>
+		</div>
+		<div class="mainBox">
+			<div class="wish-box">
+				<div class="user">
+					<div class="wish-txt">
+						<textarea class="content" id="s_content">成长的岁月里有烦恼有快乐，前进的道路上有荆棘有花朵，脑海的印记中有慢曲有欢歌。你生日里，有我的祝福和问候：生日快乐！</textarea>
+					</div>
+					<div class="wish-sign">
+						<div class="li-h">
+							<input type="text" value="小兔崽子" class="f-name" id="f_name"
+								placeholder="" />
+						</div>
+						<div class="li-h">
+							<span class="time">2013/11/21</span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- btn发送贺卡 -->
+			<div class="sendBtn-box">
+				<a class="sendBtn" id="btn_send_card">发送贺卡</a>
+			</div>
+			<!-- /btn发送贺卡 -->
+
+		</div>
+	</div>
+	<div class="box-guide hide">
+		<div class="box-img">
+			<img src="/wxpt/sendCard/images/guide-1.png" data-pinit="registered">
+		</div>
+	</div>
+	<div id="prompt" class="prompt fn-hide">
+		<dl>
+			<dt>
+				<div class="tle">确认提示</div>
+			</dt>
+			<dd>
+				<p></p>
+			</dd>
+			<dd id="prompt-close">
+				<a class="btn btn-green btn-prompt">确定</a>
+			</dd>
+		</dl>
+	</div>
+	<div id="share-shadow" class="shade"></div>
+	<script type="text/javascript" src="js/zepto-min.js"></script>
+	<script type="text/javascript" src="js/config.js"></script>
+	<script type="text/javascript" src="js/comment.js"></script>
+	<script type="text/javascript" src="js/cards.js"></script>
+</body>
+</html>

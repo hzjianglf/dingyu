@@ -1,0 +1,3 @@
+#Broker Control Commands
+StartBroker=startbroker.bat
+StopBroker=stopbroker.bat

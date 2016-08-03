@@ -1,0 +1,24 @@
+log4j.rootLogger=INFO, A1, A2
+
+# Appender Output writes to the file "ftelogger".
+log4j.appender.A1 = org.apache.log4j.RollingFileAppender
+#log4j.appender.A1 = org.apache.log4j.FileAppender
+log4j.appender.A1.File= logs/agentInfo.log
+log4j.appender.A1.MaxFileSize = 512KB
+log4j.appender.A1.MaxBackupIndex = 3
+log4j.appender.A1.Append=true
+# Appender A1 uses the PatternLayout.
+log4j.appender.A1.layout=org.apache.log4j.PatternLayout
+log4j.appender.A1.layout.ConversionPattern= [%d{yyyy-MM-dd hh:mm:ss,SSS}] %p %c - %m%n
+
+
+# 保存异常信息到单独文件
+log4j.appender.A2 = org.apache.log4j.DailyRollingFileAppender
+log4j.appender.A2.File = logs/agentErr.log
+#log4j.appender.A2.DatePattern='.'yyyy-MM-dd 
+log4j.appender.A2.Append = true
+log4j.appender.A2.Threshold = ERROR
+log4j.appender.A2.MaxFileSize = 512KB
+log4j.appender.A2.MaxBackupIndex = 3
+log4j.appender.A2.layout = org.apache.log4j.PatternLayout
+log4j.appender.A2.layout.ConversionPattern = [%d{yyyy-MM-dd hh:mm:ss,SSS}] %p %c(%L) - %m%n

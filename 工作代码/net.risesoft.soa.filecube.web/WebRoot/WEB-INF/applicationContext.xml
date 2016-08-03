@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:context="http://www.springframework.org/schema/context"
+   xmlns:osgi="http://www.springframework.org/schema/osgi"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+      http://www.springframework.org/schema/osgi http://www.springframework.org/schema/osgi/spring-osgi.xsd">
+		  
+    <!-- service的配置 -->
+   	<osgi:reference id="fileInfoService" interface="net.risesoft.soa.filecube.service.FileService"/>
+   	<osgi:reference id="folderService" interface="net.risesoft.soa.filecube.service.FolderService"/>
+   	<osgi:reference id="attachmentService" interface="net.risesoft.soa.filecube.service.AttachmentService" />   
+   	<osgi:reference id="commentaryService" interface="net.risesoft.soa.filecube.service.CommentaryService" />   
+	<osgi:reference id="favoritesService" interface="net.risesoft.soa.filecube.service.FavoritesService" />
+	<osgi:reference id="shareService" interface="net.risesoft.soa.filecube.service.ShareService" />
+	<osgi:reference id="openHistoryService" interface="net.risesoft.soa.filecube.service.OpenHistoryService" />
+	<osgi:reference id="queryHistoryService" interface="net.risesoft.soa.filecube.service.QueryHistoryService" />	
+	<osgi:reference id="dimensionService" interface="net.risesoft.soa.filecube.service.DimensionService" />
+	<osgi:reference id="permissionService" interface="net.risesoft.soa.filecube.service.PermissionService" />
+	
+	<osgi:reference id="logService" interface="net.risesoft.soa.filecube.service.LogService" />
+	<osgi:reference id="orgTreeUtil" interface="net.risesoft.soa.filecube.service.util.OrgTreeUtil" />
+	
+	<context:annotation-config/>
+	<context:component-scan base-package="net.risesoft.soa.filecube.web.action"/>
+</beans>

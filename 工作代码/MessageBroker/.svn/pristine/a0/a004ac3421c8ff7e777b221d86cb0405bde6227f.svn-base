@@ -1,0 +1,13 @@
+<Root><Properties><MessageSet>FJZY_WS_Esb_MS</MessageSet><MessageType/><MessageFormat/><Encoding>546</Encoding><CodedCharSetId>1208</CodedCharSetId><Transactional>false</Transactional><Persistence>false</Persistence><CreationTime>2012-02-27T15:57:58.619</CreationTime><ExpirationTime>-1</ExpirationTime><Priority>0</Priority><ReplyIdentifier>000000000000000000000000000000000000000000000000</ReplyIdentifier><ReplyProtocol>SOAP-AXIS2</ReplyProtocol><Topic/><ContentType>text/xml;charset=UTF-8</ContentType><IdentitySourceType/><IdentitySourceToken/><IdentitySourcePassword/><IdentitySourceIssuedBy/><IdentityMappedType/><IdentityMappedToken/><IdentityMappedPassword/><IdentityMappedIssuedBy/></Properties><HTTPInputHeader><X-Original-HTTP-Command>POST http://127.0.0.1:7800/FJZYInterfaceWeb/sca/EsbInterfaceExport1 HTTP/1.1</X-Original-HTTP-Command><Accept-Encoding>gzip,deflate</Accept-Encoding><Content-Type>text/xml;charset=UTF-8</Content-Type><SOAPAction>""</SOAPAction><User-Agent>Jakarta Commons-HttpClient/3.1</User-Agent><Host>127.0.0.1:7800</Host><Content-Length>1748</Content-Length><X-Remote-Addr>127.0.0.1</X-Remote-Addr><X-Remote-Host>127.0.0.1</X-Remote-Host><X-Server-Name>127.0.0.1</X-Server-Name><X-Server-Port>7800</X-Server-Port><X-Query-String/></HTTPInputHeader><XMLNSC><NS1:Envelope xmlns:NS1="http://schemas.xmlsoap.org/soap/envelope/"><NS1:Body><NS2:Finance1 xmlns:NS2="http://FJZYInterface/Finance1"><input1><Head><Id>3243</Id><Name>月度生产计划</Name><Source>PROD</Source><Target>PDM</Target><SerName>Finance1</SerName><MsgType>1</MsgType><RtCode>0</RtCode><RtDesc>?</RtDesc><Backup1>?</Backup1><Backup2>?</Backup2><Backup3>?</Backup3><Date>?</Date><Attrs><Attr>?</Attr></Attrs></Head><Data><![CDATA[
+
+	<TABLE TABLENAME='MPP_M' FIELDNAME1='年度' FIELDNAME2=月份'  FIELDNAME3='计划日期'  FIELDNAME4='计划类型'  FIELDNAME5='备注' >
+		<ROW ID='1011' FIELDNAME1='2009' FIELDNAME2='10' FIELDNAME3='2009-09-25' FIELDNAME4='调整计划'  FIELDNAME5=' '>
+		<TABLE TABLENAME=' MPP_D ' FIELDNAME1='生产点' FIELDNAME2='卷烟牌号' FIELDNAME3=计划数量' >
+		<ROW ID='101101' FIELDNAME1='23002' FIELDNAME2='12301' FIELDNAME3='18.12' />
+		<ROW ID='101102' FIELDNAME1='23002' FIELDNAME2='12302' FIELDNAME3='28' />
+		<ROW ID='101103' FIELDNAME1='23003' FIELDNAME2='12301' FIELDNAME3='120' >
+		</TABLE>
+		</ROW>
+	</TABLE>
+ 
+           ]]></Data></input1></NS2:Finance1></NS1:Body></NS1:Envelope></XMLNSC></Root>

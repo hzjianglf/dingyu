@@ -1,0 +1,1 @@
+({"rangeMessage":"Bu de\x{011f}er aral\x{0131}k d\x{0131}\x{015f}\x{0131}nda.","invalidMessage":"Girilen de\x{011f}er ge\x{00e7}ersiz.","missingMessage":"Bu de\x{011f}er gerekli."})

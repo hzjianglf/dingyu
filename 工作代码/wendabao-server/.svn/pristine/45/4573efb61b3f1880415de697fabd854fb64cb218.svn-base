@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.handany.bm.dao.BmTeacherMapper">
+    <resultMap id="BaseResultMap" type="com.handany.bm.model.BmTeacher">
+            <result column="id" jdbcType="CHAR" property="id" />
+            <result column="user_id" jdbcType="CHAR" property="userId" />
+            <result column="name" jdbcType="VARCHAR" property="name" />
+            <result column="gender" jdbcType="CHAR" property="gender" />
+            <result column="age" jdbcType="VARCHAR" property="age" />
+            <result column="school" jdbcType="VARCHAR" property="school" />
+            <result column="certificate_no" jdbcType="CHAR" property="certificateNo" />
+            <result column="certificate_pic" jdbcType="CHAR" property="certificatePic" />
+            <result column="course" jdbcType="VARCHAR" property="course" />
+            <result column="intro" jdbcType="VARCHAR" property="intro" />
+            <result column="school_age" jdbcType="DECIMAL" property="schoolAge" />
+            <result column="status" jdbcType="CHAR" property="status" />
+            <result column="user_pic" jdbcType="VARCHAR" property="userPic" />
+            <result column="grade" jdbcType="CHAR" property="grade" />
+            <result column="star" jdbcType="DECIMAL" property="star" />
+            <result column="resume" jdbcType="VARCHAR" property="resume" />
+            <result column="region1" jdbcType="VARCHAR" property="region1" />
+            <result column="region2" jdbcType="VARCHAR" property="region2" />
+            <result column="region3" jdbcType="VARCHAR" property="region3" />
+            <result column="region1_txt" jdbcType="VARCHAR" property="region1Txt" />
+            <result column="region2_txt" jdbcType="VARCHAR" property="region2Txt" />
+            <result column="region3_txt" jdbcType="VARCHAR" property="region3Txt" />
+            <result column="last_modified" jdbcType="TIMESTAMP" property="lastModified" />
+            <result column="last_user" jdbcType="CHAR" property="lastUser" />
+            <result column="approval_info" jdbcType="VARCHAR" property="approvalInfo" />
+    </resultMap>
+    
+    <resultMap id="TeacherResultMap" type="com.handany.bm.model.BmTeacher">
+	        <result column="id" jdbcType="CHAR" property="id" />
+	        <result column="user_id" jdbcType="CHAR" property="userId" />
+	        <result column="name" jdbcType="VARCHAR" property="name" />
+	        <result column="gender" jdbcType="CHAR" property="gender" />
+	        <result column="age" jdbcType="VARCHAR" property="age" />
+	        <result column="school" jdbcType="VARCHAR" property="school" />
+	        <result column="certificate_no" jdbcType="CHAR" property="certificateNo" />
+	        <result column="certificate_pic" jdbcType="CHAR" property="certificatePic" />
+	        <result column="course" jdbcType="VARCHAR" property="course" />
+	        <result column="intro" jdbcType="VARCHAR" property="intro" />
+	        <result column="school_age" jdbcType="DECIMAL" property="schoolAge" />
+	        <result column="status" jdbcType="CHAR" property="status" />
+	        <result column="user_pic" jdbcType="VARCHAR" property="userPic" />
+	        <result column="grade" jdbcType="CHAR" property="grade" />
+	        <result column="star" jdbcType="DECIMAL" property="star" />
+	        <result column="resume" jdbcType="VARCHAR" property="resume" />
+	        <result column="region1" jdbcType="VARCHAR" property="region1" />
+	        <result column="region2" jdbcType="VARCHAR" property="region2" />
+	        <result column="region3" jdbcType="VARCHAR" property="region3" />
+	        <result column="region1_txt" jdbcType="VARCHAR" property="region1Txt" />
+	        <result column="region2_txt" jdbcType="VARCHAR" property="region2Txt" />
+	        <result column="region3_txt" jdbcType="VARCHAR" property="region3Txt" />
+	        <result column="last_modified" jdbcType="TIMESTAMP" property="lastModified" />
+	        <result column="last_user" jdbcType="CHAR" property="lastUser" />
+	        <result column="approval_info" jdbcType="VARCHAR" property="approvalInfo" />
+            <association property="user" column="user_id" select="queryUser"></association>
+    </resultMap>
+    
+    <resultMap type="com.handany.rbac.model.PmUser" id="UserResultMap">
+    	<result column="id" jdbcType="CHAR" property="id"/>
+	    <result column="login_name" property="loginName" />
+	    <result column="name" property="name" />
+	    <result column="mobile" property="mobile" />   
+	    <result column="status" property="status" />
+	    <result column="user_type" property="userType" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+            id,
+            user_id,
+            name,
+            gender,
+            age,
+            school,
+            certificate_no,
+            course,
+            intro,
+            school_age,
+            status,
+            grade,
+            star,
+            resume,
+            region1,
+            region2,
+            region3,
+            region1_txt,
+            region2_txt,
+            region3_txt,
+            last_modified,
+            last_user,
+            approval_info
+    </sql>
+
+    <sql id="Select_Column_List">
+            id,
+            user_id,
+            name,
+            gender,
+            age,
+            school,
+            certificate_no,
+            course,
+            intro,
+            school_age,
+            status,
+            grade,
+            star,
+            resume,
+            region1,
+            region2,
+            region3,
+            last_modified,
+            last_user,
+            approval_info
+    </sql>
+    
+    <sql id="UserColumnList">
+    	id,
+    	last_modified,
+    	login_name,
+    	mobile,
+    	name,
+    	user_type
+    </sql>
+
+	<select id="queryByUserId" parameterType="string" resultMap="BaseResultMap">
+		select
+		<include refid="Select_Column_List"/>, 
+		(select url from Bm_Picture p where p.relate_id = t.user_id and p.type="userHeader" and p.status = '1') as user_pic,
+		(select url from Bm_Picture p where p.relate_id = t.user_id and p.type="userCertificate" and p.status = '1') as certificate_pic,
+		(select name from Bm_Region r1 where r1.code = t.region1) as region1_txt,
+		(select name from Bm_Region r2 where r2.code = t.region2) as region2_txt,
+		(select name from Bm_Region r3 where r3.code = t.region3) as region3_txt
+		from Bm_Teacher t
+		where user_id = #{userId}
+	</select>
+	
+	<select id="queryById" parameterType="string" resultMap="TeacherResultMap">
+		select
+		<include refid="Select_Column_List"/>, 
+		(select url from Bm_Picture p where p.relate_id = t.user_id and p.type="userHeader" and p.status = '1') as user_pic,
+		(select url from Bm_Picture p where p.relate_id = t.user_id and p.type="userCertificate" and p.status = '1') as certificate_pic,
+		(select name from Bm_Region r1 where r1.code = t.region1) as region1_txt,
+		(select name from Bm_Region r2 where r2.code = t.region2) as region2_txt,
+		(select name from Bm_Region r3 where r3.code = t.region3) as region3_txt
+		from Bm_Teacher t
+		where id = #{id}
+	</select>
+	
+	<insert id="saveTeacher" parameterType="com.handany.bm.model.BmTeacher">
+		insert into Bm_Teacher(
+		<include refid="Base_Column_List"/>
+		)
+  	values(#{id},#{userId},#{name},#{gender},#{age},#{school},
+  		#{certificateNo},#{course},#{intro},#{schoolAge},#{status},#{grade},#{star},#{resume},
+  		#{region1},#{region2},#{region3},#{region1Txt},
+  		#{region2Txt},#{region3Txt},#{lastModified},#{lastUser},#{approvalInfo})
+    ON DUPLICATE KEY UPDATE
+	    <if test="userId != null">
+    	user_id = #{userId},
+    	</if>
+    	<if test="name != null">
+    	name = #{name},
+    	</if>
+    	<if test="gender != null">
+    	gender = #{gender},
+    	</if>
+    	<if test="age != null">
+    	age = #{age},
+    	</if>
+    	<if test="school != null">
+    	school = #{school},
+    	</if>
+    	<if test="certificateNo != null">
+    	vertificate_no = #{certificateNo},
+    	</if>
+    	<if test="course != null">
+    	course = #{course},
+    	</if>   	
+    	<if test="intro != null">
+    	intro = #{intro},
+    	</if>   	
+    	<if test="schoolAge != null">
+    	school_age = #{schoolAge},
+    	</if>   	
+    	<if test="status != null">
+    	status = #{status},
+    	</if> 	
+    	<if test="grade != null">
+    	grade = #{grade},
+    	</if>   	
+    	<if test="star != null">
+    	star = #{star},
+    	</if>   	
+    	<if test="resume != null">
+    	resume = #{resume},
+    	</if>   	
+    	<if test="lastUser != null">
+    	last_user = #{lastUser},
+    	</if>
+    	<if test="region1 != null">
+    	region1 = #{region1},
+    	</if>   	
+    	<if test="region2 != null">
+    	region2 = #{region2},
+    	</if>
+    	<if test="region3 != null">
+    	region3 = #{region2},
+    	</if>   	
+    	<if test="region1Txt != null">
+    	region1_txt = #{region1Txt},
+    	</if> 	
+    	<if test="region2Txt != null">
+    	region2_txt = #{region2Txt},
+    	</if>   	
+    	<if test="region3Txt != null">
+    	region3_txt = #{region3Txt},
+    	</if>
+    	<if test="approvalInfo != null">
+    	approval_info = #{approvalInfo},
+    	</if> 		
+    	last_modified = #{lastModified}
+	</insert>
+	
+	<update id="saveApprovalInfo" parameterType="com.handany.bm.model.BmTeacher">
+		update Bm_Teacher set
+		approval_info = #{approvalInfo},
+		status = #{status},
+		last_modified = #{lastModified},
+		last_user = #{lastUser}
+		where user_id = #{userId}
+	</update>
+	
+	<select id="queryTeachers" parameterType="map" resultMap="TeacherResultMap">
+		select
+		<include refid="Select_Column_List"/>, 
+		(select url from Bm_Picture p where p.relate_id = t.user_id and p.type="userHeader" and p.status = '1') as user_pic,
+		(select url from Bm_Picture p where p.relate_id = t.user_id and p.type="userCertificate" and p.status = '1') as certificate_pic,
+		(select name from Bm_Region r1 where r1.code = t.region1) as region1_txt,
+		(select name from Bm_Region r2 where r2.code = t.region2) as region2_txt,
+		(select name from Bm_Region r3 where r3.code = t.region3) as region3_txt
+		from Bm_Teacher t where 1 = 1
+		<if test="status != null and status != '' ">
+			and status = #{status}
+		</if>
+		<if test="region1 != null and region1 != ''">
+			and region1 = #{region1}
+		</if>
+		<if test="region2 != null and region2 != ''">
+			and region2 = #{region2}
+		</if>
+		<if test="region3 != null and region3 != ''">
+			and region3 = region3
+		</if>
+		<if test="name != null and name != '' ">
+			and name  LIKE CONCAT('%', #{name}, '%')
+		</if>
+		<if test="mobile != null and mobile != ''">
+			and exists (select id from Pm_User u where u.id = t.user_id and login_name = #{mobile})
+		</if>
+		order by last_modified desc
+	</select>
+	
+	<select id="queryUser" resultMap="UserResultMap">
+		select <include refid="UserColumnList"></include> from Pm_User where id = #{id}
+	</select>
+</mapper>

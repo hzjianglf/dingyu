@@ -1,0 +1,215 @@
+@CHARSET "UTF-8";
+.main{
+	width:990px;
+	margin:0 auto;
+	background: #F7F7F7;
+	background: url("imgs/leftboxbg.png");
+}
+.breadcrumb{
+	background-color: #F1F1F1;
+	margin-bottom: 5px;
+	height: 36px;
+}
+.leftbox{
+	margin-right:15px;
+	width: 660px;
+	float: left;
+	border:1px solid #DDD;
+	margin-left: 2px;
+	border-radius:4px;
+	padding-top: 10px;
+	padding-bottom:10px;
+	background: #FFF;
+	margin-bottom: 20px;
+}
+.persondiv{
+	width: 630px;
+	margin: 0 auto;
+	margin-bottom: 10px;
+}
+
+.persondiv ul>li{
+	position:relative;
+	width: 200px;
+	height:200px;
+	margin-left:5px;
+	margin-right:5px;
+	float: left;
+	text-align: center;
+}
+.persondiv ul>li .person{
+	position:absolute;
+	width: 200px;
+	height:190px;
+	margin: 0 auto;
+	border-bottom: 1px dotted #DDD;
+}
+.person img{
+	width: 140px;
+	height:140px;
+	display: block;
+	margin: 5px auto;
+	border-radius:50%; 
+	cursor: pointer;
+}
+.imgbg{
+	position: absolute;
+	left: 30px;
+	top:5px;
+	width: 140px;
+	height:140px;
+	z-index: 2;
+	cursor: pointer;
+	background: url("imgs/logobg1.png") center no-repeat;
+}
+.imgbg:hover{
+	background: url("imgs/logobg2.png") center no-repeat;
+}
+.imgbg:active{
+	background: url("imgs/logobg2.png") center no-repeat;
+}
+.person .name{
+	display: block;
+	width: 200px;
+	margin: 0 auto;
+	color:#399ee6;
+	font-size:16px;
+}
+.name:hover{
+	color:#ea6103;
+	font-weight: 600;
+}
+
+
+
+.rightbox{
+	width: 310px;
+	float:left;
+	padding: 0;
+	margin-bottom: 20px;
+}
+
+.pyindexbox{
+	width: 308px;
+	height:163px;
+	background:#FFF;
+	margin:0 auto;
+	margin-bottom:15px;
+	border:1px solid #DDD;
+	border-radius:4px;
+}
+.title{
+	border-bottom: 1px solid #DDD;
+	height:30px;
+	line-height:30px;
+	width: 100%;
+	padding-left:10px;
+	font-size:14px;
+	font-weight: 700;
+}
+.pyitems{
+	padding: 10px;
+}
+.pyitems a{
+	float: left;
+	display: block;
+	width: 30px;
+	margin: 5px;
+	height:20px;
+	line-height: 20px;
+	text-align: center;
+	color:#333;
+	font-size: 14px;
+	font-weight: bold;
+}
+.pyitems a:hover{
+	background: #333;
+	color:#FFF;
+}
+.pyitems a.active{
+	background: #333;
+	color:#FFF;
+}
+.nameindexbox{
+	width: 308px;
+	min-height:280px;
+	background:#FFF;
+	margin:0 auto;
+	margin-bottom:15px;
+	border:1px solid #DDD;
+	border-radius:4px;
+}
+
+.rwitems{
+	padding: 10px;
+}
+.rwitems a{
+	float: left;
+	display: block;
+	width: 80px;
+	margin: 5px;
+	height:20px;
+	line-height: 20px;
+	text-align: center;
+	color:#333;
+	font-size: 14px;
+	font-weight: bold;
+}
+.rwitems a:hover{
+	background: #333;
+	color:#FFF;
+}
+
+.articlebox{
+	width: 308px;
+	min-height:200px;
+	background:#FFF;
+	margin:0 auto;
+	border-radius:4px;
+	border:1px solid #DDD;
+}
+.more{
+	position: relative;
+	right:-185px;
+	font-size:12px;
+	font-weight: normal;
+}
+.articlebox .list{
+	padding-top:15px;
+	padding-left:5px;
+	border-top: 2px solid #333;
+}
+
+.list ul>li{
+	height:22px;
+	line-height:22px;
+	font-size:14px;
+	padding:0 10px;
+	margin-bottom: 10px;
+	width:280px;
+	overflow: hidden;
+	white-space:nowrap;
+	text-overflow: ellipsis;
+}
+.list  .listnum{
+	display:inline-block;
+	height:18px;
+	width:20px;
+	line-height:18px;
+	font-size:12px;
+	line-height: 20px;
+	margin-right: 10px;
+	text-align: center;
+	color:#333;
+	border-right: 1px solid #aaa;
+}
+.list  .listnum:FIRST-CHILD{
+	
+}
+.list ul>li a{
+	color: #333;
+	max-width:250px;
+}
+.list ul>li a:hover{
+	color:#ea6103;
+}

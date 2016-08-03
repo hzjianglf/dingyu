@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>产品展示</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" /> 
+<script type="text/javascript" src="js/wgw.gs.lib.min.js"></script>
+<link href="css/style.css" rel="stylesheet"/>
+<link href="css/m_style.css" rel="stylesheet"/>
+<script type="text/javascript">
+	function show(){
+		document.getElementById("overDiv").style.display = "block" ;
+		document.getElementById("div1").style.display = "block" ;
+		document.getElementById("div2").style.display = "none" ;
+		document.getElementById("div3").style.display = "none" ;
+		document.getElementById("div4").style.display = "none" ;
+	}
+	function show2(){
+		document.getElementById("overDiv").style.display = "block" ;
+		document.getElementById("div1").style.display = "none" ;
+		document.getElementById("div3").style.display = "none" ;
+		document.getElementById("div4").style.display = "none" ;
+		document.getElementById("div2").style.display = "block" ;
+	}
+	function show3(){
+		document.getElementById("overDiv").style.display = "block" ;
+		document.getElementById("div1").style.display = "none" ;
+		document.getElementById("div2").style.display = "none" ;
+		document.getElementById("div4").style.display = "none" ;
+		document.getElementById("div3").style.display = "block" ;
+	}
+	function show4(){
+		document.getElementById("overDiv").style.display = "block" ;
+		document.getElementById("div1").style.display = "none" ;
+		document.getElementById("div2").style.display = "none" ;
+		document.getElementById("div3").style.display = "none" ;
+		document.getElementById("div4").style.display = "block" ;
+	}
+</script>
+</head>
+
+<body style="background:#FFFFFF">
+<div style="height:60px; width:100%; background:#000000">
+<div class="top">
+<div class="logo">
+	<img src="http://www.ifinding.cn/img/logo.png"/>
+</div>
+<div class="break">
+    <img src="images/break.png"/>
+</div>
+</div>
+</div>
+<div style=" height:200px;">
+	<img src="http://www.ifinding.cn/img/t.jpg" height="100%"  width="100%" />
+</div>
+<!--banner结束-->
+<div>
+<div style="margin-top:5px; margin-left:5px;">
+	<div style=" font-size:24px; font-weight:bold;">我们的团队</div>
+    <div style=" font-size:18px;">
+    	我们专注于为客户提供专业的微信服务，是从事微信公共账号代运营的企业。公司拥有优秀的运营服务团队，通过核心优势最大的发挥微信的推广功能，发掘企业品牌与产品的巨大市场效益。
+    </div>
+</div>
+<div style="width:100%; height:45px; background:#84d1f9;">
+	<span style="margin-left:15px; font-weight:bold; font-size:36px; color:#FFF;">案例展示</span>
+</div>
+<div style="clear:both"></div>
+<div>
+	<header id="box_header" class="headerhome">
+		<div class="columnSpace" id="elem-navigation" name="meun"> 
+		<div id="Columns_navigation" class="Columns_navigation">	
+		<nav class="navigation01" >
+		<div class="navBarL active" id="columnprev" onClick="goPrev();">				
+		<span></span></div>
+		<div class="navBody" id="singleScroll">
+		<ul class="sc_scroller" id="singleScrollUl" style="width:6000px"><li><span class="active" id="column1"><a onClick="show()">婚庆/珠宝</a></span></li><li><span class="active" id="column2"><a onClick="show2()">整形医院</a></span></li><li><span class="active" id="column3"><a onClick="show3()">传媒</a></span></li><li><span class="active" id="column4"><a onClick="show4()">杂志/报刊</a></span></li></ul>
+		</div>
+		<div class="navBarR active" id="columnnext" onClick="goNext();">
+		<span></span></div>
+		</nav>
+		<script type="text/javascript">
+		function setColumnWidth(){getTotalWidth("1");getTotalWidth("2");getTotalWidth("3");getTotalWidth("4");$("#singleScrollUl").css("width",ulwidth);		
+		}
+		</script>
+		</div> 
+		</div>
+	</header>
+</div>
+<script type="text/javascript" src="js/qy_touch.js"></script>
+<script type="text/javascript" src="js/m_common.js"></script>
+<div class="yincang" id="div1" style="display:block">
+	<img src="images/07.jpg">
+</div>
+<div class="yincang" id="div2">
+	<img src="images/blue.png">
+</div>
+<div class="yincang" id="div3">
+	<img src="images/blue.png">
+</div>
+<div class="yincang" id="div4">
+	<img src="images/07.jpg">
+</div>
+<div id="overDiv" style="display:none;"></div>
+</div>
+<div style=" height:50px;"></div>
+<div style=" clear:both"></div>
+<footer>
+	<ul>
+    	<li><a href=""><img src="images/grid.png" /></a></li>
+        <li><a href=""><img src="images/user.png"/></a></li>
+        <li><a href=""><img src="images/smarpho.png"/></a></li>
+        <li><a href=""><img src="images/chat3.png"/></a></li>
+    </ul>
+</footer>
+</body>
+</html>

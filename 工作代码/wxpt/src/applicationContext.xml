@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<context:annotation-config />
+	<bean id="dataSource" class="com.jolbox.bonecp.BoneCPDataSource"
+		destroy-method="close">
+		<property name="driverClass" value="com.mysql.jdbc.Driver" />
+
+
+		<!--  <property name="jdbcUrl"
+			value="jdbc:mysql://211.154.224.228:3306/webchat?useUnicode=true&amp;characterEncoding=utf-8" />   --> 
+		  <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/webchat?useUnicode=true&amp;characterEncoding=utf-8" 
+			/>
+
+		<property name="username" value="wxpt" />
+		<property name="password" value="wxpt" />	
+
+	</bean>
+	<bean id="dataSourceProxy"
+		class="org.springframework.jdbc.datasource.LazyConnectionDataSourceProxy">
+		<property name="targetDataSource">
+			<ref local="dataSource" />
+		</property>
+	</bean>
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSourceProxy" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQL5InnoDBDialect
+				</prop>
+				<prop key="dynamic-update">
+					false
+				</prop>
+				<prop key="hibernate.show_sql">
+					true
+				</prop>
+			</props>
+		</property>
+		<property name="mappingLocations">
+			<list>
+				<value>classpath:/com/wxpt/site/entity/*.hbm.xml</value>
+			</list>
+		</property>
+
+	</bean>
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<tx:annotation-driven />
+	<bean id="userService" class="com.wxpt.site.service.impl.UserServiceImpl"
+		autowire="byName" />
+	<bean id="userDao" class="com.wxpt.site.dao.impl.UserDaoImpl"
+		autowire="byName" />
+	<bean id="questionService" class="com.wxpt.site.service.impl.QuestionServiceImpl"
+		autowire="byName" />
+	<bean id="questionDao" class="com.wxpt.site.dao.impl.QuestionDaoImpl"
+		autowire="byName" />
+	<bean id="luckService" class="com.wxpt.site.service.impl.LuckServiceImpl"
+		autowire="byName" />
+	<bean id="luckDao" class="com.wxpt.site.dao.impl.LuckDaoImpl"
+		autowire="byName" />
+
+	<bean id="imageservice" class="com.wxpt.site.service.impl.ImageServiceImpl"
+		autowire="byName" />
+	<bean id="imageDao" class="com.wxpt.site.dao.impl.ImageDaoImpl"
+		autowire="byName" />
+
+	<bean id="enterDao" class="com.wxpt.site.dao.impl.EnterDaoImpl"
+		autowire="byName"></bean>
+	<bean id="enterService" class="com.wxpt.site.service.impl.enterServiceImpl"
+		autowire="byName"></bean>
+
+	<bean id="memberDao" class="com.wxpt.site.dao.impl.MemberDaoImpl"
+		autowire="byName"></bean>
+	<bean id="memberService" class="com.wxpt.site.service.impl.MemberServiceImpl"
+		autowire="byName"></bean>
+	<!-- 刮刮乐开始 -->
+	<bean class="com.wxpt.site.service.impl.MoveServiceImpl" id="moveService"
+		autowire="byName" />
+	<bean class="com.wxpt.site.dao.impl.MoveDaoImpl" id="moveDao"
+		autowire="byName" />
+	<bean class="com.wxpt.site.service.impl.CardServiceImpl" id="cardService"
+		autowire="byName" />
+	<bean class="com.wxpt.site.dao.impl.CardDaoImpl" id="cardDao"
+		autowire="byName" />
+	<bean class="com.wxpt.site.service.impl.CardReordsServiceImpl" id="cardReordsService"
+		autowire="byName" />
+	<bean class="com.wxpt.site.dao.impl.CardReordsDaoImpl" id="cardReordsDao"
+		autowire="byName" />
+	<!-- 刮刮乐结束 -->
+	<!-- 回复管理开始 -->
+	<bean name="parentService" class="com.wxpt.site.service.impl.ParentServieImpl"
+		autowire="byName" />
+	<bean name="parentDao" class="com.wxpt.site.dao.impl.ParentDaoImpl"
+		autowire="byName" />
+	<bean id="replyService" class="com.wxpt.site.service.impl.ReplyServiceImpl"
+		autowire="byName" />
+	<bean id="replyDao" class="com.wxpt.site.dao.impl.ReplyDaoImpl"
+		autowire="byName" />
+	<!-- 回复管理结束 -->
+
+	<!-- 移植光向开始 -->
+	<bean name="industryService" class="com.wxpt.site.service.impl.IndustryServiceImpl"
+		autowire="byName" />
+	<bean name="industryDao" class="com.wxpt.site.dao.impl.IndustryDaoImpl"
+		autowire="byName" />
+	<bean name="customersService" class="com.wxpt.site.service.impl.CustomersServiceImpl"
+		autowire="byName" />
+	<bean name="customersDao" class="com.wxpt.site.dao.impl.CustomersDaoImpl"
+		autowire="byName" />
+	<bean name="areaService" class="com.wxpt.site.service.impl.AreaServiceImpl"
+		autowire="byName" />
+	<bean name="areaDao" class="com.wxpt.site.dao.impl.AreaDaoImpl"
+		autowire="byName" />
+	<bean name="cantonService" class="com.wxpt.site.service.impl.CantonServiceImpl"
+		autowire="byName" />
+	<bean name="cantonDao" class="com.wxpt.site.dao.impl.CantonDaoImpl"
+		autowire="byName" />
+	<bean name="radiusService" class="com.wxpt.site.service.impl.RadiusServiceImpl"
+		autowire="byName" />
+	<bean name="radiusDao" class="com.wxpt.site.dao.impl.RadiusDaoImpl"
+		autowire="byName" />
+	<bean name="fansService" class="com.wxpt.site.service.impl.FansServiceImpl"
+		autowire="byName" />
+	<bean name="fansDao" class="com.wxpt.site.dao.impl.FansDaoImpl"
+		autowire="byName" />
+	<bean name="statisticsService" class="com.wxpt.site.service.impl.StatistiesServiceImpl"
+		autowire="byName" />
+	<bean name="statisticsDao" class="com.wxpt.site.dao.impl.StatisticsDaoImpl"
+		autowire="byName" />
+	<!-- 移植光向结束 -->
+	<!-- 微网站开始 -->
+	<bean id="webSiteService" class="com.wxpt.site.service.impl.WebSiteServiceImpl"
+		autowire="byName" />
+	<bean id="webSiteDao" class="com.wxpt.site.dao.impl.WebSiteDaoImpl"
+		autowire="byName" />
+	<!-- 微网站结束 -->
+	<!--自定义菜单 -->
+	<bean id="menuDao" class="com.wxpt.site.dao.impl.MenuDaoImpl"
+		autowire="byName" />
+	<bean id="menuService" class="com.wxpt.site.service.impl.MenuServiceImpl"
+		autowire="byName" />
+	<!--权限管理 -->
+	<bean id="roleDao" class="com.wxpt.site.dao.impl.RoleDaoImpl"
+		autowire="byName" />
+	<bean id="roleService" class="com.wxpt.site.service.impl.RoleServiceImpl"
+		autowire="byName" />
+	<bean id="treeDao" class="com.wxpt.site.dao.impl.TreeDaoImpl"
+		autowire="byName" />
+	<bean id="treeService" class="com.wxpt.site.service.impl.TreeServiceImpl"
+		autowire="byName" />
+	<!--微商城 -->
+	<bean id="manageDao" class="com.wxpt.site.dao.impl.ManageDaoImpl"
+		autowire="byName" />
+	<bean id="manageService" class="com.wxpt.site.service.impl.ManageServiceImpl"
+		autowire="byName" />
+	<bean id="OrderManageDao" class="com.wxpt.site.dao.impl.OrderManageDaoImpl"
+		autowire="byName" />
+	<bean id="orderManageService" class="com.wxpt.site.service.impl.OrderManageServiceImpl"
+		autowire="byName" />
+			 <!-- 	<bean id="orderDao" class="com.wxpt.site.dao.impl.OrderDaoImpl" autowire="byName"/>
+		<bean id="orderService" class="com.wxpt.site.service.impl.o" autowire="byName"/>  -->
+
+
+		<bean id="appraiseDao" class="com.wxpt.site.dao.impl.AppraiseDaoImp" autowire="byName" ></bean>
+		<bean id="appraiseService" class="com.wxpt.site.service.impl.AppraiseServiceImpl" autowire="byName" ></bean>
+		<bean id="logisticDao" class="com.wxpt.site.dao.impl.LogisticDaoImpl" autowire="byName"></bean>
+		<bean id="logisticService" class="com.wxpt.site.service.impl.LogisticServiceImpl" autowire="byName"></bean>
+	<!--自定义菜单  -->
+<!-- 	<bean id="menuDao" class="com.wxpt.site.dao.impl.MenuDaoImpl" autowire="byName" />
+	<bean id="menuService" class="com.wxpt.site.service.impl.MenuServiceImpl" autowire="byName" />
+	权限管理 
+	<bean id="roleDao" class="com.wxpt.site.dao.impl.RoleDaoImpl" autowire="byName" />
+	<bean id="roleService" class="com.wxpt.site.service.impl.RoleServiceImpl" autowire="byName" />	
+	<bean id="treeDao" class="com.wxpt.site.dao.impl.TreeDaoImpl" autowire="byName" />
+	<bean id="treeService" class="com.wxpt.site.service.impl.TreeServiceImpl" autowire="byName" /> -->
+	<!--权限管理结束  -->
+	<!--微商城开始  -->
+	<!-- <bean id="OrderManageDao" class="com.wxpt.site.dao.impl.OrderManageDaoImpl" autowire="byName"/>
+	<bean id="orderManageService" class="com.wxpt.site.service.impl.OrderManageServiceImpl" autowire="byName"/> -->
+ 	<bean id="orderDao" class="com.wxpt.site.dao.impl.OrderDaoImpl" autowire="byName"/>
+	<bean id="orderService" class="com.wxpt.site.service.impl.OrderServiceImpl" autowire="byName"/> 
+	<bean id="productTypeDao" class="com.wxpt.site.dao.impl.ProductTypeDaoImpl" autowire="byName"/>
+	<bean id="productTypeService" class="com.wxpt.site.service.impl.ProductTypeServiceImpl" autowire="byName"/>	
+	<bean id="productDao" class="com.wxpt.site.dao.impl.ProductDaoImpl" autowire="byName"></bean>
+	<bean id="productService" class="com.wxpt.site.service.impl.ProductServiceImpl" autowire="byName"></bean>	
+	<!-- <bean id="appraisedao" class="com.wxpt.site.dao.impl.AppraiseDaoImpl" autowire="byName" ></bean>
+	<bean id="appraiseservice" class="com.wxpt.site.service.impl.AppraiseServiceImpl" autowire="byName" ></bean> -->
+	<bean id="bannerDao" class="com.wxpt.site.dao.impl.BannerDaoImpl" autowire="byName" ></bean>
+	<bean id="bannerService" class="com.wxpt.site.service.impl.BannerServiceImpl" autowire="byName" ></bean>	
+	<bean id="zaixianzhifuDao" class="com.wxpt.site.dao.impl.ZaixianzhifuDaoImpl" autowire="byName"></bean>
+	<bean id="zaixianzhifuService" class="com.wxpt.site.service.impl.ZaixianzhifuServiceImpl" autowire="byName"></bean>
+<!--微商城结束 -->
+	<!-- 贺卡  -->
+	<bean id="gCardService" class="com.wxpt.site.service.impl.GreetingCardServiceImpl" autowire="byName"/>
+	<bean id="gCardDao" class="com.wxpt.site.dao.impl.GreetingCardDaoImpl" autowire="byName"/>
+<!--问卷调查开始 -->
+    <bean id="surveyService" class="com.wxpt.site.service.impl.SurveyServiceImpl" autowire="byName"/>
+	<bean id="surveyDao" class="com.wxpt.site.dao.impl.SurveyDaoImpl" autowire="byName"/>
+	<bean id="surrecordService" class="com.wxpt.site.service.impl.SurrecordServiceImpl" autowire="byName"/>
+	<bean id="surrecordDao" class="com.wxpt.site.dao.impl.SurrecordDaoImpl" autowire="byName"/>
+	<bean id="surquestionService" class="com.wxpt.site.service.impl.SurquestionServiceImpl" autowire="byName"/>
+	<bean id="surquestionDao" class="com.wxpt.site.dao.impl.SurquestionDaoImpl" autowire="byName"/>
+	<bean id="suroptionService" class="com.wxpt.site.service.impl.SuroptionServiceImpl" autowire="byName"/>
+	<bean id="suroptionDao" class="com.wxpt.site.dao.impl.SuroptionDaoImpl" autowire="byName"/>
+
+<!--问卷调查结束 -->
+
+</beans>

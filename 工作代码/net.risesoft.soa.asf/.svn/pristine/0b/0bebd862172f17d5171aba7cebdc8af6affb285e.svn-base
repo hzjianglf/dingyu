@@ -1,0 +1,256 @@
+Signature-Version: 1.0
+SHA1-Digest-Manifest-Main-Attributes: /kEH3VZL/Gz8IpNCJOlHif8ivDY=
+Created-By: 1.6.0_30 (Sun Microsystems Inc.)
+SHA1-Digest-Manifest: TI0pGithwPl8/h6/igStwcrm6qg=
+
+Name: net/risesoft/soa/asf/dao/ServiceModule2Dao.class
+SHA1-Digest: SBcfVWEMk5SzQke6XrGkE7jTyrk=
+
+Name: net/risesoft/soa/asf/core/ws/cxf/BasicAuthorizationInterceptor.c
+ lass
+SHA1-Digest: sMGIRTiVwAEJf0Jd04bXuBAFaxU=
+
+Name: net/risesoft/soa/asf/core/ServiceProxyFactory$ServiceLogSaveThre
+ ad$ServiceLogSaveThreadShutdownHook.class
+SHA1-Digest: phL3p/xaUS2wL6KUE3t9/fTbt9A=
+
+Name: net/risesoft/soa/asf/core/ws/cxf/LazyCXFServletController.class
+SHA1-Digest: iSbKw58Mxffgudz3A+kqZcBeLMU=
+
+Name: net/risesoft/soa/asf/core/local/LocalServiceDefinition.class
+SHA1-Digest: FVrlfpb8RiimDOV0cljlhcNZuc4=
+
+Name: net/risesoft/soa/asf/ASFActivator.class
+SHA1-Digest: F6zzKZljPpze9vV7aqUABi/ptM8=
+
+Name: net/risesoft/soa/asf/core/util/FrameServerJCEProvicer$FrameServe
+ rJarVerifier.class
+SHA1-Digest: wQDeWSOHMiGAdZFLweDUHHE8haA=
+
+Name: net/risesoft/soa/asf/egov/ServiceManagerImpl.class
+SHA1-Digest: 5V41WibDPBUf1OF3Ui15CWQC5jw=
+
+Name: net/risesoft/soa/asf/core/WebConsole.class
+SHA1-Digest: h6LkkbACNMl6Mr+FCOTYm/NusQ4=
+
+Name: net/risesoft/soa/asf/core/util/FrameServerJCEProvicer$1.class
+SHA1-Digest: rvlQ5KBWzTHx7aAMe5uczPo4onw=
+
+Name: net/risesoft/soa/asf/util/dirwatcher/DirectoryWatcher.class
+SHA1-Digest: UunOmPUd67qsxKN7R7iMx7yMI3k=
+
+Name: META-INF/config/asf.properties
+SHA1-Digest: lpcZO2Oi9JlOZGx4nSVuLAjWB3s=
+
+Name: net/risesoft/soa/asf/core/ws/WSServer.class
+SHA1-Digest: 1uRV1TOL1ChkgV5kCnk4y0ckqLI=
+
+Name: net/risesoft/soa/asf/core/thirdparty/ThirdpartyServiceProcessor.
+ class
+SHA1-Digest: K/OR0MjUnAqKYubVU4WXd0jKR80=
+
+Name: net/risesoft/soa/asf/core/util/Base64$InputStream.class
+SHA1-Digest: kRGVHuyw/VVW8GCzg0RwEaMn2T8=
+
+Name: net/risesoft/soa/asf/core/parser/Constant.class
+SHA1-Digest: cUtcNZPOnJ+yRe1fD695bzGy8cw=
+
+Name: net/risesoft/soa/asf/core/ws/cxf/CXFServer.class
+SHA1-Digest: 0k+jRwd/CRR05vRB0ID2DrJIc7A=
+
+Name: net/risesoft/soa/asf/util/dirwatcher/DirectorySnapshot.class
+SHA1-Digest: XkfWl21arh7hKxCwddjE+L+PiYg=
+
+Name: net/risesoft/soa/asf/egov/Constants.class
+SHA1-Digest: o+cQn78yPs3+z1awQpHall9F9GQ=
+
+Name: net/risesoft/soa/asf/core/ws/ServerCreator.class
+SHA1-Digest: tw+aJXmoC6agi6lFQtQf6dSsWc0=
+
+Name: net/risesoft/soa/asf/dao/ServiceComponentDao.class
+SHA1-Digest: pOk/LsKalhbXvgEXoXVaY+pRbnU=
+
+Name: net/risesoft/soa/asf/core/util/Base64$OutputStream.class
+SHA1-Digest: BsIJGr+NSM7wns9ea5da5Qk1G4c=
+
+Name: net/risesoft/soa/asf/core/ws/WSServerHolder.class
+SHA1-Digest: ytIez4zANPQfn6bWBLBzI+7IBjw=
+
+Name: net/risesoft/soa/asf/egov/RepositoryManagerImpl.class
+SHA1-Digest: T6GPlWbxsJjGvkNFEHeDzUhkjOE=
+
+Name: net/risesoft/soa/asf/egov/ServiceComponentManagerImpl.class
+SHA1-Digest: j7Psgt1rLDpqoaC5f89H3NRMR6E=
+
+Name: net/risesoft/soa/asf/core/ServiceProxyFactory.class
+SHA1-Digest: Y0LstG0NJp+e1TTdz/yYbXxiTgE=
+
+Name: net/risesoft/soa/asf/core/parser/ServiceModule_1.0.xsd
+SHA1-Digest: vnDAMMDbvwqXbKZKMgtULaOI5Sg=
+
+Name: net/risesoft/soa/asf/core/util/Base64.class
+SHA1-Digest: lbSMhCAPp0tqrznNBXIqMlL5G2o=
+
+Name: net/risesoft/soa/asf/core/local/LocalServiceRepository$1.class
+SHA1-Digest: U4SQQh/7lc72xDfB0xThIpkrCmw=
+
+Name: net/risesoft/soa/asf/util/dirwatcher/IntervalThread.class
+SHA1-Digest: GkiSdym2ShyJ5zRYwAwOJGl96cI=
+
+Name: net/risesoft/soa/asf/core/ws/HttpSessionManager.class
+SHA1-Digest: qJLjxz6mDR6xPl48afN4uD7QP9Y=
+
+Name: net/risesoft/soa/asf/core/WebConsole$1.class
+SHA1-Digest: IiIpqLFJvfTpklNr4jIj23+NRvQ=
+
+Name: net/risesoft/soa/asf/core/parser/ASFDefinitionParser.class
+SHA1-Digest: n+slQf3yKGen3nTwNYjgOZld74Y=
+
+Name: net/risesoft/soa/asf/util/dirwatcher/AbstractResourceWatcher.cla
+ ss
+SHA1-Digest: 2lkirYI6FzsuzHs2Dk8PgEgbAhI=
+
+Name: net/risesoft/soa/asf/core/util/RuntimeConfig.class
+SHA1-Digest: b0leQJ/zN7uuPanFORIvhXF8LNw=
+
+Name: net/risesoft/soa/asf/core/ServiceProxyFactory$1.class
+SHA1-Digest: uuB7SpFm7iS9XBEYHOB1n/ogJ40=
+
+Name: net/risesoft/soa/asf/core/ws/AbstractServerCreator.class
+SHA1-Digest: VcpxJMqQxtX3Q7J3yPFqjSoNvOk=
+
+Name: net/risesoft/soa/asf/core/ws/cxf/CXFServerCreator.class
+SHA1-Digest: WWB08lgef8UJjumd+50grahhPwQ=
+
+Name: net/risesoft/soa/asf/core/external/ExternalServiceProcessor$2.cl
+ ass
+SHA1-Digest: 6TKqN5U9R9jAQxta4cJT1cT3aPw=
+
+Name: net/risesoft/soa/asf/core/external/ExternalServiceRepository.cla
+ ss
+SHA1-Digest: dShcl3GBDAFzzHztojRwU2b2fos=
+
+Name: net/risesoft/soa/asf/core/experimental/ApplicationServiceContext
+ .class
+SHA1-Digest: gPH+bSYVgcTVnEb/ZogxF1wjDBw=
+
+Name: net/risesoft/soa/asf/core/ws/cxf/OsgiNonSpringCXFServlet$1.class
+SHA1-Digest: ibSPUdq9X/HPDSJwLJmu7oRWdRI=
+
+Name: net/risesoft/soa/asf/util/dirwatcher/IResourceWatcher.class
+SHA1-Digest: b1Ot7K3J9ifV2DOd2wHGIfqOG+4=
+
+Name: net/risesoft/soa/asf/core/local/LocalServiceProcessor.class
+SHA1-Digest: Lt6qqhm+gJehwI8rl6PuIYbARBk=
+
+Name: net/risesoft/soa/asf/core/ws/cxf/OsgiNonSpringCXFServlet.class
+SHA1-Digest: hbtDVJefQNgKYOX8R/AZl5urV7Q=
+
+Name: net/risesoft/soa/asf/core/ServiceProxyFactory$ServiceLogSaveThre
+ ad.class
+SHA1-Digest: p7qd/VVvMz/jcFIhwNUW7UanpII=
+
+Name: net/risesoft/soa/asf/core/thirdparty/ThirdpartyServiceRepository
+ .class
+SHA1-Digest: sdn1NlJdEfgGUgLY371KrfKjuLc=
+
+Name: net/risesoft/soa/asf/core/util/FrameServerJCEProvicer$FrameServe
+ rJarVerifier1$1.class
+SHA1-Digest: uP3bYSrqR2MpjZcFpsTaUwk7rTs=
+
+Name: net/risesoft/soa/asf/core/parser/ASFDefinitionParser$1.class
+SHA1-Digest: C3wf40Hzf7aYGdvbcpkMzC1VIO0=
+
+Name: net/risesoft/soa/asf/exception/ASFException.class
+SHA1-Digest: +RIWGlPjPMKhZxy4kLWdoDcDLZs=
+
+Name: net/risesoft/soa/asf/core/util/FrameServerJCEProvicer$FrameServe
+ rJarVerifier1.class
+SHA1-Digest: TpjRy/ik6iPBrblbFiBiUHPoQF4=
+
+Name: net/risesoft/soa/asf/core/external/ExternalServiceProcessor.clas
+ s
+SHA1-Digest: PvddkJcNjTvm+J2Iip0+TkX4Tqs=
+
+Name: net/risesoft/soa/asf/core/util/FrameServerJCEProvicer.class
+SHA1-Digest: fPGAYhNLDlvXlFPVHz2/3z7tkFg=
+
+Name: net/risesoft/soa/asf/core/parser/ServiceModule_1.1.xsd
+SHA1-Digest: 726UC8uGzbIxBoijlhyygZSiiEY=
+
+Name: net/risesoft/soa/asf/core/ws/cxf/LazyCXFServletController$HttpSe
+ rvletRequestWrapper.class
+SHA1-Digest: UwuWiry2eTzlusce0yWisP0pkg4=
+
+Name: META-INF/spring/asf-context.xml
+SHA1-Digest: h9ua789VRByvboIepl/ehcGQzBE=
+
+Name: net/risesoft/soa/asf/util/dirwatcher/IResourceListener.class
+SHA1-Digest: tx6YUxIlYoWC+p+PmdWJ9D6yk18=
+
+Name: net/risesoft/soa/asf/core/util/DigestSHA1PasswordEncoder.class
+SHA1-Digest: FtDLCSEGkZKr8I0xNkNHNCw4gJE=
+
+Name: net/risesoft/soa/asf/core/external/ExternalServiceRepository$1.c
+ lass
+SHA1-Digest: sH+QPpDSjumExpQxe+ewCJft/0Q=
+
+Name: net/risesoft/soa/asf/core/thirdparty/ThirdpartyServiceRepository
+ $1.class
+SHA1-Digest: aqB/hAxQc16yRvHF7C+IG7lCqas=
+
+Name: net/risesoft/soa/asf/core/local/LocalServiceRepository.class
+SHA1-Digest: M0Mdo87S7wA8mnRNWkzge3M034w=
+
+Name: net/risesoft/soa/asf/util/dirwatcher/FileListener.class
+SHA1-Digest: 4MTvQ0V2vyQDU7K8EPwziAn241M=
+
+Name: net/risesoft/soa/asf/dao/RepositoryInfoDao.class
+SHA1-Digest: +JvI1ivMQN+BjzqiSTbUSoLTD6A=
+
+Name: META-INF/spring/osgi-context.xml
+SHA1-Digest: aVTTAg7UZeMbaqYojPyL0HZw8Pc=
+
+Name: webapp/WEB-INF/web.xml
+SHA1-Digest: 1Wrzv0yOrRiAjNp34tN09XMhVZ0=
+
+Name: net/risesoft/soa/asf/dao/ServiceComponent2Dao.class
+SHA1-Digest: si784hvXz8U53ZBgErYmyDkd0BU=
+
+Name: net/risesoft/soa/asf/util/dirwatcher/IFileListener.class
+SHA1-Digest: 2Ba7/E8PbZfdHYq5JmzawTH9pA8=
+
+Name: net/risesoft/soa/asf/core/external/ExternalServiceProcessor$1.cl
+ ass
+SHA1-Digest: xN3FygX2oFwstT+L9AMBJ1fnojA=
+
+Name: net/risesoft/soa/asf/egov/ServiceModuleManagerImpl.class
+SHA1-Digest: QQmtRnEaF1/cq+pkcC7cvM0dcN8=
+
+Name: net/risesoft/soa/asf/asf-definitions.xml
+SHA1-Digest: n5ZrZbg+kt9W4W+tm0CFHRl7dWQ=
+
+Name: net/risesoft/soa/asf/Version.class
+SHA1-Digest: FwP/pvBF3TOvRS8FBjDaBtoD3xY=
+
+Name: net/risesoft/soa/asf/core/external/ExternalServiceDefinition.cla
+ ss
+SHA1-Digest: 34mynmaHFrOLpzgeKeimpm5db6c=
+
+Name: net/risesoft/soa/asf/dao/ServiceLogDao.class
+SHA1-Digest: Z5ulOB4bpHVmqANuSRK3h07QN48=
+
+Name: net/risesoft/soa/asf/util/dirwatcher/BaseListener.class
+SHA1-Digest: p1x3ZKR9lnHXzYhtNe6FDxxb/dE=
+
+Name: net/risesoft/soa/asf/dao/ServiceModuleDao.class
+SHA1-Digest: FjP9nAKyp4k2s4lkGziapDyVK54=
+
+Name: net/risesoft/soa/asf/core/thirdparty/ThirdpartyServiceDefinition
+ .class
+SHA1-Digest: Fc6b7k58yPLB0hweC/WUVIbzrkI=
+
+Name: net/risesoft/soa/asf/core/ws/cxf/LazyCXFServletController$WebSer
+ viceInfo.class
+SHA1-Digest: 0/1x103Du+Y7ohnomNpymQFK4DM=
+

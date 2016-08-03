@@ -1,0 +1,17 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<!-- <div class="clearfix"></div><div class="nameindexbox"><div class="title">人物索引</div><div class="rwitems" id="personlist"></div></div>
+<script>
+$(function(){
+$.ajax({
+type:"get",
+url:"person/hot",
+datatype:"json",
+context:$("#personlist"),
+success:function(result){
+if(result.success){
+var json=result.data;
+if(json&&json.length>0){
+for(var i=0;i<json.length;i++){
+this.append('<a href="person/detail/'+json[i].id+'">'+json[i].name+'</a>');
+}}}}});});
+</script> -->

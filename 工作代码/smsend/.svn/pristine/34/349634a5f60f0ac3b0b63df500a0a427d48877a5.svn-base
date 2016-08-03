@@ -1,0 +1,5 @@
+driverClassName=oracle.jdbc.driver.OracleDriver
+username=newoa
+password=newoa
+url=jdbc:oracle:thin:@10.19.4.16:1521:orcl
+poolSize=20

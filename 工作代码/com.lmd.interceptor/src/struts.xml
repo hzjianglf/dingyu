@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <bean type="com.opensymphony.xwork2.ObjectFactory"
+          name="spring" 
+          class="net.risesoft.soa.framework.struts2.objectfactory.OsgiStrutsSpringObjectFactory" />   
+    <constant name="struts.objectFactory" value="spring" />
+    
+    <constant name="struts.multipart.maxSize" value="52428800" /><!-- 最大上传50M -->
+
+	<package name="net.risesoft.app.demo.web" namespace="/" extends="struts-default">
+		<interceptors>
+            <interceptor name="autowiring" class="com.opensymphony.xwork2.spring.interceptor.ActionAutowiringInterceptor"/>
+        </interceptors>	
+		<default-action-ref name="index" />	
+
+		<global-results>
+			<result name="json">/jsonOutput.jsp</result>
+		</global-results>
+		
+		<!-- <action name="index" class="cn.udrm.dev.demo.web.action.ForwardAction">
+			<result name="sucess">/index.jsp</result>
+		</action>
+		
+		<action name="orderListAction" class="cn.udrm.dev.demo.web.action.OrderListAction">
+		</action>
+		
+		<action name="operAction" class="cn.udrm.dev.demo.web.action.OperAction">
+		</action>
+		<action name="delAction" class="cn.udrm.dev.demo.web.action.DeleteAction">
+		       <result name="sucess">/orderListAction</result>
+		</action> -->
+		
+	</package>
+</struts>

@@ -1,0 +1,21 @@
+/*CSS Reset*/
+* {
+  margin: 0;
+  padding: 0;
+}
+li { list-style: none;}
+
+img {border: none;}
+#tbh5v0 .fullscreen { padding: 0 5px;width:95%;}
+#tbh5v0 .brandList{display:-webkit-box;margin:5px 0;min-height:75px;}
+#tbh5v0 .brandList ul{position:absolute;display:-webkit-box;line-height:30px;}
+#tbh5v0 .brandList ul li{width: 80px;center;height:70px;margin-left:2px;}
+#tbh5v0 .brandList ul li a img{width:100%;height:75px;padding-top: 5px;}
+#tbh5v0 .brandList>div{position:relative;}
+#tbh5v0 .brandList .middList{-webkit-box-flex:1;overflow:hidden;}
+
+
+
+
+.FrontSlide .bannerList li{ width:100%;float: left;}
+

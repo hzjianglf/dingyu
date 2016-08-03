@@ -1,0 +1,7 @@
+修改webservice根据服务生成客户端.bat文件中的 lib地址、输出的包路径名、要生成客户端的wsdl；
+在工作空间中双击bat文件，运行后生成客户端代码，以IService为例，参考test类调用代码如下
+
+ServiceImplServiceLocator iService = new ServiceImplServiceLocator();
+			ServiceImplServiceSoapBindingStub service = (ServiceImplServiceSoapBindingStub) iService.getServiceImplPort();
+			String  status = service.get(111);
+			System.out.println(status+"  ---------------------");

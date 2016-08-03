@@ -1,0 +1,151 @@
+﻿body {
+	margin: 0px; padding: 0px;
+}
+body {
+	background: #E0F1FE; font: 12px/1.75 Tahoma, Arial, sans-serif, 宋体; height: 100%; color: rgb(51, 51, 51); font-size-adjust: none; font-stretch: normal;
+}
+.font1 {
+	font: 14px "MicroSoft YaHei", "SimHei"; color: rgb(153, 153, 153); overflow: hidden; font-size-adjust: none; font-stretch: normal;
+}
+.link:hover {
+	color: #006A92;
+	text-decoration: none;
+}
+.link:focus {
+	
+}
+.link {
+	font: 14px "SimSun";
+	text-decoration: none;
+	color: rgb(179, 179, 179);
+}
+.link1:hover {
+	color: #006A92;
+	text-decoration: none;
+}
+.link1:focus {
+	
+}
+.link1 {
+	font: 16px "SimSun";
+	text-decoration: none;
+	color: rgb(117, 154, 173);
+}
+.link2:hover {
+	color: #006A92;
+	color: rgb(117, 154, 173);
+}
+.link2:focus {
+	
+}
+.link2 {
+	font: 14px "SimSun";
+	color: #006A92;
+}
+.tsaveBtn {
+	background: url("images/save.png") no-repeat;
+}
+.tsaveBtn {
+	width: 112px; height: 30px; text-align: center; color: rgb(255, 255, 255); overflow: hidden; 
+}
+.tsaveBtnStr {
+	width: 112px; height: 30px; border: 0px currentColor; text-align: center; text-indent: -9999em; overflow: hidden; cursor: pointer;
+}
+.tsaveBtnStr {
+	color: rgb(153, 153, 153); line-height: 33px; overflow: visible; margin-left: 14px; _overflow: hidden;
+}
+.tsaveBtnStr:hover {
+	background: url("images/save_hover.png") no-repeat;
+}
+.tresetBtn {
+	background: url("images/reset.png") no-repeat;
+}
+.tresetBtn {
+	width: 112px; height: 30px; text-align: center; color: rgb(255, 255, 255); overflow: hidden; 
+}
+.tresetBtnStr {
+	width: 112px; height: 30px; border: 0px currentColor; text-align: center; text-indent: -9999em; overflow: hidden; cursor: pointer;
+}
+.tresetBtnStr {
+	color: rgb(153, 153, 153); line-height: 33px; overflow: visible; margin-left: 14px; _overflow: hidden;
+}
+.tresetBtnStr:hover {
+	background: url("images/reset_hover.png") no-repeat;
+}
+.tuploadFileBtn {
+	background: url("images/uploadFile.png") no-repeat;
+}
+.tuploadFileBtn {
+	width: 112px; height: 30px; text-align: center; color: rgb(255, 255, 255); overflow: hidden; 
+}
+.tuploadFileBtnStr {
+	width: 112px; height: 30px; border: 0px currentColor; text-align: center; text-indent: -9999em; overflow: hidden; cursor: pointer;
+}
+.tuploadFileBtnStr {
+	color: rgb(153, 153, 153); line-height: 33px; overflow: visible; margin-left: 14px; _overflow: hidden;
+}
+.tuploadFileBtnStr:hover {
+	background: url("images/uploadFile_hover.png") no-repeat;
+}
+#pubInfo .funBox {
+	color: rgb(153, 153, 153); padding-right: 5px; float: right; white-space: nowrap;
+}
+#pubInfo .funBox span {
+	margin: 0px 5px 0px 5px; color: rgb(219, 219, 219); line-height: 17px;
+}
+#headWrap {
+	margin: 0px auto; width: 960px; height: 35px; position: relative;
+}
+.headInside {
+	margin: 0px auto; width: 960px; height: 35px; position: relative; z-index: 104;
+}
+.headInside h1 {
+	margin: 0px; padding: 0px; left: 0px; top: 0px; position: absolute;
+}
+.w_head_outer {
+	left: 0px; width: 100%; height: 35px; position: fixed; z-index: 103; box-shadow: 0px 2px 0px rgba(0,0,0,0.12); -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .12); -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .12); _position: relative;
+}
+.headShadow {
+	top: 0px; width: 100%; height: 35px; filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2c2c2c',endColorstr='#191919'); position: absolute; z-index: 10; opacity: 0.8;
+}
+
+.headInside .right {
+	left: auto; right: 50px;
+}
+#topWrap {
+	padding-top: 45px; _padding-top: 15px;
+}
+#mainWrapper {
+	margin: 0px auto; border-radius: 5px 5px 5px; width: 960px; position: relative; z-index: 1; background-color: rgb(201, 241, 255); -moz-border-radius: 5px 5px 0 5px; -webkit-border-radius: 5px 5px 0 5px;
+}
+.right {
+	float: right;
+}
+ul {
+	margin: 0px; padding: 0px;
+}
+ul {
+	list-style: none;
+}
+li {
+	margin: 0px; padding: 0px;
+}
+.topNav {
+	left: 100px; top: 0px; height: 35px; position: absolute;
+}
+.topNav a {
+	color:#fefefe; padding: 11px 0px 12px; height: 12px; line-height: 13px; overflow: hidden; font-size: 14px; display: block; _position: relative; _float: left; _cursor: pointer; text-decoration: none;
+}
+.topNav a:hover {
+	
+}
+.topNav .active {
+	color: color:#fff;
+}
+.topNav .topNavItem {
+	margin-right: 1px; float: left; position: relative;
+}
+.topNav .topNavItem u {
+	padding: 0px 10px; text-decoration: none; position: relative; z-index: 105;
+}
+

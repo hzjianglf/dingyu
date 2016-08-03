@@ -1,0 +1,1 @@
+({"previousMessage":"Op\x{00e7}\x{00f5}es anteriores","nextMessage":"Mais op\x{00e7}\x{00f5}es"})

@@ -1,0 +1,12 @@
+var html = '<style> a{ color:#369eea}</style><div id="ienotsupport"  class="ienotsupport">';
+	html += '您的浏览器版本太低体验不佳,建议使用以下高速浏览器 <br/>';
+	html += '如<a href="http://www.firefox.com.cn/" target="_blank">firefox</a> 、';
+	html += '<a href="http://www.microsoft.com/zh-cn/download/internet-explorer.aspx" target="_blank">IE10+、</a> ';
+	html += '<a href="http://www.opera.com/zh-cn" target="_blank">Opera 、</a> ';
+	html += '<a href="http://dlsw.baidu.com/sw-search-sp/soft/9d/14744/ChromeStandaloneSetup.1409816011.exe"  target="_blank">Chrome、</a> ';
+	html += '<a href="http://se.360.cn/" target="_blank">360浏览器、<a/>';
+	html += '<a href="http://ie.sogou.com/" target="_blank">搜狗浏览器、<a/>';
+	html += '<a href="http://www.maxthon.cn/" target="_blank">傲游浏览器</a> 等';
+	html += '</div>';	
+	$("body").append(html);
+	$("#ienotsupport").css("height",$("body").height());

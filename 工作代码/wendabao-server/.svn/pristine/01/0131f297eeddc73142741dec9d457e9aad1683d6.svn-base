@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>接口测试页</title>
+</head>
+<body>
+<h3>提交注册信息</h3>
+<p id="login">
+  <form onsubmit="return false;" action="../pm/user/register.do">
+	loginName:<input type="text" name="loginName" value="18953103911"><br/>
+	password:<input type="text" id="pass" value="111111"><br/>
+	code:<input type="text" name="code" value="123456"><button id="verifyButton">获取验证码</button><br/>
+	userType:<input type="text" name="userType" value="1"><br/>
+	<input type="hidden" name="password">
+	<button class="submit">测试</button>
+  </form>
+</p>
+<p>
+	<pre id="data"></pre>
+</p>
+<script src="../js/jquery-1.11.3.min.js"></script>
+<script src="../js/md5-min.js"></script>
+<script src="../js/json2.js"></script>
+<script>
+	$(function() {
+		$('#verifyButton').click(function() {
+			$.post(
+				'../pm/user/getVerifyCode.do?t=' + new Date().getTime(),
+				{
+					loginName: $('[name=loginName]').val(),
+					sign: 1
+				},
+				function(data) {
+					$('#data').html(JSON.stringify(data, null, 4));		
+				},
+				'json'
+			);
+			console.log('post finished');
+		});
+		$('.submit').click(function() {
+			var $form = $(this).parent('form');
+			$('[name=password]').val(hex_md5($('#pass').val()));
+			$.post(
+				$form.attr('action') + '?t=' + new Date().getTime(),
+				$form.serialize(),
+				function(data) {
+					$('#data').html(JSON.stringify(data, null, 4));		
+				},
+				'json'
+			);
+		});
+	});
+</script>
+</body>
+</html>

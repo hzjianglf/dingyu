@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Sjzx
+Bundle-SymbolicName: lmd.soa.org.sync.sh.ydxc
+Bundle-Version: 1.0.0.qualifier
+Fragment-Host: net.risesoft.soa.org;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ClassPath: .
+Require-Bundle: net.risesoft.soa.org,
+ egov.appservice.org
+Import-Package: egov.appservice.asf.exception;version="1.0.0",
+ egov.appservice.org.model;version="1.0.0",
+ egov.appservice.org.service

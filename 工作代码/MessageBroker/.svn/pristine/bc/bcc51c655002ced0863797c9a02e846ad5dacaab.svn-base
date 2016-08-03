@@ -1,0 +1,1 @@
+({"previousMessage":"F\x{00f6}reg\x{00e5}ende alternativ","nextMessage":"Fler alternativ"})

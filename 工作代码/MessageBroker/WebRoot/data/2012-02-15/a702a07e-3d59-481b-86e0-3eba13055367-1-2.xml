@@ -1,0 +1,1 @@
+<XMLNSC><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:axis="http://ws.apache.org/axis2"><soapenv:Header/><soapenv:Body><axis:sayHello><name>222222</name></axis:sayHello></soapenv:Body></soapenv:Envelope></XMLNSC>

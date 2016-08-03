@@ -1,0 +1,99 @@
+<div>
+	<div class="property notmandatory disabledradiochoice" dojoAttachPoint="optionalRelationshipDiv">
+		<input type="radio" class="radioborder autowidth" disabled="disabled" name="${id}_relationshipType" id="${id}_optionalRelationshipNameButton" tabindex="1" dojoAttachPoint="optionalRelationshipNameButton" dojoAttachEvent="onclick: _onRadioButtonClick"/>
+		<label for="${id}_optionalRelationshipName" dojoAttachPoint="optionalRelationshipNameLabel">${optionalRelationshipName}</label>
+		<br/>
+		<select id="${id}_optionalRelationshipName" disabled="disabled" name="optionalRelationshipName" tabindex="1" size="1" dojoAttachPoint="optionalRelationshipNameList" dojoAttachEvent="onchange: _onOptionalRelationshipNameChanged, onkeypress: _showNameChange" >
+		</select>
+		<p dojoAttachPoint="optionalRelationshipDescription"></p>
+	</div>
+    
+	<div class="property notmandatory radiochoice" dojoAttachPoint="customRelationshipDiv">
+		<input type="radio" class="radioborder autowidth" name="${id}_relationshipType" checked="checked" id="${id}_customRelationshipNameButton" tabindex="1" dojoAttachPoint="customRelationshipNameButton" dojoAttachEvent="onclick: _onRadioButtonClick"/>
+		<label for="${id}_customRelationshipName" dojoAttachPoint="customRelationshipNameLabel">${customRelationshipName}</label>
+		<br/>
+		<div id="${id}_customRelationshipName" dojoType="dijit.form.ValidationTextBox" dojoAttachPoint="customRelationshipField" size="50" tabindex="1">
+			<script type="dojo/method" event="isValid" args="isFocused">
+
+					// Create the variable to return
+					var valid = false;
+
+					// NOTE: must use retrieve the displayed value here... do not use getValue()
+					var relationshipName = this.getDisplayedValue();
+
+					/*
+					 * The isValid method will continue to be called even when
+					 * widget is disabled.  We need to check whether the
+					 * widget is enabled before modifying the state of any of
+					 * controls on the page.
+					 */ 
+					if (!this.disabled) {
+						var addButton = dojo.byId("${id}_addButton");
+						if (relationshipName == "") {
+							// Disable the add button
+							addButton.disabled = true;
+						} else {
+							if (isValidNCName(relationshipName)) {
+
+								var widget = dijit.byId("${id}");	
+								var wsrrObjects = [ sourceObject ];
+								if (widget._isValidRelationshipName(relationshipName)) {
+
+									// Set the flag
+									valid = true;
+
+									// Enable the add button
+									addButton.disabled = false;
+								} else {
+									// Disable the add button
+									addButton.disabled = true;
+								}
+							} else {
+								// Disable the add button
+								addButton.disabled = true;
+							}
+						}
+					} else { // IF - !this.disabled
+						/*
+						 * Return true to prevent any messages or warning
+						 * symbols being displayed when the widget is disabled
+						 */
+						valid = true;
+					}
+
+					return valid;
+				</script>
+                   
+			<script type="dojo/method" event="getErrorMessage" args="isFocused">
+
+					// Create the variable to return
+					var msg = "";
+
+					// NOTE: must use retrieve the displayed value here... do not use getValue()
+					var relationshipName = this.getDisplayedValue();
+
+					// Make sure that the name is not empty
+					if (relationshipName.length > 0) {
+						if (isValidNCName(relationshipName) && relationshipName.charAt(0) != '_') {
+
+							var name = getObjectName(sourceObject);
+							var type = getObjectDisplayType(sourceObject);
+							var subs = [relationshipName, name, type];
+							msg = dojo.string.substitute(this.relationshipNameAlreadyExistsMsg, subs);
+						} else {
+    
+							// Return the relevant message
+							msg = this.invalidRelationshipNameMsg;
+						}
+					}
+
+					return msg;
+                  </script>        
+		</div>
+    </div>
+    
+	<div class="buttongroup">
+		<input type="button" id="${id}_addButton" tabindex="1" name="add" disabled="disabled" value="${buttonAdd}" class="standardbutton" dojoAttachPoint="addButton" dojoAttachEvent="onclick: onAddButtonClicked">
+		<input type="button" id="${id}_cancelButton" tabindex="1" name="cancel" value="${buttonCancel}" class="standardbutton" dojoAttachPoint="cancelButton" dojoAttachEvent="onclick: onCancelButtonClicked">
+	</div>
+</div>

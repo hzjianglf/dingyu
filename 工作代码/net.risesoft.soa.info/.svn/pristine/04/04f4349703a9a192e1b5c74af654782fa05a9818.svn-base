@@ -1,0 +1,178 @@
+package net.risesoft.soa.info.action;
+
+import com.opensymphony.xwork2.ActionContext;
+import java.io.File;
+import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.List;
+import java.util.Map;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import net.risesoft.soa.framework.session.SessionUser;
+import net.risesoft.soa.framework.util.UUID;
+import net.risesoft.soa.info.dao.InformationIndexDao;
+import net.risesoft.soa.info.model.Information;
+import net.risesoft.soa.info.model.InformationFile;
+import net.risesoft.soa.info.model.InformationIndex;
+import net.risesoft.soa.info.service.InfoFileManager;
+import net.risesoft.soa.info.tools.InformationList;
+import net.risesoft.soa.info.tools.SpringUtil;
+import net.risesoft.soa.info.util.ConfigUtil;
+import net.risesoft.soa.info.util.DocTransferThread;
+import net.risesoft.soa.info.util.FileContentType;
+import org.apache.commons.lang.StringUtils;
+
+public class InfoDocList extends BaseAction
+{
+  private static final long serialVersionUID = -2416532006922433626L;
+  private String id;
+  private String infoID;
+  private File file;
+
+  public String getId()
+  {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getInfoID() {
+    return this.infoID;
+  }
+
+  public void setInfoID(String infoID) {
+    this.infoID = infoID;
+  }
+
+  public File getFile() {
+    return this.file;
+  }
+
+  public void setFile(File file) {
+    this.file = file;
+  }
+
+  public String execute()
+    throws Exception
+  {
+    HttpServletRequest request = getServletRequest();
+
+    HttpServletResponse response = getServletResponse();
+
+    response.setContentType("text/html;charset=UTF-8");
+
+    SessionUser su = (SessionUser)ActionContext.getContext().getSession().get("session.User");
+
+    if (su == null) {
+      response.getWriter().write("{\"success\":false,\"message\":\"用户session丢失,请刷新页面重新登录!\"}");
+      return "none";
+    }
+
+    if ("upload".equals(this.operation)) {
+      String contentLengthHeader = request.getHeader("Content-Length");
+      String fileName = request.getParameter("fileName");
+      String ext = fileName.substring(fileName.lastIndexOf("."));
+      if ((!(FileContentType.isOfficeType(ext.toLowerCase()))) && (!(FileContentType.isPdfType(ext.toLowerCase())))) {
+        response.getWriter().write("{\"success\":false,\"message\":\"正文格式错误!\"}");
+        return "none";
+      }
+      Long expectedFileSize = (StringUtils.isBlank(contentLengthHeader)) ? null : Long.valueOf(Long.parseLong(contentLengthHeader));
+      try {
+        if (expectedFileSize.longValue() > 0L) {
+          InfoFileManager ifm = (InfoFileManager)SpringUtil.getBean("infoFileManager");
+          List ifs = ifm.find(this.id, 0, "doc");
+          InformationFile informationFile;
+          if (ifs.size() > 0) {
+            informationFile = (InformationFile)ifs.get(0);
+
+            String path = ConfigUtil.filePath + informationFile.getRealPath() + informationFile.getId() + ".swf";
+            File tempFile = new File(path);
+            if (tempFile.exists()) {
+              tempFile.delete();
+            }
+            path = ConfigUtil.filePath + informationFile.getRealPath() + informationFile.getId() + informationFile.getFileNameExt();
+            tempFile = new File(path);
+            if (tempFile.exists())
+              tempFile.delete();
+          }
+          else {
+            informationFile = new InformationFile();
+            informationFile.setId(UUID.generateUUID());
+            informationFile.setCreateDateTime(Calendar.getInstance().getTime());
+          }
+          informationFile.setInstanceID(this.id);
+          informationFile.setFileName(fileName);
+          informationFile.setFileNameExt(fileName.substring(fileName.lastIndexOf(".")));
+          informationFile.setTitle(fileName.substring(0, fileName.lastIndexOf(".")));
+          informationFile.setModule("riseinfo");
+
+          informationFile.setCreater(su.getUserUID());
+          informationFile.setCreaterName(su.getUserName());
+
+          informationFile.setUpdateDateTime(Calendar.getInstance().getTime());
+          informationFile.setFileType("doc");
+          informationFile.setFileLength(expectedFileSize.longValue());
+          informationFile.setTabIndex(1);
+          informationFile.setStatus(0);
+          informationFile.setInfoID(this.infoID);
+          Information information = InformationList.get(this.infoID);
+          informationFile.setRealPath(getRealPath(information.getDn()));
+          if (this.file == null)
+            ifm.saveFormInputStream(informationFile, request.getInputStream());
+          else {
+            ifm.save(informationFile, this.file);
+          }
+
+          InformationIndexDao informationIndexDao = (InformationIndexDao)SpringUtil.getBean("informationIndexDao");
+          InformationIndex informationIndex = (InformationIndex)informationIndexDao.findOne(this.id);
+          if (informationIndex != null) {
+            informationIndex.setInfoHtmlType("doc");
+            informationIndexDao.save(informationIndex);
+          }
+
+          String tempPath = ConfigUtil.filePath + informationFile.getRealPath() + informationFile.getId() + informationFile.getFileNameExt();
+
+          Thread t = new DocTransferThread(tempPath, informationFile.getFileNameExt());
+          t.start();
+
+          break label708: }
+        response.getWriter().write("{\"success\":false,\"message\":\"文件大小为0!\"}");
+      }
+      catch (Exception e) {
+        response.getWriter().write("{\"success\":false,\"message\":\"上传正文失败!\"}");
+        e.printStackTrace();
+      }
+      label708: response.getWriter().write("{\"success\":true,\"message\":\"上传正文成功!\"}");
+    }
+    if ("list".equals(this.operation)) {
+      InfoFileManager ifm = (InfoFileManager)SpringUtil.getBean("infoFileManager");
+      List ifs = ifm.find(this.id, 0, "doc");
+      if (ifs.size() > 0) {
+        InformationFile informationFile = (InformationFile)ifs.get(0);
+        request.setAttribute("id", informationFile.getId());
+        request.setAttribute("fileName", informationFile.getFileName());
+      }
+      return this.operation;
+    }
+    return "none";
+  }
+
+  public String getRealPath(String dn) {
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    dn = dn.replaceAll("rsn=", "");
+    String[] dns = dn.split(",");
+    String path = "";
+    for (int i = dns.length - 1; i >= 0; --i) {
+      path = path + dns[i] + File.separator;
+    }
+    File dir = new File(ConfigUtil.filePath + path + sdf.format(Calendar.getInstance().getTime()) + File.separator);
+    if (!(dir.isDirectory())) {
+      dir.mkdirs();
+    }
+
+    return path + sdf.format(Calendar.getInstance().getTime()) + File.separator;
+  }
+}

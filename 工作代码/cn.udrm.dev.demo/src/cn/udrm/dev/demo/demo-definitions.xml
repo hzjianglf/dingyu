@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ServiceModule id="demo" name="RC7应用模块开发示例" version="1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ServiceModule.xsd">
+   <ServiceComponent id="OrderManager" name="订单管理组件" version="1.0">
+      <service interface="cn.udrm.dev.demo.service.OrderManagerService" />
+      <!-- 没有配置factory时查找顺序：1、从Spring容器中找serivce接口的唯一实现，2、从osgi的service注册表去找，3、new一个
+        如果配置factory，则直接调用。最好是都托管给Spring容器。 -->
+      <implementation class="cn.udrm.dev.demo.manager.impl.OrderManagerImpl"/>
+      <properties>
+         <property name="firstKey" value="aStringValue"/>
+         <property name="secondKey" value="anotherStringValue"/>
+      </properties>
+   </ServiceComponent>
+</ServiceModule>

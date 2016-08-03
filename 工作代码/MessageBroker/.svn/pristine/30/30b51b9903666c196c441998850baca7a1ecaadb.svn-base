@@ -1,0 +1,1 @@
+({"rangeMessage":"T¨¢to hodnota je mimo rozsah.","invalidMessage":"Zadan¨¢ hodnota nie je platn¨¢.","missingMessage":"T¨¢to hodnota je vy\x{017e}adovan¨¢."})

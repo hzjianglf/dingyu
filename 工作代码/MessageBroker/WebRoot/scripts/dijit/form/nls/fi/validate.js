@@ -1,0 +1,1 @@
+({"rangeMessage":"T\x{00e4}m\x{00e4} arvo on sallitun alueen ulkopuolella.","invalidMessage":"Annettu arvo ei kelpaa.","missingMessage":"T\x{00e4}m\x{00e4} arvo on pakollinen."})

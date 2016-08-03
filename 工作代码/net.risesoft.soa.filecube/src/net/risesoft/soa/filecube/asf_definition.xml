@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ServiceModule id="file" name="文件资源" version="1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ServiceModule.xsd">
+	<info>
+		<provider>
+			<business id="http://www.szft.gov.cn">
+				<name>文件资源</name>
+				<website>http://www.szft.gov.cn</website>
+				<address>北京</address>
+				<contact>张三</contact>
+				<tel>12345678</tel>
+				<email>zhangsan@ft.sz.gov.cn</email>
+			</business>
+		</provider>
+		<vender>
+			<business id="http://www.risesoft.net">
+				<name>北京有生博大软件技术有限公司</name>
+				<website>http://www.risesoft.net</website>
+			</business>
+		</vender>
+		<dependence>
+			<module id="file" version="1.0"/>
+		</dependence>
+	</info>
+	<ServiceComponent id="FileService" name="获取文件内容" version="1.0">
+		<description>
+			<![CDATA[
+				根据不同的条件 获取文件内容，获取附件内容等
+			 ]]>
+		</description>		
+		<service interface="egov.appservice.file.exporter.FileService"/>
+		<implementation class="net.risesoft.soa.filecube.service.commons.impl.FileServiceImpl"/>
+	</ServiceComponent>	
+	<ServiceComponent id="FileQueryService" name="文件查询" version="1.0">
+		<description>
+			<![CDATA[
+				根据不同的条件查询文件信息
+			 ]]>
+		</description>		
+		<service interface="egov.appservice.file.exporter.FileQueryService"/>
+		<implementation class="net.risesoft.soa.filecube.service.commons.impl.FileQueryServiceImpl"/>
+	</ServiceComponent>	
+	<ServiceComponent id="FileListService" name="文件列表" version="1.0">
+		<description>
+			<![CDATA[
+				获取文件的目录、子目录、子目录中的文件等
+			 ]]>
+		</description>		
+		<service interface="egov.appservice.file.exporter.FileListService"/>
+		<implementation class="net.risesoft.soa.filecube.service.commons.impl.FileListServiceImpl"/>
+	</ServiceComponent>		        
+	<ServiceComponent id="ImporterService" name="文件采集" version="1.0">
+		<description>
+			<![CDATA[
+				文件采集接口
+			 ]]>
+		</description>		
+		<service interface="egov.appservice.file.importer.ImporterService"/>
+		<implementation class="net.risesoft.soa.filecube.adapter.impl.ImporterServiceImpl"/>
+	</ServiceComponent>                            
+</ServiceModule>

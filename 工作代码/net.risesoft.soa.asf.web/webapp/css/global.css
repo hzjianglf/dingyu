@@ -1,0 +1,12 @@
+/* body样式 */
+
+html, body{
+	margin: 0px;	
+	padding: 0px;
+	font-size: 10pt;
+	color: #000000;
+	overflow: hidden;
+	border: 0 none;
+	height: 100%;
+	font-family: arial, 宋体
+}

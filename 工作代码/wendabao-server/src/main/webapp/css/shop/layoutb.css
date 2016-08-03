@@ -1,0 +1,175 @@
+@charset "utf-8";
+/* CSS Document */
+
+ body {
+    background-color: #fff !important;
+	margin:0 auto;
+	color:#555;
+	font-family: "微软雅黑";
+	
+  }
+  
+  ul{ list-style:none;}
+  li{ list-style:none;}
+  
+dl,dt,dd{display:block;margin:0;}
+a{text-decoration:none;}
+  
+/***header css**/
+.page-header-z{ background-color:#e84e40; height:60px; overflow:hidden;}
+
+.page-header-z .page-header-left{ 
+background:url(../image/icon.png) no-repeat;
+width:220px;
+height:30px;
+
+ float:left;}
+.page-header-z .page-header-right{ 
+float:right;
+color:#fff;
+padding-top:18px;
+padding-right:40px;}
+
+.page-header-z .page-header-right a{ color:#fff; text-decoration:none; padding-top:2px;}
+
+.page-header-z .page-header-right a:hover{ color:#eaeaea; text-decoration:none;
+padding-top:2px;}
+
+/******content css *******/
+
+
+
+.page-content-container{ width:100%; overflow:hidden; background-color:#fff}
+ .leftsidebar_box a .home-top{ padding:10px 0; background-color:#fff; color:#fff; font-size:14px;
+  padding-left: 42px;
+  font-weight: bold;
+  text-decoration:none;}
+  .page-content-container .leftsidebar_box a:hover{ text-decoration:none;}
+  
+ .page-content-container .leftsidebar_box a>.selected{
+	 position: relative;
+     top: 49px;
+  left: 234px;
+  border-top: 20px double transparent;
+  border-bottom: 20px double transparent;
+    *border-top: 11px double transparent;
+  *border-bottom: 11px double transparent;
+  border-right: 0;
+  border-left: 8px solid #3FD5C0;
+  *border-right: 8px;
+}
+
+.leftsidebar_box{
+	width:15%;
+max-width:234px;
+
+background-color:#ffffff;
+float:left;
+}
+
+
+
+.rightsidebar_box{
+background:#FFF; 
+height:100%;
+float:left;
+*width:84.8% !important;
+width:84%;}
+.rightsidebar_box .left-lable{ 
+width:100%; height:40px; background-color:#fff; overflow:hidden;
+margin-left:1px;}
+
+.rightsidebar_box .left-lable .left-homepage{float:left;}
+
+.rightsidebar_box .left-lable .left-homepage h5{ padding-left:15px;}
+
+
+.rightsidebar_box .shop-title{ height:50px; font-size:14px; margin-left:15px;
+margin-top:15px;
+width:100%;}
+
+.rightsidebar_box .shop-title .show-category{
+	width: 75px;
+  border-radius: 3px;
+  background-color: #fff;
+  box-shadow: none;
+  text-shadow: none;}
+  
+.rightsidebar_box .shop-title .tab_arrow_wrap{  
+background-color: #cfcfcf;
+  height: 30px;
+  width: 30px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  top: 23px;
+  right: 0;}
+                             
+.rightsidebar_box .shop-title .tab_arrow_wrap .tab_arrow_down{
+	top: 12px;
+  right: 10px;
+  border-width: 8px 5px 0;  
+  border-color: #414141 transparent transparent;
+    width: 0;
+  height: 0;
+  border-style: solid;}
+
+.rightsidebar_box .shop-title .bath-down{ 
+width:80px;
+ height:30px; 
+ background-color:#fff;
+ border-radius:3px;
+ border:1px solid #ccc;
+ text-align:center;
+ padding-top:6px;}
+
+.rightsidebar_box .shop-title .bath-down a{ text-decoration:none; color:#555;}
+
+
+.rightsidebar_box .shop-title_shoplist{ height:100%;
+min-height:756px;padding-bottom:50px;}
+ .rightsidebar_box .shop-title_shoplist .shop_title_boder{ margin-left:15px;
+ margin-top:15px;
+ margin-right:15px;
+ width:100%;}
+ 
+  .rightsidebar_box .shop-title_shoplist td{
+  text-align:center;
+  padding:15px;
+  background-color:#fff;}
+.rightsidebar_box .shop-title_shoplist .shop-title td{ background:#F1F3FA;
+text-align:left;}
+.rightsidebar_box .shop-title_shoplist em{ font-style:normal}
+
+.rightsidebar_box .shop-title_shoplist em a{ text-decoration:none;
+color:#555;}
+
+ .list-page{
+	width:100%;
+	height: 40px;
+  padding: 24px 0;
+  text-align:center !important;}
+  
+.list-page #turnPageNum {
+  margin-right: 45px;
+  background: 0 0;
+  font-size: 15px;}
+.list-page .inline_b{ display:inline-block;}
+   
+  .rightsidebar_box .shop-title_shoplist #prev_page {
+  width: 200px;
+  height: 40px;
+  line-height: 40px;
+  margin: 0 5px;
+  border: 1px solid #babac0;
+  background-color: #fff;
+  padding: 10px 30px;
+  border-radius: 3px;}
+    .rightsidebar_box .shop-title_shoplist #next_page {
+  width: 200px;
+  height: 40px;
+  line-height: 40px;
+  margin: 0 5px;
+  border: 1px solid #babac0;
+  background-color: #fff;
+  padding: 10px 30px;
+  border-radius: 3px;}

@@ -1,0 +1,1 @@
+({"rangeMessage":"Ta warto\x{015b}\x{0107} jest spoza zakresu.","invalidMessage":"Wprowadzona warto\x{015b}\x{0107} jest niepoprawna.","missingMessage":"Ta warto\x{015b}\x{0107} jest wymagana."})

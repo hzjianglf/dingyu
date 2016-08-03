@@ -1,0 +1,83 @@
+<div>
+	<table class="detailcontenttable" border="0" cellpadding="0" cellspacing="0" id="${id}_detailcontenttable">
+		<tr>
+			<td>
+				<!-- Properties section-->
+				<div class="propertiessection" id="${id}_propertiessection">
+				
+					<!-- General Properties Section -->
+					<div id="${id}_propSection0">
+						<table class="sectiontitletable" border="0" cellpadding="0" cellspacing="0">
+							<tr>
+								<td width="1%">
+									<a href="javascript:toggleSection('${id}_propSection0')" tabindex="1">
+										<img id="img_${id}_propSection0" src="theme/${themeName}/images/expanded.gif" alt="${textCollapse}" title="${textCollapse}"/>
+									</a>
+								</td>
+								<td width="99%">
+									<div class="sectiontitle">
+										${textGeneralProperties}
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<div class="expandablesection expanded" id="child_${id}_propSection0" dojoAttachPoint="propertiesDiv">
+					</div>
+					<!-- End General Properties Section -->
+				</div>
+	               <!-- End Properties section -->
+			</td>
+			<td>
+				<!-- Sections on the RHS -->
+				<div class="relationshipsection" id="${id}_rhsection">
+				
+					<!-- Relationship section -->
+					<div id="${id}_relationshipsSectionTitle">
+						<table class="sectiontitletable" border="0" cellpadding="0" cellspacing="0">
+							<tr>
+								<td width="1%">
+									<a href="javascript:toggleSection('${id}_relationshipsSection')" tabindex="1">
+										<img id="img_${id}_relationshipsSection" src="theme/${themeName}/images/expanded.gif" alt="${textCollapse}" title="${textCollapse}"/>
+									</a>
+								</td>
+								<td width="99%">
+									<div class="sectiontitle">
+										${textRelationships}
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<div id="child_${id}_relationshipsSection" class="expandablesection relationshipgroup expanded" dojoAttachPoint="relationshipsDiv">
+						<ul dojoAttachPoint="relationshipsList">
+						</ul>
+					</div>
+					<!-- End Relationship section -->
+					
+					<!-- Classifications section -->
+					<div id="${id}_classificationsSectionTitle">
+						<table class="sectiontitletable" border="0" cellpadding="0" cellspacing="0">
+							<tr>
+								<td width="1%">
+									<a href="javascript:toggleSection('${id}_classificationsSection')" tabindex="1">
+										<img id="img_${id}_classificationsSection" src="theme/${themeName}/images/expanded.gif" alt="${textCollapse}" title="${textCollapse}"/>
+									</a>
+								</td>
+								<td width="99%">
+									<div class="sectiontitle">
+										${textClassifications}
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<div id="child_${id}_classificationsSection" class="expandablesection classificationgroup expanded" dojoAttachPoint="classificationsDiv">
+					</div>
+					<!-- End Classifications section -->
+				</div>
+				<!-- End Sections on the RHS -->
+			</td>
+		</tr>
+	</table>
+</div>

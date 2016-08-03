@@ -1,0 +1,18 @@
+<div id="timeselector_${id}" class="timepickercontainer">
+  <div dojoAttachPoint="timeValueNode">${timeValue}</div>
+  <div>
+    <div>${hoursLabel}</div>
+      <div dojoAttachPoint="hoursSpinner" dojoAttachEvent="adjusted:spinnerchange" dojotype="com.ibm.sr.widgets.PaddedSpinner" constraints="{min:0,max:23}" rollover="true" digits="2" maxLength="2">
+    </div>
+  </div>
+  <div>
+    <div>${minutesLabel}</div>
+      <div dojoAttachPoint="minutesSpinner" dojoAttachEvent="adjusted:spinnerchange" dojotype="com.ibm.sr.widgets.PaddedSpinner" constraints="{min:0,max:59}" rollover="true" digits="2" maxLength="2">
+    </div>
+  </div>
+  <div>
+    <div>${secondsLabel}</div>
+      <div dojoAttachPoint="secondsSpinner" dojoAttachEvent="adjusted:spinnerchange" dojotype="com.ibm.sr.widgets.PaddedSpinner" constraints="{min:0,max:59}" rollover="true" digits="2" maxLength="2">
+    </div>
+  </div>
+</div>

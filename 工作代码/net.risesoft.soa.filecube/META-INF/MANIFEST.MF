@@ -1,0 +1,451 @@
+Manifest-Version: 1.0
+Export-Package: net.risesoft.soa.filecube.adapter,net.risesoft.soa.fil
+ ecube.adapter.impl,net.risesoft.soa.filecube.model;version="1.0.0",ne
+ t.risesoft.soa.filecube.service;version="1.0.0",net.risesoft.soa.file
+ cube.service.util;version="1.0.0",net.risesoft.soa.filecube.util
+Bundle-ClassPath: .,lib/jodconverter-2.2.2.jar,lib/juh.jar,lib/jurt.ja
+ r,lib/ridl.jar,lib/unoil.jar,lib/commons-compress-1.4.1.jar,lib/fontb
+ ox-1.7.0.jar,lib/jempbox-1.7.0.jar,lib/juniversalchardet-1.0.3.jar,li
+ b/metadata-extractor-2.4.0-beta-1.jar,lib/pdfbox-1.7.0.jar,lib/poi-3.
+ 8.jar,lib/poi-ooxml-3.8.jar,lib/poi-ooxml-schemas-3.8.jar,lib/poi-scr
+ atchpad-3.8.jar,lib/tika-core-1.2.jar,lib/tika-parsers-1.2.jar,lib/xm
+ lbeans-2.3.0.jar,lib/xz-1.0.jar
+Built-By: jenkins
+Bundle-Name: net.risesoft.soa.filecube
+Created-By: Apache Maven
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: egov.appservice.ac,org.eclipse.core.runtime;bundle-ver
+ sion="3.6.0";resolution:=optional
+Build-Jdk: 1.6.0_30
+Bundle-Version: 1.0.0.201408201001
+Asf-Definition: net/risesoft/soa/filecube/asf_definition.xml
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: net.risesoft.soa.filecube;singleton:=true
+Import-Package: egov.appservice.ac.model,egov.appservice.ac.service,eg
+ ov.appservice.asf.service,egov.appservice.file.exporter,egov.appservi
+ ce.file.importer,egov.appservice.org.model,egov.appservice.org.servic
+ e;version="1.0.0",frameserver.license,javax.persistence,javax.persist
+ ence.criteria;version="2.0.3",javax.persistence.metamodel;version="2.
+ 0.3",net.risesoft.soa.framework.service.config;version="1.0.0",net.ri
+ sesoft.soa.framework.util;version="1.0.0",net.risesoft.soa.framework.
+ util.json;version="1.0.0",net.risesoft.soa.org.manager,net.risesoft.s
+ oa.org.model,org.aopalliance.aop;version="1.0.0",org.apache.commons.b
+ eanutils;version="1.8.0",org.apache.commons.dbcp;version="1.2.2.osgi"
+ ,org.apache.commons.io;version="2.0.1",org.apache.commons.logging;ver
+ sion="1.1.1",org.dom4j;version="1.6.1",org.dom4j.io;version="1.6.1",o
+ rg.osgi.framework;version="1.5.0",org.slf4j;version="1.6.4",org.sprin
+ gframework.aop;version="3.1.1.RELEASE",org.springframework.aop.framew
+ ork;version="3.1.1.RELEASE",org.springframework.aop.support;version="
+ 3.1.1.RELEASE",org.springframework.beans.factory;version="3.1.1.RELEA
+ SE",org.springframework.beans.factory.annotation,org.springframework.
+ context;version="3.1.1.RELEASE",org.springframework.core.io;version="
+ 3.1.1.RELEASE",org.springframework.core.io.support;version="3.1.1.REL
+ EASE",org.springframework.dao.support;version="3.1.1.RELEASE",org.spr
+ ingframework.data.domain;version="1.3.0.RELEASE",org.springframework.
+ data.jpa.repository,org.springframework.data.jpa.repository.support;v
+ ersion="1.1.0.RELEASE",org.springframework.data.jpa.support;version="
+ 1.1.0.RELEASE",org.springframework.data.repository;version="1.3.0.REL
+ EASE",org.springframework.data.repository.core.support;version="1.3.0
+ .RELEASE",org.springframework.orm.jpa;version="3.1.1.RELEASE",org.spr
+ ingframework.orm.jpa.vendor;version="3.1.1.RELEASE",org.springframewo
+ rk.osgi.extender.support;version="2.0.0.M1",org.springframework.stere
+ otype,org.springframework.transaction;version="[3.0.0,4.0.0)",org.spr
+ ingframework.transaction.annotation,org.springframework.util;version=
+ "3.1.1.RELEASE"
+Archiver-Version: Plexus Archiver
+
+Name: net/risesoft/soa/filecube/service/DimensionService.class
+SHA1-Digest: +yuKsEhHo1cFjMNdzgT4jYOjRP4=
+
+Name: META-INF/spring/applicationContext.xml
+SHA1-Digest: ZaGR7ewO1oN4yJbhmlStnn7qlSQ=
+
+Name: net/risesoft/soa/filecube/util/OperationType$1.class
+SHA1-Digest: ujNnTZcaiN05MwwVe/i103ibwbo=
+
+Name: net/risesoft/soa/filecube/model/FileAttachment.class
+SHA1-Digest: ziwpeN/1/FXNAL3fjqm6FW7HUI8=
+
+Name: net/risesoft/soa/filecube/dao/AdapterDao.class
+SHA1-Digest: 7gHxBIu+GJbt+u+mfs+PpImpNJw=
+
+Name: net/risesoft/soa/filecube/model/FileMetaVideo.class
+SHA1-Digest: 9ctFWxOiJ/RRbq+EQ3stUO7tJXM=
+
+Name: net/risesoft/soa/filecube/util/OperationType$2.class
+SHA1-Digest: 9vVypy0h5PsF29dHbncLmsZ3DV0=
+
+Name: lib/jurt.jar
+SHA1-Digest: P305zjZ/Qm81XNquHtJeOCKHDJI=
+
+Name: net/risesoft/soa/filecube/asf_definition.xml
+SHA1-Digest: Vm9UKXvXbz2tTXZ2fzIzMLn3pOs=
+
+Name: net/risesoft/soa/filecube/service/PermissionService.class
+SHA1-Digest: aB/5mmEwBRaOY872yVRyycKOYDU=
+
+Name: net/risesoft/soa/filecube/service/commons/impl/FileListServiceIm
+ pl.class
+SHA1-Digest: /e/qFFOw+maFS8vF+90GMr6FJ2w=
+
+Name: net/risesoft/soa/filecube/util/FileType.class
+SHA1-Digest: cqa6Pz1G06n1Ov/oazoaFKRleOg=
+
+Name: net/risesoft/soa/filecube/util/GlobalInfo.class
+SHA1-Digest: 2Y8zU+8fWiKLwn8Q5c7fetxlcGE=
+
+Name: net/risesoft/soa/filecube/dao/FileDao.class
+SHA1-Digest: QRN/s3jLVqi6QV80ko9tfMBSn8E=
+
+Name: net/risesoft/soa/filecube/service/impl/AttachmentServiceImpl.cla
+ ss
+SHA1-Digest: UbZQr1Cb5v7XpD3a2iLuaHkdKSs=
+
+Name: net/risesoft/soa/filecube/util/OperationType$3.class
+SHA1-Digest: qA51Eh2tap6W84jXHpne9kbYD1Y=
+
+Name: net/risesoft/soa/filecube/util/DocumentToPDF.class
+SHA1-Digest: U44/WP7K+hoNkGJ0D0fLRuIjlZE=
+
+Name: net/risesoft/soa/filecube/util/FrameServerJCEProvicer$1.class
+SHA1-Digest: 825PIWLcVYuKP3IIfYUZE/eEH6s=
+
+Name: net/risesoft/soa/filecube/service/util/OrgTreeUtil.class
+SHA1-Digest: r/Wu49RLGEtlZX8pkzkmb4jM23o=
+
+Name: net/risesoft/soa/filecube/model/FileSearchLog.class
+SHA1-Digest: pHWBttOs/g4K19rJO+NRXV3vfTo=
+
+Name: net/risesoft/soa/filecube/model/FileQueryHistory.class
+SHA1-Digest: EKozw+rksFPamjPbd9oNRYikzu4=
+
+Name: net/risesoft/soa/filecube/service/ShareService.class
+SHA1-Digest: xmO80Lf1ZyVopFx079/NuFVTBCg=
+
+Name: net/risesoft/soa/filecube/util/FrameServerJCEProvicer$FrameServe
+ rJarVerifier1.class
+SHA1-Digest: kOB6m9Tb0tJjDK+lnlcfNUmZ1j0=
+
+Name: net/risesoft/soa/filecube/service/LogService.class
+SHA1-Digest: /IweKjFnR2qNovhYqUeFNBAeyww=
+
+Name: net/risesoft/soa/filecube/service/AttachmentService.class
+SHA1-Digest: iSlgw521DAPGeLycd0j0Tae1Udc=
+
+Name: net/risesoft/soa/filecube/util/OperationType$6.class
+SHA1-Digest: FT8FQZQ6TMB2NjCk6zKf/5eANHk=
+
+Name: net/risesoft/soa/filecube/service/impl/FavoritesServiceImpl.clas
+ s
+SHA1-Digest: gYWeldwTgl+oCyPezF5q/Vo/LU0=
+
+Name: net/risesoft/soa/filecube/util/FileUploader.class
+SHA1-Digest: BNkbTaRVKbBOazVO/YMlcDu2o3g=
+
+Name: net/risesoft/soa/filecube/service/impl/CommentaryServiceImpl.cla
+ ss
+SHA1-Digest: Q1QE1lkKN3ku/Se9ZEIm/WLNASY=
+
+Name: net/risesoft/soa/filecube/model/FileFavorites.class
+SHA1-Digest: Pah/eITbKnKYff6hWwHftfzeJJw=
+
+Name: net/risesoft/soa/filecube/util/FileType$IMAGE.class
+SHA1-Digest: UE9wxGXAGmDdaiOX9RkxK+8Llzw=
+
+Name: net/risesoft/soa/filecube/service/CommentaryService.class
+SHA1-Digest: 9biS0fgI7Ony5rx2pg4qgbhMbk0=
+
+Name: net/risesoft/soa/filecube/service/OpenHistoryService.class
+SHA1-Digest: L1nVBNIynlQrP/C+RAviCDGgzVE=
+
+Name: net/risesoft/soa/filecube/adapter/ImporterDataTarget.class
+SHA1-Digest: wgI4YCCf1IZF6MSeznRDbGyDfIk=
+
+Name: lib/tika-parsers-1.2.jar
+SHA1-Digest: 3cPmrZO8pQ5aAmcIfYztJoY71k0=
+
+Name: net/risesoft/soa/filecube/service/impl/OpenHistoryServiceImpl.cl
+ ass
+SHA1-Digest: 3aNgw9aSTI6/oC3GcjDOiRQ8r0s=
+
+Name: net/risesoft/soa/filecube/model/FileLog.class
+SHA1-Digest: kn7X/Z18gTKaj7zKxOSgYyncoR4=
+
+Name: net/risesoft/soa/filecube/service/impl/DimensionServiceImpl.clas
+ s
+SHA1-Digest: gZ0Ga7xmU3XMG19jfUxINc6RS9s=
+
+Name: net/risesoft/soa/filecube/dao/AdapterFolderDao.class
+SHA1-Digest: BcC1bkHODQi9oXCeIuiXXO+2Wx4=
+
+Name: net/risesoft/soa/filecube/dao/FolderDao.class
+SHA1-Digest: 5eWEuA+uNl2lfX/cCWChQP/khHU=
+
+Name: net/risesoft/soa/filecube/util/DimensionType$1.class
+SHA1-Digest: azX4qrV0zsJB8ieawWw9Cc3kPeA=
+
+Name: lib/poi-ooxml-3.8.jar
+SHA1-Digest: I10YrczCsUD7P5Ci+oWbeuKdV7g=
+
+Name: net/risesoft/soa/filecube/dao/QueryHistoryDao.class
+SHA1-Digest: JmJTcmiwzccmDD3GN6Biu4/rQME=
+
+Name: net/risesoft/soa/filecube/adapter/impl/ImporterServiceImpl.class
+SHA1-Digest: /FzGYmkYw/I9fQxiApVge6+ArRE=
+
+Name: net/risesoft/soa/filecube/dao/SearchLogDao.class
+SHA1-Digest: bs2VJTL0VeAPWtRjHGOFq9ek9Zs=
+
+Name: net/risesoft/soa/filecube/dao/LogDao.class
+SHA1-Digest: gEknx5bbGF908hEgHUqC2kWVjHM=
+
+Name: net/risesoft/soa/filecube/service/commons/impl/FileQueryServiceI
+ mpl.class
+SHA1-Digest: sTqLenP6L38SDE1aGUqE6DrZr1s=
+
+Name: net/risesoft/soa/filecube/util/PDFToSWF.class
+SHA1-Digest: 9iF4Z6rmx9Tc0SoQGf2n+/Z4KR8=
+
+Name: lib/pdfbox-1.7.0.jar
+SHA1-Digest: RcaEVD9KWaIqoyrhS7c+pmy+zLY=
+
+Name: net/risesoft/soa/filecube/service/impl/FolderServiceImpl.class
+SHA1-Digest: g6wZAU5MJz9jv0v+N1TqVS3kn70=
+
+Name: net/risesoft/soa/filecube/service/impl/LogServiceImpl.class
+SHA1-Digest: ggDjn/UyDjs5PzieS0nykMpe5Jw=
+
+Name: META-INF/persistence.xml
+SHA1-Digest: 4esGuy55cU0KdlWxUzsUzEKsSuo=
+
+Name: META-INF/spring/osgi-context.xml
+SHA1-Digest: ICJl1Zyoyyf0zCQGIllHJOqozj4=
+
+Name: net/risesoft/soa/filecube/model/FileAdapterLog.class
+SHA1-Digest: Km20QGTjOzumwRvoUs/CposTGJ4=
+
+Name: lib/juh.jar
+SHA1-Digest: gCec5otpqlW9ujvBuQ5wGsBZ1o0=
+
+Name: plugin.xml
+SHA1-Digest: M3PvzsIaBG1+vWKpwkPmtoY0mtA=
+
+Name: net/risesoft/soa/filecube/model/FileMetaAudio.class
+SHA1-Digest: fkgwJvmMeUxURR6NAL+uA2KOkvI=
+
+Name: lib/poi-ooxml-schemas-3.8.jar
+SHA1-Digest: yzsmgJ7GXroiFDrP3fZUvPcKoAk=
+
+Name: net/risesoft/soa/filecube/util/SystemInfo.class
+SHA1-Digest: 0VLPpwtqnjQAS1IZlmq13O9BJSo=
+
+Name: net/risesoft/soa/filecube/util/GlobalConst.class
+SHA1-Digest: EmlAHn7UiMJGLh5QwOwYuzujW8Q=
+
+Name: net/risesoft/soa/filecube/model/FileAdapter.class
+SHA1-Digest: imNoYFEUuB0B2MdlN+hINX9LT0w=
+
+Name: net/risesoft/soa/filecube/model/FileOpenHistory.class
+SHA1-Digest: Rq8muvQJHvhAAi+S4nPvrKT3dc0=
+
+Name: net/risesoft/soa/filecube/service/impl/FileServiceImpl.class
+SHA1-Digest: EbG5ePJ8loF5fCsHvcWz0sTG3ks=
+
+Name: lib/metadata-extractor-2.4.0-beta-1.jar
+SHA1-Digest: 8cD2wuv74rEd0EVZrUOHKORjbVM=
+
+Name: net/risesoft/soa/filecube/util/FrameServerJCEProvicer$FrameServe
+ rJarVerifier.class
+SHA1-Digest: Z1Z3yES9wmGhHreELt34H5y+CG4=
+
+Name: lib/xmlbeans-2.3.0.jar
+SHA1-Digest: hwTc9cnxAmWgj1AgsPq3DrZKw8Q=
+
+Name: lib/jempbox-1.7.0.jar
+SHA1-Digest: 0vPRX6AYLhbn8E/TfSAD29ItPjc=
+
+Name: net/risesoft/soa/filecube/util/DateUtil.class
+SHA1-Digest: 6DioW0SF5myLDldo7AYDfXvVMXE=
+
+Name: net/risesoft/soa/filecube/util/FileType$OTHER.class
+SHA1-Digest: Qi0trrsQFKBMS7DfJJRsQkb/kH0=
+
+Name: net/risesoft/soa/filecube/dao/FavoritesDao.class
+SHA1-Digest: d5aJac32lzjvWYZf/rCaznbTZnM=
+
+Name: net/risesoft/soa/filecube/adapter/files.xml
+SHA1-Digest: EJMM9cYaQIxLMiQJadRM+8q5T0U=
+
+Name: net/risesoft/soa/filecube/service/AdapterService.class
+SHA1-Digest: VkGF9225OFJik1kTGccYPQSKFzw=
+
+Name: net/risesoft/soa/filecube/model/FileShare.class
+SHA1-Digest: iEOdC6hsL3oFbHDQ++obRbLbdwI=
+
+Name: net/risesoft/soa/filecube/util/FileType$AUDIO.class
+SHA1-Digest: hbhifXqFtjC6T+IhonUVNbAA4RQ=
+
+Name: net/risesoft/soa/filecube/util/OperationType$5.class
+SHA1-Digest: E7fwKlIKDSIkadvkBdJNuKmVixc=
+
+Name: net/risesoft/soa/filecube/util/DimensionType$2.class
+SHA1-Digest: LRzwDnVNJNZV2fp0c/iOjAFu0FA=
+
+Name: net/risesoft/soa/filecube/util/DimensionType$3.class
+SHA1-Digest: Ai0iqRFnsye30rTNo4/OVdVPG9U=
+
+Name: lib/commons-compress-1.4.1.jar
+SHA1-Digest: sC6EqZPYhWhBdTYkDpcMS4CRJv0=
+
+Name: net/risesoft/soa/filecube/service/SearchLogService.class
+SHA1-Digest: W3O0VyfTK9YDNFkHx9qmisSYbbo=
+
+Name: net/risesoft/soa/filecube/util/DimensionType$4.class
+SHA1-Digest: ixQyRmFd2ThyieOCgkwZDoUTlBs=
+
+Name: net/risesoft/soa/filecube/service/impl/SearchLogServiceImpl.clas
+ s
+SHA1-Digest: +Gw5Bq5ZuwS8CNJz816f7IGpnyc=
+
+Name: net/risesoft/soa/filecube/service/commons/impl/FileServiceImpl.c
+ lass
+SHA1-Digest: pKJ2A7iooKD73pVT4Sk8mHp4y2Q=
+
+Name: net/risesoft/soa/filecube/service/impl/ShareServiceImpl.class
+SHA1-Digest: dlDwYvOYWV0SXRgMOfwiDMKATto=
+
+Name: net/risesoft/soa/filecube/model/Dimension.class
+SHA1-Digest: mt+br+dSlc4EexoD2+RwICu0Y7g=
+
+Name: net/risesoft/soa/filecube/dao/OpenHistoryDao.class
+SHA1-Digest: BDpFyRf8XUr5V5vN/wTZV8bpyIw=
+
+Name: lib/xz-1.0.jar
+SHA1-Digest: 7P9cuLEYlRTJ0djWjrd6w3LgAMk=
+
+Name: net/risesoft/soa/filecube/dao/AttachmentDao.class
+SHA1-Digest: 8LF0sB5QkyUu7xCH2tLA6ZqoViY=
+
+Name: net/risesoft/soa/filecube/adapter/FileXMLParser.class
+SHA1-Digest: 3j33klWq7fV0c7Ky2Lpg1dQNMrI=
+
+Name: net/risesoft/soa/filecube/model/FileCommentary.class
+SHA1-Digest: BR4ULdTB7eYhhsBgGMmZFRBUnM8=
+
+Name: net/risesoft/soa/filecube/util/StringUtils.class
+SHA1-Digest: ZE0501SaJ6fR3H//NRIIQeGu0j0=
+
+Name: META-INF/config/filecube.properties
+SHA1-Digest: GUXRWbN/2584wT1reTBHDl9leio=
+
+Name: net/risesoft/soa/filecube/service/FolderService.class
+SHA1-Digest: oHDk0YO+nhwIu/K/1WQRiBN1lDc=
+
+Name: net/risesoft/soa/filecube/service/FavoritesService.class
+SHA1-Digest: hh2bqjT/TezjkCDh2pCJ0QJqPjg=
+
+Name: lib/ridl.jar
+SHA1-Digest: 0sl+VjxQLOGxvmmflZjmnmF3G84=
+
+Name: net/risesoft/soa/filecube/util/FileType$VIDEO.class
+SHA1-Digest: PpnQIyJkojjFd4uCaBLmFTtTAXE=
+
+Name: net/risesoft/soa/filecube/util/FrameServerJCEProvicer$FrameServe
+ rJarVerifier1$1.class
+SHA1-Digest: fz21jHpi5aymfB6ttpKCvkjMGzw=
+
+Name: net/risesoft/soa/filecube/model/FileMetaImage.class
+SHA1-Digest: 6DF+VgmSaNZ6jeDhd/Qgj+igPXY=
+
+Name: net/risesoft/soa/filecube/util/OperationType$4.class
+SHA1-Digest: 49XrHk9u6v6Grwk+T79UUzjv1N8=
+
+Name: lib/poi-3.8.jar
+SHA1-Digest: VSp3A9MsV622Ed8IS0X3FY6GU/M=
+
+Name: net/risesoft/soa/filecube/util/FileSize.class
+SHA1-Digest: iICvX2LX2T851X0Ftr/EbWCtE+U=
+
+Name: net/risesoft/soa/filecube/util/FileUtils.class
+SHA1-Digest: eaWG1CgCL1PSQc/SEJwWASRifAM=
+
+Name: net/risesoft/soa/filecube/model/FileInfo.class
+SHA1-Digest: 8y1aNNGUBcK1Req1CHCgYLp2Ufs=
+
+Name: net/risesoft/soa/filecube/service/util/AcManager.class
+SHA1-Digest: j07keUTJsVGZeDHfut45BGpdxg0=
+
+Name: net/risesoft/soa/filecube/model/FileMetaDoc.class
+SHA1-Digest: hI9pQB4SPXN5MGXm2Y862xo+m60=
+
+Name: net/risesoft/soa/filecube/service/impl/AdapterServiceImpl.class
+SHA1-Digest: 1KF72exOMlo5YZBrkQop+wXzMVE=
+
+Name: net/risesoft/soa/filecube/service/QueryHistoryService.class
+SHA1-Digest: g2bRnnNDj0iq9jx3w77XLR87Ds0=
+
+Name: net/risesoft/soa/filecube/dao/ShareDao.class
+SHA1-Digest: Wy6kYNS9jMAVYUqd5GdhfyVIokA=
+
+Name: lib/juniversalchardet-1.0.3.jar
+SHA1-Digest: zUlnh4TEaqh4nAYFOOAVQBO7Qhs=
+
+Name: net/risesoft/soa/filecube/service/FileService.class
+SHA1-Digest: IPxaQLsjlYXkIeN8gw3nIeYv7jE=
+
+Name: net/risesoft/soa/filecube/util/OperationType.class
+SHA1-Digest: uP1B5+e8xxfOrT6H6b3ibcL1yWg=
+
+Name: net/risesoft/soa/filecube/dao/CommentaryDao.class
+SHA1-Digest: K9QS5+Ma/bRejy2BoR6iDNyn5nE=
+
+Name: net/risesoft/soa/filecube/util/ResizeImage.class
+SHA1-Digest: t2RCkUr+T8O5pljRCJZ9/nzTYuk=
+
+Name: lib/tika-core-1.2.jar
+SHA1-Digest: 0XrSi7YDC1hEnt7tOX2HpWYejME=
+
+Name: lib/unoil.jar
+SHA1-Digest: jhvVGa/toH8eLrhjzu37LYipouY=
+
+Name: lib/jodconverter-2.2.2.jar
+SHA1-Digest: HiidAS4RBEHDt9gGgO+ZJSnxzBE=
+
+Name: net/risesoft/soa/filecube/util/DocumentToSWF.class
+SHA1-Digest: AcRSL9jnnJcCYOwgG0u6obE6OPw=
+
+Name: net/risesoft/soa/filecube/model/FileOfficialDocument.class
+SHA1-Digest: BGkbowmuKZPbUw9lrUBDf06VYn8=
+
+Name: net/risesoft/soa/filecube/util/DimensionType.class
+SHA1-Digest: 8xZvH0S2YZUGPILjNXvdqLQHq9U=
+
+Name: net/risesoft/soa/filecube/dao/AdapterLogDao.class
+SHA1-Digest: mKyuICoy1tB9Z64HZnSEbxE2MDU=
+
+Name: net/risesoft/soa/filecube/util/FrameServerJCEProvicer.class
+SHA1-Digest: eLhW+IA9brAGlI0VtbtcVghTmIs=
+
+Name: net/risesoft/soa/filecube/service/impl/PermissionServiceImpl.cla
+ ss
+SHA1-Digest: kYALm6tsFScCz4P3YiY9RryWFUk=
+
+Name: net/risesoft/soa/filecube/util/FileType$DOCUMENT.class
+SHA1-Digest: NJW+czb5ADREASuiyIblaCnwS6E=
+
+Name: net/risesoft/soa/filecube/model/FileFolder.class
+SHA1-Digest: 2AVmvdRYIhWeRioWfgfvWZrFBdU=
+
+Name: net/risesoft/soa/filecube/model/FileAdapterFolder.class
+SHA1-Digest: vaL1Pgt24PcSmPk2zkE4LQuRsqY=
+
+Name: net/risesoft/soa/filecube/service/impl/QueryHistoryServiceImpl.c
+ lass
+SHA1-Digest: B+wxiXlYjAx5lbVNMpWIASbWW/A=
+
+Name: lib/fontbox-1.7.0.jar
+SHA1-Digest: o3Ig01sMZzqVQ7SFMVK1f7d6xRM=
+
+Name: lib/poi-scratchpad-3.8.jar
+SHA1-Digest: M+8+t72XwNzfKHOw4KCTjwE9QQw=
+

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+ <mapper namespace="com.handany.base.dao.ParameterMapper">
+ 
+ 	<resultMap type="com.handany.base.model.Parameter" id="ParameterMap">
+ 		 <result column="id" property="id"/>
+		 <result column="parent_id" property="parentId"/>
+		 <result column="class_id" property="classId"/>
+		 <result column="code" property="code"/>
+		 <result column="name" property="name"/>
+		 <result column="brief_name" property="briefName"/>
+		 <result column="valid" property="valid"/>
+		 <result column="display_order" property="displayOrder"/>
+ 	</resultMap>
+
+	<resultMap type="com.handany.base.model.ParameterClass" id="ParameterClassMap">
+ 		 <result column="id" property="id"/>
+		 <result column="code" property="code"/>
+		 <result column="name" property="name"/>
+		 <result column="type" property="type"/>
+		  <result column="tree" property="tree"/>
+ 	</resultMap>
+
+ 
+     <select id="getParamList" parameterType="string" resultMap="ParameterMap">
+         select * from Pm_Param p  where class_id = #{classId} order by parent_id,display_order
+     </select>
+     
+     <select id="getParamClassList" resultMap="ParameterClassMap">
+     	select * from Pm_Param_Class
+     </select>
+     
+     
+     <!-- 根据类型code和父级参数code 查询下级参数集合 -->
+     <select id="querySubParamList" parameterType="map" resultMap="ParameterMap">
+     	select * from Pm_Param p 
+     	where     		
+     	class_id in (select id from Pm_Param_Class where code=#{classCode})
+     	<if test="parentCode!=null and parentCode!=''">
+	     and parent_id in 
+     		(
+     			select id from Pm_Param 
+     				where code=#{parentCode}
+     				and 
+     				class_id in (select id from Pm_Param_Class where code=#{classCode})
+     		) 
+     	</if>
+     	
+     	<if test="parentCode==null or parentCode==''">
+     		and parent_id='0'
+     	</if>
+     	
+     	
+     </select>
+     <!-- 根据类型code和参数code 查询参数信息-->
+     <select id="queryParam" parameterType="map" resultMap="ParameterMap">
+     	select * from Pm_Param 
+     	where code=#{paramCode} 
+     	and
+     	class_id in (select id from Pm_Param_Class where code=#{classCode}) 
+     </select>
+     
+ </mapper>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

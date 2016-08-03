@@ -1,0 +1,1 @@
+({"previousMessage":"Predch¨¢dzaj¨²ce vo\x{013e}by","nextMessage":"\x{010e}al\x{0161}ie vo\x{013e}by"})

@@ -1,0 +1,1087 @@
+package com.ibm.struts;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.ibm.broker.FlowNameComparator;
+import com.ibm.broker.MessageFlowInfo;
+import com.ibm.broker.config.proxy.ApplicationProxy;
+import com.ibm.broker.config.proxy.BrokerConnectionParameters;
+import com.ibm.broker.config.proxy.BrokerProxy;
+import com.ibm.broker.config.proxy.ConfigManagerProxyException;
+import com.ibm.broker.config.proxy.ConfigManagerProxyLoggedException;
+import com.ibm.broker.config.proxy.ConfigManagerProxyPropertyNotInitializedException;
+import com.ibm.broker.config.proxy.DeployResult;
+import com.ibm.broker.config.proxy.ExecutionGroupProxy;
+import com.ibm.broker.config.proxy.MQBrokerConnectionParameters;
+import com.ibm.broker.config.proxy.MessageFlowProxy;
+import com.ibm.hibernate.BrokerInfo;
+import com.ibm.hibernate.BrokerInfoDAO;
+import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.ActionSupport;
+
+public class BrokerTopologyAction extends ActionSupport {
+	
+	private static final Logger log = LoggerFactory.getLogger(BrokerTopologyAction.class);
+	
+	private static final long serialVersionUID = 1L;
+	private int MAX_WAIT_TIME = 120;
+	private String selectedItemIds;		
+	private String qmgrname;	
+	private String egname;	
+	private String comment1;	
+	private String title;	
+	private String viewdescription;	
+	private String operation;	
+	private String brokername;	
+	private String changeValues;
+	private String instances;;
+	private String msgflowname;
+	private String appname;
+	private String indexIntanceMapping;
+	
+	Map<String, String> qmgrMap = new LinkedHashMap<String, String>();
+	Map<String,Map<String,List<MessageFlowInfo>>> brokerMap = null;	
+	BrokerInfoDAO dao = new BrokerInfoDAO();
+	Map<String, String> appMap = new LinkedHashMap<String, String>();
+	public String getChangeValues() {
+		return changeValues;
+	}
+
+	public void setChangeValues(String changeValues) {
+		this.changeValues = changeValues;
+	}
+	
+	public String getMsgFlowName() {
+		return msgflowname;
+	}
+
+	public void setMsgFlowName(String msgflowname) {
+		this.msgflowname = msgflowname;
+	}
+	
+	public String getInstances() {
+		return instances;
+	}
+
+	public void setInstanceNumber(String instances) {
+		this.instances = instances;
+	}
+	public String getEgname() {
+		return egname;
+	}
+
+	public void setEgname(String egname) {
+		this.egname = egname;
+	}
+
+	public String getBrokername() {
+		return brokername;
+	}
+
+	public void setBrokername(String brokername) {
+		this.brokername = brokername;
+	}
+
+	public String getComment1() {
+		return comment1;
+	}
+
+	public void setComment1(String comment1) {
+		this.comment1 = comment1;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getViewdescription() {
+		return viewdescription;
+	}
+
+	public void setViewdescription(String viewdescription) {
+		this.viewdescription = viewdescription;
+	}
+
+	public String getOperation() {
+		return operation;
+	}
+
+	public void setOperation(String operation) {
+		this.operation = operation;
+	}
+	
+	public String getQmgrname() {
+		return qmgrname;
+	}
+
+	public void setQmgrname(String qmgrname) {
+		this.qmgrname = qmgrname;
+	}
+
+	public Map<String, String> getQmgrMap() {
+		return qmgrMap;
+	}
+
+	public void setQmgrMap(Map<String, String> qmgrMap) {
+		this.qmgrMap = qmgrMap;
+	}
+
+	public String getSelectedItemIds() {
+		return selectedItemIds;
+	}
+
+	public void setSelectedItemIds(String selectedItemIds) {
+		this.selectedItemIds = selectedItemIds;
+	}
+	
+	public String getAppname() {
+		return appname;
+	}
+
+	public void setAppname(String appname) {
+		this.appname = appname;
+	}
+	
+	
+	public String getIndexIntanceMapping() {
+		return indexIntanceMapping;
+	}
+
+	public void setIndexIntanceMapping(String indexIntanceMapping) {
+		this.indexIntanceMapping = indexIntanceMapping;
+	}
+
+	public Map<String, Map<String, List<MessageFlowInfo>>> getBrokerMap() {
+		return brokerMap;
+	}
+
+	public void setBrokerMap(
+			Map<String, Map<String, List<MessageFlowInfo>>> brokerMap) {
+		this.brokerMap = brokerMap;
+	}
+	
+	public Map<String, String> getAppMap() {
+		return appMap;
+	}
+
+	public void setAppMap(Map<String, String> appMap) {
+		this.appMap = appMap;
+	}
+
+	/**
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	public String display(){
+		//BrokerInfoDAO dao = new BrokerInfoDAO();
+		//List<BrokerInfo> list = dao.findAll();
+ 
+		BrokerInfo brokerInfo = new BrokerInfo();
+   
+		if (!qmgrname.equalsIgnoreCase("select")) {
+			brokerMap = new LinkedHashMap<String, Map<String,List<MessageFlowInfo>>>();
+			//for(Iterator i = list.iterator(); i.hasNext();) {
+			//BrokerInfo brokerInfo = (BrokerInfo) i.next();			
+			brokerInfo = (BrokerInfo)dao.findByQmgrname(qmgrname).get(0);
+			
+	    	BrokerProxy proxy = connect(brokerInfo.getHostname(), new Integer(brokerInfo.getPort()).intValue(),brokerInfo.getQmgrname());
+	    	
+	    	try {
+				appMap = getApplicationsByBroker(proxy);
+			} catch (ConfigManagerProxyException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+				System.out.println("error");
+			}
+	    	
+			Map<String,List<MessageFlowInfo>> egMap = new LinkedHashMap<String,List<MessageFlowInfo>>();
+			try {
+				
+		    	if (proxy != null) {
+					egMap = getExecutionGroupByBroker(proxy, brokerInfo.getQmgrname(), appname);
+					brokerMap.put(brokerInfo.getBname(), egMap);
+					proxy.disconnect();										
+		    	} else {
+		    		brokerMap.put(brokerInfo.getBname(), null);
+		    	} 				
+				
+			} catch (NumberFormatException e) {
+				e.printStackTrace();
+			} catch (ConfigManagerProxyException e) {
+				e.printStackTrace();
+			}
+			
+		//} 
+			setQmgrname(qmgrname);
+			setAppname(appname);
+		} else {
+			setAppname("");
+			setQmgrname("");
+		}
+		
+		List<BrokerInfo> list = dao.findAll();
+		for (Iterator i = list.iterator(); i.hasNext();) {
+			brokerInfo = (BrokerInfo) i.next();
+			qmgrMap.put(brokerInfo.getQmgrname(), brokerInfo.getQmgrname());
+		}
+		
+		return SUCCESS;
+	}
+	
+    private BrokerProxy connect(String hostname, int port, String qmgrname) {
+        BrokerProxy b = null;
+        BrokerConnectionParameters bcp = new MQBrokerConnectionParameters(hostname,port,qmgrname);
+        
+        try {
+            b = BrokerProxy.getInstance(bcp);
+            //b = BrokerProxy.getLocalInstance("MB");
+            boolean brokerIsResponding = b.hasBeenPopulatedByBroker(true);
+            
+            if (brokerIsResponding) {
+            	//System.out.println("Broker is running");
+            } else {
+            	//System.out.println("Broker is Stopped");
+                b.disconnect();
+                b = null;
+            }
+            
+        } catch (Exception e) {
+       
+        }
+        return b;
+    }
+    
+    private Map<String,List<MessageFlowInfo>> getExecutionGroupByBroker(BrokerProxy b, String qMgrName, String appName) throws ConfigManagerProxyException {
+        
+        // First, register the BrokerProxy for changes if necessary.    	       
+        String brokerName = b.getName();
+        Map<String,List<MessageFlowInfo>> egMap = new LinkedHashMap<String,List<MessageFlowInfo>>();
+                
+        Enumeration<ExecutionGroupProxy> allEGsInThisBroker = b.getExecutionGroups(null);
+        if (allEGsInThisBroker.hasMoreElements()) {
+        	
+	        while (allEGsInThisBroker.hasMoreElements()) {
+	            ExecutionGroupProxy thisEG = allEGsInThisBroker.nextElement();
+	            
+	            boolean isEgRunning = thisEG.isRunning();
+	            String executionGroupName = thisEG.getName();
+	            Enumeration<MessageFlowProxy> allFlowsInThisEG = null;
+	            
+	            if (isEgRunning) {
+	            	List<MessageFlowInfo> flowlist = new ArrayList<MessageFlowInfo>();
+	            	if(null!=appname && appname.equalsIgnoreCase("select"))
+	            	{
+	            		allFlowsInThisEG = thisEG.getMessageFlows(null);
+	            	}
+	            	else
+	            	{
+	            		ApplicationProxy appInThisEG = thisEG.getApplicationByName(appname);
+	            		if(null != appInThisEG)
+	            		{
+	            			allFlowsInThisEG = appInThisEG.getMessageFlows(null);
+	            		}
+	            	}
+	                if (null!=allFlowsInThisEG && allFlowsInThisEG.hasMoreElements()) {
+		                while (allFlowsInThisEG.hasMoreElements()) {
+		                    MessageFlowProxy thisFlow = allFlowsInThisEG.nextElement();
+		
+		                	boolean isFlowRunning = thisFlow.isRunning();
+		                    String messageFlowName = thisFlow.getName();
+		                    int instances = thisFlow.getAdditionalInstances() + 1;                        
+		                    
+		                    MessageFlowInfo flowinfo = new MessageFlowInfo();                        
+		                    if (isFlowRunning) {
+		                    	flowinfo.setBrokername(brokerName);
+		                    	flowinfo.setEgname(executionGroupName);
+		                    	flowinfo.setFlowname(messageFlowName);
+		                    	flowinfo.setInstances(new Integer(instances).toString());
+		                    	flowinfo.setStatus("running");
+		                    	flowinfo.setQmgrname(qMgrName);
+		                    } else {
+		                    	flowinfo.setBrokername(brokerName);
+		                    	flowinfo.setEgname(executionGroupName);
+		                    	flowinfo.setFlowname(messageFlowName);
+		                    	flowinfo.setInstances(new Integer(instances).toString());
+		                    	flowinfo.setStatus("stopped"); 
+		                    	flowinfo.setQmgrname(qMgrName);
+		                    }
+		                    flowlist.add(flowinfo);                     
+		                } 
+		                
+		                FlowNameComparator comp = new FlowNameComparator();
+		               	Collections.sort(flowlist,comp);
+		                egMap.put(executionGroupName, flowlist);
+		                
+	                } else if(null != appname && appname.equalsIgnoreCase("select")){
+	                	 MessageFlowInfo flowinfo = new MessageFlowInfo();
+	                	 flowinfo.setBrokername(brokerName);
+	                 	 flowinfo.setEgname(executionGroupName);
+	                 	 flowinfo.setStatus("running");
+	                 	 flowinfo.setQmgrname(qMgrName);
+	                 	 flowlist.add(flowinfo); 
+	                	 egMap.put(executionGroupName, flowlist);
+	                }
+	                
+	            } else {
+	            	List<MessageFlowInfo> flowlist = new ArrayList<MessageFlowInfo>();
+	            	MessageFlowInfo flowinfo = new MessageFlowInfo();
+	            	flowinfo.setBrokername(brokerName);
+	            	flowinfo.setEgname(executionGroupName);
+	            	flowinfo.setStatus("stopped"); 
+	            	flowinfo.setQmgrname(qMgrName);
+	            	flowlist.add(flowinfo);
+	            	egMap.put(executionGroupName, flowlist);
+	            }
+	        }    
+	     
+        } else {
+        	egMap.put("Null", null); 	
+	    }
+                    
+        return egMap;
+    }
+
+	
+	public String deleteBars() {
+		String flag = SUCCESS;
+		title = "删除消息流";
+		viewdescription = "在该页面用户可以查看删除消息流结果。";
+		operation = "deletemsgflow";
+		
+		if (selectedItemIds != null ) {
+			String objectName[] = selectedItemIds.split(", ");		
+			BrokerProxy b = null;
+			
+			for(int i=0; i < objectName.length; i++) {
+				String brokerNames[] = objectName[i].split("&");
+				if (brokerNames.length > 2) {
+					String qMgrName = brokerNames[0];
+					String egName = brokerNames[1];
+					String flowName = brokerNames[2];
+					
+					BrokerInfo brokerInfo = new BrokerInfo();			
+					brokerInfo = (BrokerInfo)dao.findByQmgrname(qMgrName).get(0);
+					
+					if (b == null) {
+						b = connect(brokerInfo.getHostname(), new Integer(brokerInfo.getPort()).intValue(),brokerInfo.getQmgrname());
+					}
+										
+					//String result = deleteBAR(brokerInfo.getHostname(), new Integer(brokerInfo.getPort()).intValue(), qMgrName, egName, flowName, 60);
+					if (b != null) {
+						try {
+							ExecutionGroupProxy egProxy = b.getExecutionGroupByName(egName);
+							DeployResult deployResult = null;
+							String flow[] = {flowName};
+							if(appname.equalsIgnoreCase("select"))
+							{
+								deployResult = egProxy.deleteDeployedObjectsByName(flow, MAX_WAIT_TIME * 1000); 
+							}
+							else
+							{
+								ApplicationProxy appProxy = egProxy.getApplicationByName(appname);
+								
+								deployResult = appProxy.deleteDeployedObjectsByName(flow, MAX_WAIT_TIME * 1000); 
+							}
+							String result = deployResult.getCompletionCode().toString();
+							if (!result.equalsIgnoreCase("success")) {
+								 comment1 = "消息流 " + flowName + " 删除失败。";						 		 
+								 flag = ERROR;					 
+							 } else {
+								 comment1 = "消息流 " + flowName + " 删除成功。";								 					 
+								 flag = SUCCESS; 
+							 }								
+						} catch (ConfigManagerProxyPropertyNotInitializedException e) {							
+							//e.printStackTrace();
+							comment1 = "消息流 " + flowName + " 删除失败。";						 		 
+							flag = ERROR;	
+						} catch (ConfigManagerProxyLoggedException e) {
+							//e.printStackTrace();
+							comment1 = "消息流 " + flowName + " 删除失败。";						 		 
+							flag = ERROR;	
+						}
+						
+					}
+
+				} else {
+					 comment1 = "没有消息流可以删除";						 		 					 
+					 flag = ERROR;						
+				}
+			}
+			
+			if (b != null) {
+				b.disconnect();
+			}
+		} else {
+			comment1 = "没有选择操作对象。";			
+			flag = ERROR;			
+		}
+		
+		return flag;
+	}
+
+	public String deleteBAR(String brokerHostName, int brokerPort,
+			String brokerQmgrName, String executionGroupName,
+			String messageFlowName, int timeoutSecs) {
+		
+		String result = null;
+		BrokerConnectionParameters bcp = new MQBrokerConnectionParameters(
+				brokerHostName, brokerPort, brokerQmgrName);
+		BrokerProxy b = null;
+
+		try {
+			b = BrokerProxy.getInstance(bcp);
+
+			// Has the broker responded to the connection attempt?
+			if (!b.hasBeenPopulatedByBroker(true)) {
+				System.out.println("Broker is not responding.");
+			} else {
+				ExecutionGroupProxy eg = b
+						.getExecutionGroupByName(executionGroupName);
+
+				// If the execution group exists, deploy to it.
+				if (eg != null) {
+										
+					try {
+						String flow[] = {messageFlowName};
+						DeployResult deployResult = eg.deleteDeployedObjectsByName(flow, timeoutSecs * 1000); 
+
+						result = deployResult.getCompletionCode().toString();
+					} catch (Exception ioEx) {
+						// e.g. if BAR file doesn't exist
+						ioEx.printStackTrace();
+					}
+
+				}
+
+			}
+		} catch (ConfigManagerProxyException cmpEx) {
+			cmpEx.printStackTrace();
+		} finally {
+			if (b != null) {
+				b.disconnect();
+			}
+		}
+		
+		return result;
+	}
+	
+	
+	/**
+	 * @return
+	 */
+	public String selectTopology() {
+		List<BrokerInfo> list = dao.findAll();
+		
+		for (Iterator<BrokerInfo> i = list.iterator(); i.hasNext();) {
+			BrokerInfo brokerInfo = (BrokerInfo) i.next();
+			qmgrMap.put(brokerInfo.getQmgrname(), brokerInfo.getQmgrname());
+		}
+		
+		setQmgrname("");		
+		return SUCCESS;
+	}
+
+	public String selectedEG() {
+		BrokerInfo brokerInfo = new BrokerInfo();
+							
+		brokerInfo = (BrokerInfo)dao.findByQmgrname(qmgrname).get(0);
+		brokername = brokerInfo.getBname();
+				
+		setQmgrname(qmgrname);
+		setAppname(appname);
+		
+		return SUCCESS;
+	}
+	
+	public String createExecutionGroup() {
+		title = "创建执行组";
+		viewdescription = "在该页面用户可以查看创建执行组的状态。";
+		String flag = null;
+		
+		BrokerInfo brokerInfo = new BrokerInfo();
+		brokerInfo = (BrokerInfo)dao.findByQmgrname(qmgrname).get(0);
+		
+		BrokerProxy b = connect(brokerInfo.getHostname(), new Integer(brokerInfo.getPort()).intValue(),brokerInfo.getQmgrname());
+		if (b != null) {
+			ExecutionGroupProxy egProxy = null;
+			
+			try {
+				b.setSynchronous(MAX_WAIT_TIME * 1000);			
+				egProxy = b.createExecutionGroup(egname);
+				
+				if (egProxy != null) {
+					setQmgrname(qmgrname);
+					setAppname(appname);
+					comment1 = "代理 " + brokerInfo.getBname() + " 执行组 " + egname + " 创建成功。";
+					log.info(comment1);	
+					flag = SUCCESS;
+				} else {
+					comment1 = "代理 " + brokerInfo.getBname() + " 执行组 " + egname + " 创建失败。";
+					log.info(comment1);	
+					flag = ERROR;				
+				}
+								
+			} catch (ConfigManagerProxyLoggedException e) {				
+				//e.printStackTrace();
+				comment1 = "代理 " + brokerInfo.getBname() + " 执行组 " + egname + " 创建失败。";
+				log.error(comment1);
+				flag = ERROR;
+			} catch (IllegalArgumentException e) {				
+				//e.printStackTrace();
+				comment1 = "代理 " + brokerInfo.getBname() + " 上创建执行组名称不能为空。";
+				log.error(comment1);
+				flag = ERROR;
+			}
+			
+		} else {
+			comment1 = "代理 " + brokerInfo.getBname() + " 连接失败。";
+			log.error(comment1);
+			flag = ERROR;
+		}
+		
+		if (b != null) {
+			b.disconnect();
+		}
+		
+		return flag;
+	}
+
+	public String deleteExecutionGroup() {
+		title = "删除执行组";
+		viewdescription = "在该页面用户可以查看删除执行组的状态。";
+		operation = "deleteeg";
+		
+		String flag = null;
+		BrokerProxy b = null;
+		BrokerInfo brokerInfo = new BrokerInfo();		
+		
+		if (selectedItemIds != null ) {
+			String objectName[] = selectedItemIds.split(", ");			
+			
+			for(int i=0; i < objectName.length; i++) {
+				String brokerNames[] = objectName[i].split("&");
+			
+				String qMgrName = brokerNames[0];
+				String egName = brokerNames[1];												
+				
+				brokerInfo = new BrokerInfo();			
+				brokerInfo = (BrokerInfo)dao.findByQmgrname(qMgrName).get(0);
+				try {
+					if (b == null) {
+						b = connect(brokerInfo.getHostname(), new Integer(brokerInfo.getPort()).intValue(),brokerInfo.getQmgrname());
+					}
+				
+					if (b != null) {					
+						b.setSynchronous(MAX_WAIT_TIME * 1000);			
+						b.deleteExecutionGroup(egName);						
+						comment1 =  "代理 " + brokerInfo.getBname() + " 执行组 " + egName + " 删除成功。";
+						log.info(comment1);
+						flag = SUCCESS;
+					}
+				} catch (ConfigManagerProxyPropertyNotInitializedException e) {						
+					//e.printStackTrace();
+					comment1 =  "代理 " + brokerInfo.getBname() + " 执行组 " + egName + " 删除失败。";
+					log.error(comment1);
+					flag = ERROR;
+				} catch (ConfigManagerProxyLoggedException e) {
+					//e.printStackTrace();
+					comment1 =  "代理 " + brokerInfo.getBname() + " 执行组 " + egName + " 删除失败。";
+					log.error(comment1);
+					flag = ERROR;
+				} catch (Exception e) {
+					//e.printStackTrace();
+					comment1 =  "代理 " + brokerInfo.getBname() + " 执行组 " + egName + " 删除失败。";
+					log.error(comment1);
+					flag = ERROR;
+				}
+			}
+			
+			if (b != null) {
+				b.disconnect();
+			}
+		} else {
+			comment1 = "没有选择操作对象。";			
+			//log.error(comment1);	
+			flag = ERROR;
+		}
+		
+		return flag;
+	}
+	
+	public String stopMsgFlow() {
+		title = "停止消息流";
+		viewdescription = "在该页面用户可以查看停止消息流的状态。";
+		operation = "stopmsgflow";
+		
+		String flag = SUCCESS;
+		BrokerInfo brokerInfo = null;
+		
+		if (selectedItemIds != null ) {
+			String objectName[] = selectedItemIds.split(", ");		
+			BrokerProxy b = null;
+			
+			for(int i=0; i < objectName.length; i++) {
+				String brokerNames[] = objectName[i].split("&");
+				if (brokerNames.length > 2) {
+					String qMgrName = brokerNames[0];
+					String egName = brokerNames[1];
+					String flowName = brokerNames[2];
+
+					
+					brokerInfo = new BrokerInfo();			
+					brokerInfo = (BrokerInfo)dao.findByQmgrname(qMgrName).get(0);
+					if (b == null) {
+						b = connect(brokerInfo.getHostname(), new Integer(brokerInfo.getPort()).intValue(),brokerInfo.getQmgrname());
+					}
+					
+					if (b != null) {
+						try {
+							ExecutionGroupProxy egProxy = b.getExecutionGroupByName(egName);
+							MessageFlowProxy msgProxy = null;
+							if(appname.equalsIgnoreCase("select"))
+							{
+								msgProxy = egProxy.getMessageFlowByName(flowName);
+							}
+							else
+							{
+								ApplicationProxy appProxy = egProxy.getApplicationByName(appname);
+								msgProxy = appProxy.getMessageFlowByName(flowName);
+							}
+							msgProxy.stop();
+							comment1 = "代理 " + brokerInfo.getBname() + " 执行组 " + egName + " 消息流 " + flowName + " 停止成功。";
+							log.info(comment1);
+							flag = SUCCESS;
+						} catch (ConfigManagerProxyPropertyNotInitializedException e) {						
+							//e.printStackTrace();
+							comment1 = "代理 " + brokerInfo.getBname() + " 执行组 " + egName + " 消息流 " + flowName + " 停止失败。";
+							log.error(comment1);	
+							flag = ERROR;
+						} catch (ConfigManagerProxyLoggedException e) {						
+							//e.printStackTrace();
+							comment1 = "代理 " + brokerInfo.getBname() + " 执行组 " + egName + " 消息流 " + flowName + " 停止失败。";
+							log.error(comment1);	
+							flag = ERROR;							
+						} 
+						
+					}
+				} 	 
+			}
+			
+			if (b != null) {
+				b.disconnect();
+			}
+		} else {			
+			comment1 = "没有选择消息流停止对象。";
+			//log.info(comment1);	
+			flag = ERROR;
+		}
+		
+		return flag;		
+
+	}
+	
+	public String startMsgFlow() {
+		title = "启动消息流";
+		viewdescription = "在该页面用户可以查看启动消息流的状态。";
+		operation = "startmsgflow";
+		
+		String flag = SUCCESS;
+		BrokerInfo brokerInfo = null;
+		
+		if (selectedItemIds != null ) {
+			String objectName[] = selectedItemIds.split(", ");		
+			BrokerProxy b = null;
+			
+			for(int i=0; i < objectName.length; i++) {
+				String brokerNames[] = objectName[i].split("&");
+				if (brokerNames.length > 2) {
+					String qMgrName = brokerNames[0];
+					String egName = brokerNames[1];
+					String flowName = brokerNames[2];							
+					
+					brokerInfo = new BrokerInfo();			
+					brokerInfo = (BrokerInfo)dao.findByQmgrname(qMgrName).get(0);
+					if (b == null) {
+						b = connect(brokerInfo.getHostname(), new Integer(brokerInfo.getPort()).intValue(),brokerInfo.getQmgrname());
+					}
+					
+					if (b != null) {
+						try {
+							ExecutionGroupProxy egProxy = b.getExecutionGroupByName(egName);							
+							MessageFlowProxy msgProxy = null;
+							if(appname.equalsIgnoreCase("select"))
+							{
+								msgProxy = egProxy.getMessageFlowByName(flowName);
+							}
+							else
+							{
+								ApplicationProxy appProxy = egProxy.getApplicationByName(appname);
+								msgProxy = appProxy.getMessageFlowByName(flowName);
+							}
+							msgProxy.start();
+							
+							comment1 = "代理 " + brokerInfo.getBname() + " 执行组 " + egName + " 消息流 " + flowName + " 启动成功。";
+							log.info(comment1);							
+							flag = SUCCESS;
+						} catch (ConfigManagerProxyPropertyNotInitializedException e) {						
+							//e.printStackTrace();
+							comment1 = "代理 " + brokerInfo.getBname() + " 执行组 " + egName + " 消息流 " + flowName + " 启动失败。";
+							log.error(comment1);
+							flag = ERROR;							
+						} catch (ConfigManagerProxyLoggedException e) {						
+							e.printStackTrace();
+							comment1 = "代理 " + brokerInfo.getBname() + " 执行组 " + egName + " 消息流 " + flowName + " 启动失败。";
+							log.error(comment1);
+							flag = ERROR;							
+						} 
+						
+					}
+				} 	 
+			}
+			
+			if (b != null) {
+				b.disconnect();
+			}
+		} else {			
+			comment1 = "没有选择消息流启动对象。";
+			//log.info(comment1);	
+			flag = ERROR;
+		}
+				
+		return flag;		
+
+	}
+	
+	public String stopEG() {
+		title = "停止执行组";
+		viewdescription = "在该页面用户可以查看停止执行组的状态。";
+		String flag = SUCCESS;
+		BrokerInfo brokerInfo = null;
+		
+		if (selectedItemIds != null ) {
+			String objectName[] = selectedItemIds.split(", ");		
+			BrokerProxy b = null;
+			
+			for(int i=0; i < objectName.length; i++) {
+				String brokerNames[] = objectName[i].split("&");
+				
+				String qMgrName = brokerNames[0];
+				String egName = brokerNames[1];									
+				
+				brokerInfo = new BrokerInfo();			
+				brokerInfo = (BrokerInfo)dao.findByQmgrname(qMgrName).get(0);
+				if (b == null) {
+					b = connect(brokerInfo.getHostname(), new Integer(brokerInfo.getPort()).intValue(),brokerInfo.getQmgrname());
+				}
+				
+				if (b != null) {
+					try {
+						ExecutionGroupProxy egProxy = b.getExecutionGroupByName(egName);						
+						egProxy.stop();
+						
+						comment1 = "代理 " + brokerInfo.getBname() +  "执行组 " + egName + " 停止成功。";
+						log.info(comment1);
+						flag = SUCCESS;
+					} catch (ConfigManagerProxyPropertyNotInitializedException e) {						
+						//e.printStackTrace();
+						comment1 = "代理 " + brokerInfo.getBname() + " 执行组 " + egName + " 停止失败。";
+						log.error(comment1);
+						flag = ERROR;
+					} catch (ConfigManagerProxyLoggedException e) {
+						//e.printStackTrace();
+						comment1 = "代理 " + brokerInfo.getBname() + " 执行组 " + egName + " 停止失败。";
+						log.error(comment1);
+						flag = ERROR;
+					}						
+				}
+				 	 
+			}
+			
+			if (b != null) {
+				b.disconnect();
+			}
+		} else {			
+			comment1 = "没有选择操作对象。";
+			//log.error(comment1);	
+			flag = ERROR;			
+		}
+				
+		return flag;		
+
+	}
+	
+	public String startEG() {
+		title = "启动执行组";
+		viewdescription = "在该页面用户可以查看启动执行组的状态。";
+		String flag = SUCCESS;
+		BrokerInfo brokerInfo = null;
+		
+		if (selectedItemIds != null ) {
+			String objectName[] = selectedItemIds.split(", ");		
+			BrokerProxy b = null;
+			
+			for(int i=0; i < objectName.length; i++) {
+				String brokerNames[] = objectName[i].split("&");
+				
+				String qMgrName = brokerNames[0];
+				String egName = brokerNames[1];									
+				
+				brokerInfo = new BrokerInfo();			
+				brokerInfo = (BrokerInfo)dao.findByQmgrname(qMgrName).get(0);
+				if (b == null) {
+					b = connect(brokerInfo.getHostname(), new Integer(brokerInfo.getPort()).intValue(),brokerInfo.getQmgrname());
+				}
+				
+				if (b != null) {
+					try {
+						ExecutionGroupProxy egProxy = b.getExecutionGroupByName(egName);						
+						egProxy.start();
+						comment1 = "代理 " + brokerInfo.getBname() + " 执行组 " + egName + " 启动成功。";
+						log.info(comment1);
+						flag = SUCCESS;
+					} catch (ConfigManagerProxyPropertyNotInitializedException e) {						
+						//e.printStackTrace();
+						comment1 = "代理 " + brokerInfo.getBname() + " 执行组 " + egName + " 启动失败。";
+						log.error(comment1);
+						flag = ERROR;
+					} catch (ConfigManagerProxyLoggedException e) {
+						//e.printStackTrace();
+						comment1 = "代理 " + brokerInfo.getBname() + " 执行组 " + egName + " 启动失败。";
+						log.error(comment1);
+						flag = ERROR;
+					}						
+				}
+				 	 
+			}
+			
+			if (b != null) {
+				b.disconnect();
+			}
+		} else {
+			//e.printStackTrace();
+			comment1 = "没有选择操作对象。";							
+			flag = ERROR;
+		}
+		
+		return flag;
+	}
+	public String setAdditionalInstances() {
+		title = "设置流程实例数";
+		viewdescription = "在该页面用户可以查看消息流的实例数。";
+		operation = "setAdditionalInstances";
+		
+		
+		String flag = SUCCESS;
+		BrokerInfo brokerInfo = null;
+		
+		if (selectedItemIds != null ) {
+			String objectName[] = selectedItemIds.split(", ");
+			String values[] = changeValues.split(", ");
+			String instances[] = indexIntanceMapping.split(", ");
+			Map<String, String> map = new HashMap<String, String>();
+			//System.out.println("objectName.length:" + objectName.length);
+			for(int j = 0; j < values.length;j++)
+			{
+				String newValue = values[j];
+				String IndexMapping = instances[j];
+				map.put(IndexMapping, newValue);
+			}
+			
+			BrokerProxy b = null;
+			
+			for(int i=0; i < objectName.length; i++) {
+				String brokerNames[] = objectName[i].split("&");
+				//System.out.println("brokerNames.length:" + brokerNames.length);
+				if (brokerNames.length > 2) {
+					String qMgrName = brokerNames[0];
+					String egName = brokerNames[1];
+					String flowName = brokerNames[2];
+					String index = brokerNames[4];
+					//System.out.println("number is:"+ number);					
+					brokerInfo = new BrokerInfo();			
+					brokerInfo = (BrokerInfo)dao.findByQmgrname(qMgrName).get(0);
+					if (b == null) {
+						b = connect(brokerInfo.getHostname(), new Integer(brokerInfo.getPort()).intValue(),brokerInfo.getQmgrname());
+					}
+					
+					if (b != null) {
+						try {
+							MessageFlowProxy msgProxy = null;
+							ExecutionGroupProxy egProxy = b.getExecutionGroupByName(egName);
+							
+							if(appname.equalsIgnoreCase("select"))
+							{					
+								msgProxy = egProxy.getMessageFlowByName(flowName);
+							}
+							else
+							{
+								ApplicationProxy appProxy = egProxy.getApplicationByName(appname); 
+								msgProxy = appProxy.getMessageFlowByName(flowName);
+							}
+							msgProxy.setAdditionalInstances(Integer.parseInt(map.get(index)));
+							comment1 = "代理 " + brokerInfo.getBname() + " 执行组 " + egName + " 消息流 " + flowName + " 设置附加实例数" + Integer.parseInt(map.get(index)) +"成功。";
+							log.info(comment1);							
+							flag = SUCCESS;
+						} catch (ConfigManagerProxyPropertyNotInitializedException e) {						
+							//e.printStackTrace();
+							comment1 = "代理 " + brokerInfo.getBname() + " 执行组 " + egName + " 消息流 " + flowName + " 设置实例数失败。";
+							log.error(comment1);
+							flag = ERROR;							
+						} catch (ConfigManagerProxyLoggedException e) {						
+							e.printStackTrace();
+							comment1 = "代理 " + brokerInfo.getBname() + " 执行组 " + egName + " 消息流 " + flowName + " 设置实例数失败。";
+							log.error(comment1);
+							flag = ERROR;							
+						} 
+						
+					}
+				} 	 
+			}
+			
+			if (b != null) {
+				b.disconnect();
+			}
+		} else {			
+			comment1 = "没有选择消息流对象。";
+			//log.info(comment1);	
+			flag = ERROR;
+		}
+				
+		return flag;		
+
+	}
+	
+	public String selectedMsgFlow() {
+		title = "设置流程实例数";
+		viewdescription = "在该页面用户可以查看消息流的实例数。";
+		operation = "setAdditionalInstances";
+		BrokerInfo brokerInfo = null;
+		String flag = SUCCESS;
+		if (selectedItemIds != null ) {
+			String objectName[] = selectedItemIds.split(", ");		
+					
+			String brokerNames[] = objectName[0].split("&");
+			String qMgrName = brokerNames[0];
+			setQmgrname(qMgrName);
+			String egName = brokerNames[1];
+			String flowName = brokerNames[2];							
+									
+			brokerInfo = new BrokerInfo();			
+			brokerInfo = (BrokerInfo)dao.findByQmgrname(qMgrName).get(0);
+			brokername=brokerInfo.getBname();
+			egname=egName;
+			msgflowname=flowName;
+		} else {			
+		comment1 = "没有选择消息流对象。";
+		//log.info(comment1);	
+		flag = ERROR;
+	}
+	return flag;
+	}
+	
+	private Map<String, String> getApplicationsByBroker(BrokerProxy b) throws ConfigManagerProxyException 
+	{
+		Map<String, String> applicationMap = new LinkedHashMap<String, String>();
+	                
+	    Enumeration<ExecutionGroupProxy> allEGsInThisBroker = b.getExecutionGroups(null);
+	    Enumeration<ApplicationProxy> allAppsInThisBroker = null;
+	    
+	    while (allEGsInThisBroker.hasMoreElements()) 
+	    {
+            ExecutionGroupProxy thisEG = allEGsInThisBroker.nextElement();
+            allAppsInThisBroker = thisEG.getApplications(null);
+            
+            while (allAppsInThisBroker.hasMoreElements()) 
+            {
+            	ApplicationProxy thisAPP = allAppsInThisBroker.nextElement();
+            	applicationMap.put(thisAPP.getName(), thisAPP.getName());
+            }
+         }
+           
+	    return applicationMap;
+	}
+	
+	public String deleteApplications() {
+		String flag = SUCCESS;
+		title = "删除应用";
+		viewdescription = "在该页面用户可以查看删除应用结果。";
+		operation = "deleteapplication";
+		
+		if (selectedItemIds != null ) {
+			String objectName[] = selectedItemIds.split(", ");		
+			BrokerProxy b = null;
+			
+			for(int i=0; i < objectName.length; i++) {
+				String brokerNames[] = objectName[i].split("&");
+				if (brokerNames.length > 2) {
+					String qMgrName = brokerNames[0];
+					String egName = brokerNames[1];
+					//String flowName = brokerNames[2];
+					
+					BrokerInfo brokerInfo = new BrokerInfo();			
+					brokerInfo = (BrokerInfo)dao.findByQmgrname(qMgrName).get(0);
+					
+					if (b == null) {
+						b = connect(brokerInfo.getHostname(), new Integer(brokerInfo.getPort()).intValue(),brokerInfo.getQmgrname());
+					}
+										
+					//String result = deleteBAR(brokerInfo.getHostname(), new Integer(brokerInfo.getPort()).intValue(), qMgrName, egName, flowName, 60);
+					if (b != null) {
+						try {
+							ExecutionGroupProxy egProxy = b.getExecutionGroupByName(egName);
+							String application[] = {appname};
+								
+							DeployResult deployResult = egProxy.deleteDeployedObjectsByName(application, MAX_WAIT_TIME * 1000); 
+							
+							String result = deployResult.getCompletionCode().toString();
+							if (!result.equalsIgnoreCase("success")) {
+								 comment1 = "应用 " + appname + " 删除失败。";						 		 
+								 flag = ERROR;					 
+							 } else {
+								 comment1 = "应用 " + appname + " 删除成功。";								 					 
+								 flag = SUCCESS; 
+							 }								
+						} catch (ConfigManagerProxyPropertyNotInitializedException e) {							
+							//e.printStackTrace();
+							comment1 = "应用 " + appname + " 删除失败。";						 		 
+							flag = ERROR;	
+						} catch (ConfigManagerProxyLoggedException e) {
+							//e.printStackTrace();
+							comment1 = "应用 " + appname + " 删除失败。";						 		 
+							flag = ERROR;	
+						}
+						
+					}
+
+				} else {
+					 comment1 = "没有应用可以删除";						 		 					 
+					 flag = ERROR;						
+				}
+			}
+			
+			if (b != null) {
+				b.disconnect();
+			}
+		} else {
+			comment1 = "没有选择操作对象。";			
+			flag = ERROR;			
+		}
+		
+		return flag;
+	}
+}

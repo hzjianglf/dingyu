@@ -1,0 +1,1 @@
+({"previousMessage":"\x{00d6}nceki se\x{00e7}enekler","nextMessage":"Di\x{011f}er se\x{00e7}enekler"})

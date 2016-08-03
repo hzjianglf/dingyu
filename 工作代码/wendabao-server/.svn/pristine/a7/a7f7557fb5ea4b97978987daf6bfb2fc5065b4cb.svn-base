@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.handany.bm.dao.BmFavoriteMapper">
+    <resultMap id="BaseResultMap" type="com.handany.bm.model.BmFavorite">
+            <result column="student_id" jdbcType="CHAR" property="studentId" />
+            <result column="teacher_id" jdbcType="CHAR" property="teacherId" />
+            <result column="last_modified" jdbcType="TIMESTAMP" property="lastModified" />
+    </resultMap>
+    
+    <resultMap id="QueryResultMap" type="com.handany.bm.model.BmFavorite">
+            <result column="student_id" jdbcType="CHAR" property="studentId" />
+            <result column="teacher_id" jdbcType="CHAR" property="teacherId" />
+            <result column="last_modified" jdbcType="TIMESTAMP" property="lastModified" />
+            <association property="classroom" column="teacher_id" select="queryClassroom"></association>
+    </resultMap>
+    
+    <resultMap id="ClassroomResultMap" type="com.handany.bm.model.BmClassroom">
+            <result column="id" jdbcType="CHAR" property="id" />
+            <result column="name" jdbcType="VARCHAR" property="name" />
+            <result column="intro" jdbcType="VARCHAR" property="intro" />
+            <result column="courses" jdbcType="VARCHAR" property="courses" />
+            <result column="grades" jdbcType="VARCHAR" property="grades" />
+            <result column="user_id" jdbcType="CHAR" property="userId" />
+            <result column="chatroom_id" jdbcType="CHAR" property="chatroomId" />
+            <result column="meeting_id" jdbcType="CHAR" property="meetingId"/>
+            <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+            <result column="status" jdbcType="CHAR" property="status" />
+            <result column="last_modified" jdbcType="TIMESTAMP" property="lastModified" />
+            <result column="user_pic" jdbcType="VARCHAR" property="userPic" />
+            <result column="school" jdbcType="VARCHAR" property="school" />
+            <collection property="classroomGrades" select="selectGradesForClassroom" column="id"
+            	ofType="com.handany.bm.model.BmClassroomGrade" javaType="ArrayList">
+            	<result column="gclassroom_id" jdbcType="CHAR" property="classroomId" />
+            	<result column="grade_id" jdbcType="CHAR" property="gradeId" />
+            	<result column="grade_name" jdbcType="VARCHAR" property="gradeName" />
+            </collection>
+            <collection property="classroomCourses" select="selectCoursesForClassroom"
+            	ofType="com.handany.bm.model.BmClassroomCourse" javaType="ArrayList" column="id">
+            	<result column="classroom_id" jdbcType="CHAR" property="classroomId" />
+            	<result column="course_id" jdbcType="CHAR" property="courseId" />
+            	<result column="course_name" jdbcType="VARCHAR" property="courseName" />
+            </collection>
+    </resultMap>
+
+    
+    <sql id="Base_Column_List">
+            student_id,
+            teacher_id,
+            last_modified
+    </sql>
+
+    <update id="saveFavorite" parameterType="com.handany.bm.model.BmFavorite">
+            insert into Bm_Favorite(<include refid="Base_Column_List"></include>)
+            values(#{studentId}, #{teacherId}, #{lastModified})
+            ON DUPLICATE KEY UPDATE
+            last_modified = #{lastModified}
+    </update>
+
+    <select id="queryFavorites"  parameterType="string"  resultMap="QueryResultMap">
+        select f.* from
+        (select <include refid="Base_Column_List"></include>
+        from Bm_Favorite where student_id = #{studentId}) f left join Bm_Classroom c on f.teacher_id = c.user_id
+        order by c.status desc
+    </select>
+
+    <delete id="deleteFavorite">
+            delete from Bm_Favorite where student_id = #{studentId} and teacher_id = #{teacherId}
+    </delete>
+
+    <select id="queryClassroom" resultMap="ClassroomResultMap">
+            select *, (select url from Bm_Picture p where p.relate_id = c.user_id and p.type = 'userHeader' and p.status = '1') as user_pic,
+            (select t.school from Bm_Teacher t where t.user_id = c.user_id limit 1) as school
+            from Bm_Classroom c where user_id = #{id}
+    </select>
+
+    <select id="isInFavorites" resultType="int">
+            select count(1) from Bm_Favorite where student_id = #{studentId} and teacher_id = #{teacherId}
+    </select>
+    
+    <select id="selectGradesForClassroom" parameterType="string" resultType="com.handany.bm.model.BmClassroomGrade">
+            select * from Bm_Classroom_Grade where classroom_id = #{id}
+    </select>
+
+    <select id="selectCoursesForClassroom" parameterType="string" resultType="com.handany.bm.model.BmClassroomCourse">
+            select * from Bm_Classroom_Course where classroom_id = #{id}
+    </select>
+</mapper>

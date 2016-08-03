@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+   xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+   xmlns:context="http://www.springframework.org/schema/context" 
+   xmlns:tx="http://www.springframework.org/schema/tx"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+      http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+      http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+   <context:annotation-config />
+   
+   <tx:annotation-driven/>
+
+   <jpa:repositories base-package="net.risesoft.soa.asf.dao" />
+   
+   <bean id="serviceProxyFactory" class="net.risesoft.soa.asf.core.ServiceProxyFactory" />
+   
+   <bean id="serviceManager" class="net.risesoft.soa.asf.egov.ServiceManagerImpl" />
+   
+   <bean id="serviceComponentManager" class="net.risesoft.soa.asf.egov.ServiceComponentManagerImpl" />
+   
+   <bean id="serviceModuleManager" class="net.risesoft.soa.asf.egov.ServiceModuleManagerImpl" />
+   
+   <bean id="repositoryManager" class="net.risesoft.soa.asf.egov.RepositoryManagerImpl" />
+   
+   <bean id="localServiceProcessor" class="net.risesoft.soa.asf.core.local.LocalServiceProcessor" destroy-method="destroy" />
+   
+   <bean id="remoteServiceProcessor" class="net.risesoft.soa.asf.core.remote.RemoteServiceProcessor" destroy-method="destroy" />
+   
+   <bean id="thirdpartyServiceProcessor" class="net.risesoft.soa.asf.core.thirdparty.ThirdpartyServiceProcessor" destroy-method="destroy" />
+   
+   <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+      <property name="targetObject" ref="localServiceProcessor" />
+      <property name="targetMethod" value="refresh" />
+   </bean>
+   
+   <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+      <property name="targetObject" ref="remoteServiceProcessor" />
+      <property name="targetMethod" value="refresh" />
+   </bean>
+   
+   <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+      <property name="targetObject" ref="thirdpartyServiceProcessor" />
+      <property name="targetMethod" value="refresh" />
+   </bean>
+      
+   <bean id="serviceClient" class="net.risesoft.soa.asf.egov.ServiceClientImpl" />
+
+</beans>

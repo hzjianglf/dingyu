@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Require-Bundle: net.risesoft.soa.org;bundle-version="1.0.0",egov.appse
+ rvice.org;bundle-version="1.0.0"
+Bundle-Vendor: LMD
+Bundle-ActivationPolicy: lazy
+Fragment-Host: net.risesoft.soa.org;bundle-version="1.0.0"
+Bundle-ClassPath: .
+Bundle-Version: 1.0.0.201303081531
+Bundle-Name: 即时通讯构件
+Bundle-ManifestVersion: 2
+Import-Package: egov.appservice.asf.exception;version="1.0.0",egov.app
+ service.org.model;version="1.0.0",egov.appservice.org.service,net.ris
+ esoft.soa.framework.util;version="1.0.0"
+Bundle-SymbolicName: lmd.soa.sync.rtx.lmd.rtx
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+

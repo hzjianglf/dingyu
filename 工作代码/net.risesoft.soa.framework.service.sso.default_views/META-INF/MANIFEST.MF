@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Bundle-Vendor: www.risesoft.net
+Fragment-Host: net.risesoft.soa.framework.service.sso;bundle-version="
+ 1.0.0"
+Build-Jdk: 1.6.0_30
+Built-By: jenkins
+Bundle-Version: 1.0.0.201408201001
+Bundle-Name: SSO Default UI
+Created-By: Apache Maven
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: net.risesoft.soa.framework.service.sso.default_vi
+ ews
+Archiver-Version: Plexus Archiver
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-ClassPath: webapp/WEB-INF/lib/bcmail-jdk15-142.jar,webapp/WEB-I
+ NF/lib/bcprov-jdk15-142.jar,webapp/WEB-INF/lib/iTrusJavaCertAPI-2.7.2
+ .jar,.
+Require-Bundle: net.risesoft.soa.asf.core;bundle-version="1.0.0",egov.
+ appservice.ac;bundle-version="1.0.0",egov.appservice.org;bundle-versi
+ on="1.0.0",egov.appservice.asf;bundle-version="1.0.0"
+Import-Package: net.risesoft.soa.framework.util,org.eclipse.core.runtime;version="3.4.0"

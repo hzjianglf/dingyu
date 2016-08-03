@@ -1,0 +1,7 @@
+[2010-12-11 12:32:08,859] ERROR com.ibm.sys.BrokerCommand(118) - JMSWMQ2002: 从目标“Broker/Monitoring/CmdToAgent”中获取消息失败。
+[2010-12-11 12:32:08,921] ERROR com.ibm.sys.BrokerCommand(124) - Consumer could not be closed.
+[2010-12-11 12:32:08,921] ERROR com.ibm.sys.BrokerCommand(125) - JMSWMQ0025: 使用 MQCLOSE 取消预订主题“Broker/Monitoring/CmdToAgent”失败。
+[2010-12-11 12:32:08,984] ERROR com.ibm.sys.BrokerCommand(133) - Session could not be closed.
+[2010-12-11 12:32:08,984] ERROR com.ibm.sys.BrokerCommand(134) - JMSWMQ2003: 未能关闭主题“Broker/Monitoring/CmdFromAgent”。
+[2010-12-11 12:32:09,000] ERROR com.ibm.sys.BrokerCommand(142) - Connection could not be closed.
+[2010-12-11 12:32:09,000] ERROR com.ibm.sys.BrokerCommand(143) - JMSWMQ0019: 与队列管理器“BRKQM”断开连接失败，正在使用的连接方式为“1”，主机名为“localhost(2414)”。

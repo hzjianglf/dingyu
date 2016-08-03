@@ -1,0 +1,33 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<div class="relbox" style="display: none;" id="relPersonBox"><div class="title">相关人物</div><div class="relimgbox"><a href="person/detail/${relPersonId }"><div class="relimgbg"></div><img id="relPersonAvatar" class="lazy" src="assets/css/imgs/defaultavatar.png" width="140" height="140"/></a></div>
+<div class="relinfobox"><div class="relinfos"><a href="person/detail/${relPersonId }"><span id="relPersonName"></span><span id="relPersonSex"></span></a></div>
+<div class="relinfos"><a onclick="return false;" href="javascript:void(0);"><span id="relPersonCompany"></span><span id="relPersonJobTitle"></span></a></div>
+</div></div>
+<script>
+$(function(){
+	var relPersonId=Number("${relPersonId}");
+	if(relPersonId&&relPersonId>0){
+		$.ajax({
+			type:"get",
+			url:"person/relinfo/"+relPersonId,
+			datatype:"json",
+			success:function(result){
+				if(result.success){
+					var json=result.data;
+					if(json){
+						$("#relPersonBox").show();
+						$("#relPersonName").text(json.name);
+						$("#relPersonSex").text(json.sex);
+						$("#relPersonCompany").text(json.companyName);
+						$("#relPersonJobTitle").text(json.jobTitle);
+						if(json.companyName&&json.companyId&&json.companyId>0){
+							$("#relPersonCompany").parent("a").attr("href","company/detail/"+json.companyId).removeAttr("onclick");
+						}
+						$("#relPersonAvatar").attr("data-original",json.imgUrl==null?"assets/css/imgs/defaultavatar.png":json.imgUrl).lazyload();
+					}
+				}
+			}
+		});
+	}
+});
+</script>

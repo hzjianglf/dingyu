@@ -1,0 +1,19 @@
+*{padding:0;margin:0;border:0;text-align: left;font-style: normal;font-weight:normal;font-size: 14px;-webkit-tap-highlight-color:rgba(0,0,0,0);	-webkit-touch-callout:none;/*绂佹閾炬帴闀挎寜寮瑰嚭閫夐」鑿滃崟*/}
+nav,footer,section,header,article{display:block;}
+ul{list-style: none;}
+/* navigation01 */
+.navigation01{width: 98%;position:relative;}
+.navigation01 .navBody{height:40px;overflow: hidden;margin:0 20px;}
+.navigation01 .navBody ul{overflow: hidden;display:-moz-box;	display:-webkit-box;display:box;-moz-box-orient:horizontal;-webkit-box-orient:horizontal;box-orient:horizontal;}
+.navigation01 .navBody li{text-align:center; min-width: 70px;}
+.navigation01 .navBody li span{height: 40px;line-height: 40px;padding:0 8px;display: block;text-align:center;}
+.navigation01 .navBarL,.navigation01 .navBarR{float:left;width:19px;height:40px;position:absolute;top:0;}
+.navigation01 .navBarL{left:0px;}
+.navigation01 .navBarR{right:0px;}
+.navigation01 .navBarL span,.navigation01 .navBarR span{width:20px;height:20px;display:block;margin:12px 0 0 6px;}
+
+/*Front*/
+.navigation01 .navBarL span{background:url(../images/1.png) no-repeat; background-position:-1px -2px;}
+.navigation01 .navBarR span{background:url(../images/2.png) no-repeat; background-position:-5px -2px;}
+.navigation01{border:1px solid #ffffff; border-left:0;border-right:0;background:-webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#ffffff));filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ffffff');}
+.navigation01 .navBody li span a{color:#000000; font-size:18px; font-weight:bold;}

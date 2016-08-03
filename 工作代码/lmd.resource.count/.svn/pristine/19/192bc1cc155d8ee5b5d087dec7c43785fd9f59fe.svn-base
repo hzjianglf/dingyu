@@ -1,0 +1,23 @@
+package lmd.res.count.service;
+
+import java.util.List;
+import java.util.Map;
+
+import net.risesoft.soa.framework.bizlog.annotation.BizLog;
+import egov.appservice.asf.annotation.MetaInfo;
+import egov.appservice.asf.annotation.Parameter;
+import egov.appservice.asf.annotation.Result;
+
+public interface QueryManager {
+
+	@MetaInfo(
+	        name = "sql查询",
+	        desc = "sql查询获取返回数据泛型List《String》",
+	        params = {
+	            @Parameter(name = "sql", desc = "sql", type = String.class)
+	        },
+	        result = @Result("返回List<Map<String key,String value>> ")
+	    )
+	@BizLog(title="sql查询", bizKey="#{p[0]}")
+	public List<Map>  getBySql(String sql);
+}

@@ -1,0 +1,28 @@
+@charset "utf-8";
+/* CSS Document */
+ *{font-family:微软雅黑;}
+  a{text-decoration:none}
+ body{margin:0; padding:0}
+ ul li{list-style:none}
+.index1 ul li{float:left; margin-left:2%; width:47%; height:60px;  margin-top:1%; text-align:center; padding-top:30px; color:#FFFFFF; font-weight:bold; font-size:24px;}
+.index2{width:96%; height:60px; background:#f8b1e0; margin-left:2%; margin-top:1%; text-align:center; padding-top:30px; color:#FFFFFF; font-weight:bold; font-size:24px;}
+
+.weiba-content{margin: 5px; position: relative;}
+.weiba-content img{max-width:100%; min-height:auto;}
+.product{width:90%; height:70px; margin-left:5%; margin-top:10px; background:#edebeb}
+.product ul li{float:left; padding-top:10px;}
+.product1{ margin-top:15px; margin-left:5%; width:50%; overflow:hidden;}
+.foot{ margin-top:20px; background:#fafafa; width:100%; height:40px;}
+.foot ul li{width:25%; text-align:center; float:left; margin-left:-10px;}
+.foot ul li a{text-decoration:none; color:#666666; font-size:12px;}
+
+.menu{width:99%; margin:0 auto}
+.menu ul li{width:99%; height:80px; border:1px #CCCCCC solid; border-radius:5px; margin-top:5px; background:#e5e3e2}
+
+.menu_list1{width:55%; float:left}
+.menu_list1 img{width:99%; height:93%; margin:2px; border:1px #CCCCCC solid;}
+.menu_list2{width:44%; float:right; font-size:24px; padding-top:8%; text-align:center}
+
+.menu_list4{width:55%; float:right}
+.menu_list4 img{width:99%; height:93%; margin:2px; border:1px #CCCCCC solid;}
+.menu_list3{width:44%; float:left; font-size:24px; padding-top:8%; text-align:center}

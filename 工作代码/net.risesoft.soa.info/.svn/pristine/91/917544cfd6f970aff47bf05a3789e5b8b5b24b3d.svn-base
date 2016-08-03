@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_4.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_4.xsd"
+	id="WebApp_ID" version="2.4">
+	<taglib>
+		<taglib-uri>/struts-tags</taglib-uri>
+		<taglib-location>/WEB-INF/tld/struts-tags.tld</taglib-location>
+	</taglib>
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	<filter>
+		<filter-name>struts2</filter-name>
+		<filter-class>net.risesoft.soa.framework.struts2.dispatcher.filter.OsgiStrutsPrepareAndExecuteFilter
+		</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>struts2</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<servlet>
+	    <servlet-name>Freemarker</servlet-name>
+	    <servlet-class>freemarker.ext.servlet.FreemarkerServlet</servlet-class>
+	    <init-param>
+	        <param-name>template_update_delay</param-name>
+	        <param-value>3600</param-value> <!-- 0 值仅用于开发环境，生产环境请设置为3600或者更大。 -->
+	    </init-param>
+	    <init-param>
+	        <param-name>DefaultEncoding</param-name> <!-- 解决中文编码问题 -->
+	        <param-value>utf-8</param-value>
+	    </init-param>
+	    <load-on-startup>1</load-on-startup>
+	</servlet>
+
+</web-app>

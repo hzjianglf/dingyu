@@ -1,0 +1,257 @@
+body {
+	font-family: PingFang SC, Lantinghei SC, Microsoft Yahei,
+		Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei,
+		sans !important;
+	font-size: 16px !important;
+}
+
+.table>tbody>tr>td {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+/*����������*/
+td>a, td>a:hover {
+	text-decoration: none;
+	cursor: pointer;
+	outline: 0 none;
+}
+/*������ɾ��*/
+.zs-table-delete, .zs-table-delete:hover {
+	color: #c9302c;
+	cursor: pointer;
+	text-decoration: none;
+	outline: 0 none;
+}
+/*��ͷ*/
+thead {
+	background-color: gainsboro;
+}
+
+/*��ɫ��ť*/
+.zs-btn-green {
+	background-image: linear-gradient(to bottom, #449d44 0px, #449d44 100%);
+	background-color: #449d44;
+	-moz-background-color: #449d44;
+	-o-background-color: #449d44;
+	color: white;
+	font-size: 16px;
+	text-shadow: none;
+	outline: 0 none;
+}
+
+.btn-default.zs-btn-green:hover, .btn-default.zs-btn-green:focus {
+	background-image: linear-gradient(to bottom, #1c9439 0px, #1c9439 100%);
+	background-color: #1c9439;
+	color: white;
+	outline: 0 none;
+}
+
+/*��ɫ��ť*/
+.zs-btn-default {
+	text-shadow: none;
+	font-size: 16px;
+	background-image: linear-gradient(to bottom, #ffffff 0px, #ffffff 100%);
+	background-color: #ffffff;
+	font-size: 16px;
+	color: #0f0f0f;
+	outline: 0 none;
+}
+
+.btn-default.zs-btn-default:hover, .btn-default.zs-btn-default:focus {
+	background-image: linear-gradient(to bottom, #FAFAFA 0px, #FAFAFA 100%);
+	background-color: #FAFAFA;
+	color: #0f0f0f;
+	outline: 0 none;
+}
+
+/*����*/
+.zs-iframe-title {
+	background-color: #FAFAFA;
+	padding: 10px 10px 10px;
+	border-left: 10px #c9302c solid;
+}
+
+/*�ڲ���tabs*/
+.nav-tabs>li {
+	margin-bottom: 0px;
+}
+
+.nav-tabs>li>a {
+	color: #555;
+	cursor: pointer;
+}
+
+.nav-tabs>li>a:hover {
+	background-color: transparent;
+	border: none;
+	font-size: 16px;
+	/*border-bottom: solid 5px transparent;*/
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover
+	{
+	border: none;
+	border-bottom: solid 5px #c9302c;
+}
+
+/*===========  mallDialog ���  =============*/
+#_confirm_bg {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: rgba(255, 255, 255, 0);
+	z-index: 1001
+}
+
+#_confirm_content {
+	width: 315px;
+	padding: 0px;
+	border-radius: 4px;
+	margin: 0 auto;
+	color: #fff;
+	text-align: center;
+	font-size: 16px;
+	position: relative;
+	top: 35%;
+	/* 	top:auto;
+	left:auto;
+	right:auto;
+	bottom:auto; */
+	background-color: #433736;
+	background-color: rgba(47, 34, 33, .9);
+	display: none
+}
+
+}
+#_confirm_content {
+	width: 315px;
+	padding: 0;
+}
+
+#_confirm_content>p {
+	padding: 20px
+}
+
+#_confirm_shadowA, #_confirm_shadowB, #_confirm_shadowC,
+	#_confirm_shadowD {
+	display: block;
+	overflow: hidden
+}
+
+#_confirm_shadowA, #_confirm_shadowB {
+	width: 100%;
+	height: 1px
+}
+
+#_confirm_shadowC, #_confirm_shadowD {
+	width: 1px;
+	height: 95%;
+	float: left
+}
+
+#_confirm_shadowA {
+	background: -webkit-gradient(linear, left top, right top, from(rgba(47, 34, 33, .1)),
+		color-stop(.35, #6e6262), color-stop(.5, #6e6262),
+		color-stop(.65, #6e6262), to(rgba(47, 34, 33, .1)));
+	background: -webkit-linear-gradient(left, rgba(47, 34, 33, .1), #6e6262,
+		#6e6262, #6e6262, rgba(47, 34, 33, .1));
+	background: -moz-linear-gradient(left, rgba(47, 34, 33, .1), #6e6262,
+		#6e6262, #6e6262, rgba(47, 34, 33, .1));
+	background: -o-linear-gradient(left, rgba(47, 34, 33, .1), #6e6262,
+		#6e6262, #6e6262, rgba(47, 34, 33, .1))
+}
+
+#_confirm_shadowB {
+	background: -webkit-gradient(linear, left top, right top, from(rgba(47, 34, 33, .1)),
+		color-stop(.35, #2f2121), color-stop(.5, #2f2121),
+		color-stop(.65, #2f2121), to(rgba(47, 34, 33, .1)));
+	background: -webkit-linear-gradient(left, rgba(47, 34, 33, .1), #2f2121,
+		#2f2121, #2f2121, rgba(47, 34, 33, .1));
+	background: -moz-linear-gradient(left, rgba(47, 34, 33, .1), #2f2121,
+		#2f2121, #2f2121, rgba(47, 34, 33, .1));
+	background: -o-linear-gradient(left, rgba(47, 34, 33, .1), #2f2121,
+		#2f2121, #2f2121, rgba(47, 34, 33, .1))
+}
+
+#_confirm_shadowC {
+	background: -webkit-gradient(linear, 50% 0, 50% 100%, from(#6e6262),
+		to(rgba(47, 34, 33, .1)));
+	background: -webkit-linear-gradient(90deg, rgba(47, 34, 33, .1), #6e6262);
+	background: -moz-linear-gradient(90deg, rgba(47, 34, 33, .1), #6e6262);
+	background: -o-linear-gradient(90deg, rgba(47, 34, 33, .1), #6e6262)
+}
+
+#_confirm_shadowD {
+	background: -webkit-gradient(linear, 50% 0, 50% 100%, from(#2f2121),
+		to(rgba(47, 34, 33, .1)));
+	background: -webkit-linear-gradient(90deg, rgba(47, 34, 33, .1), #2f2121);
+	background: -moz-linear-gradient(90deg, rgba(47, 34, 33, .1), #2f2121);
+	background: -o-linear-gradient(90deg, rgba(47, 34, 33, .1), #2f2121)
+}
+
+#_confirm_btnW {
+	width: 100%;
+	height: 60px;
+	line-height: 60px;
+	cursor: pointer;
+}
+
+#_confirm_btnA, #_confirm_btnB {
+	width: 49%;
+	height: 100%;
+	font-size: 18px;
+	cursor: pointer
+}
+
+#_confirm_btnA {
+	float: left
+}
+
+#_confirm_btnB {
+	float: right
+}
+
+#_image_bg {
+	position: fixed;
+	background-color: rgba(10, 10, 10, 0.8);
+	width: 100%;
+	height: 100%;
+	margin: auto;
+	left: 0;
+	right: 0;
+	top: 0;
+	text-align: center;
+	z-index: 9999;
+}
+
+#_image_bg img {
+	margin-top: 70px;
+	max-height: 550px;
+}
+
+#_image_close {
+	position: absolute;
+	right: 5px;
+	top: 5px;
+	width: 42px;
+	height: 42px;
+	font-size: 40px;
+	color: white;
+	cursor: pointer;
+}
+
+#_image_close:hover {
+	text-decoration: none;
+}
+/*===========  mallDialog ��� end =============*/
+/*===========   �������begin =================*/
+.font14 {
+	font-size: 14px;
+}
+/*============  �������end  =================*/
+/*============  ��ҳ���begin  =================*/
+.data-nav{float:right}
+	.data-nav-info{float:left}
+/*============  ��ҳ���end  =================*/

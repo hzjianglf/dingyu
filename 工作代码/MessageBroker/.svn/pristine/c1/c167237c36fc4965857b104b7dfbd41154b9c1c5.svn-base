@@ -1,0 +1,1 @@
+({"rangeMessage":"\x{c774} \x{ac12}\x{c740} \x{bc94}\x{c704}\x{b97c} \x{bc97}\x{c5b4}\x{b0a9}\x{b2c8}\x{b2e4}.","invalidMessage":"\x{c785}\x{b825}\x{b41c} \x{ac12}\x{c774} \x{c62c}\x{bc14}\x{b974}\x{c9c0} \x{c54a}\x{c2b5}\x{b2c8}\x{b2e4}.","missingMessage":"\x{c774} \x{ac12}\x{c740} \x{d544}\x{c218}\x{c785}\x{b2c8}\x{b2e4}."})

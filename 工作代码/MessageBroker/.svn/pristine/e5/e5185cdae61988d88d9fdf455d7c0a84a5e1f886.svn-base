@@ -1,0 +1,1 @@
+({"rangeMessage":"V\x{00e4}rdet \x{00e4}r utanf\x{00f6}r intervallet.","invalidMessage":"Det angivna v\x{00e4}rdet \x{00e4}r ogiltigt.","missingMessage":"V\x{00e4}rdet \x{00e4}r obligatoriskt."})

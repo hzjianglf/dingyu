@@ -1,0 +1,33 @@
+<div>
+	<div class="mediumpad">
+		<p id="addOrLoadTargetDescription">${textDescription}</p>
+		<div dojoType="com.ibm.sr.widgets.AddRelationshipTarget" dojoAttachPoint="addRelationshipTargetWidget" contextRoot="${contextRoot}" >
+		</div>
+
+		<fieldset dojoAttachPoint="createBOFieldSet">
+			<legend title="${textTitle}" class="table-text">${textNewEntity}</legend>
+			<div class="smallpad">
+				<p dojoAttachPoint="documentTypeLabel">${textEntityType}</p>
+				<select id="${id}_entityType" name="entityType" tabindex="1" size="1" dojoAttachPoint="entityTypeList" dojoAttachEvent="onchange: _onEntityTypeChanged">
+				</select>
+			</div>
+			<div class="buttongroup">
+				<input type="button" tabindex="1" name="createEntity" value="${buttonCreate}" class="standardbutton" dojoAttachPoint="createEntityButton" dojoAttachEvent="onclick: onCreateEntityButtonClicked">
+			</div>    
+		</fieldset>
+		
+		<fieldset dojoAttachPoint="loadDocumentFieldSet">
+			<legend title="${textTitle}" class="table-text">${textLoadDocument}</legend>
+			<div class="smallpad">
+				<p dojoAttachPoint="documentTypeLabel">${textDocumentType}</p>
+				<select id="${id}_documentType" name="documentType" tabindex="1" size="1" dojoAttachPoint="documentTypeList" dojoAttachEvent="onchange: _onDocumentTypeChanged">
+				</select>
+			</div>
+			<div class="buttongroup">
+				<input type="button" tabindex="1" name="loadDocument" value="${buttonLoadDocument}" class="standardbutton" dojoAttachPoint="loadDocumentButton" dojoAttachEvent="onclick: onLoadDocumentButtonClicked">
+			</div>    
+		</fieldset>
+
+		<input type="button" tabindex="1" name="cancel" value="${buttonCancel}" class="standardbutton" dojoAttachPoint="cancelButton" dojoAttachEvent="onclick: onCancelButtonClicked">
+	</div>
+</div>

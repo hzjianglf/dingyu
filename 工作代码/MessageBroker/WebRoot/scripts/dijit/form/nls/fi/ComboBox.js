@@ -1,0 +1,1 @@
+({"previousMessage":"Edelliset valinnat","nextMessage":"Lis\x{00e4}\x{00e4} valintoja"})

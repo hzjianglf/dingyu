@@ -1,0 +1,12 @@
+package net.risesoft.soa.info.tools;
+
+import net.risesoft.soa.info.ApplicationContextHandler;
+import org.springframework.context.ApplicationContext;
+
+public class SpringUtil
+{
+  public static <T> T getBean(String beanName)
+  {
+    return (T) ApplicationContextHandler.getAppContext().getBean(beanName);
+  }
+}

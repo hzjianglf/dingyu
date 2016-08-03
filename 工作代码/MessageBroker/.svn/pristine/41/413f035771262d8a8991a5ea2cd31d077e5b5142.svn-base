@@ -1,0 +1,1 @@
+({"rangeMessage":"Cette valeur n'est pas comprise dans la plage autoris¨¦e.","invalidMessage":"La valeur indiqu¨¦e n'est pas correcte.","missingMessage":"Cette valeur est requise."})

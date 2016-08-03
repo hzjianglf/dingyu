@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+	"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+
+
+	<constant name="struts.multipart.maxSize" value="500000000000000"></constant>
+	<constant name="struts.multipart.handler" value="requestParser" />
+	<bean type="org.apache.struts2.dispatcher.multipart.MultiPartRequest"
+		name="requestParser" class="com.uniqyw.action.enterprise.user.template.manage.MyMultiPartRequest" scope="default"
+		optional="true" />
+
+
+
+</struts>	

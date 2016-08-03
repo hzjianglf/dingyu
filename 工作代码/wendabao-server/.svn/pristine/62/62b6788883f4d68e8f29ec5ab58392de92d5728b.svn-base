@@ -1,0 +1,16 @@
+	.title{ font-family:"Î¢ÈíÑÅºÚ";
+	font-size:16px; padding:8px 0; text-align:center; margin:0; background-color:#D9534F; color:#fff;}
+	.query_area{height:53px; margin-top:20px;}
+	.data_content{}
+	img:not(#_image_img,.shop-survey-img){width:100px;height:100px;}
+	.table>thead>tr>th{ text-align:center; padding:18px 0;}	
+	.suspension-points-fourline{
+	font-family: "Microsoft YaHei";
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    height: 90px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+   }
+.form-control{ box-shadow: none; transition:none;}

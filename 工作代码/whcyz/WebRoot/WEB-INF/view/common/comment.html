@@ -1,0 +1,110 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<div class="hline"><div></div></div>
+<div class="mt10 pd10 articleCommentDiv shadowarticlefont" >
+<div class="comment-top">
+<span class="fleft">网友评论，共<span id="totalRow">${article.commentCount }</span>条</span>
+<a class="fright" href="javascript:void(0);" onclick="mScroll('commentForm');$('#commentContent').val('').focus();$('#foruser').text('')">发表评论</a>
+</div>
+<div class="comments mt10 plr10">
+	<ul id="commentUL">
+	<center id="nocomment">尚无评论</center>
+	</ul>
+</div>
+<div id="commentForm" class="commentForm">
+<span id="foruser" class="t-blue" style="margin-left: 20px;"></span>
+<center>
+		<textarea id="commentContent" style="width: 630px;height:120px;margin: 0 auto;"></textarea>
+</center>
+</div>
+<div class="tright">
+<button type="button" class="btn btn-warning " id="submitComment" style="margin-right:20px;width:120px;margin-top:5px;">发布评论</button>
+</div>
+</div>
+<script>
+$(function(){
+	var forId=0;
+	var articleId="${article.id}";
+	$.ajax({
+		type:"get",
+		url:"comment/articles/${article.id}",
+		datatype:"json",
+		context:$("#commentUL"),
+		success:function(result){
+			if(result.success){
+				var json=result.data;
+				if(json&&json.length>0){
+					this.empty();
+					for(var i=0;i<json.length;i++){
+						var html='<li id="comment'+json[i].id+'"><table width="100%" border="0" cellspaceing="0"  cellpadding="0"><tr><td class="tcenter pr10 pt5" style="width:60px;vertical-align: top;"><img onerror=this.src="assets/css/imgs/defaultavatar.png" src="upload/images/account/avatar/avatar_'+json[i].accountId+'.jpg" width="50" height="50" /></td>'
+		  					+'<td style="vertical-align: top;padding-right:15px;"><div><span class="author">'+json[i].accountName+'  发表于   '+json[i].postTime+'</span><a href="javascript:void(0)" onclick="return false;" id="'+json[i].id+'" forUser="'+json[i].accountName+'" class="commentfor">回复此评论</a></div>	<div class="commentContent">'
+		  					+json[i].content+'</div></td>'+
+		  					(json[i].accountId=="${account.id}"?"<td style='width:30px;'><img class='cursorhand delImg' id='"+json[i].id+"' src='assets/css/imgs/delete.png'/></td>":"")
+		  					+'</tr></table></li>';
+						this.append(html);
+					}
+				}
+			}
+		}
+	});
+	$("#commentUL").on("click","a.commentfor",function(){
+		forId=$(this).attr("id");
+		var forUser=$(this).attr("forUser");
+		$("#foruser").text("回复 @"+forUser+"：");
+		mScroll("commentForm");
+		$("#commentContent").val("").focus();
+	});
+	$("#commentUL").on("click","img.delImg",function(){
+		var id=$(this).attr("id");
+		$.ajax({
+			type:"gwt",
+			url:"comment/delete?id="+id,
+			datatype:"json",
+			success:function(result){
+					if(result.success){
+						appSuccessMsg("删除成功！", 1000);
+						$("#comment"+id).slideUp("slow").remove();
+					}else{
+						appErrorMsg(result.data==null?result:result.data,1000);
+					}
+				}
+		});
+		$("#comment"+id).slideUp("slow");
+	});
+	
+	$("#submitComment").click(function(){
+		var commentContent=$.trim($("#commentContent").val());
+		if(commentContent&&commentContent.length>0){
+			$.ajax({
+				type:"post",
+				url:"comment/add",
+				data:{articleId:articleId,content:commentContent,forId:forId},
+				datatype:"json",
+				context:$("#commentUL"),
+				success:function(result){
+					if(result.success){
+						var json=result.data;
+						if(json){
+							if($("#nocomment").length>0){
+								$("#nocomment").remove();
+							}
+							var html='<li id="comment'+json.id+'"><table width="100%" border="0" cellspaceing="0"  cellpadding="0"><tr><td class="tcenter pr10 pt5" style="width:60px;vertical-align: top;"><img onerror=this.src="assets/css/imgs/defaultavatar.png" src="upload/images/account/avatar/avatar_'+json.accountId+'.jpg" width="50" height="50" /></td>'
+		  					+'<td style="vertical-align: top;padding-right:15px;"><div><span class="author">'+json.accountName+'  发表于   '+json.postTime+'</span><a href="javascript:void(0)" onclick="return false;" id="'+json.id+'" forUser="'+json.accountName+'" class="commentfor">回复此评论</a></div>	<div class="commentContent">'
+		  					+json.content+'</div></td>'+
+		  					(json.accountId=="${account.id}"?"<td style='width:30px;'><img class='cursorhand delImg' id='"+json.id+"' src='assets/css/imgs/delete.png'/></td>":"")
+		  					+'</tr></table></li>';
+								$(html).appendTo(this).slideDown("slow");
+								$("#foruser").text("");
+								$("#commentContent").val("").focus();
+								forId=0;
+						}
+					}else{
+						appErrorMsg(result.data==null?result:result.data,1000);
+					}
+				}
+			});
+		}else{
+			appErrorMsg("请输入评论内容！",1000);
+		}
+	});
+});
+</script>

@@ -1,0 +1,56 @@
+package lmd.res.count.service.impl;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import lmd.res.count.service.ResCountManager;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+@Service("resCountManager")
+public class ResCountManagerImpl implements ResCountManager{
+
+	@Autowired
+	  private SessionFactory sessionFactory;
+	
+	@Override
+	public String countAc(String table, String acnum) {
+		// TODO 自动生成的方法存根
+		Session session = this.sessionFactory.openSession();
+	      Connection conn = null; 
+	  	  Statement  st= null;
+	  	  ResultSet rs = null;
+	  	  String count="";
+	  	try {
+	  		conn = session.connection();
+			st= conn.createStatement();
+			rs = st.executeQuery("select count(*) as acCount from "+table+" where   shortacnum like '"+acnum+"%'");
+			while (rs.next()) {
+				count = rs.getString("acCount");
+				
+			}
+		} catch (SQLException e) {
+			// TODO 自动生成的 catch 块
+			e.printStackTrace();
+		}finally {
+			   try {
+					 rs.close();
+					 st.close();
+					 conn.close();
+				   } catch (SQLException e) {
+					// TODO Auto-generated catch block
+					 e.printStackTrace();
+				   }
+				   session.close();
+			   }
+		
+		return count;
+	}
+
+	
+
+}

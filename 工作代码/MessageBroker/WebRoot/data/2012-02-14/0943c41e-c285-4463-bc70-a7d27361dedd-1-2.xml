@@ -1,0 +1,1 @@
+<XMLNSC><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.ibm.com"><soapenv:Header/><soapenv:Body><ws:call><ws:id>Test </ws:id></ws:call></soapenv:Body></soapenv:Envelope></XMLNSC>

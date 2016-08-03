@@ -1,0 +1,23 @@
+.titleFont {
+    color: #15428b;
+}
+
+.folder-page-icon {
+	background-image: url(images/folder_page.png) !important;
+}
+
+.folder-page-break-icon {
+	background-image: url(images/folder_page_break.png) !important;
+}
+
+.info-icon {
+	background-image: url(images/page.png) !important;
+}
+
+.info-break-icon {
+	background-image: url(images/page_break.png) !important;
+}
+
+.permList-icon {
+	background-image: url(images/permList.png) !important;
+}

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.handany.base.sequence.impl.dao.SequenceMapper">
+
+<!--
+  <select id="nextVal" parameterType="java.lang.String" resultType="java.lang.Long">
+	SELECT nextval(#{name})
+  </select>
+--> 
+ 
+  <update id="synDb" parameterType="string">
+  	update Pm_Sequence set start_val = start_val + cache where name=#{_parameter}     
+  </update>
+  
+  <update id="syncDb">
+  	update Pm_Sequence set start_val = #{startVal} where name=#{seqName}
+  </update>
+  
+  
+  <update id="updateAll" parameterType="string">
+  	update Pm_Sequence set start_val =start_val + cache where 1=1
+  </update>
+  
+  <select id="sequenceInfo" parameterType="string" resultType="map">
+  	select name,start_val,cache from Pm_Sequence
+  </select>
+ 
+   <select id="getSequenceInfo" parameterType="string" resultType="map">
+  	select name,start_val,cache from Pm_Sequence where name = #{sequenceName}
+   </select>
+</mapper>

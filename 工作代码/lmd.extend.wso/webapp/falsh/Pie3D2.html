@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+        <title>Pie 3D Chart</title>
+        <link href="assets/ui/css/style.css" rel="stylesheet" type="text/css" />
+        <link href="assets/prettify/prettify.css" rel="stylesheet" type="text/css" />
+        <!-- <script type="text/javascript" src="Charts/jquery.min.js"></script> -->
+        <script src="../js/jquery-1.8.0.min.js"></script>
+        <script type="text/javascript" src="Charts/FusionCharts.js"></script>
+        <script type="text/javascript" src="assets/prettify/prettify.js"></script>
+        <script type="text/javascript" src="assets/ui/js/json2.js"></script>
+      
+         <script type="text/javascript" src="assets/ui/js/lib.js" ></script>
+<!--[if IE 6]>
+        <script type="text/javascript" src="../assets/ui/js/DD_belatedPNG_0.0.8a-min.js"></script>
+        <script>
+          /* select the element name, css selector, background etc */
+          DD_belatedPNG.fix('img'); 
+
+          /* string argument can be any CSS selector */
+        </script>
+		  <p>&nbsp;</p>
+		  <P align="center"></P>
+        <![endif]-->
+    </head>   
+
+<body>
+<!-- <h3 class="chart-title">全省资源服务组件统计</h3> -->
+
+        
+        <!-- <div id="chartdiv" align="center">正在加载......</div> -->
+   <div id="chartdiv2" ></div>
+        
+        <script type="text/javascript">
+
+        $(function(){
+        	
+        	var queryStr={};
+        	
+        	$.ajax({   
+                type: "post",
+               // url: "pie.jsp",
+                url: "../pie.do",
+                data: queryStr,   
+                dataType: "text",
+                success: callback
+            });
+            
+            function callback(data){   
+        
+        	    var chart = new FusionCharts("Charts/Pie3D.swf", "ChartId", "100%", "520px", "0", "0");
+     		   chart.setXMLData( data );		   
+     		   chart.render("chartdiv2");
+        	}   
+        	
+        });
+    
+        
+        var fulls = "left=0,screenX=0,top=0,screenY=0,scrollbars=1";    //定义弹出窗口的参数
+		  if (window.screen) {
+		     var ah = screen.availHeight - 30;
+		     var aw = screen.availWidth - 10;
+		     fulls += ",height=" + ah;
+		     fulls += ",innerHeight=" + ah;
+		     fulls += ",width=" + aw;
+		     fulls += ",innerWidth=" + aw;
+		     fulls += ",resizable"
+		 } else {
+		     fulls += ",resizable"; // 对于不支持screen属性的浏览器，可以手工进行最大化。 manually
+		 }
+		 function openUrl(url){
+		  window.open(url,"",fulls);
+		 }
+           	</script>
+
+
+     </body>
+ </html>

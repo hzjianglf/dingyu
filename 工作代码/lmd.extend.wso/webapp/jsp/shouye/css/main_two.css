@@ -1,0 +1,57 @@
+@charset "utf-8";
+body,ul,from{margin:0px; padding:0px; font-family:"微软雅黑", "宋体"; font-size:12px;}
+body{background:url(../images/bgbig.jpg) top center;}
+img{border:none;}
+a{text-decoration:none;}
+.cler{clear:both;}
+.flaZ{float:left;}
+.flaY{float:right;}
+.width1{width:8%}
+.orge{color:#e49800}
+.algM{text-align:center;}
+.toptbl{background:url(../images/topbg.jpg); height:60px; line-height:60px;}
+.topdiv{ width:550px; overflow:hidden;}
+.topbtn{padding-left:45px; color:#6a6a6a; font-size:16px; cursor:pointer; margin-left:40px;}
+.topbtn a{color:#6a6a6a;}
+.dhtbl{height:35px;}
+.dhtbl .tdL{background:url(../images/dhbL.png) no-repeat right top;}
+.dhtbl .tdR{background:url(../images/dhbR.png) no-repeat left top;}
+.dhtbl .tdM{background:url(../images/dhbm.png);}
+.userbg{background:url(../images/user.png) no-repeat; width:130px; padding-left:54px; height:35px; line-height:35px; margin-left:50px;}
+.dhdiv{ width:750px; overflow:hidden; float:right}
+.dhul{line-height:35px; list-style:none; color:#fff; font-size:14px;}
+.dhul li{float:left; margin-right:10px; padding:0px 20px;}
+.dhul .libg1{background:url(../images/dhbtbg.png);}
+.dhul li a{color:#fff;}
+.condiv{margin:0px auto;margin-top:6px;overflow:hidden;}
+.zwid{width:220px; padding-left:10px;}
+.lftBT{width:28px; padding-left:3px; height:90px; padding-top:30px; text-align:center; color:#fff; font-size:12px; font-weight:bold; cursor:pointer;}
+.lftBT1{width:28px; padding-left:3px; height:90px; padding-top:30px; text-align:center; color:#fff600; font-size:12px; font-weight:bold; cursor:pointer;}
+.lftmnu{width:210px;}
+.lftmtop{background:url(../images/ltopbg.png) no-repeat top center; height:51px;}
+.lftmmdl{background:url(../images/lmdlbg.png) center;}
+.lftmbtm{background:url(../images/lbtom.png) no-repeat top center; height:17px;}
+.twomnu{display:none;}
+.twomnu a{color:#ffffff;}
+.lmnu1{background:url(../images/mnu1.png) no-repeat center top; width:154px; padding-left:30px; height:28px;line-height:28px; margin:0px auto; margin-top:3px; text-align:left; font-size:14px; color:#3768a4; cursor:pointer;}
+.lmnu2{background:url(../images/mnu2.png) no-repeat center top; width:154px; padding-left:30px; height:28px;line-height:28px; margin:0px auto; margin-top:3px; text-align:left; font-size:14px; color:#3768a4; cursor:pointer;}
+.lmnut1{background:url(../images/mnut1.png) no-repeat center top; width:154px; padding-left:30px; height:26px;line-height:26px; margin:0px auto; margin-top:3px; text-align:left; color:#3768a4; color:#fff; cursor:pointer;}
+
+/*.rdiv{width:770px;}*/
+.rtop{background:url(../images/rtop.png); height:47px; padding-top:4px;}
+.rtop ul{list-style:none; margin-left:15px;}
+.rtop ul li{float:left; margin-right:2px; color:#fff; cursor:pointer;height:31px; line-height:31px; padding:0px 10px;}
+.rtop .topli1{background:url(../images/rtpbt1.png);}
+.rtop .topli2{background:url(../images/rtpbt2.png);}
+.rmdl{background:url(../images/rmdl.png) center;}
+.rbtom{background:url(../images/rbtom.png) no-repeat center top; height:17px;}
+.rtitbg{background:url(../images/titbg.png) left center no-repeat; height:32px; line-height:32px; margin-left:20px; padding-left:40px; font-size:14px; font-weight:bold; color:#006c98;}
+.tjtb{background: padding:10px; margin:0px auto; margin-top:10px; text-align:center;}
+
+/*homepage*/
+.homdiv{width:762px; margin:0px auto; padding:20px 0px;}
+.homdeme{background:url(../images/rmd2.png); border:1px solid #ffffff; width:348px; height:190px; padding:10px;}
+.homep{width:90%; margin:20px auto; font-family:"宋体"; line-height:20px; text-indent:25px;}
+.homep a:link{color:#303030;}
+.homep a:visited{color:#303030;}
+.homep a:hover{color:#F00;}

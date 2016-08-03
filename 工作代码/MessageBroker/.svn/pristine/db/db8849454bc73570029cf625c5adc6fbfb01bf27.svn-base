@@ -1,0 +1,1 @@
+({"previousMessage":"P\x{0159}edchoz¨ª volby","nextMessage":"Dal\x{0161}¨ª volby"})

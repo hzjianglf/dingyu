@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<bean type="com.opensymphony.xwork2.ObjectFactory"
+          name="spring" 
+          class="net.risesoft.soa.framework.struts2.objectfactory.OsgiStrutsSpringObjectFactory" />  
+    <constant name="struts.objectFactory" value="spring" />
+    <constant name="struts.multipart.saveDir" value="/uploadfiles"/> 
+	<constant name="struts.multipart.maxSize" value="5242880000" /><!-- 最大上传5000M -->	
+    <package name="file" namespace="/" extends="struts-default">	
+    	<interceptors>
+            <interceptor name="autowiring" class="com.opensymphony.xwork2.spring.interceptor.ActionAutowiringInterceptor"/>
+        </interceptors>       
+		<action name="file_*" class="net.risesoft.soa.filecube.web.action.FileAction" method="{1}">
+			<result name="preUpload">/page/file/upload.jsp</result>
+			<result name="preListView">/page/file/view/listView.jsp</result>
+			<result name="preViewFile">/page/file/view/viewFile.jsp</result>
+			<result name="showFile">/page/file/file.jsp</result>
+			<result name="preEdit">/page/file/edit.jsp</result>
+			<result name="preImgView">/page/file/view/imgView.jsp</result>
+			<result name="preMetadata">/page/file/metadata.jsp</result>
+			<result name="preRecycleBin">/page/file/recycleBin.jsp</result>
+			<result name="showFile2">/page/file/file2.jsp</result>
+			<result name="preListView2">/page/file/view/listView2.jsp</result>
+		</action>
+		<action name="attachment_*" class="net.risesoft.soa.filecube.web.action.AttachmentAction" method="{1}">			
+			<result name="preList">/page/file/attachment/list.jsp</result>	
+			<result name="preViewFile">/page/file/attachment/viewFile.jsp</result>		
+		</action>
+		<action name="folder_*" class="net.risesoft.soa.filecube.web.action.FolderAction" method="{1}">			
+			<result name="preAdd">/page/folder/add.jsp</result>
+			<result name="preEdit">/page/folder/edit.jsp</result>
+			<result name="preMoveFiles">/page/folder/tree.jsp</result>
+		</action>
+		<action name="commentary_*" class="net.risesoft.soa.filecube.web.action.CommentaryAction" method="{1}">			
+			<result name="preList">/page/commentary/list.jsp</result>
+		</action>
+		<action name="favorite_*" class="net.risesoft.soa.filecube.web.action.FavoriteAction" method="{1}">			
+			<result name="preList">/page/favorite/list.jsp</result>
+		</action>
+		<action name="share_*" class="net.risesoft.soa.filecube.web.action.ShareAction" method="{1}">			
+			<result name="preShare">/page/share/orgTree.jsp</result>
+			<result name="preList">/page/share/list.jsp</result>
+			<result name="preOtherToMeList">/page/share/OtherToMeList.jsp</result>
+		</action>
+		<action name="openHistory_*" class="net.risesoft.soa.filecube.web.action.OpenHistoryAction" method="{1}">			
+			<result name="preList">/page/openHistory/list.jsp</result>
+		</action>
+		<action name="queryHistory_*" class="net.risesoft.soa.filecube.web.action.QueryHistoryAction" method="{1}">			
+			<result name="preList">/page/queryHistory/list.jsp</result>
+		</action>
+		<action name="relevanceFile_*" class="net.risesoft.soa.filecube.web.action.RelevanceFileAction" method="{1}">			
+			<result name="preFileList">/page/file/relevanceFile/fileList.jsp</result>
+		</action>
+		<action name="dimension_*" class="net.risesoft.soa.filecube.web.action.DimensionAction" method="{1}">			
+			<result name="preDimension">/page/dimension/dimension.jsp</result>
+			<result name="preChoose">/page/dimension/choose.jsp</result>
+			<result name="file">/page/dimension/file.jsp</result>
+		</action>
+		<action name="log_*" class="net.risesoft.soa.filecube.web.action.LogAction" method="{1}">			
+			<result name="preSystemLog">/page/log/system.jsp</result>
+		</action>
+		<action name="permission_*" class="net.risesoft.soa.filecube.web.action.PermissionAction" method="{1}">			
+			<result name="preSubResourcesTree">/page/folder/leftFolderTree.jsp</result>
+		</action>
+	</package>	
+</struts>

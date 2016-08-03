@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info>
+	<filePath type="Windows">D://file/</filePath>
+	<filePath type="Linux"></filePath>
+	<openOffice>
+		<port>8100</port>
+		<ip>localhost</ip>
+		<!--OpenOffice_Command = soffice -headless -accept="socket,host=localhost,port=8100;urp;" -nofirststartwizard-->
+	</openOffice>
+	<SWFTools>
+		<home>D://SWFTools</home>
+		<params>-f -T 9 -G -s storeallcharacters</params>		
+		<!-- D://SWFTools/pdf2swf a.pdf -o a.swf -f -T 9 -G -s poly2bitmap -->
+	</SWFTools>
+</info>

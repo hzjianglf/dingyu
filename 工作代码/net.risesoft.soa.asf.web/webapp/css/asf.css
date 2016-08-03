@@ -1,0 +1,11 @@
+.asf-repo-node {
+    background-image: url(../images/asf/service-repo.png) !important;
+}
+
+.asf-module-node {
+    background-image: url(../images/asf/service-module.png) !important;
+}
+
+.asf-component-node {
+    background-image: url(../images/asf/service-comp.png) !important;
+}

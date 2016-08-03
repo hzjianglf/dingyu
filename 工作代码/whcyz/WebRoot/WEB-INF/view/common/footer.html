@@ -1,0 +1,11 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<!-- footer -->
+<div class="footer box"><!-- <div class="linkdiv"><div class="box tcenter font-14">友情链接</div><div class="hline"><div></div></div><div class="links" id="links"></div></div> --><div class="copyright shadowfont">山东山大电力技术有限公司  </div></div>
+<script>$(function(){$.ajax({type:"get",url:"link/all",datatype:"json",context:$("#links"),success:function(result){
+if(result.success){var json = result.data;if(json && json.length > 0) {for (var i = 0; i < json.length; i++) {this.append('<a target="_blank" href="'+json[i].url+'">'+ json[i].name + '</a>');}}}}
+});});</script>
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F1c3a606e74ed30fccbb8677630b490d9' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<!--[if lt IE 8]><script src="assets/js/ie.js"></script><![endif]-->

@@ -1,0 +1,1 @@
+({"iframeEditTitle":"\x{05d0}\x{05d6}\x{05d5}\x{05e8} \x{05e2}\x{05e8}\x{05d9}\x{05db}\x{05d4}","iframeFocusTitle":"\x{05de}\x{05e1}\x{05d2}\x{05e8}\x{05ea} \x{05d0}\x{05d6}\x{05d5}\x{05e8} \x{05e2}\x{05e8}\x{05d9}\x{05db}\x{05d4}"})

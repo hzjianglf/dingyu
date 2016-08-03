@@ -1,0 +1,22 @@
+output.. = bin/
+bin.includes = META-INF/,\
+               build.properties,\
+               webapp/,\
+               plugin.xml,\
+               .,\
+               lib/,\
+               lib/commons-lang-2.6.jar,\
+               lib/ezmorph-1.0.6.jar,\
+               lib/json-lib-2.4-jdk15.jar
+jars.extra.classpath = lib/ConfigManagerProxy.jar,\
+                       lib/com.ibm.mq.commonservices.jar,\
+                       lib/com.ibm.mq.headers.jar,\
+                       lib/com.ibm.mq.jar,\
+                       lib/com.ibm.mq.jmqi.jar,\
+                       lib/com.ibm.mq.pcf.jar,\
+                       lib/connector.jar,\
+                       lib/ibmjsseprovider2.jar,\
+                       lib/commons-lang-2.6.jar,\
+                       lib/ezmorph-1.0.6.jar,\
+                       lib/json-lib-2.4-jdk15.jar
+source.. = src/

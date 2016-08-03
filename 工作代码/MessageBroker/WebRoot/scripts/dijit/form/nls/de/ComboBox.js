@@ -1,0 +1,1 @@
+({"previousMessage":"Vorherige Auswahl","nextMessage":"Weitere Auswahlm\x{00f6}glichkeiten"})

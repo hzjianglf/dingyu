@@ -1,0 +1,1 @@
+<Environment><Monitoring><EventCorrelation><localTransactionId>5d80c578-3894-4bb2-8636-937a6a4bcc2c-5</localTransactionId><parentTransactionId/><globalTransactionId/></EventCorrelation></Monitoring><Variables><WS><operation>sayHello</operation></WS></Variables></Environment>

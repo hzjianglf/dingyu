@@ -1,0 +1,1 @@
+[2010-12-10 11:54:27,468] ERROR com.ibm.sys.BrokerCommand(118) - JMSWMQ0018: 连接至队列管理器“BRKQM”失败，连接方式为“Client”，主机名为“localhost(2414)”。

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.handany.bm.dao.BmQaTimeMapper">
+    <resultMap id="BaseResultMap" type="com.handany.bm.model.BmQaTime">
+            <result column="id" jdbcType="CHAR" property="id" />
+            <result column="name" jdbcType="VARCHAR" property="name" />
+            <result column="time" jdbcType="DECIMAL" property="time" />
+            <result column="price" jdbcType="DECIMAL" property="price" />
+            <result column="region1" jdbcType="VARCHAR" property="region1" />
+            <result column="region2" jdbcType="VARCHAR" property="region2" />
+            <result column="region3" jdbcType="VARCHAR" property="region3" />
+            <result column="status" jdbcType="CHAR" property="status" />
+            <result column="last_modified" jdbcType="TIMESTAMP" property="lastModified" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+            id,
+            name,
+            time,
+            price,
+            region1,
+            region2,
+            region3,
+            status,
+            last_modified
+    </sql>
+
+	<select id="queryAvailableQaTimes" parameterType="string" resultMap="BaseResultMap">
+		select <include refid="Base_Column_List"></include>
+		
+		from Bm_QA_Time where 1 = 1
+		<if test="region1 != null">
+			and region1 = #{region1}
+		</if>
+		
+		<if test="region2 != null">
+			and region2 = #{region2}
+		</if>
+		
+		<if test="region3 != null">
+			and region3 = #{region3}
+		</if>
+		and status = '1'
+		order by time asc
+	</select>
+	
+	<select id="queryAllQaTimes" parameterType="string" resultMap="BaseResultMap">
+		select <include refid="Base_Column_List"></include>
+		from Bm_QA_Time where 1 = 1
+		<if test="region1 != null">
+			and region1 = #{region1}
+		</if>
+		
+		<if test="region2 != null">
+			and region2 = #{region2}
+		</if>
+		
+		<if test="region3 != null">
+			and region3 = #{region3}
+		</if>
+                and status = '1'
+		order by last_modified desc
+	</select>
+	
+	<update id="saveQaTime" parameterType="com.handany.bm.model.BmQaTime">
+		insert into Bm_QA_Time(<include refid="Base_Column_List"></include>)
+		values(
+			#{id}, #{name}, #{time}, #{price}, #{region1}, #{region2}, #{region3}, #{status}, #{lastModified}
+		) ON DUPLICATE KEY UPDATE
+		<if test="id != null">
+			id = #{id},
+		</if>
+		<if test="name != null">
+			name = #{name},
+		</if>
+		<if test="time != null">
+			time = #{time},
+		</if>
+		<if test="price != null">
+			price = #{price},
+		</if>
+		<if test="region1 != null">
+			region1 = #{region1},
+		</if>
+		<if test="region2 != null">
+			region2 = #{region2},
+		</if>
+		<if test="region3 != null">
+			region3 = #{region3},
+		</if>
+		<if test="status != null">
+			status = #{status},
+		</if>
+		last_modifed = #{lastModified}
+	</update>
+	
+	<update id="deleteQaTime" parameterType="string">
+		update Bm_Qa_Time set status = '0' where id = #{id}
+	</update>
+</mapper>

@@ -1,0 +1,1 @@
+({"rangeMessage":"Este valor encontra-se fora do intervalo.","invalidMessage":"O valor introduzido n\x{00e3}o ¨¦ v¨¢lido.","missingMessage":"Este valor ¨¦ requerido."})

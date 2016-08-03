@@ -1,0 +1,47 @@
+package com.lmd.encanddec.manager.impl;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import org.hibernate.Hibernate;
+import org.hibernate.HibernateException;
+import org.hibernate.SQLQuery;
+import org.hibernate.Session;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.hibernate3.HibernateCallback;
+import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.stereotype.Service;
+
+import com.lmd.encanddec.dao.JjmServiceDao;
+import com.lmd.encanddec.service.QueryService;
+@Service("QueryService")
+public class QueryServiceImpl implements QueryService{
+
+	@Autowired
+	JjmServiceDao jjmServiceDao;
+	@Override
+	public String getDataBySql(final String sql,final String getStr) {
+		// TODO 自动生成的方法存根
+		HibernateTemplate tmpl = jjmServiceDao.getHibernateTemplate();
+		 List<String> list = tmpl.execute(
+        		new HibernateCallback<List<String>>() {
+            @SuppressWarnings("unchecked")
+            public List<String> doInHibernate(Session session)
+                throws HibernateException, SQLException {
+            	System.out.println(sql.toString());
+                SQLQuery query = session.createSQLQuery(sql);
+                System.out.println(getStr);
+                query.addScalar(getStr, Hibernate.STRING);   //返回值类型
+//                query.setInteger(0, Integer.parseInt("")); //输入参数
+                List results = query.list();  //因为只有查询一个列，所以返回的List是List<Object>
+               System.out.println((List<String>)results);
+                return (List<String>)results;
+            }
+        });
+	if(list.size()>0){
+		return list.get(0);
+	}else{
+		return "0";
+	}
+	}
+}

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ServiceModule id="asf" name="应用服务框架" version="1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ServiceModule.xsd">
+   <info>
+      <provider>
+         <business id="www.risesoft.net">
+            <name>北京有生博大软件技术有限公司</name>
+            <website>http://www.risesoft.net</website>
+            <address>北京市宣武区广内大街311号</address>
+         </business>
+      </provider>
+      <vender>
+         <business id="www.risesoft.net">
+            <name>北京有生博大软件技术有限公司</name>
+            <website>http://www.risesoft.net</website>
+         </business>
+      </vender>
+      <dependence>
+      </dependence>
+   </info>
+   <ServiceComponent id="ServiceModuleManager" name="服务模块管理器" version="1.0">
+      <description>服务模块管理器</description>
+      <category>/manager</category>
+      <service interface="egov.appservice.asf.service.ServiceModuleManager" />
+      <implementation class="net.risesoft.soa.asf.egov.ServiceModuleManagerImpl" factory-method="getInstance" />
+      <invoke>
+         <style>rpc</style>
+         <transport>HTTP</transport>
+         <mode>sync</mode>
+      </invoke>
+      <signature>Here is signature info</signature>
+      <properties>
+         <property name="firstKey" value="aStringValue"/>
+         <property name="secondKey" value="anotherStringValue"/>
+      </properties>
+   </ServiceComponent>
+   <ServiceComponent id="ServiceComponentManager" name="服务组件管理器" version="1.0">
+      <description>服务组件管理器</description>
+      <category>/manager</category>
+      <service interface="egov.appservice.asf.service.ServiceComponentManager"/>
+      <implementation class="net.risesoft.soa.asf.egov.ServiceComponentManagerImpl" factory-method="getInstance"/>
+      <invoke>
+         <style>rpc</style>
+         <transport>HTTP</transport>
+         <mode>sync</mode>
+      </invoke>
+      <signature>Here is signature info</signature>
+      <properties>
+         <property name="firstKey" value="aStringValue"/>
+         <property name="secondKey" value="anotherStringValue"/>
+      </properties>
+   </ServiceComponent>
+   <ServiceComponent id="ServiceManager" name="服务管理器" version="1.0">
+      <description>服务管理器</description>
+      <category>/manager</category>
+      <service interface="egov.appservice.asf.service.ServiceManager"/>
+      <implementation class="net.risesoft.soa.asf.egov.ServiceManagerImpl" factory-method="getInstance"/>
+      <invoke>
+         <style>rpc</style>
+         <transport>HTTP</transport>
+         <mode>sync</mode>
+      </invoke>
+      <signature>Here is signature info</signature>
+      <properties>
+         <property name="firstKey" value="aStringValue"/>
+         <property name="secondKey" value="anotherStringValue"/>
+      </properties>
+   </ServiceComponent>  
+   <ServiceComponent id="BundleManager" name="构件管理器" version="1.0">
+      <description>构件管理器</description>
+      <category>/manager</category>
+      <service interface="egov.appservice.asf.service.BundleManager"/>
+      <implementation class="net.risesoft.soa.asf.egov.BundleManagerImpl" factory-method="getInstance"/>
+      <invoke>
+         <style>rpc</style>
+         <transport>HTTP</transport>
+         <mode>sync</mode>
+      </invoke>
+      <signature>Here is signature info</signature>
+      <properties>
+         <property name="firstKey" value="aStringValue"/>
+         <property name="secondKey" value="anotherStringValue"/>
+      </properties>
+   </ServiceComponent>      
+</ServiceModule>

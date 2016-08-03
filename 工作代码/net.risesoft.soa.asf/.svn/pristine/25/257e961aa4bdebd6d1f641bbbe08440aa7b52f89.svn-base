@@ -1,0 +1,319 @@
+Manifest-Version: 1.0
+Export-Package: net.risesoft.soa.asf.core,net.risesoft.soa.asf.core.th
+ irdparty;uses:="net.risesoft.soa.asf.core",net.risesoft.soa.asf.dao;u
+ ses:="org.springframework.data.jpa.repository",net.risesoft.soa.asf.e
+ gov; uses:="org.springframework.context,  egov.appservice.asf.model, 
+  egov.appservice.asf.service,  net.risesoft.soa.asf.model"
+Bundle-ClassPath: .
+Built-By: jenkins
+Bundle-Name: net.risesoft.soa.asf
+Created-By: Apache Maven
+Web-ContextPath: services
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Require-Bundle: net.risesoft.soa.asf.core;bundle-version="1.0.0",org.h
+ ibernate;bundle-version="3.6.10";resolution:=optional
+Bundle-Vendor: Risesoft Co.Ltd.
+Webapp-Root: /webapp
+Build-Jdk: 1.6.0_30
+Asf-Definition: net/risesoft/soa/asf/asf-definitions.xml
+Bundle-Version: 1.0.0.201408201001
+Bundle-ManifestVersion: 2
+Import-Package: com.lmd.interceptor.interceptor,
+ egov.appservice.asf.exception;version="1.0.0",
+ egov.appservice.asf.model;version="1.0.0",
+ egov.appservice.asf.service;version="1.0.0",
+ egov.appservice.org.exception,
+ egov.appservice.org.model,
+ egov.appservice.org.service,
+ frameserver.license,
+ javax.persistence;version="[2.0.0,3.0.0)",
+ javax.servlet;version="[2.5.0,3.0.0)",
+ javax.servlet.http;version="[2.5.0,3.0.0)",
+ javax.xml.bind.annotation,
+ net.risesoft.soa.framework.service.config;version="1.0.0",
+ org.aopalliance.aop;version="1.0.0",
+ org.apache.commons.beanutils;version="[1.8.0,2.0.0)",
+ org.eclipse.osgi.service.datalocation;version="[1.3.0,2.0.0)";resolution:=optional,
+ org.osgi.framework;version="[1.3.0,2.0.0)",
+ org.osgi.service.http;version="[1.2.0,2.0.0)",
+ org.osgi.service.packageadmin;version="1.2.0",
+ org.osgi.util.tracker;version="[1.3.0,2.0.0)",
+ org.slf4j;version="[1.5.0,2.0.0)",
+ org.springframework.aop;version="[3.0.0,4.0.0)",
+ org.springframework.aop.framework;version="[3.0.0,4.0.0)",
+ org.springframework.beans;version="[3.0.0,4.0.0)",
+ org.springframework.beans.factory;version="[3.0.0,4.0.0)",
+ org.springframework.beans.factory.annotation;version="[3.0.0,4.0.0)",
+ org.springframework.beans.factory.config;version="[3.0.0,4.0.0)",
+ org.springframework.context;version="[3.0.0,4.0.0)",
+ org.springframework.data.domain;version="[1.2.0,2.0.0)",
+ org.springframework.data.jpa.domain;version="[1.1.0,2.0.0)",
+ org.springframework.data.jpa.repository;version="[1.0.0,2.0.0)",
+ org.springframework.data.jpa.repository.support;version="[1.0.0,2.0.0)",
+ org.springframework.data.jpa.support;version="[1.0.0,2.0.0)",
+ org.springframework.data.repository;version="[1.2.0,2.0.0)",
+ org.springframework.data.repository.core.support;version="[1.2.0,2.0.0)",
+ org.springframework.data.repository.query;version="[1.3.0,2.0.0)",
+ org.springframework.orm.jpa;version="[3.0.0,4.0.0)",
+ org.springframework.osgi.context;version="2.0.0.M1",
+ org.springframework.osgi.util;version="2.0.0.M1",
+ org.springframework.stereotype;version="[3.0.0,4.0.0)",
+ org.springframework.transaction;version="[3.0.0,4.0.0)",
+ org.springframework.transaction.annotation;version="[3.0.0,4.0.0)",
+ org.springframework.util;version="[3.0.0,4.0.0)",
+ org.springframework.web.filter;version="[3.0.0,4.0.0)"
+Bundle-SymbolicName: net.risesoft.soa.asf;singleton:=true
+Eclipse-RegisterBuddy: net.risesoft.soa.asf.core
+Archiver-Version: Plexus Archiver
+
+Name: net/risesoft/soa/asf/dao/ServiceModule2Dao.class
+SHA1-Digest: dYZlR3CcfvCoLEynm4UIfst87VE=
+
+Name: net/risesoft/soa/asf/core/ws/cxf/BasicAuthorizationInterceptor.c
+ lass
+SHA1-Digest: eokBce/6O7OAmTEBuFuxPiOJs9s=
+
+Name: net/risesoft/soa/asf/core/ServiceProxyFactory$ServiceLogSaveThre
+ ad$ServiceLogSaveThreadShutdownHook.class
+SHA1-Digest: QPPJIwV1jWXzGtyRmhr0MWBuk40=
+
+Name: net/risesoft/soa/asf/core/ws/cxf/LazyCXFServletController.class
+SHA1-Digest: 9z1i08EJUJfdkD4J1VX5iryowig=
+
+Name: net/risesoft/soa/asf/core/local/LocalServiceDefinition.class
+SHA1-Digest: KFALl3JIBbKGEC3egr6VX/fsdBM=
+
+Name: net/risesoft/soa/asf/ASFActivator.class
+SHA1-Digest: TuoZZMYoogCWe0sIfZRt8dB3KYY=
+
+Name: net/risesoft/soa/asf/core/util/FrameServerJCEProvicer$FrameServe
+ rJarVerifier.class
+SHA1-Digest: uf8q1cKUgpD6BY1fHzq7W3tY1wU=
+
+Name: net/risesoft/soa/asf/egov/ServiceManagerImpl.class
+SHA1-Digest: xpSMaJ7cx3NWG9a5JtrHw2xqbAQ=
+
+Name: net/risesoft/soa/asf/core/WebConsole.class
+SHA1-Digest: bL0vwiCWDj8/e/zGBE2wRTKuGvA=
+
+Name: net/risesoft/soa/asf/core/util/FrameServerJCEProvicer$1.class
+SHA1-Digest: vjUBZ4h8dYNo3qf3BzeotMxdOcc=
+
+Name: net/risesoft/soa/asf/util/dirwatcher/DirectoryWatcher.class
+SHA1-Digest: wHZXXn0JrE8RI++asPRd6aPd0EQ=
+
+Name: META-INF/config/asf.properties
+SHA1-Digest: rXob72rGGh1TqJjGIS7Ae4RuNkE=
+
+Name: net/risesoft/soa/asf/core/ws/WSServer.class
+SHA1-Digest: CZznCThrdt6zQ3j70+FG/OkiFFY=
+
+Name: net/risesoft/soa/asf/core/util/Base64$InputStream.class
+SHA1-Digest: yEiyhfiHOjqHcHK9gtkWGl2wk9M=
+
+Name: net/risesoft/soa/asf/core/thirdparty/ThirdpartyServiceProcessor.
+ class
+SHA1-Digest: rxeo1vmSrpQtRCPL3NKROxRcC5s=
+
+Name: net/risesoft/soa/asf/core/ws/cxf/CXFServer.class
+SHA1-Digest: v+ymfWLS8Dk75x/1NSLsG9Z4O0A=
+
+Name: net/risesoft/soa/asf/core/parser/Constant.class
+SHA1-Digest: msSFeOwecSwRkOzDkMnnjU133Cw=
+
+Name: net/risesoft/soa/asf/util/dirwatcher/DirectorySnapshot.class
+SHA1-Digest: ucuAPZD6jQMtwooXywYMBV9eDx4=
+
+Name: net/risesoft/soa/asf/egov/Constants.class
+SHA1-Digest: VkzAaPpfJVY82bNN0UlH6RgRd/Y=
+
+Name: net/risesoft/soa/asf/core/ws/ServerCreator.class
+SHA1-Digest: MJ9kR3bctJcJ/5e7AIwB3MbQzQk=
+
+Name: net/risesoft/soa/asf/dao/ServiceComponentDao.class
+SHA1-Digest: MzarrVWUN+iIlUTWyvjuMq3t0oY=
+
+Name: net/risesoft/soa/asf/core/util/Base64$OutputStream.class
+SHA1-Digest: Cn84k8X+jom9HQNsQ0rugVn+rGM=
+
+Name: net/risesoft/soa/asf/core/ws/WSServerHolder.class
+SHA1-Digest: Me3SC3STTW6Xd41ZcPW0BKVgzQ8=
+
+Name: net/risesoft/soa/asf/egov/RepositoryManagerImpl.class
+SHA1-Digest: YlPFCkwAppedOxc/aPcu43V097g=
+
+Name: net/risesoft/soa/asf/egov/ServiceComponentManagerImpl.class
+SHA1-Digest: VItW23wd+Rpcsg9PcU09UsYMgYI=
+
+Name: net/risesoft/soa/asf/core/ServiceProxyFactory.class
+SHA1-Digest: 3iYDoRyIGY19USOGybTtI44j+60=
+
+Name: net/risesoft/soa/asf/core/parser/ServiceModule_1.0.xsd
+SHA1-Digest: nOBVKyVgZ+J2O+vIm1A28oS8iMU=
+
+Name: net/risesoft/soa/asf/core/util/Base64.class
+SHA1-Digest: 8DZIzj7WK7UlHUUomMJzRgMaTog=
+
+Name: net/risesoft/soa/asf/core/local/LocalServiceRepository$1.class
+SHA1-Digest: 3LK2vxdKjtXatNpjwRRkKyrtcTs=
+
+Name: net/risesoft/soa/asf/util/dirwatcher/IntervalThread.class
+SHA1-Digest: D0P0ztf38BpApn6ciHJu7vOo2R0=
+
+Name: net/risesoft/soa/asf/core/ws/HttpSessionManager.class
+SHA1-Digest: VYm6jRJzwYce7NrU/BFv6ACm/Gg=
+
+Name: net/risesoft/soa/asf/core/WebConsole$1.class
+SHA1-Digest: ZBeIVfZd29qnxsB9KQ0YGnd+2VY=
+
+Name: net/risesoft/soa/asf/core/parser/ASFDefinitionParser.class
+SHA1-Digest: iv3o3WbW4bEsbgaokxoSl0iBKow=
+
+Name: net/risesoft/soa/asf/util/dirwatcher/AbstractResourceWatcher.cla
+ ss
+SHA1-Digest: EknAyddzDuHfY7a8lWEpYA/mPgA=
+
+Name: net/risesoft/soa/asf/core/util/RuntimeConfig.class
+SHA1-Digest: iGGcoJyT3qiDWq6WnrdiIkBlCn4=
+
+Name: net/risesoft/soa/asf/core/ServiceProxyFactory$1.class
+SHA1-Digest: 1ucYMoq7Pbw9FdrcX95pKGauL0o=
+
+Name: net/risesoft/soa/asf/core/ws/AbstractServerCreator.class
+SHA1-Digest: FhgabEuUl9ydO2DKZlau624+AVM=
+
+Name: net/risesoft/soa/asf/core/ws/cxf/CXFServerCreator.class
+SHA1-Digest: mMw2rz3RDxGkbr9FPh6Pcyyj+Uw=
+
+Name: net/risesoft/soa/asf/core/external/ExternalServiceProcessor$2.cl
+ ass
+SHA1-Digest: CkuK9vEecTeFlRR47X/wzcYB3ck=
+
+Name: net/risesoft/soa/asf/core/external/ExternalServiceRepository.cla
+ ss
+SHA1-Digest: kqQx6kZKaZww7EqujbT0HF8Ggno=
+
+Name: net/risesoft/soa/asf/core/experimental/ApplicationServiceContext
+ .class
+SHA1-Digest: Eob45UHRLTGZh6jexosBL70n/68=
+
+Name: net/risesoft/soa/asf/core/ws/cxf/OsgiNonSpringCXFServlet$1.class
+SHA1-Digest: +Z+kl/3wMWKaeNyNKXyI4ooBKnI=
+
+Name: net/risesoft/soa/asf/util/dirwatcher/IResourceWatcher.class
+SHA1-Digest: 75v6WpgknZfeefVynt9xk/ukd/I=
+
+Name: net/risesoft/soa/asf/core/local/LocalServiceProcessor.class
+SHA1-Digest: ogm2gCdbI6W9k2OXBBWpuArXX6Q=
+
+Name: net/risesoft/soa/asf/core/ws/cxf/OsgiNonSpringCXFServlet.class
+SHA1-Digest: h6P22hJwftoIyt1JC4X8rGQCYio=
+
+Name: net/risesoft/soa/asf/core/ServiceProxyFactory$ServiceLogSaveThre
+ ad.class
+SHA1-Digest: gjpupKJZ4oAkXAysp41imzYwvoA=
+
+Name: net/risesoft/soa/asf/core/thirdparty/ThirdpartyServiceRepository
+ .class
+SHA1-Digest: 6fvH+lxly3zJacO9OQjEutTj5HA=
+
+Name: net/risesoft/soa/asf/core/util/FrameServerJCEProvicer$FrameServe
+ rJarVerifier1$1.class
+SHA1-Digest: lEsB3Xs9BuoqeuULdJtdqLjXSiY=
+
+Name: net/risesoft/soa/asf/core/parser/ASFDefinitionParser$1.class
+SHA1-Digest: 28k8pcdWDLJZoyX9gTYEYnexTwU=
+
+Name: net/risesoft/soa/asf/exception/ASFException.class
+SHA1-Digest: Lrl1jP/6XvTs4TmbU+SQqRH3m1k=
+
+Name: net/risesoft/soa/asf/core/util/FrameServerJCEProvicer$FrameServe
+ rJarVerifier1.class
+SHA1-Digest: Q3N4QirGrZey7jJb+yQSnRZOUek=
+
+Name: META-INF/spring/asf-context.xml
+SHA1-Digest: Ak3K99MmoiKT/KyIymKgYoyaPUM=
+
+Name: net/risesoft/soa/asf/core/ws/cxf/LazyCXFServletController$HttpSe
+ rvletRequestWrapper.class
+SHA1-Digest: o0h/PSo96vCwwD+YWzuGi2j/i4k=
+
+Name: net/risesoft/soa/asf/core/parser/ServiceModule_1.1.xsd
+SHA1-Digest: 5yIte9wSu4w+8nC73/Ea5UtXnX0=
+
+Name: net/risesoft/soa/asf/core/util/FrameServerJCEProvicer.class
+SHA1-Digest: fqB5Hkuxw7nJra1a2E7zr/lhbCI=
+
+Name: net/risesoft/soa/asf/core/external/ExternalServiceProcessor.clas
+ s
+SHA1-Digest: YqbLUNWnCpZsIonHtSoVfEG4G8w=
+
+Name: net/risesoft/soa/asf/util/dirwatcher/IResourceListener.class
+SHA1-Digest: ZR0DvEYAoRftzYAU6kaxyWfBLag=
+
+Name: net/risesoft/soa/asf/core/util/DigestSHA1PasswordEncoder.class
+SHA1-Digest: RjMV0NALhvZ5DAHdUUL2t1sEQdc=
+
+Name: net/risesoft/soa/asf/core/external/ExternalServiceRepository$1.c
+ lass
+SHA1-Digest: 87d5DwsK6J2QGNzW4RE70fFa0Dc=
+
+Name: net/risesoft/soa/asf/core/local/LocalServiceRepository.class
+SHA1-Digest: 7JjlIJtswDLIxdFwwVA90477NTM=
+
+Name: net/risesoft/soa/asf/core/thirdparty/ThirdpartyServiceRepository
+ $1.class
+SHA1-Digest: h5yTFpc0F+gPUkEzdiEoMsDAMzU=
+
+Name: net/risesoft/soa/asf/util/dirwatcher/FileListener.class
+SHA1-Digest: WtOqs3okpFPzm6c506sxPhhAbmw=
+
+Name: META-INF/spring/osgi-context.xml
+SHA1-Digest: ZBaR4yMDVOkpS2zIKmCiMIcY0/E=
+
+Name: net/risesoft/soa/asf/dao/RepositoryInfoDao.class
+SHA1-Digest: vKMSLZaI7D9hB+NSDNgeRwjqLUM=
+
+Name: webapp/WEB-INF/web.xml
+SHA1-Digest: SZP801fm7eq73SEHoPnBxkTsFqY=
+
+Name: net/risesoft/soa/asf/dao/ServiceComponent2Dao.class
+SHA1-Digest: K13maALNOalq5/pyCeEBtI2rSPA=
+
+Name: net/risesoft/soa/asf/util/dirwatcher/IFileListener.class
+SHA1-Digest: VaUhxOp1pY3i1TMnz/1sHecrokQ=
+
+Name: net/risesoft/soa/asf/core/external/ExternalServiceProcessor$1.cl
+ ass
+SHA1-Digest: WyEgbC5toxX8+fdYWtitV32mQeo=
+
+Name: net/risesoft/soa/asf/egov/ServiceModuleManagerImpl.class
+SHA1-Digest: 8N8El3Lw4b+kl58KyKzwlvXdF2w=
+
+Name: net/risesoft/soa/asf/asf-definitions.xml
+SHA1-Digest: 0ZZkjSzS+sNF7YvebWtBNvulNoo=
+
+Name: net/risesoft/soa/asf/Version.class
+SHA1-Digest: 2/yvXzzboCtb47cStw7CfEnv+jY=
+
+Name: net/risesoft/soa/asf/core/external/ExternalServiceDefinition.cla
+ ss
+SHA1-Digest: 9/ViEs7/MaOwk/ykAoePsaZ7HgA=
+
+Name: net/risesoft/soa/asf/dao/ServiceLogDao.class
+SHA1-Digest: +sYx3g9aub+UC7WKCxbT5qb/jr8=
+
+Name: net/risesoft/soa/asf/util/dirwatcher/BaseListener.class
+SHA1-Digest: cMHlBZoynE8P5sxkibJegneFPRw=
+
+Name: net/risesoft/soa/asf/core/thirdparty/ThirdpartyServiceDefinition
+ .class
+SHA1-Digest: 5vaJfRdluMfTnb3fW5maZz5nSoQ=
+
+Name: net/risesoft/soa/asf/dao/ServiceModuleDao.class
+SHA1-Digest: S+nH+IQkOxnXR8fbb1BHN6MrTDo=
+
+Name: net/risesoft/soa/asf/core/ws/cxf/LazyCXFServletController$WebSer
+ viceInfo.class
+SHA1-Digest: DPS6MjRJfwzr/vwJopd+yFt8uuU=
+

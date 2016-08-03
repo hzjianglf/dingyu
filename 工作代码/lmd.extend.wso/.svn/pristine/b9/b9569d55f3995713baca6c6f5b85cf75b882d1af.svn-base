@@ -1,0 +1,160 @@
+/* body样式 */
+
+html, body{
+	font-size: 12pt;
+	color: #000000;
+	overflow: hidden;
+	border: 0 none;
+	height: 100%;
+	font-family: arial, 宋体
+}
+
+A:link{text-decoration:none}
+A:visited{text-decoration:none}
+A:hover {color: #15428b;text-decoration:none}
+
+table {
+	font-size: 12pt;
+	color: #000000;
+	font-family: arial, 宋体
+}
+
+.home-icon {
+	background-image: url(/framework/images/home.png) !important;
+}
+
+.refresh-icon {
+	background-image: url(/framework/images/refresh.png) !important;
+}
+
+.refresh-gif-icon {
+	background-image: url(/framework/images/refresh.gif) !important;
+}
+
+.arrow-up-icon {
+	background-image: url(/framework/images/arrow-up.gif) !important;
+}
+
+.arrow-down-icon {
+	background-image: url(/framework/images/arrow-down.gif) !important;
+}
+
+.collapse-all-icon {
+	background-image: url(/framework/images/collapse-all.gif) !important;
+}
+
+.expand-all-icon {
+	background-image: url(/framework/images/expand-all.gif) !important;
+}
+
+.add-icon {
+	background-image: url(/framework/images/add.png) !important;
+}
+
+.delete-icon {
+	background-image: url(/framework/images/delete.png) !important;
+}
+
+.link-icon {
+	background-image: url(/framework/images/link.png) !important;
+}
+
+.link-break-icon {
+	background-image: url(/framework/images/link_break.png) !important;
+}
+
+.save-icon {
+	background-image: url(/framework/images/save.png) !important;
+}
+
+.edit-icon {
+	background-image: url(/framework/images/edit.png) !important;
+}
+
+.index-icon {
+	background-image: url(/framework/images/index.png) !important;
+}
+
+.move-icon {
+	background-image: url(/framework/images/move.png) !important;
+}
+
+.import-icon {
+	background-image: url(/framework/images/import.png) !important;
+}
+
+.export-icon {
+	background-image: url(/framework/images/export.png) !important;
+}
+
+.table-icon {
+	background-image: url(/framework/images/table.png) !important;
+}
+
+.time-icon {
+	background-image: url(/framework/images/time.png) !important;
+}
+
+.tag-icon {
+	background-image: url(/framework/images/tag.png) !important;
+}
+
+.offline-icon {
+	background-image: url(/framework/images/status_offline.png) !important;
+}
+
+.online-icon {
+	background-image: url(/framework/images/status_online.png) !important;
+}
+
+.reset-icon {
+	background-image: url(/framework/images/reset.png) !important;
+}
+
+.search-icon {
+	background-image: url(/framework/images/search.png) !important;
+}
+
+.plugin-icon {
+	background-image: url(/framework/images/plugin.png) !important;
+}
+
+.report-icon {
+	background-image: url(/framework/images/report.png) !important;
+}
+
+.form-icon {
+	background-image: url(/framework/images/form.png) !important;
+}
+
+.x-form-input-border {
+	background: #dfe8f6;
+	border-width: 0px;
+}
+
+.x-menutoolbar{border-color:#a9bfd3;border-style:solid;border-width:0 0 0 0;display:block;background:#d0def0 url(../images/head/menu_background.gif) repeat-x top left;position:relative;zoom:1;}
+
+.x-selectable, .x-selectable * {   
+    -moz-user-select: text!important;   
+    -khtml-user-select: text!important;   
+}
+
+.x-fieldset legend {
+    font:bold 12px tahoma, arial, helvetica, sans-serif;
+    color:#15428b;
+}
+
+.complete .x-tree-node-anchor span {
+    text-decoration: line-through;
+    color: #777;
+}
+
+.upload-icon {
+    background: url('/framework/images/image_add.png') no-repeat 0 0 !important;
+}
+
+#msg-div {
+    position:absolute;
+    width:250px;
+    z-index:20000;
+}

@@ -1,0 +1,7 @@
+set Axis_Lib=D:\lumeidaspace\lmd.soa.sync.rtx\lib
+set Java_Cmd=java -Djava.ext.dirs=%Axis_Lib%
+set Output_Path=.
+set Package=com.lmd.sync.rtx.service.client
+%Java_Cmd% org.apache.axis.wsdl.WSDL2Java http://192.168.1.118:8080/rtxservice/RtxService?wsdl -o%Output_Path% -p%Package%
+
+pause

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.handany.rbac.dao.PmUserMapper">
+  <resultMap id="BaseResultMap" type="com.handany.rbac.model.PmUser">   
+    <id column="id" jdbcType="CHAR" property="id" />
+    <result column="login_name" property="loginName" />
+    <result column="name" property="name" />
+    <result column="brief_name" property="briefName" />
+    <result column="gender" property="gender" />
+    <result column="mobile" property="mobile" />   
+    <result column="password" property="password" />
+    <result column="status" property="status" />
+    <result column="groupId" property="groupId" />
+    <result column="url" property="picUrl" />
+    <result column="last_modified" property="lastModified" />
+    <result column="user_type" property="userType" />
+  </resultMap>
+  <sql id="Base_Column_List">
+	id, login_name, name, gender,mobile, brief_name, password, status, last_modified
+  </sql>
+  <!-- 登录 -->
+  <select id="login" parameterType="map" resultMap="BaseResultMap">
+  	
+  		SELECT 
+  		user.id, user.login_name, user.name, user.gender,
+  		user.mobile, user.brief_name, user.password, user.status, user.last_modified,
+  		user.user_type
+  		FROM Pm_User user
+  		WHERE login_name = #{loginName} and password = #{password}
+ 
+  </select>  
+  
+  <!-- 通过手机号查询用户信息 -->
+  <select id="queryPmUserByMobile" parameterType="java.lang.String" resultMap="BaseResultMap">
+  	select 
+  		user.id, user.login_name, user.name, user.gender,
+  		user.mobile, user.brief_name, user.password, user.status, user.last_modified,
+  		user.user_type
+  		FROM Pm_User user
+  		where user.login_name = #{mobile}
+  </select>
+  <!-- 保存修改用户注册基本信息 -->
+  <insert id="saveRegisterMsg" parameterType="com.handany.rbac.model.PmUser">
+  	insert into Pm_User(id, login_name, name, gender,mobile, brief_name, password, status, last_modified, user_type)
+  	values(#{id},#{loginName},#{name},#{gender},#{mobile},#{briefName},#{password},#{status},#{lastModified},#{userType})
+    ON DUPLICATE KEY UPDATE
+	    <if test="name != null">
+	    	name = #{name},
+	    </if>
+	    <if test="gender != null">
+    	gender = #{gender},
+    	</if>
+    	<if test="mobile != null">
+    	mobile = #{mobile},
+    	</if>
+    	<if test="briefName != null">
+    	brief_name = #{briefName},
+    	</if>
+    	<if test="password != null">
+    	password = #{password},
+    	</if>
+    	<if test="status != null">
+    	status = #{status},
+    	</if>
+    	<if test="userType != null">
+    	user_type = #{userType},
+    	</if>   	
+    	last_modified = #{lastModified}
+  </insert>
+  
+  <update id="updatePwd" parameterType="map">
+  	update Pm_User set password=#{newPwd} where id = #{userId} and password = #{oldPwd}
+  </update>
+  
+  <update id="updateLoginName" parameterType="map">
+  	update Pm_User set login_name=#{newMobile} where login_name=#{oldMobile}
+  </update>
+  
+  <update id="findPwd" parameterType="map">
+  	update Pm_User set password=#{newPwd} where login_name=#{loginName}
+  </update>
+  
+  <select id="queryById" parameterType="java.lang.String" resultMap="BaseResultMap">
+  		SELECT 
+		user.id, user.login_name, user.name, user.gender,user.user_type,
+		user.mobile, user.brief_name, user.password, user.status, user.last_modified, pic.url
+		FROM Pm_User user
+		LEFT JOIN Bm_Picture pic ON user.id = pic.relate_id AND pic.type = 'userHeader' and pic.status= '1'
+		WHERE user.id=#{_parameter}
+  </select>
+  
+</mapper>
+
+
+
+
+
+

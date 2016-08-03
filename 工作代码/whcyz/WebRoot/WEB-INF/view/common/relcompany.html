@@ -1,0 +1,30 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<div class="relbox" style="display: none;" id="relCompanyBox"><div class="title">相关公司</div><div class="relimgbox"><a href="company/detail/${relCompanyId }"><div class="relimgbg"></div><img id="relCompanyAvatar" class="lazy" src="assets/css/imgs/defaultlogobg.jpg" width="140" height="140"/></a></div>
+<div class="relinfobox"><div class="relinfos"><a href="company/detail/${relCompanyId }"><span id="relCompanyName"></span></a></div>
+<div class="relinfos"><a href="company/detail/${relCompanyId }"><span id="relCompanyIndustry"></span></a></div>
+<!-- <div class="relinfos"><a href="company/detail/${relCompanyId }"><span id="relCompanyStage"></span></a></div> -->
+</div></div>
+<script>
+$(function(){
+	var relCompanyId=Number("${relCompanyId}");
+	if(relCompanyId&&relCompanyId>0){
+		$.ajax({
+			type:"get",
+			url:"company/relinfo/"+relCompanyId,
+			datatype:"json",
+			success:function(result){
+				if(result.success){
+					var json=result.data;
+					if(json){
+						$("#relCompanyBox").show();
+						$("#relCompanyName").text(json.name);
+						$("#relCompanyStage").text(json.stage==null?"":json.stage);
+						$("#relCompanyIndustry").text(json.industry==null?"":json.industry);
+						$("#relCompanyAvatar").attr("data-original",json.imgUrl==null?"assets/css/imgs/defaultlogobg.jpg":json.imgUrl).lazyload();
+					}
+				}
+			}
+		});
+	}
+});
+</script>

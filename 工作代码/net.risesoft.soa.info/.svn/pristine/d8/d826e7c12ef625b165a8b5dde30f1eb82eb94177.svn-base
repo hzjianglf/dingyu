@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ CopyRight RiseSoft Co.,Ltd
+
+ $Id: plugin.xml,v 1.2 2008-11-07 02:49:50 yanghaibo Exp $
+-->
+
+<plugin>
+   <extension
+         point="net.risesoft.soa.framework.orm.jpa.PersistenceUnitProvider">
+      <persistence-file
+            location="/META-INF/persistence.xml">
+      </persistence-file>
+   </extension>
+
+</plugin>

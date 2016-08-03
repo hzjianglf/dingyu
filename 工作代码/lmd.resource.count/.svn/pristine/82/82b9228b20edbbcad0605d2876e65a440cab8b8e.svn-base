@@ -1,0 +1,8 @@
+source.. = src/
+bin.includes = .,\
+               smsManager-definitions.xml,\
+               lib/,\
+               META-INF/,\
+               bin/,\
+               build.properties,\
+               plugin.xml

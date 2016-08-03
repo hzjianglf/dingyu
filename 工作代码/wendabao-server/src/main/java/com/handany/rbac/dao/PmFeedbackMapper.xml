@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.handany.rbac.dao.PmFeedbackMapper">
+  <resultMap id="BaseResultMap" type="com.handany.rbac.model.PmFeedback">   
+    <id column="id" property="id" />
+    <result column="user_id" property="userId" />
+    <result column="opinion" property="opinion" />
+    <result column="last_modified" property="lastModified" />
+  </resultMap>
+  <sql id="Base_Column_List">
+	id, user_id, opinion, last_modified
+  </sql>
+ 
+  <!-- 保存意见反馈 -->
+  <insert id="saveFeedback" parameterType="com.handany.rbac.model.PmUser">
+  	insert into Bm_Feedback(id, user_id, opinion, last_modified)
+  	values(#{id},#{userId},#{opinion},#{lastModified})
+    
+  </insert>
+  
+  <!-- 查询意见反馈 -->
+  <select id="queryList" resultType="map">
+    SELECT fb.id, fb.opinion, u.name,u.login_name AS loginName FROM Bm_Feedback fb, Pm_User u WHERE u.id = fb.user_id
+  </select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

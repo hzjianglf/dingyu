@@ -1,0 +1,78 @@
+@charset "utf-8";
+body {font-family: "ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Hiragino Sans GB","Hiragino Sans GB W3"; line-height:1.6; background:#eee; }
+h1, h2, h3, h4, h5, h6, p, ul, ol, dl, dt, dd, li, body, form, input, button, img, cite, strong, em, table, td, th { padding:0; margin:0; }
+h1, h2, h3, h4, h5, h6 { font-size: 16px;}
+img, table, td, th { border: 0; }
+ul, ol { list-style-type:none; }
+a{ text-decoration:none; color:#666;}
+a:visited{ color:#666;}
+/* .major p {
+    color: rgb(255, 51, 68);
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 5px;
+} */
+.major p {color: #f34; font-weight: bold; font-size: 12px; line-height:15px; }
+.major .list li {
+    min-height: 100px;
+    border-bottom: 1px solid rgb(204, 204, 204);
+    padding: 10px;
+    margin-bottom: 10px;
+}
+#content{margin: 0; min-height:auto;}
+#content .mid{ border-bottom:#fefefe 1px solid; padding-top:10px;}
+#content .mid_list{ max-width:600px; margin:0 auto; overflow:hidden;}
+#content .mid_list li{ width:49%; float:left;}
+#content .mid_list li span.img{ width:100%;display:block; text-align:center;}
+#content .mid_list li span.img img{ border:1px solid #ddd; border-radius:10px;}
+#content .mid_list li span.tit{ width:100%; text-align:center; display:block;font-size:22px; color:#ababab; padding:5px 0; }
+#content .mid_list li a{text-decoration:none;}
+#content .mid_banner{ max-width:600px; margin:0 auto; position: relative; padding:10px 0;}
+#content .mid_banner .ibox{ border:1px solid #ddd; border-radius:10px; max-width:600px;background:#fff; text-align:center;}
+#content .module_special{margin:5px; }
+.veins1 { background: url(images/veins1.gif) no-repeat 0 0; }
+.veins1 .ico2 { color: #3a3a3a; }
+.veins2 {}
+.veins2 .ico2 { color: #3d3f3e; }
+
+.common_title { height: 30px; background:#eee; line-height: 30px; }
+.common_title .ornament1 {}
+.common_title .ornament2 {}
+.common_title .ico1 {}
+.common_title .ico2 { margin-left: 20px;font-size:20px;  font-weight:normal; color:#777;}
+
+.major .list {overflow: hidden; display:block; margin:0px; padding: 10px 5px 0px 5px; background: #fff; border-radius:8px; }
+.major .list li {min-height:100px; border-bottom: 1px solid #ccc; padding: 10px; margin-bottom: 10px;}
+.major .list li div.pic,.major .list li div.good_content, .group_major .pic, .group_major li div.good_content {margin-right: 15px;display: inline-block;*display:inline;zoom:1; }
+.major .list li div.good_content, .group_major li div.good_content{margin-left: 15px;}
+.major .list li div.good_content{ width:150px; margin:0;}
+.major .list li span.show_good, .major .list li span.show_good a
+	{display: block; float: right; min-height: 105px; min-width: 15px;}
+.major .list li span.show_good{ background: url("images/show.png") no-repeat center center;}
+.remove_bottom_line {border-bottom: none !important;}
+.major .pic {margin: 0 auto; text-align:center;}
+.major .pic img { width:100px;}
+.major .pic a { display: block; text-align:center;}
+.major h3 { color:#ababab; overflow: hidden;  line-height: 35px; font-weight: normal; font-size: 16px; }
+.major h3 a { color: #646665; text-decoration: none; font-size: 14px; line-height: 20px;}
+
+.group_major .list {margin: 15px; overflow: hidden; background:#fff; padding:10px 0;-webkit-box-shadow:0 0 5px #ccc;}
+.group_major .list li {padding: 10px; }
+.group_major li div.good_content{max-width: 115px;}
+.group_major .pic { margin: 0 auto; }
+.group_major .pic img { width: 100px;}
+.group_major .pic a { display: block; width: 100px; padding: 7px; border: 1px solid #c4c4c4; }
+.group_major .pic a:hover { border: 1px solid #ddd; }
+.group_major h3 { height: 40px; text-align: center; overflow: hidden; margin: 10px auto; line-height: 18px; font-weight: normal; font-size: 12px; }
+.group_major h3 a { color: #666; text-decoration: none; }
+.group_major h3 a:hover { color: #f60; text-decoration: underline; }
+.group_major p {color: #5cab22; font-weight: bold; font-size: 14px; text-align: center; }
+.group_major p span { font-weight: normal; color: #656565; font-size: 12px; }
+.group_major .time {font-size:12px; height: 30px; line-height: 30px; color: #5eb3a0; font-weight: bold; margin: 0 auto; text-align:center;}
+
+.major h3 a:hover { color: #f60; text-decoration: underline; }
+.major p.old_price{color: #666; font-weight: normal;text-decoration: line-through;}
+
+.major .more { font-family: "宋体"; text-align: right; padding-right: 30px; margin-bottom: 20px; }
+.major .more a { color: #fff; background: #000; padding: 0 2px; }
+.major .more a:hover { background: #777; }

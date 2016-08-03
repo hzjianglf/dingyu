@@ -1,0 +1,26 @@
+<table class="dijit dijitReset dijitInlineTable dijitLeft"
+	cellspacing="0" cellpadding="0" id="widget_${id}" name="${name}"
+	dojoAttachEvent="onmouseenter:_onMouse,onmouseleave:_onMouse"
+	waiRole="presentation">
+	<tr class="dijitReset">
+		<td class='dijitReset dijitStretch dijitInputField' width="100%">
+		<input
+			type="text" autocomplete="off" name="${name}"
+			dojoAttachPoint="textbox,focusNode"  />
+			<!-- note: ValidationTextBox makes the type like this: type='$type' -->
+		</td>
+		<td class="dijitReset dijitValidationIconField" width="0%">
+		<div dojoAttachPoint='iconNode' class='dijitValidationIcon'></div>
+		<div class='dijitValidationIconText'>&Chi;</div>
+		</td>
+		
+		<td class="dijitReset dijitRight" width="0%" title="${iconTitle}"
+		dojoAttachEvent="onmousedown:mouseDown,onmouseup:_onMouse,onmouseenter:_onMouse,onmouseleave:_onMouse,onkeypress:handleKeys">
+		<div class="datetimeicon" waiRole="presentation" dojoAttachPoint="propertyIconNode" tabindex="1">
+		</div>
+		</td>
+
+		<!-- table cell to hold icon for activating control -->
+
+	</tr>
+</table>

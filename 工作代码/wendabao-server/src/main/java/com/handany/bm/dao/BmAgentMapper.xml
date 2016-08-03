@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.handany.bm.dao.BmAgentMapper">
+    <resultMap id="BaseResultMap" type="com.handany.bm.model.BmAgent">
+            <result column="id" jdbcType="CHAR" property="id" />
+            <result column="user_id" jdbcType="CHAR" property="userId" />
+            <result column="name" jdbcType="VARCHAR" property="name" />
+            <result column="district_id" jdbcType="CHAR" property="districtId" />
+            <result column="grade_id" jdbcType="CHAR" property="gradeId" />
+            <result column="home_address" jdbcType="VARCHAR" property="homeAddress" />
+            <result column="post_address" jdbcType="VARCHAR" property="postAddress" />
+            <result column="tel" jdbcType="VARCHAR" property="tel" />
+            <result column="qq" jdbcType="VARCHAR" property="qq" />
+            <result column="status" jdbcType="CHAR" property="status" />
+            <result column="time_limit" jdbcType="TIMESTAMP" property="timeLimit" />
+            <result column="agent_fee" jdbcType="DECIMAL" property="agentFee" />
+            <result column="region1" jdbcType="VARCHAR" property="region1" />
+            <result column="region2" jdbcType="VARCHAR" property="region2" />
+            <result column="region3" jdbcType="VARCHAR" property="region3" />
+            <result column="region1_txt" jdbcType="VARCHAR" property="region1Txt" />
+            <result column="region2_txt" jdbcType="VARCHAR" property="region2Txt" />
+            <result column="region3_txt" jdbcType="VARCHAR" property="region3Txt" />
+            <result column="last_modified" jdbcType="TIMESTAMP" property="lastModified" />
+    </resultMap>
+    <resultMap id="AgentResultMap" type="com.handany.bm.model.BmAgent">
+            <result column="id" jdbcType="CHAR" property="id" />
+            <result column="user_id" jdbcType="CHAR" property="userId" />
+            <result column="name" jdbcType="VARCHAR" property="name" />
+            <result column="district_id" jdbcType="CHAR" property="districtId" />
+            <result column="grade_id" jdbcType="CHAR" property="gradeId" />
+            <result column="home_address" jdbcType="VARCHAR" property="homeAddress" />
+            <result column="post_address" jdbcType="VARCHAR" property="postAddress" />
+            <result column="tel" jdbcType="VARCHAR" property="tel" />
+            <result column="qq" jdbcType="VARCHAR" property="qq" />
+            <result column="status" jdbcType="CHAR" property="status" />
+            <result column="time_limit" jdbcType="TIMESTAMP" property="timeLimit" />
+            <result column="agent_fee" jdbcType="DECIMAL" property="agentFee" />
+            <result column="region1" jdbcType="VARCHAR" property="region1" />
+            <result column="region2" jdbcType="VARCHAR" property="region2" />
+            <result column="region3" jdbcType="VARCHAR" property="region3" />
+            <result column="region1_txt" jdbcType="VARCHAR" property="region1Txt" />
+            <result column="region2_txt" jdbcType="VARCHAR" property="region2Txt" />
+            <result column="region3_txt" jdbcType="VARCHAR" property="region3Txt" />
+            <result column="last_modified" jdbcType="TIMESTAMP" property="lastModified" />
+            <association property="user" column="user_id" select="queryUser"></association>
+    </resultMap>
+    <resultMap type="com.handany.rbac.model.PmUser" id="UserResultMap">
+    	<result column="id" jdbcType="CHAR" property="id"/>
+	    <result column="login_name" property="loginName" />
+	    <result column="name" property="name" />
+	    <result column="mobile" property="mobile" />   
+	    <result column="status" property="status" />
+	    <result column="user_type" property="userType" />
+    </resultMap>
+    <sql id="Base_Column_List">
+            id,
+            user_id,
+            name,
+            district_id,
+            grade_id,
+            home_address,
+            post_address,
+            tel,
+            qq,
+            status,
+            time_limit,
+            agent_fee,
+            region1,
+            region2,
+            region3,
+            region1_txt,
+            region2_txt,
+            region3_txt,
+            last_modified
+    </sql>
+	<sql id="UserColumnList">
+    	id,
+    	last_modified,
+    	login_name,
+    	mobile,
+    	name,
+    	user_type
+    </sql>
+    
+	<select id="queryUser" resultMap="UserResultMap">
+		select <include refid="UserColumnList"></include> from Pm_User where id = #{id}
+	</select>
+	
+	<select id="queryAgent" parameterType="map" resultMap="AgentResultMap">
+		select <include refid="Base_Column_List"></include>
+		from Bm_Agent where 1 = 1
+		<if test="name != null and name != ''">
+			and name  LIKE CONCAT('%', #{name}, '%')
+		</if>
+		<if test="districtId != null">
+			and district_id = #{districtId}
+		</if>
+		<if test="tel != null">
+			and tel like #{tel}
+		</if>
+		<if test="status != null">
+			and status = #{status}
+		</if>
+		<if test="region1 != null and region1 != 0">
+			and region1 like #{region1}
+		</if>
+		<if test="region2 != null and region2 != 0">
+			and region2 like #{region2}
+		</if>
+		<if test="region3 != null and region3 != 0">
+			and region3 like #{region3}
+		</if>
+		order by last_modified desc
+	</select>
+	<select id="queryById" parameterType="string" resultMap="AgentResultMap">
+		select <include refid="Base_Column_List"></include>
+		from Bm_Agent where id = #{id}
+	</select>
+	<select id="queryByUserId" parameterType="string" resultMap="BaseResultMap">
+		select <include refid="Base_Column_List"></include>
+		from Bm_Agent where user_id = #{userId}
+	</select>
+	<update id="saveAgent">
+		insert into Bm_Agent(<include refid="Base_Column_List"></include>) values
+		(#{id}, #{userId}, #{name}, #{districtId}, #{gradeId}, #{homeAddress}, #{postAddress}, #{tel}, #{qq}, #{status}, #{timeLimit}, #{agentFee},
+			#{region1}, #{region2}, #{region3}, #{region1Txt}, #{region2Txt}, #{region3Txt}, #{lastModified})
+		ON DUPLICATE KEY UPDATE
+		<if test="id != null">
+			id = #{id},
+		</if>
+		<if test="userId != null">
+			user_id = #{userId},
+		</if>
+		<if test="name != null">
+			name = #{name},
+		</if>
+		<if test="districtId != null">
+			district_id = #{districtId},
+		</if>
+		<if test="gradeId != null">
+			grade_id = #{gradeId},
+		</if>
+		<if test="homeAddress != null">
+			home_address = #{homeAddress},
+		</if>
+		<if test="postAddress != null">
+			post_address = #{postAddress},
+		</if>
+		<if test="tel != null">
+			tel = #{tel},
+		</if>
+		<if test="qq != null">
+			qq = #{qq},
+		</if>
+		<if test="status != null">
+			status = #{status},
+		</if>
+		<if test="timeLimit != null">
+			time_limit = #{timeLimit},
+		</if>
+		<if test="agentFee != null">
+			agent_fee = #{agentFee},
+		</if>
+		<if test="region1 != null">
+			region1 = #{region1},
+		</if>
+		<if test="region2 != null">
+			region2 = #{region2},
+		</if>
+		<if test="region3 != null">
+			region3 = #{region3},
+		</if>
+		<if test="region1Txt != null">
+			region1_txt = #{region1Txt},
+		</if>
+		<if test="region2Txt != null">
+			region2_txt = #{region2Txt},
+		</if>
+		<if test="region3Txt != null">
+			region3_txt = #{region3Txt},
+		</if>
+		last_modified = #{lastModified}
+	</update>
+	
+	<update id="deleteById" parameterType="string">
+		update Bm_Agent set status = '0' where id = #{id}
+	</update>
+</mapper>

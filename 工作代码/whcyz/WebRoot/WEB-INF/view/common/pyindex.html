@@ -1,0 +1,64 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<!-- <div class="pyindexbox">
+<div class="title">按变电站搜索</div>
+ <div class="pyitems"> 
+
+<a href="javascript:void(0)" onclick="return false;">220kv</a>
+<a href="javascript:void(0)" onclick="return false;">1kv</a><a href="javascript:void(0)" onclick="return false;">1kv</a><a href="javascript:void(0)" onclick="return false;">1kv</a><a href="javascript:void(0)" onclick="return false;">1kv</a>
+<a href="javascript:void(0)" onclick="return false;">2kv</a><a href="javascript:void(0)" onclick="return false;">1kv</a><a href="javascript:void(0)" onclick="return false;">1kv</a><a href="javascript:void(0)" onclick="return false;">1kv</a><a href="javascript:void(0)" onclick="return false;">1kv</a>
+<a href="javascript:void(0)" onclick="return false;">3kv</a><a href="javascript:void(0)" onclick="return false;">1kv</a><a href="javascript:void(0)" onclick="return false;">1kv</a><a href="javascript:void(0)" onclick="return false;">1kv</a><a href="javascript:void(0)" onclick="return false;">1kv</a>
+<a href="javascript:void(0)" onclick="return false;">4kv</a><a href="javascript:void(0)" onclick="return false;">1kv</a><a href="javascript:void(0)" onclick="return false;">1kv</a><a href="javascript:void(0)" onclick="return false;">1kv</a><a href="javascript:void(0)" onclick="return false;">1kv</a>
+<a href="javascript:void(0)" onclick="return false;">5kv</a><a href="javascript:void(0)" onclick="return false;">1kv</a><a href="javascript:void(0)" onclick="return false;">1kv</a><a href="javascript:void(0)" onclick="return false;">1kv</a><a href="javascript:void(0)" onclick="return false;">1kv</a>
+<a href="javascript:void(0)" onclick="return false;">6kv</a><a href="javascript:void(0)" onclick="return false;">1kv</a>
+</div>
+</div>
+<script>
+$(".pyitems a").click(function(){
+	appLoading("正在搜索...");
+	$(".pyitems a.active").removeClass("active");
+	$(this).addClass("active");
+	var py=$(this).text();
+	var url=window.location.href;
+	var iscompany=false;
+	var context="";
+	if(url.indexOf("company")!=-1){
+		url="company/pyindex/"+py;
+		iscompany=true;
+		context=".companydiv ul";
+	}else if(url.indexOf("person")!=-1){
+		url="person/pyindex/"+py;
+		iscompany=false;
+		context=".persondiv ul";
+	}
+	$.ajax({
+		type:"get",
+		url:url,
+		datetype:"json",
+		context:$(context),
+		success:function(result){
+				$(".page").hide();
+				this.empty();
+			if(result.success){
+				closeAppLoading();
+				$("#currentbreadcrumb").text("列表-搜索结果");
+					var json=result.data;
+					if(json&&json.length>0){
+						for(var i=0;i<json.length;i++){
+							if(iscompany){
+							this.append('<li><div class="company"><a href="company/detail/'+json[i].id+'"><img src="'+(json[i].imgUrl==null?"assets/css/imgs/defaultlogobg.jpg":json[i].imgUrl)+'" /><span class="name">'+json[i].name+'</span></a></div><a href="company/detail/'+json[i].id+'" class="imgbg"></a></li>')
+							}else{
+							this.append('<li><div class="person"><a href="person/detail/'+json[i].id+'"><img src="'+(json[i].imgUrl==null?"assets/css/imgs/defaultavatar.png":json[i].imgUrl)+'" /><span class="name">'+json[i].name+'</span></a></div><a href="person/detail/'+json[i].id+'" class="imgbg"></a></li>')
+							}
+						}
+					}else{
+						this.append("<center>没有检索到相关数据</center>");
+					}
+				
+			}else{
+				appErrorMsg("搜索不到数据！",1000);
+				this.append("<center>没有检索到相关数据</center>");
+			}
+		}
+	});
+});
+</script> -->

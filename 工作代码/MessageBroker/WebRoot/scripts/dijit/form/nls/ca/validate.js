@@ -1,0 +1,1 @@
+({"rangeMessage":"Aquest valor ¨¦s fora de l'interval","invalidMessage":"El valor introdu\x{00ef}t no ¨¦s v¨¤lid","missingMessage":"Aquest valor ¨¦s necessari"})

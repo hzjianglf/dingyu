@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>城色后台管理系统</title>
+</head>
+<style>
+/*火狐*/
+@-moz-document url-prefix() {
+
+}
+/*谷歌*/
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+
+}
+.ww{border:1px solid #025398;
+height: 18px;
+width:150px;
+background-color: #dfdfdf;
+}
+.y{border:1px solid #025398;
+height: 18px;
+
+background-color: #dfdfdf;
+}
+</style>
+<script language="JavaScript">
+	window.onUnload = function() {
+		var ck = document.cookie.split(";");
+		var re = /.*?=/;
+		var ne = [];
+		for (i = 0; i < ck.length; i++) {
+			ne[i] = re.exec(ck[i])[0];
+			document.cookie = ne[i] + ";expires=Sat, 20 Jun 2009 23:17:11 UTC";
+		}
+		
+		
+	};
+	function correctPNG() {
+		var arVersion = navigator.appVersion.split("MSIE")
+		var version = parseFloat(arVersion[1])
+		if ((version >= 5.5) && (document.body.filters)) {
+			for ( var j = 0; j < document.images.length; j++) {
+				var img = document.images[j];
+				var imgName = img.src.toUpperCase();
+				if (imgName.substring(imgName.length - 3, imgName.length) == "PNG") {
+					var imgID = (img.id) ? "id='" + img.id + "' " : ""
+					var imgClass = (img.className) ? "class='" + img.className
+							+ "' " : ""
+					var imgTitle = (img.title) ? "title='" + img.title + "' "
+							: "title='" + img.alt + "' "
+					var imgStyle = "display:inline-block;" + img.style.cssText
+					if (img.align == "left")
+						imgStyle = "float:left;" + imgStyle
+					if (img.align == "right")
+						imgStyle = "float:right;" + imgStyle
+					if (img.parentElement.href)
+						imgStyle = "cursor:hand;" + imgStyle
+					var strNewHTML = "<span "
+							+ imgID
+							+ imgClass
+							+ imgTitle
+							+ " style=\""
+							+ "width:"
+							+ img.width
+							+ "px; height:"
+							+ img.height
+							+ "px;"
+							+ imgStyle
+							+ ";"
+							+ "filter:progid:DXImageTransform.Microsoft.AlphaImageLoader"
+							+ "(src=\'" + img.src
+							+ "\', sizingMethod='scale');\"></span>"
+					img.outerHTML = strNewHTML
+					j = j - 1
+				}
+			}
+		}
+	}
+	window.attachEvent("onload", correctPNG);
+</script>
+<script type="text/javascript" src="../manager/js/jquery-1.8.3.js"></script>
+<script type="text/javascript" src="../manager/js/jquery.cookie.js"></script>
+<script>
+	function save() {
+		document.cookie = "cookietest=true";
+		if (!navigator.cookieEnabled && !document.cookie) {
+			$("#cookie").val("false");
+			alert("cookie已关闭，请打开，否则将能访问!");
+			$.cookie('cookietest', null);
+			return;
+		} else {
+			$("#cookie").val("true");
+			$.cookie('cookietest', null);
+		}
+		var yzm = $("#rand").val();
+		var uname = $("#uname").val();
+		var cookie = $("#cookie").val();
+		var pwd = $("#pwd").val();
+		var enterId=$("#enterId").val();
+		if (pwd == "" || uname == "") {
+			alert("账号密码不能为空");
+			return;
+		}
+		$
+				.ajax({
+					url : 'check!checkYan?yzm=' + yzm
+							+ '&uname=' + uname + '&pwd=' + pwd +'&enterId='+enterId+ '&cookie='
+							+ cookie,
+					type : 'post',
+					dataType : "json",
+					success : function(data) {
+						if (data != "false") {
+							if (data == "login_error") {
+								alert("用户名或密码错误!");
+								stateYzm = "true";
+							} else {
+								if(data=="0")
+								{
+									window.location.href = "manage";
+									return;
+								}if(data=="1"){
+									//window.location.href="http://www.uniqyw.com/xiangxd/enterprise/user/template/manage/template-property";
+								   return;
+								}else{
+								
+								    //window.location.href="http://www.uniqyw.com/xiangxd/siteManage/agent-index.jsp";
+								   return;
+								}
+							
+							}
+						} else {
+							stateYzm = "false";
+							alert("验证码错误");
+							window.location.href = "admin";
+						}
+					},
+					error : function(a, x, e) {
+						alert("网路异常！");
+					}
+				});
+
+	}
+	
+	function reset() {
+		$("#uname").val("");
+		$("#pwd").val("");
+		$("#rand").val("");
+	}
+	document.onkeydown = function (e) { 
+	var theEvent = window.event || e; 
+	var code = theEvent.keyCode || theEvent.which; 
+		var employeeUsernamev = document.getElementById("uname").value;
+		var employeePasswordv = document.getElementById("pwd").value;
+		var yzmv = document.getElementById("rand").value;
+ 		var employeeUsername = document.getElementById("uname");
+		var employeePassword = document.getElementById("pwd");
+		var yzm = document.getElementById("rand");
+		var Submit = document.getElementById("input11");
+		if (code == 13) {
+			if (employeeUsernamev == null || employeeUsernamev == "") {
+				employeeUsername.focus();
+			} else if (employeePasswordv == null || employeePasswordv == "") {
+				employeePassword.focus();
+			} else if (yzmv == null || yzmv == "") {
+				yzm.focus();
+			} else {
+				Submit.click();
+			}
+		}
+} 
+
+
+
+</script>
+<style type="text/css">
+
+
+ #bb{
+background:#014DA3;
+
+overflow:hidden;
+overflow:hidden !important;
+_overflow:hidden;
+_overflow:hidden !important;
+}
+  
+/* *html #bb{
+background:#014DA3;
+
+overflow:hidden;
+
+
+}
+ */
+*+html #bb{
+
+background:#014DA3;
+overflow:hidden;
+
+} 
+
+
+</style>
+
+<body id="bb" >
+
+<div id="xingxinghemohu" style="background:url(/wxpt/manager/images/xingxinghemohu.png) no-repeat;position:absolute; height:120%;width:125%;top:-20px;left:-300px;">
+<img src="/wxpt/manager/images/xiabolangxian.png" style="position:absolute;top:70%;left:50%;" />下波浪线
+<div style="background:url(/wxpt/manager/images/youshangjiao.png) no-repeat;position:absolute; height:500px;width:500px;top:0px;right:-10%;"></div>
+<div style="width:520px;height:520px; margin:0 auto; background:url(/wxpt/manager/images/xiaobeijing.png) no-repeat;position:absolute;top:30%;left:43%;"><!--登陆小页面-->
+<div id="login">
+		<input type="hidden" id="cookie" name="cookie">
+		<div id="center">
+			<div id="center_left"></div>
+			<div id="center_middle">
+				<table align="center" style="padding-top:20px;" cellspacing="6"
+					cellpadding="0">
+					<tr ><img src="/wxpt/manager/images/xitonglogo.png" /> </tr>
+					<tr id="user">
+						<td><b>用户名:</b></td>
+						<td><input class="ww" type="text" name="username" id="uname" />
+						</td>
+					</tr>
+					<tr id="password">
+						<td><b>密&nbsp;&nbsp;码:</b></td>
+						<td><input type="password"  class="ww" name="password" id="pwd" />&{enterId}
+						</td>
+					</tr>
+					<tr id="wz">
+						<td><b>验证码:</b></td>
+						<td><input name=rand type=text  value="" class="y" style="width:82px;[;width:82px;];width:86px\9\0;" 
+							id="rand" />
+							<IMG id="yzm" style="margin-bottom: -5px;*margin-bottom: -2px;"
+							onclick="this.src = this.src + '?' + new Date().getTime();"
+							alt=点我换一张 src="../verify.jsp" id="qiehuan">
+						</td>
+							
+					</tr>
+					
+					
+					<tr id="btn">
+					<input type="hidden" value="62" id="enterId" name="enterId">
+					<td></td>
+						<td colspan="2"><a href="#" id="input11" onclick="save()" /><img border="none" src="/wxpt/manager/images/denglu.png"/></a>
+						&nbsp;<a href="#" onclick="reset()"><img border="none" src="/wxpt/manager/images/qingkong.png"/></a></td>
+					</tr>
+				</table>
+				<div></div>
+			</div>
+			<div id="center_right"></div>
+		</div>
+	</div>
+</div>
+
+
+<div style="background:url(/wxpt/manager/images/xiabianshangxian.png) repeat-x;position:absolute;top:82%;height:33px;width:125%;">
+
+<img src="/wxpt/manager/images/xiabianguangying.png" style="width:100%;"/>
+<span style="position: relative;top:-175px;[;top:-183px;];*top:-185px;  _top:-155px;left:40%;  font-size: 12px;*font-size: 12px;"  >版本信息:联通企业网 2013 v2.0</span>
+
+</div>
+
+
+
+
+
+
+
+
+
+</div>
+
+</body>
+</html>

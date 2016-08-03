@@ -1,0 +1,1 @@
+({"rangeMessage":"Dieser Wert liegt au\x{00df}erhalb des g¨¹ltigen Bereichs. ","invalidMessage":"Der eingegebene Wert ist ung¨¹ltig. ","missingMessage":"Dieser Wert ist erforderlich."})

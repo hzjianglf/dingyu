@@ -1,0 +1,47 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+
+/*滚动图片*/
+UL {PADDING: 0px; MARGIN: 0px;}
+LI {PADDING: 0px; MARGIN: 0px;}
+P {line-height:10px;}
+.a ul li{float:left}
+
+#price{font-size:12px}
+#title{overflow:hidden;text-overflow:ellipsis;width:120px;
+white-space:nowrap;word-break:keep-all;}
+
+
+
+  header{margin:0; padding:0;}
+ .xiangxi{width:100%; height:35px; margin:0; padding-top:10px; font-size:18px; font-weight:bold; background:#d9c0f9; text-align:center; color:#FFFFFF;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;word-break:keep-all;}
+ .xqbg{background:#CCCCCC; width:80%; height:200px; margin-left:10%; margin-right:10%; margin-top:2%; margin-bottom:2%}
+ .xqimg{width:80%; height:180px; padding-left:10%; padding-right:10%; padding-top:10px; padding-bottom:10px;}
+ .xqbt{width:99%; height:25px; background:#d9c0f9; color:#FFFFFF; font-weight:bold; padding-top:5px; padding-left:1%;}
+ .xq ul li{float:left; width:90%; margin-left:10%;}
+ .xq ul li img{width:90%; height:auto; margin-top:2%}
+ .xq p{text-indent:2em;}
+ 
+ 
+ body{margin:0; padding:0;}
+a{color:#FFFFFF; text-decoration:none}
+header, footer, article, section, nav, menu, hgroup {display:block;}
+#list ul li{float:left; background:#e7e8ea; margin-top:10px;width:48%; margin-left:5px;}
+#list ul li img{padding-left:5px;padding-right:5px; width:92%}
+footer{width:100%; margin:0 auto; color:#FFFFFF; font-size:12px; font-family:微软雅黑; background:#d9c0f9;height:45px; position:fixed; bottom:0;}
+footer ul li{float:left;list-style:none; width:20%; padding-top:2px;}
+footer ul li div{text-align:center}
+footer ul li a{color:#FFFFFF; text-decoration:none}
+
+.head{width: 35%; height: 10%;}
+.head img{width:90%; height: 90%}
+
+
+
+
+
+
+
+

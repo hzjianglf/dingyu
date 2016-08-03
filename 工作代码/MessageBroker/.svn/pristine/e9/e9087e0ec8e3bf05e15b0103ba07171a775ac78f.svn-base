@@ -1,0 +1,1 @@
+({"previousMessage":"Prej\x{0161}nje mo\x{017e}nosti","nextMessage":"Dodatne mo\x{017e}nosti"})

@@ -1,0 +1,1 @@
+({"previousMessage":"El\x{0151}z\x{0151} men¨¹pontok","nextMessage":"Tov¨¢bbi men¨¹pontok"})

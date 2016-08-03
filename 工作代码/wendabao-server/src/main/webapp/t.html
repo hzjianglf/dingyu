@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>接口测试页</title>
+    <script src="js/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+    <h2>接口测试页</h3>
+    <h3>个人中心</h3>
+    <p>
+        1.<a href="#login">登录</a><br/>
+        2.<a href="t/verifyCode.html">获取验证码</a><br/>
+        3.<a href="t/register.html">提交注册信息</a><br/>
+        4.<a href="#updatepass">修改密码</a><br/>
+        5.<a href="#updatemobile">更换手机号</a><br/>
+        6.<a href="#classroom">获取教室信息</a><br/>
+    </p>
+    <p>
+    <h4>获取系统信息</h4>
+    <form onsubmit="return false;" action="sys/sysInfo/open/detail.do">
+        deviceType:<input type="text" name="deviceType" value="3" /><br/>
+        <button class="testbtn">测试</button>
+    </form>
+    <pre></pre>
+</p>
+
+<p>
+<h4>学生登录</h4>
+<form onsubmit="return false;" action="pm/user/login.do">
+    loginName:<input type="text" name="loginName" value="13900000001"><br/>
+    password:<input type="text" name="password" value="670b14728ad9902aecba32e22fa4f6bd"><br/>
+    userType:<input type="text" name="userType" value="1"><br/>
+    <button class="testbtn">测试</button>
+</form>
+<pre></pre>
+</p>
+
+<p>
+<h4>教师登录</h4>
+<form onsubmit="return false;" action="pm/user/login.do">
+    loginName:<input type="text" name="loginName" value="13800000008"><br/>
+    password:<input type="text" name="password" value="670b14728ad9902aecba32e22fa4f6bd"><br/>
+    userType:<input type="text" name="userType" value="2"><br/>
+    <button class="testbtn">测试</button>
+</form>
+<pre></pre>
+</p>
+
+<p>
+<h4>修改密码</h4>
+<form action="pm/user/saveNewPwd.do" onsubmit="return false">
+    newPwd:<input type="text" name="newPwd" value="96e79218965eb72c92a549dd5a330112"><br/>
+    oldPwd:<input type="text" name="oldPwd" value="96e79218965eb72c92a549dd5a330112"><br/>
+    tokenId:<input type="text" name="tokenId" value=""><br/>
+    userId：<input type="text" name="userId" value="0000000125"><br/>
+    <button class="testbtn">测试</button>
+</form>
+<pre>
+</pre> 
+</p>
+
+<p>
+<h4>修改手机号</h4>
+<form action="pm/user/saveNewMobile.do" onsubmit="return false">
+    newMobile:<input type="text" name="newMobile" value="18953103911"><br/>
+    oldMobile:<input type="text" name="oldMobile" value="18953103911"><br/>
+    tokenId:<input type="text" name="tokenId" value=""><br/>
+    verifyCode：<input type="text" name="verifyCode" value="verifyCode"><button class="codebtn">获取验证码</button><br/>
+    <button class="testbtn">测试</button>
+</form>
+<pre>
+</pre> 
+</p>
+
+<p>
+<h4>获取教室信息</h4>
+<form action="bm/classroom/getClassroom.do" onsubmit="return false">
+    <input type="text" name="tokenId" value=""/>
+    <button class="testbtn">测试</button>
+</form>
+<pre>
+</pre> 
+</p>
+
+<p>
+<h4>教师上线</h4>
+<form action="bm/classroom/online.do" onsubmit="return false">
+    <input type="text" name="tokenId" value=""/>
+    <button class="testbtn">测试</button>
+</form>
+<pre>
+</pre> 
+</p>
+<p>
+<h4>教师下线</h4>
+<form action="bm/classroom/offline.do" onsubmit="return false">
+    <input type="text" name="tokenId" value=""/>
+    <button class="testbtn">测试</button>
+</form>
+<pre>
+</pre> 
+</p>
+<p>
+<h4>建立辅导记录</h4>
+<form action="bm/qa_log/saveNewLog.do" onsubmit="return false">
+    tokenId:<input type="text" name="tokenId" value=""/>
+    teacherId：<input type="text" name="teacherId" value=""/>
+    classroomId:<input type="text" name="classroomId" value=""/>
+    qaType:<input type="text" name="qaType" value="1"/>
+    <button class="testbtn">测试</button>
+</form>
+<pre>
+</pre> 
+</p>
+<p>
+<h4>更新辅导记录</h4>
+<form action="bm/qa_log/updateLog.do" onsubmit="return false">
+    tokenId:<input type="text" name="tokenId" value=""/>
+    id:<input type="text" name="id" value=""/>
+    <button class="testbtn">测试</button>
+</form>
+<pre>
+</pre> 
+</p>
+<p>
+<h4>保存学生信息</h4>
+<form action="bm/student/saveStudent.do" onsubmit="return false">
+    tokenId:<input type="text" name="tokenId" value=""/>
+    name：<input type="text" name="name" value="陈云"/>
+    <button class="testbtn">测试</button>
+</form>
+<pre>
+</pre> 
+</p>
+<p>
+<h4>查询教室列表</h4>
+<form action="bm/classroom/classroomList.do" onsubmit="return false">
+    tokenId:<input type="text" name="tokenId" value=""/>
+    courseId：<input type="text" name="courseId" value="chi"/>
+    start：<input type="text" name="name" value="1"/>
+    <button class="testbtn">测试</button>
+</form>
+<pre>
+</pre> 
+</p>
+<p>
+<h4>头像上传</h4>
+<form action="bm/picture/centerPicUpload.do" onsubmit="return false" enctype="multipart/form-data">
+    tokenId:<input type="text" name="tokenId" value=""/>
+    relateId：<input type="text" name="relateId" value="0000000125"/>
+    type：<input type="text" name="type" value="userHeader"/>
+    file:<input type="file" name="file"/>
+    <button class="testupload">测试</button>
+</form>
+<pre>
+</pre> 
+</p>
+<p>
+<h4>保存审批信息</h4>
+<form action="bm/teacher/saveApprovalInfo.do" onsubmit="return false">
+    tokenId:<input type="text" name="tokenId" value=""/>
+    status：<input type="text" name="status" value="0"/>
+    userId：<input type="text" name="userId" value="0000000125"/>
+    approvalInfo：<input type="text" name="approvalInfo" value="审批意见12"/>
+    <button class="testbtn">测试</button>
+</form>
+<pre>
+</pre> 
+</p>
+<p>
+<h4>获取教师信息</h4>
+<form action="bm/teacher/getTeacher.do" onsubmit="return false">
+    tokenId:<input type="text" name="tokenId" value=""/>
+    <button class="testbtn">测试</button>
+</form>
+<pre>
+</pre> 
+</p>
+<p>
+<h4>获取学生答疑记录</h4>
+<form action="bm/qa_log/getStudentQaLog.do" onsubmit="return false">
+    tokenId:<input type="text" name="tokenId" value=""/>
+    start:<input type="text" name="start" value="1"/>
+    <button class="testbtn">测试</button>
+</form>
+<pre>
+</pre> 
+</p>
+<p>
+<h4>获取教师答疑记录</h4>
+<form action="bm/qa_log/getTeacherQaLog.do" onsubmit="return false">
+    tokenId:<input type="text" name="tokenId" value=""/>
+    start:<input type="text" name="start" value="1"/>
+    <button class="testbtn">测试</button>
+</form>
+<pre>
+</pre> 
+</p>
+<p>
+<h4>获取教师本周答疑记录</h4>
+<form action="bm/qa_log/getQaLogTimeThisWeek.do" onsubmit="return false">
+    tokenId:<input type="text" name="tokenId" value=""/>
+    <button class="testbtn">测试</button>
+</form>
+<pre>
+</pre> 
+</p>
+<p>
+<h4>获取教师本月答疑记录</h4>
+<form action="bm/qa_log/getQaLogTimeThisMonth.do" onsubmit="return false">
+    tokenId:<input type="text" name="tokenId" value=""/>
+    <button class="testbtn">测试</button>
+</form>
+<pre>
+</pre> 
+</p>
+<p>
+<h4>获取教师全部答疑记录</h4>
+<form action="bm/qa_log/getQaLogTime.do" onsubmit="return false">
+    tokenId:<input type="text" name="tokenId" value=""/>
+    <button class="testbtn">测试</button>
+</form>
+<pre>
+</pre> 
+</p>
+<p>
+<h4>保存白板消息</h4>
+<form action="bm/classroom/putMessage.do" onsubmit="return false">
+    tokenId:<input type="text" name="tokenId" value=""/>
+    type:<select name="type">
+        <option value="line">line</option>
+        <option value="image">image</option>
+    </select>
+    message:<input type="text" name="message" value="这是消息1" />
+    classroomId:<input type="text" name="classroomId" value="" />
+    <button class="testbtn">测试</button>
+</form>
+<pre>
+</pre> 
+</p>
+<p>
+<h4>获取白板消息</h4>
+<form action="bm/classroom/getMessages.do" onsubmit="return false">
+    tokenId:<input type="text" name="tokenId" value=""/>
+    classroomId：<input type="text" name="classroomId" />
+    <button class="testbtn">测试</button>
+</form>
+<pre>
+</pre> 
+</p>
+<p>
+<h4>清除白板消息</h4>
+<form action="bm/classroom/clearMessages.do" onsubmit="return false">
+    tokenId:<input type="text" name="tokenId" value=""/>
+    <button class="testbtn">测试</button>
+</form>
+<pre>
+</pre> 
+</p>
+<p>
+<h4>获取可用答疑时间</h4>
+<form action="bm/student/getQaTime.do" onsubmit="return false">
+    tokenId:<input type="text" name="tokenId" value=""/>
+    <button class="testbtn">测试</button>
+</form>
+<pre>
+</pre> 
+</p>
+<p>
+<h4>学生端通过教师userId查询教师信息</h4>
+<form action="bm/teacher/getTeacherByUserId.do" onsubmit="return false">
+    tokenId:<input type="text" name="tokenId" value=""/>
+    userId:<input type="text" name="userId" value="0000000270"/>
+    <button class="testbtn">测试</button>
+</form>
+<pre>
+</pre> 
+</p>
+<p>
+<h4>查询教师列表</h4>
+<form action="bm/teacher/queryTeachers.do" onsubmit="return false">
+    tokenId:<input type="text" name="tokenId" value=""/>
+    start:<input type="text" name="start" value="1"/>
+    status:<input type="text" name="status" value="2"/>
+    <button class="testbtn">测试</button>
+</form>
+<pre>
+</pre> 
+</p>
+<p>
+<h4>查询教师详情</h4>
+<form action="bm/teacher/queryById.do" onsubmit="return false">
+    tokenId:<input type="text" name="tokenId" value=""/>
+    id:<input type="text" name="id" value=""/>
+    <button class="testbtn">测试</button>
+</form>
+<pre>
+</pre> 
+</p>
+
+<p>
+<h4>查询学生列表</h4>
+<form action="bm/student/queryStudents.do" onsubmit="return false">
+    tokenId:<input type="text" name="tokenId" value=""/>
+    start:<input type="text" name="start" value="1"/>
+    <button class="testbtn">测试</button>
+</form>
+<pre>
+</pre> 
+</p>
+
+<p>
+<h4>查询学生详情</h4>
+<form action="bm/student/queryById.do" onsubmit="return false">
+    tokenId:<input type="text" name="tokenId" value=""/>
+    id:<input type="text" name="id" value=""/>
+    <button class="testbtn">测试</button>
+</form>
+<pre>
+</pre> 
+</p>
+
+<h2>收藏部分</h2>
+<p>
+<h4>添加收藏</h4>
+<form action="bm/favorite/add.do" onsubmit="return false">
+    tokenId:<input type="text" name="tokenId" value=""/>
+    teacherId:<input type="text" name="teacherId" value=""/>
+    <button class="testbtn">测试</button>
+</form>
+<pre>
+</pre> 
+</p>
+
+<p>
+<h4>查询收藏</h4>
+<form action="bm/favorite/queryFavorites.do" onsubmit="return false">
+    tokenId:<input type="text" name="tokenId" value=""/>
+    start:<input type="text" name="start" value="1"/>
+    <button class="testbtn">测试</button>
+</form>
+<pre>
+</pre> 
+</p>
+
+<p>
+<h4>移除收藏</h4>
+<form action="bm/favorite/delete.do" onsubmit="return false">
+    tokenId:<input type="text" name="tokenId" value=""/>
+    teacherId:<input type="text" name="teacherId" value=""/>
+    <button class="testbtn">测试</button>
+</form>
+<pre>
+</pre> 
+</p>
+<p>
+<h4>查询代理商</h4>
+<form action="bm/agent/queryAgent.do" onsubmit="return false">
+    tokenId:<input type="text" name="tokenId" value=""/>
+    start:<input type="text" name="start" value="1"/>
+    <button class="testbtn">测试</button>
+</form>
+<pre>
+</pre> 
+</p>
+<script src="js/md5-min.js"></script>
+<script src="js/json2.js"></script>
+<script>
+            $('.testbtn').click(function () {
+                var $form = $(this).parent('form');
+                $.post(
+                        $form.attr('action') + '?t=' + new Date().getTime(),
+                        $form.serialize(),
+                        function (data) {
+                            $('[name=tokenId]').val(data.tokenId);
+                            $form.next('pre').html(JSON.stringify(data, null, 4));
+                        },
+                        'json'
+                        );
+            });
+
+            $('.testupload').click(function () {
+                var $form = $(this).parent('form');
+                var formData = new FormData($form[0]);
+                var url = $form.attr('action');
+                console.log('url');
+                $.ajax({
+                    url: url + "?t=" + new Date().getTime(),
+                    type: 'POST',
+                    data: formData,
+                    async: false,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    success: function (data) {
+                        $form.next('pre').html(JSON.stringify(data, null, 4));
+                    },
+                    dataType: 'json'
+                });
+            });
+</script>
+</body>
+</html>

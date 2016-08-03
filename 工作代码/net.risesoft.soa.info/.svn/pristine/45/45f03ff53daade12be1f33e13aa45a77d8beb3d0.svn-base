@@ -1,0 +1,49 @@
+source.. = src/
+output.. = bin/
+bin.includes = META-INF/,\
+               .,\
+               plugin.xml,\
+               WebRoot/,\
+               build.properties,\
+               struts.xml,\
+               lib/commons-io-1.4.jar,\
+               lib/freemarker.jar,\
+               lib/jodconverter-2.2.2.jar,\
+               lib/jsoup-1.6.3-javadoc.jar,\
+               lib/jsoup-1.6.3-sources.jar,\
+               lib/jsoup-1.6.3.jar,\
+               lib/juh.jar,\
+               lib/jurt.jar,\
+               lib/ridl.jar,\
+               lib/slf4j-api-1.5.6.jar,\
+               lib/slf4j-jdk14-1.5.6.jar,\
+               lib/unoil.jar,\
+               lib/com.ibm.mq.commonservices.jar,\
+               lib/com.ibm.mq.headers.jar,\
+               lib/com.ibm.mq.jar,\
+               lib/com.ibm.mq.jmqi.jar,\
+               lib/com.ibm.mq.pcf.jar,\
+               lib/ConfigManagerProxy.jar,\
+               lib/connector.jar,\
+               lib/ibmjsseprovider2.jar
+jars.extra.classpath = lib/com.ibm.mq.commonservices.jar,\
+                       lib/com.ibm.mq.headers.jar,\
+                       lib/com.ibm.mq.jar,\
+                       lib/com.ibm.mq.jmqi.jar,\
+                       lib/com.ibm.mq.pcf.jar,\
+                       lib/commons-io-1.4.jar,\
+                       lib/ConfigManagerProxy.jar,\
+                       lib/connector.jar,\
+                       lib/freemarker.jar,\
+                       lib/ibmjsseprovider2.jar,\
+                       lib/jodconverter-2.2.2.jar,\
+                       lib/jsoup-1.6.3-javadoc.jar,\
+                       lib/jsoup-1.6.3-sources.jar,\
+                       lib/jsoup-1.6.3.jar,\
+                       lib/juh.jar,\
+                       lib/jurt.jar,\
+                       lib/ridl.jar,\
+                       lib/slf4j-api-1.5.6.jar,\
+                       lib/slf4j-jdk14-1.5.6.jar,\
+                       lib/unoil.jar
+

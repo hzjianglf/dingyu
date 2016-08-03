@@ -1,0 +1,867 @@
+/* 
+/* begin_generated_IBM_copyright_prolog                            */
+/* 
+ * Licensed Materials - Property of IBM 
+ * 
+ * 5724-N72 5655-W17
+ * 
+ * (c) Copyright IBM Corp. 2006, 2009 All Rights Reserved 
+ * 
+ * US Government Users Restricted Rights - Use, duplication or 
+ * disclosure restricted by GSA ADP Schedule Contract with 
+ * IBM Corp. 
+ */
+/* end_generated_IBM_copyright_prolog                              */
+
+/***************/
+/* Consistency */
+/***************/
+
+th {
+  text-align: right;
+}
+
+/********************/
+/* Standard borders */
+/********************/
+input {
+  margin: 0.1em 0.1em 0.1em 0em;
+}
+
+legend {
+  margin-right: 0.5em;
+}
+
+/*****************/
+/* message boxes */
+/*****************/
+.messages-list-indent {
+  margin-right: 2em;
+  margin-left: 0;
+}
+
+/******************/
+/* Page structure */
+/******************/
+.columntwopad {
+  padding-left: 0;
+  padding-right: 1.0em;
+}
+
+/***********/
+/* Menubar */
+/***********/
+.menubar a {
+  border-right: 0;
+  border-left: 1px solid #333;
+}
+
+.menubar a.menutitle {
+  padding: 5px 10px 5px 16px;
+  background-position: left center;
+}
+
+.ie6 .menubar a.menutitle {
+  padding: 5px 0 5px 16px;
+}
+
+.ie6 .menubar a.menutitle span {
+  padding-right: 0px;
+}
+
+.ie6 #menubar2 a.menutitle {
+  padding: 5px 10px 5px 16px;
+}
+
+.menubar li {
+  float: right;
+}
+
+.menubar ul li a {
+  padding: 3px 16px 3px 12px;
+}
+
+.menubar li ul {
+  border-left: 1px solid #333333;
+  border-right: 0;
+}
+
+/* second level */
+.menubar li ul ul {
+  border-right: 1px solid #333333;
+}
+
+.menubar .submenu {
+  background: url(../images/arrow_left.gif) no-repeat left center;
+}
+
+.ie7 .menubar .submenu {
+  background-position: right;
+}
+
+.ie8 .menubar .submenu {
+  background-position: right;
+}
+
+.menubar li .checked {
+  background: url(../images/checked.gif) no-repeat right center;
+}
+
+.menubar ul .checked a:hover {
+  background: url(../images/checked_white.gif) no-repeat right center;
+}
+
+/**************/
+/* Search box */
+/**************/
+.search {
+  float: left;
+}
+
+.search input {
+  margin: 0.1em 0.1em 0.1em 0em;
+}
+
+.search input.searchbutton {
+  margin: 0 -5px 2px 0;
+}
+
+/********/
+/* misc */
+/********/
+.signoutcontainer .menubar a {
+  border-right: none;
+  border-left: none;
+}
+
+.opera .signoutcontainer .menubar li ul {
+  margin-right: 0;
+}
+
+.ie .signoutcontainer {
+  top: 3px;
+}
+
+.ie .signoutcontainer .bidiadjust {
+  unicode-bidi: embed;
+}
+
+.ie .signoutcontainer select {
+  position: relative;
+  top: 2px;
+}
+
+/*************/
+/* Home page */
+/*************/
+
+.homePageTable .browseColumn {
+  padding-left: 0;
+  padding-right: 1.0em;
+}
+
+.homePageTable .directoryColumnOne {
+  padding-right: 0;
+}
+
+.homePageTable .directoryColumnTwo {
+  padding-right: 10px;
+}
+
+.homePageTable .pageHelpIcon {
+  text-align: left;
+}
+
+.homePagePortletTitle {
+	text-align: right;
+  padding-right: 0.5em;
+  padding-left: 0;
+  background: url("../images/rtl/portletFade.gif") no-repeat top right #ffffff;
+}
+
+.homePagePortletTitleControls {
+  text-align: left;
+}
+
+.homePagePanelTitle {
+	background-position: bottom right;
+}
+
+.homePagePanelTitleText {
+	padding-left: 0;
+	padding-right: 2.5em;
+}
+
+.opera span.homePagePanelTitleText {
+	padding-left: 2.5em;
+	padding-right: 0;
+}
+
+.ie span.homePagePanelTitleText {
+	padding-left: 2.5em;
+	padding-right: 0;
+}
+
+.homePagePortletArea h3 { 
+  margin-left: 3px; 
+  margin-right: 0; 
+}
+
+.homePageDirectoryTypeEntriesList {
+	padding-left: 0;
+	padding-right: 0.35em;
+}
+
+.referenceLink img {
+	padding-right: 0;
+	padding-left: 0.5em;
+}
+
+.homePagePublishPanelButtonSection {
+	text-align: right;
+	padding-left: 0;
+	padding-right: 1.5em;
+} 
+
+.complex-property { 
+  padding-left: 0 !important;
+  padding-right: 2.5em !important;
+}
+
+/**************/
+/* Graph view */
+/**************/
+.innerhighlighton img, .innerhighlightoff img {
+  margin-left: 0.2em;
+  margin-right: 0;
+}
+
+.compactradio input {
+  float: right;
+}
+
+.compactradio label {
+  float: right;
+}
+
+.compactradio br {
+  clear: right;
+}
+
+/*****************/
+/* message boxes */
+/*****************/
+.msgannounce {
+	margin: 0.5em 3.0em 0.5em 0.5em;
+}
+
+.msgerror {
+  margin-left: 0;
+  margin-right: 1.0em;
+}
+
+.msgextra {
+  margin-left: 0;
+  margin-right: 3.0em;
+}
+
+.messages-indent { 
+  padding-right: 1.5em;  
+  padding-left: 1em;  
+}
+
+.messages-submessages {
+  padding-left: 0;
+  padding-right: 1.5em;
+}
+
+/************/
+/* portlets */
+/************/
+.portlet h2 {
+  background: url("../images/rtl/portletFade.gif") no-repeat top right #ffffff;
+}
+
+.portlet h3.breadcrumb {
+  padding-left: 0;
+  padding-right: 0.2em;
+}
+
+.portlet h4, .portlet h1 {
+  padding-left: 0;
+  padding-right: 0.2em;
+}
+
+.portlet p {
+  padding-left: 0.2em;
+  padding-right: 0.5em;
+}
+
+.portlet select {
+  margin: 0.1em 8px 0.2em 0.1em;
+}
+
+.portlet fieldset {
+  padding: 0.2em;
+}
+
+.portlet fieldset input {
+  margin-right: 8px;
+  margin-left: 0.1em;
+}
+
+.portlet fieldset p {
+  padding-right: 8px;
+}
+
+.portlet ul {
+  padding-left: 0;
+  padding-right: 0.5em;
+}
+
+.righttitleicon {
+  float: left;
+}
+
+.pagehelp {
+  text-align: left;
+  padding-right: 0;
+  padding-left: 0.5em;
+}
+
+/*******************/
+/* timer animation */
+/*******************/
+.timersurround {
+  float: right;
+}
+
+.timermessage {
+  float: right;
+}
+
+.ie .timerviewport img {
+  position: relative;
+  left: -440px;
+}
+
+.ie .timer {
+  width: 200px;
+}
+
+/***************/
+/* Detail view */
+/***************/
+.propertiessection {
+  padding-right: 0.2em;
+  padding-left: 0.5em;
+}
+
+.relationshipsection {
+  padding-right: 0.2em;
+  padding-left: 0.5em;
+}
+
+.sectiontitle {
+  margin-right: 0.3em;
+  margin-left: 0;
+}
+
+.sectiondivider {
+	clear: right;
+}
+
+.expandablesection {
+  margin-right: 0em;
+  padding-right: 6px;
+  padding-left: 0;
+}
+
+.expandablesection .indent {
+	padding-right: 1.5em;
+	padding-left: 0;
+}
+
+.editlinks {
+  text-align: left;
+}
+
+.property {
+  clear: right;
+}
+
+.readonlyproperty {
+  clear: right;
+}
+
+.readonlyproperty .urivalue {
+  float: right;
+}
+
+.mandatory {
+  background-position: right 0.6em;
+}
+
+.mandatory label, .mandatory input, .mandatory textarea, .mandatory div.urivalue, .mandatory table.dijit, .mandatory .dijitTextBox {
+  margin-right: 8px;
+  margin-left: 0;
+}
+
+.ie .mandatory label, .opera .mandatory label, .opera .mandatory input, .opera .mandatory textarea, .opera .mandatory select {
+  margin-left: 8px;
+  margin-right: 0;
+}
+
+.ie6 .mandatory div.urivalue {
+  margin-right: 4px;
+  margin-left: 0;
+}
+
+.notmandatory label, .notmandatory input, .notmandatory textarea, .notmandatory div.urivalue, .notmandatory table.dijit, .notmandatory .dijitTextBox {
+  margin-right: 8px;
+  margin-left: 0;
+}
+
+.ie .notmandatory label, .opera .notmandatory label, .opera .notmandatory input, .opera .notmandatory textarea, .opera .notmandatory select {
+  margin-left: 8px;
+  margin-right: 0;
+}
+
+.ie6 .notmandatory div.urivalue {
+  margin-right: 4px;
+  margin-left: 0;
+}
+
+.newproperty {
+  margin-right: 8px;
+  margin-left: 0;
+}
+
+.checkboxproperty label {
+  margin-right: 0em !important;
+  margin-left: 0;
+}
+
+.linkgroup {
+  margin-right: 0.3em;
+  margin-left: 0;
+}
+
+.linkgroup ul {
+  padding-right: 0.5em;
+  padding-left: 0;
+}
+
+.relationshipgroup {
+  margin-right: 0.3em;
+  margin-left: 0;
+}
+
+.relationshipgroup ul {
+  padding-right: 0.5em;
+  padding-left: 0;
+}
+
+.relationshipgroup li ul {
+  padding-right: 0.5em;
+  padding-left: 0;
+}
+
+.classificationgroup {
+  margin-right: 0.3em;
+  margin-left: 0;
+}
+
+.classificationgroup ul {
+  padding-right: 0.5em;
+  padding-left: 0;
+  margin-right: 0.5em;
+  margin-left: 0;
+}
+
+.userchoice input {
+  margin-right: 8px !important;
+  margin-left: 0 !important;
+}
+
+.userchoice .dijitTextBox {
+  margin-right: 8px;
+  margin-left: 0;
+}
+
+.userchoice .dijitTextBox input {
+  margin-right: 0 !important;
+}
+
+.userchoice label {
+  margin-right: 0.7em;
+  margin-left: 0;
+}
+
+.ie .userchoice label {
+  margin-left: 0.7em;
+  margin-right: 0;
+}
+
+.checkselection label {
+  margin-right: 0em !important;
+  margin-left: 0;
+}
+
+.radioselection label {
+  margin-right: 0em !important;
+  margin-left: 0;
+}
+
+.governancecontainer fieldset input {
+  margin-right: 0.7em;
+  margin-left: 0;
+}
+
+/*********************/
+/* structural tables */
+/*********************/
+.tabtable {
+  text-align: right;
+}
+
+.tabtable td {
+  padding-left: 0em;
+}
+
+.detailcontenttable h3 {
+  padding-right: 0em;
+}
+
+.detailcontenttable td {
+  padding-right: 0.5em;
+}
+
+.sectiontitletable td {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.collectiontable th {
+  border-right: 1px solid #FFFFFF; 
+  border-left: 0;
+}
+
+.collectiontable td {
+  border-right: 1px solid #FFFFFF; 
+  border-left: 0;
+}
+
+.collectiontable td img.activityicon {
+  margin-left: 1em; 
+  margin-right: 0em;
+  float: right;
+}
+
+.classificationtable select {
+  margin-right: 0;
+}
+
+.treetable th {
+  border-right: none;
+}
+
+.treetable th.right {
+  border-right: 1px solid #88a4d7; 
+}
+
+.treetable th div {
+  border-right: 1px solid #ffffff;
+  border-left: 0;
+}
+
+.treetable .indent0 {
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.treetable .indent1 {
+	margin-left: 0;
+	margin-right: 10px;
+}
+
+.treetable .indent2 {
+	margin-left: 0;
+	margin-right: 20px;
+}
+
+.treetable .indent3 {
+	margin-left: 0;
+	margin-right: 30px;
+}
+
+.treetable .indent4 {
+	margin-left: 0;
+	margin-right: 40px;
+}
+
+.treetable .indent5 {
+	margin-left: 0;
+	margin-right: 50px;
+}
+
+.treetable .indent6 {
+	margin-left: 0;
+	margin-right: 60px;
+}
+
+.treetable .indent7 {
+	margin-left: 0;
+	margin-right: 70px;
+}
+
+.treetable .indent8 {
+	margin-left: 0;
+	margin-right: 80px;
+}
+
+.treetable .indent9 {
+	margin-left: 0;
+	margin-right: 90px;
+}
+
+.relationshiptable th {
+  border-right: 1px solid #ffffff;
+  border-left: 0;
+}
+
+.relationshiptable .centerleft {
+  border-right: 0;
+  border-left: 1px solid #88a4d7;
+}
+
+.relationshiptable .bottomleft {
+  border-right: 0;
+  border-left: 1px solid #88a4d7;
+}
+
+.relationshiptable .multileft {
+  border-right: 0;
+  border-left: 1px solid #88a4d7;
+}
+
+.addrelationshiptable th { 
+  border-right: 1px solid #ffffff;
+  border-left: 0;
+}
+
+.addrelationshiptable .centerleft {
+  border-right: 0;
+  border-left: 1px solid #88a4d7;
+}
+
+.addrelationshiptable .bottomleft {
+  border-right: 0;
+  border-left: 1px solid #88a4d7;
+}
+
+.addrelationshiptable .multileft {
+  border-right: 0;
+  border-left: 1px solid #88a4d7;
+}
+
+.rellisttable td {
+  padding-right: 0em;
+}
+
+.addlangstable td input {
+  margin-right: 0;
+}
+
+/****************/
+/* Wizard table */
+/****************/
+.wizard-button-section {
+  border-right: 1px solid #FFFFFF;
+  border-left: 0;
+} 
+
+/******************/
+/* container divs */
+/******************/
+.button-padding-div {
+	padding-right: 0.9em;
+	padding-left: 0;
+}
+
+.preferencespage select {
+  margin-right: 0;
+}
+
+.preferencespage .indent {
+  margin-right: 1.5em;
+  margin-left: 0;
+}
+
+.subscriptionpage fieldset {
+  margin-left: 0;
+  margin-right: 8px;
+}
+
+.loaddocspage fieldset {
+  margin-left: 0;
+  margin-right: 8px;
+}
+
+.loaddocspage .indent {
+  margin-right: 1.5em;
+  margin-left: 0;
+}
+
+/****************/
+/* Auto-suggest */
+/****************/
+div.suggestions .count {
+  padding-right: 1em;
+  padding-left: 0.25em;
+  text-align: left;
+}
+
+/***********/
+/* Buttons */
+/***********/
+.buttongroup {
+  clear: right;
+}
+
+.radiochoice, .disabledradiochoice {
+  padding: 0.5em 0 0.2em 0.2em;
+}
+
+.radiochoice label, .disabledradiochoice label {
+  margin-right: 0.2em;
+  margin-left: 0;
+}
+
+.radiochoice select, .radiochoice p, .disabledradiochoice select, .disabledradiochoice p {
+  margin-right: 3.0em;
+  margin-left: 0;
+  padding-right: 0 !important;
+}
+
+.radiochoice input, .disabledradiochoice input {
+  margin-right: 3.0em !important;
+  margin-left: 0 !important;
+}
+
+.radiochoice .dijitTextBox input, .disabledradiochoice .dijitTextBox input {
+  margin-right: 0em !important;
+}
+
+.radiochoice .dijitTextBox, .disabledradiochoice .dijitTextBox {
+  margin-right: 3.0em !important;
+  margin-left: 0 !important;
+}
+
+.radiochoice input.noborder, .disabledradiochoice input.noborder {
+  margin-right: 8px !important;
+}
+
+.ie6 .radiochoice input.noborder, .ie6 .disabledradiochoice input.noborder {
+  margin-right: 4px !important;
+}
+
+.radiochoice input.radioborder, .disabledradiochoice input.radioborder {
+  margin-right: 8px !important;
+}
+
+.ie6 .radiochoice input.radioborder, .ie6 .disabledradiochoice input.radioborder {
+  margin-right: 4px !important;
+}
+
+.buttonprevious {
+  background: url("../images/wtable_next.gif") no-repeat;
+}
+
+.buttonnext {
+  background: url("../images/wtable_previous.gif") no-repeat;
+}
+
+.widgetbuttongroup {
+  padding: 0.5em 0 0.2em 0.5em;
+}
+
+.ie .widgetbuttongroup {
+  padding: 0.5em 8px 0.2em 0.5em;
+}
+
+/*********************/
+/* Dojo template     */
+/*********************/
+.tundra .dijitTooltipRight .dijitTooltipConnector {
+	left: 0px;
+}
+
+/***************/
+/* policy tree */
+/***************/
+.policycontenttable td {
+  padding: 0.3em 0 0 0;  
+}
+
+.policycontenttable td.icon span {
+  margin-left: 0;
+  margin-right: 1.5em;
+}
+
+.ie .policycontenttable td.icon span {
+  margin-left: 1.5em;
+  margin-right: 0;
+}
+
+.column-head-name-solo { 
+  text-align: right;
+}   
+
+.policycontainer {
+  margin-left: 0;
+  margin-right: 0.5em;
+}
+
+.policycontainer .indent {
+  margin-left: 0;
+  margin-right: 2.0em;
+}
+
+.table-totals-2 {
+  padding-left: 0;
+  padding-right: 1em;
+  text-align: right;
+}
+
+/************/
+/* Nav tree */
+/************/
+.navtree ul li {
+  margin-right: 2.0em;
+}
+
+.sub-child-container {
+  margin-right: 1.0em;
+}
+
+.sub-task {
+  margin-right: 0.5em;
+}
+
+/****************/
+/* help console */
+/****************/
+.helpcontent .sectiontitle {
+  margin-right: 0;
+}
+
+.helpcontent dd {
+  margin-right: 1.0em;
+  margin-left: 0;
+}
+
+.helpcontent ul, .helpcontent ol {
+  padding-right: 2.0em;
+  padding-left: 0;
+}

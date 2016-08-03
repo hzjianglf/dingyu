@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:context="http://www.springframework.org/schema/context"
+   xmlns:mvc="http://www.springframework.org/schema/mvc"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+      http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+   <mvc:annotation-driven />
+   <!-- \u7528\u4e8e\u5904\u7406\u9759\u6001\u8d44\u6e90 js, css, image\u7b49\u7b49 -->
+   <mvc:default-servlet-handler/>
+   <context:annotation-config />
+
+   <context:component-scan base-package="lmd.extend.wso.controller"  />
+   
+   <!--<context:component-scan base-package="lmd.extend.wso.dao"  />20150917添加-->
+   
+   <bean id="annotationMethodHandlerAdapter" class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+      <property name="messageConverters">
+         <list>
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+               <property name="writeAcceptCharset" value="false" />
+            </bean>
+            <bean class="org.springframework.http.converter.ByteArrayHttpMessageConverter" />
+            <bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter" />
+         </list>
+      </property>
+   </bean>
+   
+   <bean id="jstlViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+      <property name="viewClass" value="org.springframework.web.servlet.view.JstlView" /> 
+      <property name="prefix" value="/WEB-INF/views/" />
+      <property name="suffix" value=".jsp" />
+   </bean>
+   
+   <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+      <property name="maxUploadSize" value="104857600"/>
+      <property name="maxInMemorySize" value="4096"/>
+   </bean>
+   
+</beans>

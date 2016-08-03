@@ -1,0 +1,42 @@
+.personnelCenter{
+	cursor: pointer;
+	background:none repeat scroll 0 0 #F5F5F5;
+}
+#personnelFolderTreeParentTable{
+	width:100%;
+	font-size: 12px;
+	border: 0px;
+}
+
+.personnelCenterOption img{
+	margin-right: 5px;
+	vertical-align: middle;
+	margin-left: 5px;
+}
+
+#personnelFolderTreeParentTable tr{
+	valign:middle;	
+}
+
+#personnelFolderTreeParentTable .personnelCenterOptionParent{
+	line-height: 35px;
+	height:35px;
+	background: none repeat scroll 0 0 #F5F5F5;
+}
+#personnelFolderTreeParentTable .personnelCenterOption{
+	line-height:32px;
+	cursor: pointer;
+	height:32px;
+}
+#personnelFolderTreeParentTable .personnelCenterOption td{	
+	padding-left: 30px;
+	border-bottom: 1px dashed #E5E5E5;
+	margin-left: 0px;
+}
+.personnelCenterOptionParent img{
+	vertical-align: middle;
+	margin-right: 3px;
+	margin-left: 5px;
+	margin-top: -3px;	
+	
+}

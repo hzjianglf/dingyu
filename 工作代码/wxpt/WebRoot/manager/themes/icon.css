@@ -1,0 +1,51 @@
+.icon-add{
+	background:url('icons/edit_add.png') no-repeat;color: #3967a3;
+}
+
+.big{background:url('icons/computery.png') no-repeat;overflow:auto;}
+
+.dd span.ss{background:url('icons/computery.png') no-repeat;overflow:auto;}
+
+.icon-edit{
+	background:url('icons/pencil.png') no-repeat;color: #3967a3;
+}
+.icon-remove{
+	background:url('icons/edit_remove.png') no-repeat;color: #3967a3;
+}
+.icon-save{
+	background:url('icons/filesave.png') no-repeat;color: #3967a3;
+}
+.icon-cut{
+	background:url('icons/cut.png') no-repeat;color: #3967a3;
+}
+.icon-ok{
+	background:url('icons/ok.png') no-repeat;color: #3967a3;
+}
+.icon-no{
+	background:url('icons/no.png') no-repeat;color: #3967a3;
+}
+.icon-cancel{
+	background:url('icons/cancel.png') no-repeat;color: #3967a3;
+}
+.icon-reload{
+	background:url('icons/reload.png') no-repeat;color: #3967a3;
+}
+.icon-search{
+	background:url('icons/search.png') no-repeat;color: #3967a3;
+}
+.icon-print{
+	background:url('icons/print.png') no-repeat;color: #3967a3;
+}
+.icon-help{
+	background:url('icons/help.png') no-repeat;color: #3967a3;
+}
+.icon-undo{
+	background:url('icons/undo.png') no-repeat;color: #3967a3;
+}
+.icon-redo{
+	background:url('icons/redo.png') no-repeat;color: #3967a3;
+}
+.icon-back{
+	background:url('icons/back.png') no-repeat;color: #3967a3;
+}
+

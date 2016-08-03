@@ -1,0 +1,1062 @@
+Manifest-Version: 1.0
+Bundle-ClassPath: .,WebRoot/WEB-INF/lib/json-lib-2.4-jdk15.jar,WebRoot
+ /WEB-INF/lib/ezmorph-1.0.6.jar
+Built-By: jenkins
+Bundle-Name: net.risesoft.soa.filecube.web
+Created-By: Apache Maven
+Web-ContextPath: filecube 
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.apache.struts.xwork.core;bundle-version="2.3.1",or
+ g.apache.struts.2-core;bundle-version="2.3.1",com.springsource.org.og
+ nl;bundle-version="3.0.4"
+Webapp-Root: /WebRoot
+Build-Jdk: 1.6.0_30
+Bundle-Version: 1.0.0.201408201001
+Bundle-ManifestVersion: 2
+Import-Package: javax.persistence;version="2.0.3",javax.servlet,javax.
+ servlet.http;version="2.5.0",net.risesoft.soa.filecube.adapter,net.ri
+ sesoft.soa.filecube.adapter.impl,net.risesoft.soa.filecube.model;vers
+ ion="1.0.0",net.risesoft.soa.filecube.service;version="1.0.0",net.ris
+ esoft.soa.filecube.service.util;version="1.0.0",net.risesoft.soa.file
+ cube.util,net.risesoft.soa.framework.service.sso.client;version="1.0.
+ 0",net.risesoft.soa.framework.service.sso.client.util;version="1.0.0"
+ ,net.risesoft.soa.framework.session;version="1.0.0",net.risesoft.soa.
+ framework.util;version="1.0.0",org.aopalliance.aop;version="1.0.0",or
+ g.apache.commons.beanutils;version="1.8.0",org.apache.commons.collect
+ ions.map;version="3.2.1",org.apache.commons.dbcp;version="1.2.2.osgi"
+ ,org.apache.commons.io;version="2.0.1",org.apache.commons.lang.except
+ ion;version="2.5.0",org.apache.commons.lang.math;version="2.5.0",org.
+ apache.commons.logging;version="1.1.1",org.osgi.framework;version="1.
+ 5.0",org.slf4j;version="[1.6.4,2.0.0)",org.springframework.aop;versio
+ n="3.1.1.RELEASE",org.springframework.aop.framework;version="3.1.1.RE
+ LEASE",org.springframework.aop.support;version="3.1.1.RELEASE",org.sp
+ ringframework.beans;version="3.0.0",org.springframework.beans.factory
+ ;version="3.0.0",org.springframework.beans.factory.annotation;version
+ ="3.0.0",org.springframework.context;version="3.0.0",org.springframew
+ ork.context.annotation,org.springframework.core.io.support;version="3
+ .0.0",org.springframework.osgi.extender.support;version="2.0.0.M1",or
+ g.springframework.osgi.web.context.support;version="2.0.0",org.spring
+ framework.stereotype;version="3.0.0",org.springframework.util;version
+ ="3.1.1.RELEASE",org.springframework.web.context;version="3.0.0"
+Bundle-SymbolicName: net.risesoft.soa.filecube.web
+Archiver-Version: Plexus Archiver
+
+Name: WebRoot/images/file/medium/files/pptx.gif
+SHA1-Digest: zXr+eTLE+b13qOiAuczk59a9Zbo=
+
+Name: WebRoot/images/view/attachment.png
+SHA1-Digest: 8WGfw5oYc7+KrBVExegUIYjJgG8=
+
+Name: WebRoot/images/file/large/files/xls.gif
+SHA1-Digest: sxnc7BMijg7LGpPnwk9wXkTP6gk=
+
+Name: WebRoot/js/dimension/dimension.js
+SHA1-Digest: 49ymAJqIDMfqrlN3Jl786efO+Dg=
+
+Name: WebRoot/commons/ajaxUpload/fileuploader.css
+SHA1-Digest: T32XQIPi3qkXTSSSks2+FEGFvTQ=
+
+Name: WebRoot/commons/colorbox/jquery.colorbox.js
+SHA1-Digest: xcTsirUVSRODjyOw9ctJDnOq6aA=
+
+Name: WebRoot/images/view/download.png
+SHA1-Digest: MBNlbQUfRHzYiLnVZuMsx6kfivo=
+
+Name: WebRoot/images/file/small/folders/album_shared.gif
+SHA1-Digest: XTyiwbX+oLFj85SqUjntehPPpmM=
+
+Name: WebRoot/index.jsp
+SHA1-Digest: vFw9dpKKfzSypq9KNkUlmwloN+w=
+
+Name: WebRoot/images/file/large/folders/album_shared.gif
+SHA1-Digest: ZpkXEifKhaXJQL5oaPSn/MdBUV0=
+
+Name: WebRoot/images/file/large/files/chm.gif
+SHA1-Digest: iSFJ9oDy+kBJ72fdVc94o79yUF8=
+
+Name: WebRoot/images/file/large/folders/subs.gif
+SHA1-Digest: qKmPJrSDzrnDg8wNI+6w0hzq+Mo=
+
+Name: WebRoot/page/file/recycleBin.jsp
+SHA1-Digest: cJ1X0eNcWB4D1dvxxflMOGvhEgc=
+
+Name: WebRoot/js/relevanceFile/fileList.js
+SHA1-Digest: XeU5rWCXOhPMxN8muM2/JMpjGmc=
+
+Name: WebRoot/images/file/large/folders/gallery.gif
+SHA1-Digest: 58hw5uEI4yYK+Oo+AWPCpvgIVXM=
+
+Name: WebRoot/commons/jquery/ui/css/flick/images/ui-bg_flat_0_eeeeee_4
+ 0x100.png
+SHA1-Digest: Py+5ntPLjD4M3PapYVZRhfy1dUE=
+
+Name: WebRoot/page/file/metadata.jsp
+SHA1-Digest: Le8X6IoYAzzulZAIc/YFyGUwfzY=
+
+Name: WebRoot/images/icons/cross.png
+SHA1-Digest: pU5ESZ97QIxsWMIJ7Qj6FMB7K3w=
+
+Name: WebRoot/WEB-INF/applicationContext.xml
+SHA1-Digest: UjcW3vhB7aKbQ6m/94TT+LGCtpk=
+
+Name: WebRoot/images/file/large/folders/network_user.gif
+SHA1-Digest: r/43Cl04RQxPLnBUlyoscMvaFvM=
+
+Name: WebRoot/images/menu/RecycleBin.png
+SHA1-Digest: p8ut5eHa7Ldx31CEfgXcgBkkxEE=
+
+Name: WebRoot/images/file/large/folders/published_files.gif
+SHA1-Digest: Qwlb1sb2SkaXipPFkb78zKZSrCs=
+
+Name: WebRoot/commons/colorbox/images/border.png
+SHA1-Digest: rnPXwnJ4yDyNY9pQhA5i02YW60A=
+
+Name: net/risesoft/soa/filecube/web/action/PermissionAction.class
+SHA1-Digest: ufx1TvNyeNLqoNKJIzcE0frHwnc=
+
+Name: WebRoot/images/button_operation/search.ico
+SHA1-Digest: /i6JhYIqFyhx4z/iLNZDGD68CTA=
+
+Name: WebRoot/images/file/medium/files/folder.gif
+SHA1-Digest: Lf2TZDt9jZD/GSWYJ4ox0VbPPNQ=
+
+Name: WebRoot/images/file/medium/files/wmv.gif
+SHA1-Digest: TjqKOAJGJ2Jb2xRQOoJ47JXzgTE=
+
+Name: WebRoot/commons/css/listDataTable.css
+SHA1-Digest: OKfQTvMEoZZTdxsEzdTXc53ILP8=
+
+Name: WebRoot/commons/ajaxUpload/customUpload.js
+SHA1-Digest: gSYf6EnembUaKtV2ta6mvop31OM=
+
+Name: WebRoot/images/view/folder_find.png
+SHA1-Digest: RCUotqpBJV9eom/Vm7HAtZIliYY=
+
+Name: WebRoot/images/file/medium/folders/published.gif
+SHA1-Digest: Wv6ItIm7XS3id45iq4Ping5Gf+0=
+
+Name: WebRoot/page/share/list.jsp
+SHA1-Digest: jOakyy2/1hn35CnmusPuxA3fhac=
+
+Name: WebRoot/images/file/small/files/htm.gif
+SHA1-Digest: jEErZwaE2Y6dkBTgabwyaC1dSis=
+
+Name: WebRoot/images/button_view/favorite.png
+SHA1-Digest: /RcB9Hch5dKlNU5JQJv5w1/pTw4=
+
+Name: WebRoot/images/icons/tick.gif
+SHA1-Digest: RIpm9PTUD1Rvjq5mP59WsHLj1YI=
+
+Name: WebRoot/page/openHistory/list.jsp
+SHA1-Digest: LGWO7OXgNyW+dVBySi0XyNomVcs=
+
+Name: WebRoot/js/file/view/viewFile.js
+SHA1-Digest: FXCzczK0GXTSozPprgvsvJ9jEEE=
+
+Name: WebRoot/images/file/large/files/pdf.gif
+SHA1-Digest: 3+sKe4qmG7XsM4rqKMcK29Vj8K8=
+
+Name: WebRoot/images/file/medium/files/docx.gif
+SHA1-Digest: hG6Mj+HuDm6IH8BbvbgiQKV2fUk=
+
+Name: WebRoot/images/file/small/files/mp4.gif
+SHA1-Digest: H0HE30srui0mxtirR9GenHQzyZg=
+
+Name: WebRoot/images/file/large/folders/network.gif
+SHA1-Digest: m1AVl/DC1UMMMMJnXjr0MT3Rxwc=
+
+Name: WebRoot/images/file/medium/files/wma.gif
+SHA1-Digest: C+7mQFGGpTiAoo+1+Z7vvNEEuQY=
+
+Name: WebRoot/images/file/medium/folders/shared_albums.gif
+SHA1-Digest: HAFu5SbbmIunT3RDQkVQ7RCK9jo=
+
+Name: WebRoot/images/file/medium/files/mp3.gif
+SHA1-Digest: th69ksIFxpjQibq2dP0Z+DpvU+k=
+
+Name: WebRoot/images/button_view/folder.png
+SHA1-Digest: J/xMjnJ9Y6Kzk2ROz0wbXMtXF8Q=
+
+Name: WebRoot/images/file/large/folders/folder_shared.gif
+SHA1-Digest: YmavdRst7IPnEG8AUz9nrihlhQ4=
+
+Name: WebRoot/page/log/system.jsp
+SHA1-Digest: Cy0i6I+hwUy6hQn2yX6CqVTtJCc=
+
+Name: WebRoot/images/file/large/folders/published.gif
+SHA1-Digest: 9T+uap+s7c+IwJN4nMVJBF6WBus=
+
+Name: WebRoot/commons/jquery/ui/css/flick/images/ui-bg_flat_55_ffffff_
+ 40x100.png
+SHA1-Digest: qbsTHErP8NB/p7fyG+8FF5wo0Ts=
+
+Name: WebRoot/images/file/large/files/unknown.gif
+SHA1-Digest: 0vOT6SaxNpHIUuzMuCkBxM0fQ0g=
+
+Name: WebRoot/commons/jquery/ui/css/flick/images/ui-icons_0073ea_256x2
+ 40.png
+SHA1-Digest: VAXlkuNpJq6fZeGCW3vwARkrXk0=
+
+Name: WebRoot/commons/colorbox/images/loading_background.png
+SHA1-Digest: utfXUa2AJ/kQlBMvLrkI59wSfdM=
+
+Name: WebRoot/images/file/small/folders/recycle.gif
+SHA1-Digest: 5qfCeAABbLGgW0PC1rfJ6EowIgE=
+
+Name: WebRoot/commons/ajaxUpload/images/loading.gif
+SHA1-Digest: uCcv6hjeADZwzJ+tKPCJCIzrxCU=
+
+Name: net/risesoft/soa/filecube/web/util/GlobalResources.class
+SHA1-Digest: Wu8x8usVlbyDS9KACKqt57gxays=
+
+Name: WebRoot/images/file/large/folders/shared_albums.gif
+SHA1-Digest: 58hw5uEI4yYK+Oo+AWPCpvgIVXM=
+
+Name: WebRoot/images/button_view/record.png
+SHA1-Digest: /7k+sibAbon250p0+Y40icyOTI0=
+
+Name: net/risesoft/soa/filecube/web/action/OpenHistoryAction.class
+SHA1-Digest: SyooGJ7psTWGhsAFHqHIZ9WXDc4=
+
+Name: WebRoot/images/file/large/files/dwf.gif
+SHA1-Digest: 8xo0UwXV4A3Hoh+Aat/wSI1k1Ek=
+
+Name: WebRoot/images/button_operation/arrow_redo.png
+SHA1-Digest: rvLryj0AvTOBAsi6kbTMGDavXWk=
+
+Name: WebRoot/commons/jquery/ui/css/flick/images/ui-icons_454545_256x2
+ 40.png
+SHA1-Digest: GrGd94LQuEkfwhwe33sglBYk3TQ=
+
+Name: WebRoot/images/file/large/folders/published_folders.gif
+SHA1-Digest: WUF0++IuVehHUyvChqITmfRY0e0=
+
+Name: WebRoot/images/file/medium/files/rar.gif
+SHA1-Digest: pF6BUGYDWoNy1fcZsCSBb+XHo5c=
+
+Name: WebRoot/images/icons/share_16.png
+SHA1-Digest: HXtpY9KgXaqqewIlgmyhXeJRSt0=
+
+Name: WebRoot/images/file/medium/folders/folder.gif
+SHA1-Digest: Lf2TZDt9jZD/GSWYJ4ox0VbPPNQ=
+
+Name: net/risesoft/soa/filecube/web/action/AttachmentAction.class
+SHA1-Digest: 2FfOKWzZFvAcG0bCr01LtuuLIJc=
+
+Name: WebRoot/images/file/large/files/dll.gif
+SHA1-Digest: BpZgrlJZZrC2hQJ/7o0jykwAuUQ=
+
+Name: WebRoot/commons/grade/img/star-off.png
+SHA1-Digest: F1DffM34mf4xqM+xbQb2W6YpjgI=
+
+Name: WebRoot/images/icons/pinglun_hover.png
+SHA1-Digest: b1Bf/uRsra924VTDFjez8vz18QY=
+
+Name: WebRoot/images/file/small/folders/shared_docs.gif
+SHA1-Digest: p79MthA3JMumf3x4eUBCRmsH2Z8=
+
+Name: WebRoot/page/global_js_const.jsp
+SHA1-Digest: 341MeG430EM7kFA2n7HMEj3TUXw=
+
+Name: net/risesoft/soa/filecube/web/action/FileAction.class
+SHA1-Digest: z/jo/3Yrk4/I+88nrTWtryPhn+4=
+
+Name: WebRoot/images/file/large/files/rmvb.gif
+SHA1-Digest: TmShSiutqLsqbLlyMhPVGivHIVM=
+
+Name: WebRoot/images/file/small/files/wma.gif
+SHA1-Digest: Vpd3AlVgjM119v6ciE5pQ2sYdjI=
+
+Name: WebRoot/images/file/medium/folders/folder_shared.gif
+SHA1-Digest: Oi2AxGBZaPReiEwQMfhKt1sRtL0=
+
+Name: WebRoot/images/button_operation/refresh.png
+SHA1-Digest: Z2YnfjTDrPcjIGmHkwk+CE3qf4M=
+
+Name: WebRoot/images/file/small/folders/published_files.gif
+SHA1-Digest: yrsDPNyd5PkZuplHc9SdLI3IYLU=
+
+Name: WebRoot/images/button_operation/movePlace.bmp
+SHA1-Digest: J6zAiwmB1dSakQBpJ0yhbh1CK0c=
+
+Name: WebRoot/commons/jquery/ui/css/flick/images/ui-bg_flat_75_ffffff_
+ 40x100.png
+SHA1-Digest: qbsTHErP8NB/p7fyG+8FF5wo0Ts=
+
+Name: WebRoot/images/view/up.png
+SHA1-Digest: 1Wv7E8xcaZuP0QWSL/NalLKyuvs=
+
+Name: WebRoot/images/file/small/files/dwf.gif
+SHA1-Digest: x8i2X5iwlSFlV8gJq013E6/1qQM=
+
+Name: WebRoot/images/file/medium/files/chm.gif
+SHA1-Digest: Ykf1umkYNatyPUSheQdMuVHCPlA=
+
+Name: WebRoot/images/button_operation/add_folder.gif
+SHA1-Digest: vyRLT4IV0a6SS27zK3wresvZuQA=
+
+Name: WebRoot/images/file/large/files/swf.gif
+SHA1-Digest: yfqZmhpZzEgPC4VJ7MLtX2WLmKM=
+
+Name: WebRoot/images/view/down.png
+SHA1-Digest: hF6PWROmwQtewFfLgaUjGYF17ac=
+
+Name: WebRoot/images/button_operation/upload.gif
+SHA1-Digest: rbVU9YKCU7uWpnztQPVJ4eMjTRs=
+
+Name: WebRoot/images/file/large/files/rtf.gif
+SHA1-Digest: h4i1/pwlfIWEf3OrjT1bk8QFqAM=
+
+Name: WebRoot/page/file/file.jsp
+SHA1-Digest: M+w3F7GkCHXge1nPrQq01btVFcc=
+
+Name: WebRoot/images/file/small/files/unknown.gif
+SHA1-Digest: 14SalOTzaNJCxJ/aqFtk1Df/WnY=
+
+Name: WebRoot/commons/pagination/pagination.css
+SHA1-Digest: yqdJJl5PUz7AeHhMRTqbiPohJoA=
+
+Name: WebRoot/images/file/large/folders/folder.gif
+SHA1-Digest: 5yHgUsk+f5UWcsxkPu127PpVRK8=
+
+Name: WebRoot/WEB-INF/lib/ezmorph-1.0.6.jar
+SHA1-Digest: AeVdKgJT6jd0XTMGKFL9LJACdDI=
+
+Name: WebRoot/images/file/small/files/pptx.gif
+SHA1-Digest: sv/q/gYsvRHBpEYRCpQefzRNAPw=
+
+Name: WebRoot/images/button_operation/add.png
+SHA1-Digest: tiRLACeoyfcCsxHLWyq4zGTztfI=
+
+Name: WebRoot/images/file/large/folders/subs_user.gif
+SHA1-Digest: BcCUf0bW9oXJ8fRsyLXW3zlrEFs=
+
+Name: WebRoot/images/file/large/files/mp4.gif
+SHA1-Digest: xoPL+ZEMzz/rBhIKq1Igo+kE5Mc=
+
+Name: WebRoot/images/icons/pinglun.png
+SHA1-Digest: eod/Cv9usNLe6QNnWmmJeOKcUXo=
+
+Name: net/risesoft/soa/filecube/web/action/SessionFilter.class
+SHA1-Digest: lvb7BiLCbDTQalC0RBebjtknTuE=
+
+Name: WebRoot/js/index.js
+SHA1-Digest: LeVK1k8JsIM/IXmvNiNlFHVUWIQ=
+
+Name: WebRoot/images/file/medium/files/unknown.gif
+SHA1-Digest: xsBoUsyToM6cCZHBs2BOJTtjxtM=
+
+Name: WebRoot/images/file/small/files/bmp.gif
+SHA1-Digest: BPea6KF+Lwi27haL4092XvJi+wY=
+
+Name: net/risesoft/soa/filecube/web/action/RelevanceFileAction.class
+SHA1-Digest: G93b33ATDkfg/cKXbDQsAFbeDHg=
+
+Name: WebRoot/images/file/large/folders/shared_docs.gif
+SHA1-Digest: wRro+tLiZYKaNyvsJs/+tmRXRYk=
+
+Name: WebRoot/images/file/small/files/wav.gif
+SHA1-Digest: Vpd3AlVgjM119v6ciE5pQ2sYdjI=
+
+Name: WebRoot/js/permission/permission.js
+SHA1-Digest: pwOJDA99nTnR32oeS+a16Iug0hA=
+
+Name: WebRoot/images/file/large/files/txt.gif
+SHA1-Digest: uRmUGsqL56pSmqpZQFtHuq/w71w=
+
+Name: WebRoot/images/file/small/files/flv.gif
+SHA1-Digest: KtBTPP5ZmUG7JB3vBY1Q35SremE=
+
+Name: WebRoot/images/file/small/folders/network.gif
+SHA1-Digest: qAHlETDz0sm0vbtTE3dHeh3YSb4=
+
+Name: WebRoot/commons/ajaxUpload/customUpload.jsp
+SHA1-Digest: D/LJ8Vw5hajWNTDj/4Ay5Si1aUQ=
+
+Name: WebRoot/images/file/medium/files/jpg.gif
+SHA1-Digest: q1j81mYzgEAhFr9CUcrsuH7COk8=
+
+Name: WebRoot/commons/grade/img/star-on.png
+SHA1-Digest: 1Ik4+a6IAanjLPA3TGsn/iF5ZqI=
+
+Name: WebRoot/images/file/small/files/txt.gif
+SHA1-Digest: Adix7rGEUbSTVFqrt7BxlA1Ae+o=
+
+Name: WebRoot/images/file/small/files/xml.gif
+SHA1-Digest: OTci/KnhzYqz/IIExS5AqUaxyw8=
+
+Name: net/risesoft/soa/filecube/web/action/DimensionAction.class
+SHA1-Digest: 8/wvouwYP66eRrGds/KdwYMxHRw=
+
+Name: WebRoot/images/button_view/view_liebiao.jpg
+SHA1-Digest: Z+O+oJHNhsx9eJjdCyTyodVIS4k=
+
+Name: WebRoot/commons/jquery/ui/css/flick/images/ui-bg_highlight-soft_
+ 100_f6f6f6_1x100.png
+SHA1-Digest: ANBKkUZexSclUdh6pRsn1WEno6k=
+
+Name: WebRoot/page/folder/edit.jsp
+SHA1-Digest: 00F6LQVlOIU4pDqtaq0y59vfP+U=
+
+Name: WebRoot/page/folder/leftFolderTree.jsp
+SHA1-Digest: 53x/3OC/NCTF04suvmShSfjfXns=
+
+Name: WebRoot/images/file/medium/files/rm.gif
+SHA1-Digest: w3vgEOjOsYnIoQIGD/PiQrTmPjk=
+
+Name: WebRoot/page/share/OtherToMeList.jsp
+SHA1-Digest: oTpsNeJQYV7Qn1whN79jMvrKui8=
+
+Name: WebRoot/commons/ajaxUpload/fileuploader.js
+SHA1-Digest: 5Dqs4NNfO+aFX5bEE9nc5WK84MU=
+
+Name: WebRoot/images/file/medium/files/dll.gif
+SHA1-Digest: anPGsxyKmwWDZBy1b2VDkLOaaMw=
+
+Name: WebRoot/images/icons/stop.png
+SHA1-Digest: maZOR0+dUh/S7+DNNK2OO+yWptY=
+
+Name: WebRoot/images/button_operation/download.gif
+SHA1-Digest: OHYCTLUvX1m82uzLqOInmSbngB4=
+
+Name: net/risesoft/soa/filecube/web/action/ShareAction.class
+SHA1-Digest: VgfPjZ5sEeqGyd+KuN+K0F7b0J8=
+
+Name: WebRoot/images/file/large/files/pptx.gif
+SHA1-Digest: 3YE0M9Vhi+iicH7WeFUQ3vUNJXE=
+
+Name: WebRoot/images/file/medium/folders/published_files.gif
+SHA1-Digest: Bj6eVrr2eKKgg7Yj8y0oIusJnD4=
+
+Name: WebRoot/images/file/medium/files/htm.gif
+SHA1-Digest: PVXCjb7uSDZe2QKRsKAnUXAkk/w=
+
+Name: WebRoot/commons/js/commons.js
+SHA1-Digest: 3UvYVMdwZHgDZtXMp9ObAtuvOBg=
+
+Name: WebRoot/images/view/application_view_list.png
+SHA1-Digest: krwKDNryaN1VpWcp8ahOjqxxCjk=
+
+Name: WebRoot/page/dimension/dimension.jsp
+SHA1-Digest: B3sp6KswN4Z33x4rd4tckQUJ9aU=
+
+Name: WebRoot/images/file/small/files/dll.gif
+SHA1-Digest: tB6STWQI6D3enccYQYSyPgV+rig=
+
+Name: WebRoot/images/file/medium/files/html.gif
+SHA1-Digest: PVXCjb7uSDZe2QKRsKAnUXAkk/w=
+
+Name: WebRoot/commons/css/filecube.png
+SHA1-Digest: oJ9cA7eKdt5o089YXTU3A5y/Qoo=
+
+Name: WebRoot/images/file/large/files/wav.gif
+SHA1-Digest: eS/KocW9wKSgd+9uLw/i/JgrcDU=
+
+Name: WebRoot/images/view/progress.gif
+SHA1-Digest: wJ+vRX9aNzHJ8khB8u+Uvg/OhBY=
+
+Name: WebRoot/images/file/medium/files/pdf.gif
+SHA1-Digest: XxUqnf6bo8xPB646yRskSucyOvw=
+
+Name: WebRoot/images/icons/close.gif
+SHA1-Digest: wLimn3Y3NpV8rzEyQQv+FGHE6VM=
+
+Name: WebRoot/images/file/medium/folders/gallery.gif
+SHA1-Digest: HAFu5SbbmIunT3RDQkVQ7RCK9jo=
+
+Name: WebRoot/commons/jquery/jquery-1.7.2.min.js
+SHA1-Digest: q80roTNI8XixcUG0RbyZ8ZF9R68=
+
+Name: WebRoot/images/file/small/folders/gallery.gif
+SHA1-Digest: E1bAcd3fXoOtshMcLczWe7dVVXI=
+
+Name: WebRoot/images/file/small/files/gif.gif
+SHA1-Digest: FIa05+FJaVGDoWSzMphsRt8/bW0=
+
+Name: WebRoot/images/file/large/files/mdb.gif
+SHA1-Digest: b6GR9PTxM2uAqdAuNmxREnKUc6s=
+
+Name: WebRoot/commons/grade/jquery.raty.js
+SHA1-Digest: JVqEjMFdk35Irg6RuZWAtB4KTw0=
+
+Name: WebRoot/images/view/heart.png
+SHA1-Digest: hI6D4lr9oahsEyjRpShMwNYXX48=
+
+Name: WebRoot/images/file/small/files/mp3.gif
+SHA1-Digest: Vpd3AlVgjM119v6ciE5pQ2sYdjI=
+
+Name: WebRoot/images/file/small/files/ppt.gif
+SHA1-Digest: u9R98YzCdXZ28HXgPIx+fCeidqU=
+
+Name: WebRoot/images/file/medium/files/flv.gif
+SHA1-Digest: VhVC0U2v0Q7AApgUKY9hkqkthbo=
+
+Name: WebRoot/images/icons/filter_name.png
+SHA1-Digest: +z4yVTYOwrFD10mJYTQWvozah38=
+
+Name: WebRoot/js/file/file.js
+SHA1-Digest: o2RBVRc7xMymFsn5Xo7iBqDdKDo=
+
+Name: WebRoot/images/file/medium/folders/published_folders.gif
+SHA1-Digest: IFrs1tvGjicFeL2WHtaZzspu2Sc=
+
+Name: WebRoot/images/icons/refresh1_24.png
+SHA1-Digest: 99S4+Hl4Hmz2gEkSbLz/MAZlgcQ=
+
+Name: WebRoot/images/file/small/files/exe.gif
+SHA1-Digest: DH7xkfZ/lKOL4SDRiLhzVcF6jX8=
+
+Name: WebRoot/images/file/small/files/html.gif
+SHA1-Digest: jEErZwaE2Y6dkBTgabwyaC1dSis=
+
+Name: WebRoot/images/file/large/files/gif.gif
+SHA1-Digest: E0wmzFpGydcV4HEyuhMeU86m58I=
+
+Name: WebRoot/commons/colorbox/images/controls.png
+SHA1-Digest: pzXSQrqO+s5SL2ZYms5+1McuvsY=
+
+Name: WebRoot/images/file/medium/folders/root.gif
+SHA1-Digest: N4KiAHOyIxsvTYQ0NDxIcxm56yY=
+
+Name: WebRoot/images/file/medium/files/dwf.gif
+SHA1-Digest: EE1+6e3rSD+jZvPrXJFi02STJbU=
+
+Name: WebRoot/images/file/small/files/rar.gif
+SHA1-Digest: 55kG5xzshcPzd/Aov4WJNLyYNB0=
+
+Name: WebRoot/images/file/small/folders/root.gif
+SHA1-Digest: SRqU1O0SauUdsxTQyqIYhJDOP5Y=
+
+Name: WebRoot/commons/jquery/ui/css/flick/images/ui-icons_ffffff_256x2
+ 40.png
+SHA1-Digest: /e8+jO6zaxS/kUuQm+vRkZFUrM4=
+
+Name: WebRoot/images/icons/trash_16.gif
+SHA1-Digest: xFuXRb7Kr5ZmkSjgX0UfgQZZE3I=
+
+Name: WebRoot/images/file/small/files/rm.gif
+SHA1-Digest: H0HE30srui0mxtirR9GenHQzyZg=
+
+Name: WebRoot/images/file/medium/files/mdb.gif
+SHA1-Digest: se5bjlIl1WzCxv0DkhtiHhVrIRw=
+
+Name: WebRoot/images/file/small/files/zip.gif
+SHA1-Digest: JN3riuhLjRhGtQLhNN0mXX4NRk4=
+
+Name: WebRoot/css/index.css
+SHA1-Digest: ksLY7wHmej64Ae1+IV4rlc9kHnc=
+
+Name: WebRoot/images/file/medium/files/bmp.gif
+SHA1-Digest: VbtvHMp6qJjsM17i4NZ+pKiCq34=
+
+Name: WebRoot/images/file/small/files/mdb.gif
+SHA1-Digest: r0FxPKwj0Ek1R6I1nXho3KkWrGc=
+
+Name: WebRoot/images/file/large/files/mpg.gif
+SHA1-Digest: H/4h3SDE0YMH6PxH7qBYENE9lv0=
+
+Name: WebRoot/images/file/small/folders/album.gif
+SHA1-Digest: ufS+sr6zl3BuVrbp4BhaLRxDO34=
+
+Name: WebRoot/commons/pagination/pagination.js
+SHA1-Digest: 3ZoTydqWOG3TjtfHbmcCwqTNCl0=
+
+Name: WebRoot/images/file/large/folders/recycle.gif
+SHA1-Digest: MT2CbK3SQvNgaZNNiyd1W8WWHus=
+
+Name: WebRoot/images/file/large/files/wma.gif
+SHA1-Digest: /HtOBRbGlASqJkbipiIHErBHe+Q=
+
+Name: WebRoot/images/file/small/files/avi.gif
+SHA1-Digest: oiFvpikuABDsa6X2PK2U1dpmMPY=
+
+Name: WebRoot/images/view/commentary.png
+SHA1-Digest: 6Xdo3/rDNip+3PnEq+SRRjr8lOA=
+
+Name: net/risesoft/soa/filecube/web/action/QueryHistoryAction.class
+SHA1-Digest: 0wBfPiDvRby2CRO6fd26lt6r+4E=
+
+Name: WebRoot/commons/colorbox/images/loading.gif
+SHA1-Digest: uCcv6hjeADZwzJ+tKPCJCIzrxCU=
+
+Name: WebRoot/images/view/bin.png
+SHA1-Digest: 7+Z0VPNq6Bqn8DdYgpbEcyya4vY=
+
+Name: WebRoot/images/file/medium/files/avi.gif
+SHA1-Digest: ffF8FtUhq0mk220k7Zpc/q9Z7E0=
+
+Name: WebRoot/images/file/medium/files/pps.gif
+SHA1-Digest: wsHz3ziPaNJB6Mc+xvzsHZ4RDOU=
+
+Name: WebRoot/images/file/medium/folders/subs.gif
+SHA1-Digest: VVPv3sOwGlDfifRrz26IpkLrl8c=
+
+Name: WebRoot/images/file/large/files/ppt.gif
+SHA1-Digest: w2ar/1lB0pn5aQpKkWHCuThG9OI=
+
+Name: WebRoot/commons/jquery/ui/css/flick/images/ui-bg_glass_65_ffffff
+ _1x400.png
+SHA1-Digest: flyZ6fARO6a2PCu0CLg0cZExbNo=
+
+Name: WebRoot/images/file/large/files/doc.gif
+SHA1-Digest: tIShvII1Stds+ajLYr2Tuqc/Duk=
+
+Name: WebRoot/images/file/medium/files/wav.gif
+SHA1-Digest: lEHJHmSp5gXK2dJIUxYGsyCtDy0=
+
+Name: WebRoot/commons/jquery/ui/css/flick/images/ui-icons_ff0084_256x2
+ 40.png
+SHA1-Digest: rUxlgPyw5af9aPR+IIBbS3WGd9U=
+
+Name: WebRoot/WEB-INF/lib/json-lib-2.4-jdk15.jar
+SHA1-Digest: E2dD4NEt9OeF5itIYYzuFpsq5UY=
+
+Name: WebRoot/images/icons/upload_.png
+SHA1-Digest: i0qf9KVnm7V2vNzvh+qdz8c7nGY=
+
+Name: WebRoot/images/view/share.png
+SHA1-Digest: 9BrhdecW9LA9lArCSdBGS5xRz4k=
+
+Name: WebRoot/images/file/medium/files/mp4.gif
+SHA1-Digest: g2rGebk6y6PudJs+adO4Y/9BhL8=
+
+Name: WebRoot/images/file/large/files/pps.gif
+SHA1-Digest: gMaVBp7UNl4kFKIUg/ZvswlOUD8=
+
+Name: WebRoot/page/dimension/choose.jsp
+SHA1-Digest: jq89fe1S318qM9COEnw7EhCVhME=
+
+Name: WebRoot/commons/flexpaper/FlexPaperViewer.swf
+SHA1-Digest: 2BFlt0lMyrKDaac/hhYa1+/9w3c=
+
+Name: WebRoot/images/file/medium/files/ppt.gif
+SHA1-Digest: xPl3GmrwESi8xcvZgo5eJuGsfEk=
+
+Name: WebRoot/images/file/small/folders/folder_shared.gif
+SHA1-Digest: CzVb1raFGR68Vuc/W2AsAnwFWdI=
+
+Name: WebRoot/commons/jquery/ui/jquery-ui-1.9.1.custom.min.js
+SHA1-Digest: JXZ59QE2PghNcUxuG9psX1jBllc=
+
+Name: WebRoot/commons/jquery/ui/css/flick/images/ui-bg_flat_0_aaaaaa_4
+ 0x100.png
+SHA1-Digest: 2hyb9FvTZEwt3/zU9jEQjYDmpvI=
+
+Name: WebRoot/images/file/small/files/chm.gif
+SHA1-Digest: l4TsGIjfVh/mkHPasCtcsIYnNa4=
+
+Name: WebRoot/page/file/attachment/list.jsp
+SHA1-Digest: 65wMp2OS3pOetBnGFYGNBW/GVTU=
+
+Name: WebRoot/images/menu/view.gif
+SHA1-Digest: HYcd73TAEQPLWBdg45w05qoKPPQ=
+
+Name: WebRoot/images/file/large/folders/root.gif
+SHA1-Digest: hEU4T9dp62toYR1kd6/fBzSXtqo=
+
+Name: WebRoot/images/file/small/files/jpg.gif
+SHA1-Digest: xqdT6qF3VxQR9egoVET10bS6UW8=
+
+Name: WebRoot/images/file/small/folders/published_folders.gif
+SHA1-Digest: C6ITKmFhpnNLKZE8XjdeNItwVBY=
+
+Name: WebRoot/WEB-INF/web.xml
+SHA1-Digest: nuFwESnEu2/kXiBVpCb855J7bXM=
+
+Name: WebRoot/images/button_operation/authorize.png
+SHA1-Digest: yuy+hv/VHoXB/mUJtSDjMX3FE6I=
+
+Name: WebRoot/images/file/small/files/doc.gif
+SHA1-Digest: c1enmZaNwgKXpSK+IDsvsFcgnGQ=
+
+Name: WebRoot/images/file/medium/files/xls.gif
+SHA1-Digest: boROFsU/GirM9KP7qBD5ws36XY0=
+
+Name: WebRoot/commons/flexpaper/flexpaper.js
+SHA1-Digest: NnCK4lGxpS/xOH2TEyezxWkpdWs=
+
+Name: WebRoot/page/file/view/viewFile.jsp
+SHA1-Digest: MZwGtKb0CamSIgX5/J/oXIEhIfg=
+
+Name: WebRoot/images/view/server.png
+SHA1-Digest: Gu0w0rd3pGzy/95mJEUGhHTpKmo=
+
+Name: WebRoot/commons/colorbox/colorbox.css
+SHA1-Digest: CQNwYdifcQMV0d01VigGdBPNMCI=
+
+Name: WebRoot/images/view/share_to_me.png
+SHA1-Digest: C9wHUzH+jB00eodS2kPO7JBTHT4=
+
+Name: WebRoot/images/file/small/folders/folder.gif
+SHA1-Digest: lSFJtcSc0zAMCXWGZJnh1nAm06o=
+
+Name: WebRoot/page/file/relevanceFile/fileList.jsp
+SHA1-Digest: MwQjSfXT9S11GbM/ZryxseSpzh4=
+
+Name: WebRoot/images/file/small/files/rtf.gif
+SHA1-Digest: 6aNcg1Xd8kiaIDJGgpHrFNlsrFU=
+
+Name: WebRoot/images/file/small/files/pps.gif
+SHA1-Digest: v5SqbiDzE3SNXD+Ic8fjDeNCuL8=
+
+Name: WebRoot/images/file/medium/folders/album.gif
+SHA1-Digest: P8Brk9/b5m09sdj1jJK96Brxxq0=
+
+Name: WebRoot/page/file/attachment/viewFile.jsp
+SHA1-Digest: aoFWD+GeLApvUPXTFTMQdSywbUY=
+
+Name: WebRoot/images/button_operation/star-off.png
+SHA1-Digest: F1DffM34mf4xqM+xbQb2W6YpjgI=
+
+Name: WebRoot/images/file/small/files/3gp.gif
+SHA1-Digest: H0HE30srui0mxtirR9GenHQzyZg=
+
+Name: net/risesoft/soa/filecube/web/action/FavoriteAction.class
+SHA1-Digest: dXvTHy4uv04ZW0TWknciHGNK8Dw=
+
+Name: WebRoot/images/file/large/files/folder.gif
+SHA1-Digest: 5yHgUsk+f5UWcsxkPu127PpVRK8=
+
+Name: WebRoot/images/file/medium/files/zip.gif
+SHA1-Digest: aWKXtD0lBV5sfibIO+TAJUDjBzQ=
+
+Name: WebRoot/images/file/medium/files/mpg.gif
+SHA1-Digest: PfvcPNHK/djxAvDUyqJv4/vCdiM=
+
+Name: WebRoot/images/button_operation/trash.gif
+SHA1-Digest: xFuXRb7Kr5ZmkSjgX0UfgQZZE3I=
+
+Name: WebRoot/images/button_operation/folder_add.png
+SHA1-Digest: 543GWgs0d2+GwvjSaH5xEJonH74=
+
+Name: WebRoot/commons/ajaxUpload/images/upload.png
+SHA1-Digest: TgAUvwhk9gxDNyHo8oot9lMF6yA=
+
+Name: WebRoot/images/file/small/files/rmvb.gif
+SHA1-Digest: H0HE30srui0mxtirR9GenHQzyZg=
+
+Name: WebRoot/commons/grade/img/star-half.png
+SHA1-Digest: E9GanEwtTb9gmZrn8O4BDp7SEQw=
+
+Name: WebRoot/page/folder/tree.jsp
+SHA1-Digest: 7kixvRJxak1IbpQux0vE7WpTvGk=
+
+Name: WebRoot/css/left.css
+SHA1-Digest: p1YnX6u1tjttY6qgs/gQ47uDwKQ=
+
+Name: WebRoot/images/file/large/files/mov.gif
+SHA1-Digest: Sn734l/GDVP8jB3pK/7HjKCJnMY=
+
+Name: WebRoot/page/file/view/listView.jsp
+SHA1-Digest: GVhSeEV5erK/5IQvL5eZiopwvm0=
+
+Name: WebRoot/page/file/view/imgView.jsp
+SHA1-Digest: 2AJcvoiK0gPKNl4ccK4K9voJqWU=
+
+Name: WebRoot/images/file/large/files/docx.gif
+SHA1-Digest: Pm0CQD2AKQ6PPxBB0f/cYpqjrcM=
+
+Name: WebRoot/commons/css/shadow/pie.js
+SHA1-Digest: 8qwdeJBurV5TMXN4WwfXkkTh6gY=
+
+Name: net/risesoft/soa/filecube/web/action/BaseAction.class
+SHA1-Digest: kuGJlzEv+9F+bIphb/HeVhno4PE=
+
+Name: WebRoot/images/file/medium/files/rtf.gif
+SHA1-Digest: 5we2Fpx9aQiCtf1BtPofXg+7fcE=
+
+Name: WebRoot/left.jsp
+SHA1-Digest: BzEZqXVDkxM+7BnyHN00GsG8kXI=
+
+Name: WebRoot/images/file/small/files/xlsx.gif
+SHA1-Digest: 3Bvckr1NZQS8ptB4czi0wric6OY=
+
+Name: WebRoot/images/view/share_to_other.png
+SHA1-Digest: BbeInazBd48lhnCQsLvCBokuqq4=
+
+Name: WebRoot/images/file/large/files/exe.gif
+SHA1-Digest: NBW14u8qAzOfyeSqJVRAfjhO6TI=
+
+Name: WebRoot/images/file/medium/files/xlsx.gif
+SHA1-Digest: 7Zslhl/cgxXjyy9QVflgTp9ak/g=
+
+Name: WebRoot/commons/jquery/ui/css/flick/images/ui-bg_highlight-soft_
+ 25_0073ea_1x100.png
+SHA1-Digest: 9yPOvwdTX7EygP34zLKjJ3T1bjQ=
+
+Name: WebRoot/js/file/view/openImages.js
+SHA1-Digest: lni3zyorzOA6Pg4Iz0muM166u+E=
+
+Name: WebRoot/images/file/large/files/bmp.gif
+SHA1-Digest: oor44f9f4kdhT9RW9hkA7E4/3Os=
+
+Name: WebRoot/images/button_operation/set.png
+SHA1-Digest: /vMl4PU4nJPWIJQWZ84kyIvIGOQ=
+
+Name: WebRoot/images/file/large/files/wmv.gif
+SHA1-Digest: FFrALeJ22N3807TYiOn9IiJmzGo=
+
+Name: WebRoot/images/menu/bin_empty.gif
+SHA1-Digest: nesC+C7yxgtKY/abgeQwVxTidqc=
+
+Name: WebRoot/images/file/small/files/swf.gif
+SHA1-Digest: 1RqltpVLKSuF+lGpyL7oCRjNIw0=
+
+Name: WebRoot/images/button_operation/edit.png
+SHA1-Digest: YqG0GsXu+/PQrVeKGVctQJbYgUY=
+
+Name: WebRoot/images/view/tag.png
+SHA1-Digest: WboNZ4Q3uLgnkBPZ1r4T3K43YwA=
+
+Name: WebRoot/images/file/small/files/mpg.gif
+SHA1-Digest: oiFvpikuABDsa6X2PK2U1dpmMPY=
+
+Name: WebRoot/images/file/medium/files/mov.gif
+SHA1-Digest: A3oxUHb+QmV4O2WQ6YKhALR8M5o=
+
+Name: WebRoot/page/share/orgTree.jsp
+SHA1-Digest: R5eP4XYRUC8mm+FP33fsrVDuocA=
+
+Name: net/risesoft/soa/filecube/web/action/FolderAction.class
+SHA1-Digest: IfwNHqWHJgVeDfF4PzQJmtes/fg=
+
+Name: WebRoot/images/icons/bin_empty.png
+SHA1-Digest: It6gFlkwlFLpW48k/kCv851SsH4=
+
+Name: WebRoot/images/file/large/files/xlsx.gif
+SHA1-Digest: QThfoYOpGfCxmAzGjfthscufYLg=
+
+Name: WebRoot/commons/jquery/ui/css/flick/images/ui-icons_666666_256x2
+ 40.png
+SHA1-Digest: 6ZdCG6SLkZ8aA21w3CvaUlrgxBs=
+
+Name: WebRoot/images/file/small/files/docx.gif
+SHA1-Digest: zNhF7O6jvUrpt70+zGbY1ztkOQo=
+
+Name: WebRoot/js/folder/folder.js
+SHA1-Digest: Nq7TogzLGC6YT6UF9Oal6Cw2LcQ=
+
+Name: WebRoot/images/file/large/folders/album.gif
+SHA1-Digest: nDe4LIc5p2nVuPQeJzNOhQSYbms=
+
+Name: WebRoot/images/file/large/files/xml.gif
+SHA1-Digest: 8YChv27j7VP4WGjjqJPeW+6ZZOk=
+
+Name: WebRoot/images/button_view/share_user.bmp
+SHA1-Digest: VuLU7fF7TRf5Ro1PBxX9U3+nR9o=
+
+Name: WebRoot/images/file/small/files/mov.gif
+SHA1-Digest: H0HE30srui0mxtirR9GenHQzyZg=
+
+Name: WebRoot/page/commentary/list.jsp
+SHA1-Digest: YRJxjxnxJlU2zTOzsyxl/7LUoKg=
+
+Name: WebRoot/images/file/small/folders/subs.gif
+SHA1-Digest: vXuDILz6F07H2A7tB0HlTB42AmE=
+
+Name: WebRoot/page/favorite/list.jsp
+SHA1-Digest: KBdqoL0anlySfIQSXA8SE8VnZTk=
+
+Name: net/risesoft/soa/filecube/web/util/DateJsonValueProcessor.class
+SHA1-Digest: YfvUy43bY4nP2WMpdIpfjbJV2aY=
+
+Name: WebRoot/images/icons/sort_desc.png
+SHA1-Digest: XDTVRSddWZNXkqgfEtB2gPa9Iz0=
+
+Name: WebRoot/images/file/large/files/flv.gif
+SHA1-Digest: Os16LW99vr/3/4qc6Epsmzge1wE=
+
+Name: WebRoot/header.jsp
+SHA1-Digest: GJ/Y51VMQ1L6ZZx2bfeDyHcDtNU=
+
+Name: WebRoot/js/file/view/imgView.js
+SHA1-Digest: 0YoXhnnPxRlEbU9ft+h/jHVTTZc=
+
+Name: WebRoot/images/file/small/folders/subs_user.gif
+SHA1-Digest: Fp4+QQINtTHH5Ccl2F7KPkF2KgE=
+
+Name: WebRoot/images/file/large/files/html.gif
+SHA1-Digest: V7oME61u4Q2f+CimCg5rQTJWAKo=
+
+Name: WebRoot/images/file/small/folders/published.gif
+SHA1-Digest: QWrI+Dnyl20h8Y+W4HYeUuTbqp0=
+
+Name: WebRoot/images/view/folder_user.png
+SHA1-Digest: /X3gnIW4F67JdeTRlEtnqL3iAng=
+
+Name: WebRoot/images/file/medium/folders/recycle.gif
+SHA1-Digest: vqN9efIw844nBrQwkn+1oZnf+nA=
+
+Name: WebRoot/images/file/medium/folders/network_user.gif
+SHA1-Digest: arRVX+PoWN2QF9pFI/iRsztGaxI=
+
+Name: WebRoot/images/file/medium/files/3gp.gif
+SHA1-Digest: w3vgEOjOsYnIoQIGD/PiQrTmPjk=
+
+Name: WebRoot/commons/css/topTools.css
+SHA1-Digest: B8iLD7Af+rnzPi+iW6f0fM6eYGg=
+
+Name: WebRoot/images/file/small/folders/shared_albums.gif
+SHA1-Digest: E1bAcd3fXoOtshMcLczWe7dVVXI=
+
+Name: WebRoot/images/file/medium/files/exe.gif
+SHA1-Digest: YmytjevCtuad+Sq12VrcDBDWNvg=
+
+Name: WebRoot/css/file/view/imgView.css
+SHA1-Digest: F+60aoTWwXU8Y4+/QeXpY/b2qk8=
+
+Name: WebRoot/images/button_view/view_tubiao.jpg
+SHA1-Digest: mZgFeps9eT6ZATw9CmSDr1r2STI=
+
+Name: WebRoot/images/file/large/files/mp3.gif
+SHA1-Digest: eRUAf77piicSpbATvrqWTSNfIWg=
+
+Name: WebRoot/images/view/star.png
+SHA1-Digest: j9CLHEMKpWnpPX/NQvLwO0zlfAI=
+
+Name: WebRoot/images/file/medium/files/txt.gif
+SHA1-Digest: 1guiO0MtVXlTZZ4Hk0zv2QRxplg=
+
+Name: net/risesoft/soa/filecube/web/action/CommentaryAction.class
+SHA1-Digest: CtNRM3z6baTSU/N19mYxxVXYVAw=
+
+Name: WebRoot/images/icons/sort_asc.png
+SHA1-Digest: nMhK2ihJEkz/IrCGAiRSXyyv0/Q=
+
+Name: WebRoot/images/file/large/files/htm.gif
+SHA1-Digest: V7oME61u4Q2f+CimCg5rQTJWAKo=
+
+Name: WebRoot/images/file/medium/folders/network.gif
+SHA1-Digest: ZzwvSdUKsNZzU8ZXSvjpVB2qmOw=
+
+Name: WebRoot/commons/grade/img/star-off-big.png
+SHA1-Digest: bDieQQ8nf8g4nWApH7wkIWhN5v0=
+
+Name: WebRoot/images/menu/DOCUMENT4.gif
+SHA1-Digest: +63C/qAK2q9RHkSancLUKzV/rqU=
+
+Name: WebRoot/images/file/medium/folders/shared_docs.gif
+SHA1-Digest: 2suy2xSSCh6dJHI2FZ/f2cN9iwQ=
+
+Name: WebRoot/page/queryHistory/list.jsp
+SHA1-Digest: fDt9272yUgXguLZfZJ3zuVyLR+Q=
+
+Name: WebRoot/images/view/info.png
+SHA1-Digest: MAAcbEHMsBA3KBhBim3wt2l/Vgo=
+
+Name: WebRoot/js/left.js
+SHA1-Digest: Abyoc8mX/4SRDYtzGwlVpj2Rr9I=
+
+Name: WebRoot/images/file/large/files/rm.gif
+SHA1-Digest: TmShSiutqLsqbLlyMhPVGivHIVM=
+
+Name: WebRoot/images/file/medium/folders/subs_user.gif
+SHA1-Digest: gMHERnKNultb8hLIZawHrU8aZp4=
+
+Name: WebRoot/page/file/edit.jsp
+SHA1-Digest: xla8Vr+n20kwSaapPRkeaGGo5jw=
+
+Name: WebRoot/images/file/small/files/wmv.gif
+SHA1-Digest: oiFvpikuABDsa6X2PK2U1dpmMPY=
+
+Name: WebRoot/images/file/medium/files/rmvb.gif
+SHA1-Digest: w3vgEOjOsYnIoQIGD/PiQrTmPjk=
+
+Name: WebRoot/images/file/small/folders/network_user.gif
+SHA1-Digest: VGGoCQ/0PNHFtPGuXnVoTOV+cgM=
+
+Name: WebRoot/images/icons/add.png
+SHA1-Digest: tiRLACeoyfcCsxHLWyq4zGTztfI=
+
+Name: WebRoot/images/file/small/files/folder.gif
+SHA1-Digest: lSFJtcSc0zAMCXWGZJnh1nAm06o=
+
+Name: WebRoot/images/file/medium/folders/album_shared.gif
+SHA1-Digest: xlUdiHanb+MMcr4t2UPl8BQAuvs=
+
+Name: WebRoot/commons/grade/img/star-half-big.png
+SHA1-Digest: ynGdQoicnwekVkBwCo/uF/7Ok4E=
+
+Name: net/risesoft/soa/filecube/web/action/LogAction.class
+SHA1-Digest: 678rNw4XHeZtvWyB2e8+5AmA4dw=
+
+Name: WebRoot/images/file/medium/files/gif.gif
+SHA1-Digest: OJFEFb1kAexlz77XxTIdKsu/h/c=
+
+Name: WebRoot/js/file/attachment.js
+SHA1-Digest: Id7tFOs6ZdWvTF/fu7Rj++9tH6g=
+
+Name: WebRoot/css/file/view/viewFile.css
+SHA1-Digest: 2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+
+Name: WebRoot/images/icons/filter.png
+SHA1-Digest: ZiGVLcS0RFQoUbrutJnaP3lWxcM=
+
+Name: WebRoot/page/dimension/file.jsp
+SHA1-Digest: 3Gt46MTlKaIY/HXTsrClggRtlWc=
+
+Name: struts.xml
+SHA1-Digest: xoPV1OP6F8ZtbWE20mZSTooKlKY=
+
+Name: WebRoot/images/file/medium/files/xml.gif
+SHA1-Digest: 5ao1JNp+SRkTGo2kNOS2X+2j9Iw=
+
+Name: WebRoot/commons/jquery/ui/css/flick/images/ui-bg_highlight-soft_
+ 50_dddddd_1x100.png
+SHA1-Digest: YfbUk8MlSKrRsygdCxSlGi1EAp0=
+
+Name: WebRoot/images/icons/delete.gif
+SHA1-Digest: pNi8KGcAutpaN5PNvLj/1qSJo44=
+
+Name: WebRoot/js/dimension/choose.js
+SHA1-Digest: LRgu4rDyees1MsYu7g1E8S2tzg8=
+
+Name: WebRoot/images/file/medium/files/swf.gif
+SHA1-Digest: 7rMfs/tFaoMKa/iZ16iosk1b3Nc=
+
+Name: WebRoot/images/file/large/files/avi.gif
+SHA1-Digest: dxYpEme8l0A/HUa6RjwZ59RoIlA=
+
+Name: WebRoot/images/button_operation/upload.png
+SHA1-Digest: G+QmSGgN+/mXnXh6E/KDvtPHGVg=
+
+Name: WebRoot/images/file/medium/files/doc.gif
+SHA1-Digest: +VfQ3ljxkN4+BPt8ulAWOR2AfwA=
+
+Name: WebRoot/commons/jquery/ui/css/flick/jquery-ui-1.9.1.custom.min.c
+ ss
+SHA1-Digest: Ilyv7LUPh6woFE9il2MOUm/E9ro=
+
+Name: WebRoot/page/folder/add.jsp
+SHA1-Digest: gkaaXquv+6eSCOf7WssL1Q4Egmk=
+
+Name: WebRoot/images/file/large/files/zip.gif
+SHA1-Digest: mQHtGEu86u/NtWQ8iY9Dh1yrxJM=
+
+Name: WebRoot/js/file/view/listView.js
+SHA1-Digest: omD7BhOpHEF1IKBHAqxysXHsTjU=
+
+Name: WebRoot/images/file/large/files/jpg.gif
+SHA1-Digest: ksMhMjA0cA7Gg+j/TvRC9+/DhmY=
+
+Name: WebRoot/images/file/large/files/rar.gif
+SHA1-Digest: BoBwVVAWuk23JxbYH48BizhoBpM=
+
+Name: WebRoot/images/file/small/files/xls.gif
+SHA1-Digest: a7teF2oFiDsg/OAxIgelH3AGMEs=
+
+Name: WebRoot/images/button_operation/delete.png
+SHA1-Digest: jw68tF17pxpUHUeBMp9KaQDH7mU=
+
+Name: WebRoot/images/button_operation/star-on.png
+SHA1-Digest: 1Ik4+a6IAanjLPA3TGsn/iF5ZqI=
+
+Name: WebRoot/commons/grade/img/star-on-big.png
+SHA1-Digest: bzPfJzP8MtQId6GKuI2QMazXRkg=
+
+Name: WebRoot/images/file/small/files/pdf.gif
+SHA1-Digest: sswkjoVBdnq7B0QY7Jywi8bM6Ng=
+
+Name: WebRoot/images/file/large/files/3gp.gif
+SHA1-Digest: TmShSiutqLsqbLlyMhPVGivHIVM=
+

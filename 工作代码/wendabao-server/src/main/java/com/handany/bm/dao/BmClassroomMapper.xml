@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.handany.bm.dao.BmClassroomMapper">
+    <resultMap id="BaseResultMap" type="com.handany.bm.model.BmClassroom">
+        <result column="id" jdbcType="CHAR" property="id" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="intro" jdbcType="VARCHAR" property="intro" />
+        <result column="courses" jdbcType="VARCHAR" property="courses" />
+        <result column="grades" jdbcType="VARCHAR" property="grades" />
+        <result column="user_id" jdbcType="CHAR" property="userId" />
+        <result column="chatroom_id" jdbcType="CHAR" property="chatroomId" />
+        <result column="meeting_id" jdbcType="CHAR" property="meetingId"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+        <result column="status" jdbcType="CHAR" property="status" />
+        <result column="last_modified" jdbcType="TIMESTAMP" property="lastModified" />
+        <result column="user_pic" jdbcType="VARCHAR" property="userPic" />
+        <result column="school" jdbcType="VARCHAR" property="school" />
+        <collection property="classroomGrades" select="selectGradesForClassroom" column="id"
+                        ofType="com.handany.bm.model.BmClassroomGrade" javaType="ArrayList">
+            <result column="gclassroom_id" jdbcType="CHAR" property="classroomId" />
+            <result column="grade_id" jdbcType="CHAR" property="gradeId" />
+            <result column="grade_name" jdbcType="VARCHAR" property="gradeName" />
+        </collection>
+        <collection property="classroomCourses" select="selectCoursesForClassroom"
+                        ofType="com.handany.bm.model.BmClassroomCourse" javaType="ArrayList" column="id">
+            <result column="classroom_id" jdbcType="CHAR" property="classroomId" />
+            <result column="course_id" jdbcType="CHAR" property="courseId" />
+            <result column="course_name" jdbcType="VARCHAR" property="courseName" />
+        </collection>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,
+        name,
+        intro,
+        courses,
+        grades,
+        user_id,
+        chatroom_id,
+        meeting_id,
+        create_time,
+        status,
+        last_modified
+    </sql>
+	
+    <select id="queryClassroomByUserId" parameterType="string" resultMap="BaseResultMap">		
+        select * from Bm_Classroom c where c.user_id = #{userId}
+    </select>
+	
+    <select id="queryClassroomById" parameterType="string" resultMap="BaseResultMap">
+        select * from Bm_Classroom c where c.id = #{id}
+    </select>
+	
+    <insert id="saveClassroom" parameterType="com.handany.bm.model.BmClassroom">
+        insert into Bm_Classroom(
+        <include refid="Base_Column_List"></include>
+        ) values(#{id},#{name},#{intro},#{courses},#{grades},#{userId},#{chatroomId},#{meetingId},#{createTime},#{status},#{lastModified})
+        ON DUPLICATE KEY UPDATE
+        <if test="name != null">
+            name = #{name},
+        </if>
+        <if test="intro != null">
+            intro = #{intro},
+        </if>
+        <if test="courses != null">
+            courses = #{courses},
+        </if>
+        <if test="grades != null">
+            grades = #{grades},
+        </if>
+        <if test="userId != null">
+            user_id = #{userId},
+        </if>
+        <if test="chatroomId != null">
+            chatroom_id = #{chatroomId},
+        </if>
+        <if test="meetingId != null">
+            meeting_id = #{meetingId},
+        </if>
+        <if test="status != null">
+            status = #{status},
+        </if>
+        last_modified = #{lastModified}
+    </insert>
+	
+    <update id="updateStatus" parameterType="map">
+        update Bm_Classroom set status = ${status} where user_id = ${userId}
+    </update>
+	
+    <select id="selectGradesForClassroom" parameterType="string" resultType="com.handany.bm.model.BmClassroomGrade">
+        select * from Bm_Classroom_Grade where classroom_id = #{id}
+    </select>
+	
+    <select id="selectCoursesForClassroom" parameterType="string" resultType="com.handany.bm.model.BmClassroomCourse">
+        select * from Bm_Classroom_Course where classroom_id = #{id}
+    </select>
+        
+    <select id="queryClassrooms" parameterType="map" resultMap="BaseResultMap" resultType="list">
+        select *, (select url from Bm_Picture p where p.relate_id = c.user_id and p.type = 'userHeader' and p.status = '1' limit 1) as user_pic,
+        (select t.school from Bm_Teacher t where t.user_id = c.user_id limit 1) as school,
+        (select t.name from Bm_Teacher t where t.user_id = c.user_id limit 1) as teacherName
+        from Bm_Classroom c where 1 = 1
+        <if test="courseId != null and courseid != ''">
+            and exists(select 1 from Bm_Classroom_Course cc where c.id = cc.classroom_id and cc.course_id = #{courseId})
+        </if>
+        <if test="status != null and status !=''">
+            and status = #{status}
+        </if>
+        <if test="region1 != null and region1 != ''">
+				and exists(select 1 from Bm_Teacher t where t.user_id = c.user_id and t.region1 = #{region1})
+		</if>
+		<if test="region2 != null and region2 != ''">
+				and exists(select 1 from Bm_Teacher t where t.user_id = c.user_id and t.region2 = #{region2})
+		</if>
+		<if test="region3 != null and region3 != ''">
+				and exists(select 1 from Bm_Teacher t where t.user_id = c.user_id and t.region3 = #{region3})
+		</if>
+        order by c.status desc
+    </select>
+</mapper>

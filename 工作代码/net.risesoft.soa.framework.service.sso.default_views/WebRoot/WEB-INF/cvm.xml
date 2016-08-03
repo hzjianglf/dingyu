@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="GB2312"?>
+<CVMConfig>
+	<!--可支持多个CA-->
+	<CRLContext><!--VeriSign Class1 60天邮件证书 -->
+		<RetryPolicy>60,300,3600</RetryPolicy>
+		<NotCheckCRL>true</NotCheckCRL>
+		<CrlUrl>
+			http://192.168.1.194:8088/public/itruscrl.do?CA=01E81BF5477CD04DCF2D5A4F8E9BCE01
+		</CrlUrl>
+		<CaFileName>cafiles/root.cer</CaFileName>
+		<CrlFileName>cafiles/ca.crl</CrlFileName>
+	</CRLContext>
+</CVMConfig>

@@ -1,0 +1,67 @@
+/** 扩展标题上的全选按钮所在div */
+.collapsibleCheck{
+    float:right;
+}
+/** 扩展标题 */
+h2 span{
+    line-height: 30px;
+}
+/** 扩展标题上的按钮样式 */
+.collapsibleCheck > .ui-btn {
+    height: 25px;
+    width: 25px;
+    padding: 0.2em 0.2em;
+    text-align: center;
+    vertical-align: middle;
+}
+/** 扩展标题上全选按钮未选中的状态 */
+.check-off > .ui-btn{
+    border-color: transparent;
+    background: url("../../images/common/check_off.png") no-repeat center;
+}
+/** 扩展标题上全选按钮选中的状态 */
+.check-on > .ui-btn{
+    border-color: transparent;
+    background: url("../../images/common/check_on.png") no-repeat center;
+}
+
+.ui-li-static.ui-collapsible {
+    padding: 0;
+}
+
+.ui-li-static.ui-collapsible > .ui-collapsible-content > .ui-listview,
+.ui-li-static.ui-collapsible > .ui-collapsible-heading {
+    margin: 0;
+}
+
+.ui-li-static.ui-collapsible > .ui-collapsible-content {
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-right: 0;
+    border-bottom-width: 0;
+}
+
+/* collapse vertical borders */
+.ui-li-static.ui-collapsible > .ui-collapsible-content > .ui-listview > li.ui-last-child,
+.ui-li-static.ui-collapsible.ui-collapsible-collapsed > .ui-collapsible-heading > a.ui-btn {
+    border-bottom-width: 0;
+}
+
+.ui-li-static.ui-collapsible > .ui-collapsible-content > .ui-listview > li.ui-first-child,
+.ui-li-static.ui-collapsible > .ui-collapsible-content > .ui-listview > li.ui-first-child > a.ui-btn,
+.ui-li-static.ui-collapsible > .ui-collapsible-heading > a.ui-btn {
+    border-top-width: 0;
+}
+
+/* Remove right borders */
+.ui-li-static.ui-collapsible > .ui-collapsible-heading > a.ui-btn,
+.ui-li-static.ui-collapsible > .ui-collapsible-content > .ui-listview > .ui-li-static,
+.ui-li-static.ui-collapsible > .ui-collapsible-content > .ui-listview > li > a.ui-btn,
+.ui-li-static.ui-collapsible > .ui-collapsible-content {
+    border-right-width: 0;
+
+}
+
+.ui-controlgroup, fieldset.ui-controlgroup{
+    margin: 0;
+}

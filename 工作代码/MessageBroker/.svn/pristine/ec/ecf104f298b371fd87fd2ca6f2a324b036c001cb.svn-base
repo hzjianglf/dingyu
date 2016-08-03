@@ -1,0 +1,28 @@
+<fieldset>
+	<legend title="${textTitle}" class="table-text" dojoAttachPoint="fieldsetLegend">${textTitle}</legend>
+	
+	<div class="property notmandatory radiochoice" dojoAttachPoint="customSearchDiv">
+		<input type="radio" class="radioborder autowidth" name="${id}_searchType" checked="checked" id="${id}_entityNameButton" tabindex="1" dojoAttachPoint="entityNameButton" dojoAttachEvent="onclick: _onRadioButtonClick"/>
+		<label for="${id}_entityName" dojoAttachPoint="entityNameLabel">${textName}</label>
+		<br/>
+		<input dojoType="com.ibm.sr.widgets.AutoSuggest" dojoAttachPoint="autoSuggestWidget" id="${id}_entityName" type="text" name="name" size="50" value="" contextRoot="${contextRoot}" consumeEnterKeyEvent="true"/>
+		<br/>
+		<p dojoAttachPoint="entityTypeLabel">${textEntityType}</p>
+		<select id="${id}_entityTypeName" name="entityTypeName" tabindex="1" size="1" dojoAttachPoint="entityTypeList" dojoAttachEvent="onchange: _onEntityTypeChanged">
+		</select>
+	</div>
+    
+	<div class="property notmandatory disabledradiochoice" dojoAttachPoint="savedSearchDiv">
+		<input id="${id}_savedSearchButton" type="radio" name="${id}_searchType" class="radioborder autowidth" tabindex="1" dojoAttachPoint="savedSearchButton" dojoAttachEvent="onclick: _onRadioButtonClick"/>
+		<label for="${id}_savedSearchName" dojoAttachPoint="savedSearchLabel">${textSavedSearch}</label>
+		<br/>
+		<select id="${id}_savedSearchName" name="savedSearchName" tabindex="1" size="1" dojoAttachPoint="savedSearchList" disabled="disabled">
+		</select>
+    </div>
+    
+	<div dojoAttachPoint="buttonGroupDiv">
+		<input type="button" tabindex="1" name="search" disabled="disabled" value="${buttonSearch}" class="standardbutton" dojoAttachPoint="searchButton" dojoAttachEvent="onclick: onSearchButtonClicked">
+		<input type="button" tabindex="1" name="add" disabled="disabled" value="${buttonAdd}" class="standardbutton" dojoAttachPoint="addButton" dojoAttachEvent="onclick: onAddButtonClicked">
+		<input type="button" tabindex="1" name="change" disabled="disabled" value="${buttonChange}" class="standardbutton" dojoAttachPoint="changeButton" dojoAttachEvent="onclick: onChangeButtonClicked">
+	</div>    
+</fieldset>

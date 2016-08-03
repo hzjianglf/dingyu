@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns="http://java.sun.com/xml/ns/javaee" 
+xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_4.xsd" 
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_4.xsd" 
+id="WebApp_ID" version="2.4">
+  <display-name>文件资源立方</display-name>
+  <welcome-file-list>    
+    <welcome-file>index.jsp</welcome-file>    
+  </welcome-file-list>
+  <!-- Spring配置 -->
+	<context-param>
+	  <param-name>contextClass</param-name>
+	  <param-value>org.springframework.osgi.web.context.support.OsgiBundleXmlWebApplicationContext</param-value>
+	</context-param> 
+	<context-param>
+	  <param-name>contextConfigLocation</param-name>
+	  <param-value>
+	  /WEB-INF/applicationContext.xml
+	  </param-value>
+	</context-param> 
+	<listener>
+	   <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+  
+  <!-- 单点登录 -->  
+  <listener>
+		<listener-class>net.risesoft.soa.framework.service.sso.client.LogoutHttpSessionListener
+		</listener-class>
+	</listener>
+	
+	<filter>
+		<filter-name>Logout Filter</filter-name>
+		<filter-class>net.risesoft.soa.framework.service.sso.client.LogoutFilter
+		</filter-class>
+	</filter>
+	<filter>
+		<filter-name>SSO Filter</filter-name>
+		<filter-class>net.risesoft.soa.framework.service.sso.client.SSOFilter
+		</filter-class>
+		<init-param>
+			<param-name>ssoServerLoginUrl</param-name>
+			<param-value>http://localhost:8000/sso/login</param-value><!-- sso login 
+				地址 -->
+		</init-param>
+		<init-param>
+			<param-name>serverName</param-name>
+			<param-value>http://localhost:8000</param-value><!-- client 应用服务器 -->
+		</init-param>
+	</filter>
+
+	<filter>
+		<filter-name>TicketValidationFilter</filter-name>
+		<filter-class>net.risesoft.soa.framework.service.sso.client.TicketValidationFilter
+		</filter-class>
+		<init-param>
+			<param-name>ssoServerUrlPrefix</param-name>
+			<param-value>http://localhost:8000/sso/</param-value><!-- sso server 地址 -->
+		</init-param>
+		<init-param>
+			<param-name>serverName</param-name>
+			<param-value>http://localhost:8000</param-value><!-- client 应用服务器 -->
+		</init-param>
+	</filter>
+
+	<filter>
+		<filter-name>SSO HttpServletRequest Wrapper Filter</filter-name>
+		<filter-class>net.risesoft.soa.framework.service.sso.client.SSOHttpServletRequestWrapperFilter
+		</filter-class>
+	</filter>
+
+	<filter>
+		<filter-name>SSO Assertion ThreadLocal Filter</filter-name>
+		<filter-class>net.risesoft.soa.framework.service.sso.client.SSOAssertionThreadLocalFilter
+		</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>Logout Filter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>TicketValidationFilter</filter-name>
+		<url-pattern>/proxyCallback</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>SSO Filter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>TicketValidationFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>SSO HttpServletRequest Wrapper Filter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>SSO Assertion ThreadLocal Filter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<servlet>
+		<servlet-name>Logout Servlet</servlet-name>
+		<servlet-class>net.risesoft.soa.framework.service.sso.client.LogoutServlet
+		</servlet-class>
+		<init-param>
+			<param-name>ssoServerLogoutUrl</param-name>
+			<param-value>http://localhost:8000/sso/logout</param-value>
+		</init-param>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Logout Servlet</servlet-name>
+		<url-pattern>/logout</url-pattern>
+	</servlet-mapping>
+  <!-- sessionFilter 主要作用：其它工程调用此工程时，为此工程加入session资源 -->
+  <filter>
+        <filter-name>sessionFilter</filter-name>
+        <filter-class>net.risesoft.soa.filecube.web.action.SessionFilter</filter-class>        
+  </filter>
+  <filter-mapping>
+      <filter-name>sessionFilter</filter-name>
+      <url-pattern>*.action</url-pattern>
+  </filter-mapping> 
+   <!-- Struts在Web.xml的配置 -->
+  <filter>
+        <filter-name>struts2</filter-name>
+        <filter-class>net.risesoft.soa.framework.struts2.dispatcher.filter.OsgiStrutsPrepareAndExecuteFilter</filter-class>        
+  </filter>
+  <filter-mapping>
+      <filter-name>struts2</filter-name>
+      <url-pattern>*.action</url-pattern>
+  </filter-mapping>
+  
+</web-app>

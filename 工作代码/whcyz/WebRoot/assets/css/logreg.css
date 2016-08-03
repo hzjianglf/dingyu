@@ -1,0 +1,54 @@
+@CHARSET "UTF-8";
+.main{
+	width:990px;
+	margin:100px auto;
+	background: #F7F7F7;
+	background: url("imgs/leftboxbg.png");
+	height:auto !important;
+}
+.breadcrumb{
+	background-color: #F1F1F1;
+	margin-bottom: 5px;
+	height: 36px;
+}
+.login{
+	width: 660px;
+	min-height:400px;
+	border:1px solid #DDD;
+	border-radius:4px;
+	background: #FFF;
+	margin: 20px auto;
+}
+.hline1 {
+height: 5px;
+border-bottom: 1px solid #DDD;
+}
+.hline1 div {
+height: 4px;
+border-bottom: 1px solid #FEFEFE;
+}
+.login .title{
+	color:#999;
+	font-size:25px;
+	padding-left: 15px;
+	padding-top: 10px;
+	font-weight: normal;
+}
+.login .form{
+	width: 400px;
+	padding: 20px;
+	margin: 0 auto;
+	margin-top: 10px;
+}
+.title2{
+	margin-top:10px;
+	font-size:20px;
+	color: #004276;
+}
+.code{
+	position: relative;
+	width:150px;
+	right:20px;
+	float: left;
+	margin-left: 30px;
+}

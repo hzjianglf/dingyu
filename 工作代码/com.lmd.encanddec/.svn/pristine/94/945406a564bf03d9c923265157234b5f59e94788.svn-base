@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ServiceModule id="encanddec"  name="安全认证服务" version="1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ServiceModule.xsd">
+   <ServiceComponent id="JjmServiceManager" name="加解密服务组件" version="1.0">
+      <service interface="com.lmd.encanddec.manager.JjmServiceManager" />
+      <!-- 没有配置factory时查找顺序：1、从Spring容器中找serivce接口的唯一实现，2、从osgi的service注册表去找，3、new一个
+        如果配置factory，则直接调用。最好是都托管给Spring容器。 -->
+      <implementation  class="com.lmd.encanddec.manager.impl.JjmServiceManagerImpl"/>
+      
+      <properties>
+         <property name="firstKey" value="aStringValue"/>
+         <property name="secondKey" value="anotherStringValue"/>
+      </properties>
+   </ServiceComponent>
+    
+    <ServiceComponent id="QueryService" name="查找资源编号" version="1.0">
+      <service interface="com.lmd.encanddec.service.QueryService" />
+      <implementation  class="com.lmd.encanddec.manager.impl.QueryServiceImpl"/>
+      
+      <properties>
+         <property name="firstKey" value="aStringValue"/>
+         <property name="secondKey" value="anotherStringValue"/>
+      </properties>
+   </ServiceComponent> 
+   
+   <ServiceComponent id="IpService" name="获取目标IP" version="1.0">
+      <service interface="com.lmd.encanddec.service.IpService" />
+      <implementation  class="com.lmd.encanddec.manager.impl.IpServiceImpl"/>
+      
+      <properties>
+         <property name="firstKey" value="aStringValue"/>
+         <property name="secondKey" value="anotherStringValue"/>
+      </properties>
+   </ServiceComponent>
+   
+   <ServiceComponent id="PermissionService" name="验证系统权限" version="1.0">
+      <service interface="com.lmd.encanddec.service.PermissionService" />
+      <implementation  class="com.lmd.encanddec.manager.impl.PermissionServiceImpl"/>
+      
+      <properties>
+         <property name="firstKey" value="aStringValue"/>
+         <property name="secondKey" value="anotherStringValue"/>
+      </properties>
+   </ServiceComponent>
+   
+   
+</ServiceModule>

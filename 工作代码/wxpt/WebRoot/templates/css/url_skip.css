@@ -1,0 +1,17 @@
+.hide {
+	display: none;
+}
+.box-guide .box-img {
+	width: 120px;
+}
+.box-guide .box-img img {
+	max-width: 100%;
+}
+.shade {
+	width: 100%;
+	background: #000;
+	opacity: 0.6;
+	z-index: 100;
+	position: absolute;
+	top: 0;
+}

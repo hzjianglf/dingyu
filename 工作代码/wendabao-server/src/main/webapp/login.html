@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>问答宝登录系统</title>
+<link rel="stylesheet" href="./css/custom.css">
+<style>
+		body{ margin:0; padding:0; color:#222; font-family:"微软雅黑"; font-size:14px;width:100%;height:100%}
+		a{ color:#222; text-decoration:none;}
+		a:hover,a:active,a:visited,a:link{ color:#fff; text-decoration:none;}
+		
+		.go-login{ background:transparent; padding:10px 168px; font-size:22px; background-color:#F9B702; color:#fff;border-radius:6px;-webkit-transition:all .2s ease-in-out;}
+		.go-login:hover{ background:#EAB00E; color:#fff;}
+		.div-phone:before{ background:url(./image/login_user.png) no-repeat center;}
+		.div-phone:before,.div-ranks:before{content: "";position: relative;top: 34px;left: 44px;display: block;width: 19px;height: 19px;}
+		.div-ranks:before{background:url(./image/login_set.png) no-repeat center}
+		input[type=text],input[type=password]{ padding-left:32px;margin-left: 20px;}
+		.passward{padding-right:30px;line-height:40px; color:#222;*padding-right:40px;}
+		.passward a{color:#222;}
+		.passward a:link,.passward a:hover,.passward a:active,.passward a:visited{color:#222;}
+		.div-conform a:hover,.div-conform a:visited,a:active{text-decoration: none; color:#fff;}
+	</style>
+</head>
+<body style="padding-top: 0px;margin-top: 0px;" >
+<div align="center" style="padding-top:60px;"><img src="./image/logo-1.png"></div>
+
+<div style="width: 500px; background-color: #eee; line-height: 45px; padding: 20px 0 35px;
+    margin: 30px auto 240px; border-radius: 4px; text-align: center;">
+    <div style="height:40px"></div>
+	<div class="form">
+		<div class="div-phone">
+			<input type="text" class="infos header_form_input" tabindex="1" id="phone" placeholder="&nbsp;请输入用户名"
+				   style="border-radius:3px; box-shadow:none; line-height:44px; border: 1px solid #ccc; height:50px; color:#999; *padding-left:25px;" size="55" />
+			<!--<a href="javascript:;" class="code"></a>-->
+		</div>
+		<div class="div-ranks">
+			<input type="password" class="infos" id="password" tabindex="2" placeholder="&nbsp;请输入密码"
+				   onkeypress="if(event.keyCode==13){javascript:loginManage()}"
+				   style="border-radius:3px; box-shadow:none; line-height:44px; border: 1px solid #ccc; height:50px; color:#999; *margin-top:10px;" size="55"/>
+		</div>
+		<div class="div-phone">
+			<select  style="border-radius:3px; box-shadow:none; line-height:44px; border: 1px solid #ccc; height:50px; color:#999; *padding-left:25px;" size="55"  id='userType' >
+					<option value='' >请选择用户类型</option>
+					<option value='3'  >代理商</option>
+					<option value='4' selected = "selected">管理员</option>
+			</select>
+		</div>
+		<p class="div-conform">
+			<a href="javascript:loginManage()" class="go-login conform" tabindex="4">登&nbsp;录</a></p>
+
+	</div>
+</div>
+
+<script src="./js/jquery-1.11.3.min.js"></script>
+<script src="./js/md5-min.js"></script>
+
+<script src="./js/modalDialog.js"></script>
+<script src="./js/common.js"></script>
+<script type="text/javascript">
+function loginManage(){
+	var numbers = /^1\d{10}$/;
+	var val = $('#phone').val().replace(/\s+/g,""); //获取输入手机号码
+	var password = hex_md5(document.getElementById("password").value);
+	var userType = $("#userType").val();
+	if(!numbers){
+		showDialog("请输入用户名", "info");
+		return;
+	}
+	if(!password){
+		showDialog("请输入密码", "info");
+		return;
+	}
+	if(!userType){
+		showDialog("请选择用户类型", "info");
+		return;
+	}
+			
+	
+	console.log(password);
+	var loginName = document.getElementById("phone").value;
+	sendRequest({"loginName":loginName,"password": password,"userType":userType},
+			"/pm/user/login.do?t=" + new Date().getTime(), function(data){
+				if ( true == data.header.success) {
+					var tokenId = data.tokenId;
+						
+					/* if (data.loginUser.status !="T"){
+						alert("你没有登录权限");
+					} else { */
+						sessionStorage.setItem("iframeAction", "");
+						window.top.location='./pm/user/manage.do?tokenId='+tokenId;
+					/* } */
+			 	} else {
+					if ($('.div-phone').find('span').length == 0) {
+						showDialog("用户名或密码错误!", "info");
+					} else {
+						showDialog("用户名或密码错误!","info");
+					}
+				}
+			});
+	
+}
+</script>
+<!--代码部分end-->
+</body>
+</html>

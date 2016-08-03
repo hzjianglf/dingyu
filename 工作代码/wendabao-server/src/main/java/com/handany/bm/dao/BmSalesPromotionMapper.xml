@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.handany.bm.dao.BmSalesPromotionMapper">
+    <resultMap id="BaseResultMap" type="com.handany.bm.model.BmSalesPromotion">
+            <result column="id" jdbcType="CHAR" property="id" />
+            <result column="user_id" jdbcType="CHAR" property="userId" />
+            <result column="region" jdbcType="VARCHAR" property="region" />
+            <result column="region1" jdbcType="VARCHAR" property="region1" />
+            <result column="region2" jdbcType="VARCHAR" property="region2" />
+            <result column="region3" jdbcType="VARCHAR" property="region3" />
+            <result column="region1_txt" jdbcType="VARCHAR" property="region1Txt" />
+            <result column="region2_txt" jdbcType="VARCHAR" property="region2Txt" />
+            <result column="region3_txt" jdbcType="VARCHAR" property="region3Txt" />
+            <result column="name" jdbcType="VARCHAR" property="name" />
+            <result column="qa_time_id" jdbcType="CHAR" property="qaTimeId" />
+            <result column="qa_time_free" jdbcType="DECIMAL" property="qaTimeFree" />
+            <result column="intro" jdbcType="VARCHAR" property="intro" />
+            <result column="content" jdbcType="LONGVARCHAR" property="content" />
+            <result column="start_time" jdbcType="TIMESTAMP" property="startTime" />
+            <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
+            <result column="status" jdbcType="CHAR" property="status" />
+            <result column="approval_info" jdbcType="VARCHAR" property="approvalInfo" />
+            <result column="last_modified" jdbcType="TIMESTAMP" property="lastModified" />
+            
+            <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+            id,
+            user_id,
+            region,
+            region1,
+            region2,
+            region3,
+            region1_txt,
+            region2_txt,
+            region3_txt,
+            name,
+            qa_time_id,
+            qa_time_free,
+            intro,
+            content,
+            start_time,
+            end_time,
+            status,
+            approval_info,
+            last_modified
+    </sql>
+    
+    <sql id="SelectColumnList">
+            id,
+            user_id,
+            region,
+            region1,
+            region2,
+            region3,
+            name,
+            qa_time_id,
+            qa_time_free,
+            intro,
+            content,
+            start_time,
+            end_time,
+            status,
+            approval_info,
+            last_modified
+    </sql>
+    <select id="querySalesPromotion" parameterType="map" resultMap="BaseResultMap">
+        select <include refid="SelectColumnList"></include>
+        (select r1.name from Bm_Region r1 where r1.code = p.region1 limit 1) as region1_txt,
+        (select r2.name from Bm_Region r2 where r2.code = p.region2 limit 1) as region2_txt,
+        (select r3.name from Bm_Region r3 where r3.code = p.region3 limit 1) as region3_txt,
+        (select a.name from Bm_Agent where a.user_id = p.user_id limit 1) as user_name
+        from Bm_Sales_Promotion p where 1 = 1
+        <if test="region1 != null">
+            and region1 = #{region1}
+        </if>
+        <if test="region2 != null">
+            and region2 = #{region2}
+        </if>
+        <if test="region3 != null">
+            and region3 = #{region3}
+        </if>
+        <if test="status != null">
+            and status = #{status}
+        </if>
+        <if test="name != null">
+            and exists (select id from Bm_Agent a where a.name like CONCAT('%', #{name}, '%') and a.user_id = p.user_id)
+        </if>
+    </select>
+    
+    <select id="queryById" resultMap="BaseResultMap">
+        select <include refid="SelectColumnList"></include>
+        (select r1.name from Bm_Region r1 where r1.code = p.region1 limit 1) as region1_txt,
+        (select r2.name from Bm_Region r2 where r2.code = p.region2 limit 1) as region2_txt,
+        (select r3.name from Bm_Region r3 where r3.code = p.region3 limit 1) as region3_txt,
+        (select a.name from Bm_Agent where a.user_id = p.user_id limit 1) as user_name
+        from Bm_Sales_Promotion p where id = #{id}
+    </select>
+    
+    <update id="saveSalesPromotion" parameterType="com.handany.bm.model.BmSalesPromotion">
+        insert into Bm_Sales_Promotion(<include refid="Base_Column_List"></include>)
+        values(#{id}, #{userId}, #{region}, #{region1}, #{region2}, #{region3}, 
+        #{region1Txt}, #{region2Txt}, #{region3Txt},
+        #{name},
+        #{qaTimeId}, #{qaTimeFree}, #{intro}, #{content}, #{startTime}, #{endTime},
+        #{status}, #{approvalInfo}, #{lastModified})
+        ON DUPLICATE KEY UPDATE
+        <if test="id != null">
+            id = #{id}
+        </if>
+        <if test="userId != null">
+            user_id = #{userId}
+        </if>
+        <if test="region != null">
+            region = #{region}
+        </if>
+        <if test="region1 != null">
+            region1 = #{region1}
+        </if>
+        <if test="region2 != null">
+            region2 = #{region2}
+        </if>
+        <if test="region3 != null">
+            region3 = #{region3}
+        </if>
+        <if test="region1Txt != null">
+            region1_txt = #{region1Txt}
+        </if>
+        <if test="region2Txt != null">
+            region2_txt = #{region2Txt}
+        </if>
+        <if test="region3Txt != null">
+            region3_txt = #{region3Txt}
+        </if>
+        <if test="name != null">
+            name = #{name}
+        </if>
+        <if test="qaTimeId != null">
+            qa_time_id = #{qaTimeId}
+        </if>
+        <if test="qaTimeFree != null">
+            qa_time_free = #{qaTimeFree}
+        </if>
+        <if test="intro != null">
+            intro = #{intro}
+        </if>
+        <if test="content != null">
+            content = #{content}
+        </if>
+        <if test="startTime != null">
+            start_time = #{startTime}
+        </if>
+        <if test="endTime != null">
+            end_time = #{endTime}
+        </if>
+        <if test="status != null">
+            status = #{status}
+        </if>
+        <if test="approvalInfo != null">
+            approval_info = #{approvalInfo}
+        </if>
+        <if test="lastModified != null">
+            last_modified = #{lastModified}
+        </if>
+    </update>
+</mapper>

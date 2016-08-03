@@ -1,0 +1,151 @@
+/* showShare */
+.showShare .shareWrap .shareText{
+	padding:10px;
+}
+.showShare .shareWrap{
+	padding:10px 0 10px 0;
+}
+.showShare .shareWrap ul{
+	padding:0 10px;
+	overflow:hidden;
+}
+.showShare .shareWrap ul li{
+	width:50%;
+	float:left;
+}
+.showShare .shareWrap ul li div{
+	height:38px;
+	line-height:38px;
+	border:1px solid #cccccc;
+	padding: 0 10px;
+	background:#e5e5e5;
+	vertical-align:top;
+
+	display:-moz-box;
+	display:-webkit-box;
+	display:box;
+	-moz-box-orient:horizontal;
+	-webkit-box-orient:horizontal;
+	box-orient:horizontal;
+}
+.showShare .shareWrap ul li:nth-child(2n+1) div{
+	margin:0 2px 1px 0;
+}
+.showShare .shareWrap ul li:nth-child(2n+2) div{
+	margin:0 0 2px 1px;
+}
+.showShare .shareWrap ul li.touch div{
+	background: #c7c7c7;
+}
+.showShare .shareWrap ul li span{
+	display:inline-block;
+	vertical-align:top;
+}
+.showShare .shareWrap ul li .text{
+	height:38px;
+	display:block;
+	overflow:hidden;
+	word-wrap:break-word;
+	word-break:break-all;
+
+	-moz-box-flex:1;
+	-webkit-box-flex:1;
+	box-flex:1;
+}
+.showShare .shareWrap ul li .icon{
+	width:32px;
+	height:32px;
+	margin:3px 10px 0 0;
+	background:url(../images/share.jpg) no-repeat;
+}
+.showShare .shareWrap ul li.weiboSina .icon{
+	background-position:0px 0px;
+}
+.showShare .shareWrap ul li.spaceQQ .icon{
+	background-position:0px -32px;
+}
+.showShare .shareWrap ul li.weiboQQ .icon{
+	background-position:0px -64px;
+}
+.showShare .shareWrap ul li.weiboWangyi .icon{
+	background-position:0px -96px;
+}
+.showShare .shareWrap ul li.weiboSohu .icon{
+	background-position:0px -128px;
+}
+.showShare .shareWrap ul li.friend .icon{
+	background-position:0px -160px;
+}
+.showShare .shareWrap ul li.renren .icon{
+	background-position:0px -192px;
+}
+.showShare .shareWrap ul li.kaixin .icon{
+	background-position:0px -224px;
+}
+.showShare .shareWrap ul li.douban .icon{
+	background-position:0px -256px;
+}
+.showShare .shareWrap ul li.baishequ .icon{
+	background-position:0px -288px;
+}
+.showShare .shareWrap ul li.tianya .icon{
+	background-position:0px -320px;
+}
+.showShare .shareWrap ul li.fanfou .icon{
+	background-position:0px -352px;
+}
+.showShare .shareWrap ul li.renjian .icon{
+	background-position:0px -384px;
+}
+.showShare .shareWrap ul li.huaban .icon{
+	background-position:0px -416px;
+}
+.showShare .shareWrap ul li.meilishuo .icon{
+	background-position:0px -448px;
+}
+.showShare .shareWrap ul li.taojianghu .icon{
+	background-position:0px -480px;
+}
+.showShare .shareWrap ul li.mogujie .icon{
+	background-position:0px -512px;
+}
+.showShare .shareWrap ul li.hexun .icon{
+	background-position:0px -544px;
+}
+.showShare .shareWrap ul li.diandian .icon{
+	background-position:0px -576px;
+}
+.showShare .shareWrap ul li.sinaQingbo .icon{
+	background-position:0px -608px;
+}
+/*英文*/
+.showShare .shareWrap ul li.facebook .icon{
+	background-position:0px -660px;
+}
+.showShare .shareWrap ul li.twitter .icon{
+	background-position:0px -692px;
+}
+.showShare .shareWrap ul li.delicious .icon{
+	background-position:0px -724px;
+}
+.showShare .shareWrap ul li.stumbleupon .icon{
+	background-position:0px -756px;
+}
+.showShare .shareWrap ul li.google .icon{
+	background-position:0px -788px;
+}
+.showShare .shareWrap ul li.tumblr .icon{
+	background-position:0px -820px;
+}
+.showShare .shareWrap ul li.digg .icon{
+	background-position:0px -852px;
+}
+.showShare .shareWrap ul li.myspace .icon{
+	background-position:0px -884px;
+}
+.showShare .shareWrap ul li.pinterest .icon{
+	background-position:0px -916px;
+}
+.showShare .shareWrap ul li.linkedin .icon{
+	background-position:0px -948px;
+}

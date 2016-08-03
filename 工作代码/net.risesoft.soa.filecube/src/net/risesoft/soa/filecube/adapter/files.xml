@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files>
+	<!-- 文件的来源标识 -->
+	<appName>appName</appName>
+	<!-- {operateType}  add增加  delete删除  update更新-->
+	<!-- {type} document文档 	image图片  audio音频  video视频-->
+	<file operate-type="add" file-type="document">
+		<!-- 文件标识 -->
+		<uid>c701dbde-3f9c-4e49-8b41-feacdf59ea58</uid>
+		<!-- 文件名称 -->
+		<name>测试文件</name>
+		<!-- 文件扩展名 -->
+		<extension>doc</extension>
+		<!-- 正文内容,采用base64编码 -->
+		<content>
+			<![CDATA[
+				qqzz&&&
+			]]>			
+		</content>
+		<!-- 文件类型 -->
+		<type>document</type>
+		<!-- 文件存储路径 ,此处会创建逻辑文件夹 -->
+		<directory>{directory}</directory>
+		<!-- 文件大小 -->
+		<size>100021</size>	
+		<!-- 创建时间 -->
+		<createDate>2012-09-11 00:00:00</createDate>	
+		<!-- 修改时间 -->
+		<modifiedDate>2012-09-11 00:00:00</modifiedDate>
+		<!-- 关键字 -->
+		<keyWords>www</keyWords>
+		<!-- 跳转公文的url -->
+		<url>url</url>
+		<!-- 取值范围：true，false;是否为zip的压缩文件-->
+		<zipDoc>false</zipDoc>
+		<!-- 扩展元素 -->
+		<extends> 
+			<extend name_cn="" name_en=""  dataType="" >{value}</extend>
+			<extend name_cn="" name_en=""  dataType="" >{value}</extend>
+			<extend name_cn="" name_en=""  dataType="" >{value}</extend>
+		</extends>
+		<!-- 文件类型元数据 -->		
+		<meta-type file-type="document">
+			<!-- 唯一标识符 -->
+			<property name="filedocId">qq</property>
+			<!-- 文档标题 -->
+			<property name="title">aa</property>			
+			<!-- 主题 -->
+			<property name="keyWord">tt</property>		
+			<!-- 文档摘要 -->
+			<property name="summary">zz</property>		
+			<!-- 备注 -->
+			<property name="remarks">rr</property>	
+			<extends> 
+				<extend name_cn="" name_en=""  dataType="" >{value}</extend>
+				<extend name_cn="" name_en=""  dataType="" >{value}</extend>
+				<extend name_cn="" name_en=""  dataType="" >{value}</extend>
+			</extends>	
+		</meta-type>		
+		<meta-type file-type="image">
+			<!-- 唯一标识符 -->
+			<property name="fileimageId">w</property>	
+			<!-- 水平分辨率 -->
+			<property name="width" >1</property>	
+			<!-- 垂直分辨率 -->
+			<property name="height" >2</property>	
+			<!-- 饱和度 -->
+			<property name="saturation" >3</property>	
+			<!-- 对比度 -->
+			<property name="contrast" >4</property>	
+			<extends> 
+				<extend name_cn="" name_en=""  dataType="" >{value}</extend>
+				<extend name_cn="" name_en=""  dataType="" >{value}</extend>
+				<extend name_cn="" name_en=""  dataType="" >{value}</extend>
+			</extends>	
+		</meta-type>
+		<meta-type file-type="audio">
+			<!-- 唯一标识符 -->
+			<property name="fileAudioId" >ww</property>	
+			<!-- 播放时长 -->
+			<property name="length">60</property>	
+			<extends> 
+				<extend name_cn="" name_en=""  dataType="" >{value}</extend>
+				<extend name_cn="" name_en=""  dataType="" >{value}</extend>
+				<extend name_cn="" name_en=""  dataType="" >{value}</extend>
+			</extends>	
+		</meta-type>
+		<meta-type file-type="video">
+			<!-- 唯一标识符 -->
+			<property name="fileVedioID" ></property>
+			<!-- 宽度 -->
+			<property name="width"></property>
+			<!-- 高度 -->
+			<property name="height"></property>
+			<!-- 播放时长 -->
+			<property name="length"></property>
+			<extends> 
+				<extend name_cn="" name_en=""  dataType="" >{value}</extend>
+				<extend name_cn="" name_en=""  dataType="" >{value}</extend>
+				<extend name_cn="" name_en=""  dataType="" >{value}</extend>
+			</extends>	
+		</meta-type>
+		<!-- 文件附件元数据 -->
+		<attachments>
+			<attachment>
+				<!-- 唯一标识符 -->
+				<attachmentId>{attachmentId}</attachmentId>
+				<!-- 唯一标识符 -->
+				<name>{name}</name>
+				<!-- 文件大小 -->
+				<size>0</size>
+				<!-- 文件原路径 -->
+				<directory>{directory}</directory>
+				<!-- 文件内容 -->
+				<content>{content}</content>
+				<!-- 扩展名 -->
+				<extension>{extension}</extension>
+				<!-- 文件类型 document文档 	image图片  audio音频  video视频 -->
+				<type>{type}</type>
+				<!-- 创建时间 -->
+				<createDate>2012-09-11 00:00:00</createDate>
+				<!-- 修改时间 -->
+				<modifiedDate>2012-09-11 00:00:00</modifiedDate>
+				<!-- 创建用户编号 -->
+				<creatorUid>{creatorUid}</creatorUid>
+				<!-- 最后修改人 -->
+				<modifierUid>{modifierUid}</modifierUid>
+				<!-- 文件来源适配器 -->
+				<adapterUid>{adapterUid}</adapterUid>
+				<!-- 文件备注 -->
+				<remarks>{remarks}</remarks>
+				<!-- 是否已经删除 -->
+				<deleted>{deleted}</deleted>
+				<!-- 文件小图标 -->
+				<smallIcon>{smallIcon}</smallIcon>
+				<!-- 文件大图标 -->
+				<largeIcon>{largeIcon}</largeIcon>
+				<!-- 取值范围：true，false;是否为zip的压缩文件-->
+				<zipDoc>false</zipDoc>
+				<extends> 
+					<extend name_cn="" name_en=""  dataType="" >{value}</extend>
+					<extend name_cn="" name_en=""  dataType="" >{value}</extend>
+					<extend name_cn="" name_en=""  dataType="" >{value}</extend>
+				</extends>	
+			</attachment>
+		</attachments>
+		<!-- 责任者元数据 -->
+		<person-liable>
+			<!-- 创建人编号 -->
+			<property name="createUserUid">hsh</property>
+			<property name="creatorName">hsh</property>
+			<!-- 最后修改人编号 -->
+			<property name="lastModifiedUserUid">zx</property>
+			<!-- 所属部门标识 -->
+			<property name="departmentUid">tt</property>
+			<!-- 所属部门名称 -->
+			<property name="departmentName">你好</property>
+			<extends> 
+				<extend name_cn="" name_en=""  dataType="" >{value}</extend>
+				<extend name_cn="" name_en=""  dataType="" >{value}</extend>
+				<extend name_cn="" name_en=""  dataType="" >{value}</extend>
+			</extends>	
+		</person-liable>
+		<!-- 业务元数据 -->
+		<meta-business>
+			<!-- 文件所在应用名称 -->
+			<property name="app">aa</property>
+			<!-- 文件所在子应用名称 -->
+			<property name="subApp">tt</property>
+			<!-- 文件来源适配器 -->
+			<property name="adapterUid">qq</property>
+			<!-- 文件种类 -->
+			<property name="kind">zz</property>		
+			<!-- 文件描述 -->
+			<property name="description">tthh</property>
+			<!-- 文件备注 -->
+			<property name="remarks">hhh</property>
+			<!-- 精华文件 -->
+			<property name="essences">jh</property>			
+			<!-- 文件小图标 -->
+			<property name="smallIcon">xt</property>
+			<!-- 文件大图标 -->
+			<property name="largeIcon">dt</property>
+			<extends> 
+				<extend name_cn="" name_en=""  dataType="" >{value}</extend>
+				<extend name_cn="" name_en=""  dataType="" >{value}</extend>
+				<extend name_cn="" name_en=""  dataType="" >{value}</extend>
+			</extends>	
+		</meta-business>
+		<!-- 公文类 -->
+		<meta-business-type>
+			<!-- 发文字号 -->
+			<property name="fileNumber" >fileNumber</property>
+			<!-- 公文的主题词 -->
+			<property name="keyWord" >keyWord</property>
+			<!-- 文种 -->
+			<property name="kind" >kind</property>
+			<!-- 公文签发时间 -->
+			<property name="issueDate" >2012-09-11 00:00:00</property>
+			<!-- 公文紧急程度 -->
+			<property name="enmergency" >enmergency</property>
+			<!-- 文件密级 -->
+			<property name="secretLevel" >secretLevel</property>
+			<!-- 公文的保密期限 -->
+			<property name="secretLife" >secretLife</property>
+			<!-- 公文页数 -->
+			<property name="pagination" >12</property>
+			<!-- 签发人 -->
+			<property name="underSigned" >underSigned</property>
+			<!-- 发文机关（责任者） -->
+			<property name="unitSender" >unitSender</property>
+			<!-- 主送机关 -->
+			<property name="mainReciever" >mainReciever</property>
+			<!-- 抄送机关 -->
+			<property name="copyReciever" >copyReciever</property>
+			<!-- 印发机关 -->
+			<property name="issuedAuthority" >issuedAuthority</property>
+			<!-- 印发份数 -->
+			<property name="copies" >5</property>
+			<!-- 印发时间 -->
+			<property name="issuedDate" >2012-09-11 00:00:00</property>
+			<!-- 送出时间 -->
+			<property name="submittedDate" >2012-09-11 00:00:00</property>
+			<!-- 办理单位 -->
+			<property name="handlingUnits" >handlingUnits</property>
+			<!-- 办理时限 -->
+			<property name="processedLife" >2012-09-11 00:00:00</property>
+			<!-- 办理人 -->
+			<property name="transactor" >transactor</property>
+			<extends> 
+				<extend name_cn="" name_en=""  dataType="" >{value}</extend>
+				<extend name_cn="" name_en=""  dataType="" >{value}</extend>
+				<extend name_cn="" name_en=""  dataType="" >{value}</extend>
+			</extends>	
+		</meta-business-type>
+	</file>
+</files>

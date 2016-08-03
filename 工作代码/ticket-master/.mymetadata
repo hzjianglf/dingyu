@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="ticket-master"
+  id="myeclipse.1390560520573"
+  context-root="/ticket-master"
+  j2ee-spec="5.0"
+  archive="ticket-master.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

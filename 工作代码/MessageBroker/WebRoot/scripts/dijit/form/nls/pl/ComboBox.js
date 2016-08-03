@@ -1,0 +1,1 @@
+({"previousMessage":"Poprzednie wybory","nextMessage":"Wi\x{0119}cej wybor¨®w"})

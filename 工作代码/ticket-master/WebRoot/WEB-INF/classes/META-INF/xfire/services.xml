@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<beans xmlns="http://xfire.codehaus.org/config/1.0">
+  <service>
+    <name>VetechAsmsB2BTicketWebService</name>
+    <namespace>http://com.ticket.master/VetechAsmsB2BTicketWebService</namespace>
+    <serviceClass>com.ticket.master.service.VetechAsmsB2BTicketWebService</serviceClass>
+    <implementationClass>com.ticket.master.service.impl.VetechAsmsB2BTicketWebServiceImpl</implementationClass>
+  </service>
+  
+  <service>
+    <name>VetechAsmsB2BInsuranceWebService</name>
+    <namespace>http://com.ticket.master/VetechAsmsB2BInsuranceWebService</namespace>
+    <serviceClass>com.ticket.master.service.VetechAsmsB2BInsuranceWebService</serviceClass>
+    <implementationClass>com.ticket.master.service.impl.VetechAsmsB2BInsuranceWebServiceImpl</implementationClass>
+  </service>
+  <service>
+    <name>VetechAsmsB2BHotelWebService</name>
+    <namespace>http://com.ticket.master/VetechAsmsB2BHotelWebService</namespace>
+    <serviceClass>com.ticket.master.service.VetechAsmsB2BHotelWebService</serviceClass>
+    <implementationClass>com.ticket.master.service.impl.VetechAsmsB2BHotelWebServiceImpl</implementationClass>
+  </service>
+ 
+ <service>
+    <name>VetechAsmsB2BAccountWebService</name>
+    <namespace>http://com.ticket.master/VetechAsmsB2BAccountWebService</namespace>
+    <serviceClass>com.ticket.master.service.VetechAsmsB2BAccountWebService</serviceClass>
+    <implementationClass>com.ticket.master.service.impl.VetechAsmsB2BAccountWebServiceImpl</implementationClass>
+  </service>
+  
+   <service>
+    <name>VetechAsmsB2BDataBaseWebService</name>
+    <namespace>http://com.ticket.master/VetechAsmsB2BDataBaseWebService</namespace>
+    <serviceClass>com.ticket.master.service.VetechAsmsB2BDataBaseWebService</serviceClass>
+    <implementationClass>com.ticket.master.service.impl.VetechAsmsB2BDataBaseWebServiceImpl</implementationClass>
+  </service>
+  
+   <service>
+    <name>VetechAsmsB2BCommonWebService</name>
+    <namespace>http://com.ticket.master/VetechAsmsB2BCommonWebService</namespace>
+    <serviceClass>com.ticket.master.service.VetechAsmsB2BCommonWebService</serviceClass>
+    <implementationClass>com.ticket.master.service.impl.VetechAsmsB2BCommonWebServiceImpl</implementationClass>
+  </service>
+  
+   <service>
+    <name>TicketNoticeService</name>
+    <namespace>http://com.ticket.master/TicketNoticeService</namespace>
+    <serviceClass>com.ticket.master.service.TicketNoticeService</serviceClass>
+    <implementationClass>com.ticket.master.service.impl.TicketNoticeServiceImpl</implementationClass>
+  </service>
+</beans>

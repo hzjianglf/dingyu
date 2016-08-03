@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ServiceModule id="info" name="信息发布" version="1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ServiceModule.xsd">
+	<info>
+		<provider>
+			<business id="www.haidian.egov.cn">
+				<name>海淀区政府信息办</name>
+				<website>http://www.haidian.egov.cn</website>
+				<address></address>
+				<contact></contact>
+				<tel></tel>
+				<email></email>
+			</business>
+		</provider>
+		<vender>
+			<business id="www.risesoft.net">
+				<name>北京有生博大软件技术有限公司</name>
+				<website>http://www.risesoft.net</website>
+			</business>
+		</vender>
+	</info>
+	<ServiceComponent id="InfoService" name="信息查询组件" version="1.0">
+		<description>
+			<![CDATA[
+				提供信息的查询服务
+			 ]]>
+		</description>
+		<category>/service</category>
+		<service interface="egov.appservice.info.InfoService"/>
+		<implementation class="net.risesoft.soa.info.service.InfoServiceImpl"/>
+	</ServiceComponent>
+	<ServiceComponent id="InfoManager" name="信息管理组件" version="1.0">
+		<description>
+			<![CDATA[
+				提供信息的查询服务
+			 ]]>
+		</description>
+		<category>/service</category>
+		<service interface="egov.appservice.info.InfoManager"/>
+		<implementation class="net.risesoft.soa.info.service.InfoManagerImpl"/>
+	</ServiceComponent>
+</ServiceModule>

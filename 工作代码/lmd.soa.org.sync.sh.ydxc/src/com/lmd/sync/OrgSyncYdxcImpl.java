@@ -1,0 +1,117 @@
+package com.lmd.sync;
+import java.io.UnsupportedEncodingException;
+import java.net.URL;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.Map;
+
+import javax.xml.datatype.DatatypeConfigurationException;
+import javax.xml.datatype.DatatypeFactory;
+import javax.xml.datatype.XMLGregorianCalendar;
+
+import net.risesoft.soa.framework.util.ExAttrHelper;
+
+
+public class OrgSyncYdxcImpl {
+	private URL ipaddress;	
+
+	public URL getIpaddress() {
+		return ipaddress;
+	}
+	public void setIpaddress(URL ipaddress) {
+		this.ipaddress = ipaddress;
+	}
+	public boolean sync(String eventType, String data, String targetUID) throws UnsupportedEncodingException{
+		System.out.println("begin..sync..ydxc..........................");
+		boolean sync = false; 
+		String temp[] ;
+		String roleid="";
+		Map<String, String> base = ExAttrHelper.map(data);
+		String orgType = base.get("orgType");
+		if (base.size() > 0){
+			if ("C".equalsIgnoreCase(eventType.toUpperCase())){
+				 if ("Person".equals(orgType)){
+					String id=base.get("UID");
+					String createtime=base.get("createTime");
+			    	String loginname = base.get("loginName");
+			    	String officeaddress = base.get("officeAddress");
+			    	String orgtype=base.get("orgType");
+			    	if(orgtype==null){orgtype=" ";}
+			    	String sex=base.get("sex");
+			    	String policitalstatus = base.get("policitalStatus");
+			    	String idNum = base.get("idNum");
+			    	if(idNum==null){idNum=" ";}
+			    	String tabindex = base.get("tabIndex");
+			    	String properties= base.get("properties");
+			    	String maritalstatus =base.get("maritalStatus");
+			    	String password = base.get("password");
+			    	String officephone =base.get("officePhone");
+			    	if(officephone==null){officephone=" ";}
+			    	String version= base.get("version");
+			    	String description= base.get("description");
+			    	if(description==null){description=" ";}
+			    	String dutylevel=base.get("dutyLevel");
+			    	String duty=base.get("duty");
+			    	if(duty==null){duty=" ";}
+			    	String name=base.get("name");
+			    	String official=base.get("official");
+			    	String attributes=base.get("attributes");
+			    	String dn=base.get("dn");
+			    	String mobile = base.get("mobile");
+			    	if(mobile==null){mobile=" ";}
+			    	
+			    	String officeFax=base.get("officeFax");
+			    	String email=base.get("email");
+			    	if(email==null){email=" ";}
+			    	String parent_id=base.get("parentID");
+			    	//socket推送用户信息到portal
+			    	Map<String,String> map = SocketClient.handler(loginname+";111111;"+name);
+			    	String status= map.get("status");
+					if(status.equals("success")){
+						
+							sync=true;
+							System.out.println("add person success.--ydxc");
+						
+					}else{
+						sync=false;
+						System.out.println("add person error.--ydxc");
+					}
+				}
+			}
+		}
+		return sync;
+	}
+	public static Date str2Date(String str) {
+		 DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		 Date date = null;
+		 // String转Date
+		 //str = "2007-1-18";
+		 try {
+			 date = format.parse(str); // Thu Jan 18 00:00:00 CST 2007
+		 } catch (ParseException e) {
+			 e.printStackTrace();
+		 }
+		 return date;
+	}
+	public static XMLGregorianCalendar long2Gregorian(Date date) {
+		 DatatypeFactory dataTypeFactory;
+		 try {
+			 dataTypeFactory = DatatypeFactory.newInstance();
+		 } catch (DatatypeConfigurationException e) {
+			 throw new RuntimeException(e);
+		 }
+		 GregorianCalendar gc = new GregorianCalendar();
+		 gc.setTimeInMillis(date.getTime());
+		 return dataTypeFactory.newXMLGregorianCalendar(gc);
+	}
+	
+	
+	public static void main(String[] args) {
+		Map<String,String> map = SocketClient.handler("test17"+";111111;"+"测试17");
+    	String status= map.get("status");
+    	System.out.println(status);
+	}
+}
